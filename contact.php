@@ -102,7 +102,7 @@ if(isset($_POST['submitted'])) {
 <section class="subheader">
   <div class="container">
     <h1>Contato</h1>
-    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="#" class="current">Contato</a></div>
+    <div class="breadcrumb right">Contato liigo<i class="fa fa-angle-right"></i> <a href="#" class="current">Contato</a></div>
     <div class="clear"></div>
   </div>
 </section>
