@@ -31,8 +31,8 @@
 
 <section class="subheader">
   <div class="container">
-    <h1>Registre-se</h1>
-    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="#" class="current">Registre-se</a></div>
+    <h1>Esqueci minha senha</h1>
+    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="#" class="current">Esqueci minha senha</a></div>
     <div class="clear"></div>
   </div>
 </section>
@@ -42,47 +42,17 @@
 
     <div class="row">
       <div class="col-lg-4 col-lg-offset-4"> 
-        <p>Você já possui uma conta?<strong><a href="login.html"> Faça o Login aqui.</a></strong></p> 
+        <p>Insira seu email para cadastrar uma nova senha</p> 
         <form method="post" class="login-form">
-          <div class="form-block">
-            <label>Nome</label>
-            <input class="border" type="text" name="name" />
-          </div>
+        
           <div class="form-block">
             <label>Email</label>
             <input class="border" type="text" name="email" />
-          </div>
-        <div class="form-block border">
-                  <label>Estado</label>
-                  <select name="property-type" class="border" style="display: none;">
-                    <option></option>
-                    <option value="family-house">São Paulo</option>
-                    <option value="apartment">Rio de Janeiro</option>
-                    <option value="condo">Paraná</option>                    
-                  </select>
-            </div>
-            <div class="form-block border">
-                  <label>Cidade</label>
-                  <select name="property-type" class="border" style="display: none;">
-                    <option></option>
-                    <option value="family-house">Campinas</option>
-                    <option value="apartment">Curitiba</option>
-                    <option value="condo">Recife</option>                    
-                  </select>
-            </div>
+          </div>          
           <div class="form-block">
-            <label>Senha</label>
-            <input class="border" type="password" name="pass" />
-          </div>
-          <div class="form-block">
-            <label>Confirme a senha</label>
-            <input class="border" type="password" name="pass-confirm" />
-          </div>
-          <div class="form-block">
-            <button class="button button-icon" type="submit"><i class="fa fa-angle-right"></i>Registrar</button>
+            <button class="button button-icon" type="submit"><i class="fa fa-angle-right"></i>Enviar</button>
           </div>
           <div class="divider"></div>
-          <p class="note">Clicando em registrarvocê aceita nossos <br><a href="#">Termos and condições</a></p>    
         </form>
       </div>
     </div><!-- end row -->
