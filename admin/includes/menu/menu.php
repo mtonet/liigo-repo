@@ -30,26 +30,14 @@
 
                   <li><a href="home.php"><i class="fas fa-home fa-2x"></i> Home</a></li>
 
-                  <li><a><i class="far fa-file fa-2x"></i> Anuncios pendentes <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="anuncios/pesquisar.php">Pesquisar</a></li>
-                    </ul>
+                  <li><a href="anuncios/pesquisar.php"><i class="far fa-file fa-2x"></i> Anuncios pendentes</a>
                   </li>
 
-                  <li><a><i class="far fa-comment fa-2x"></i> Chamados abertos <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="chamados/pesquisar.php">Pesquisar</a></li>
-                    </ul>
+                  <li><a href="chamados/pesquisar.php"><i class="far fa-comment fa-2x"></i> Chamados abertos</a>
                   </li>
-                  <li><a><i class="fas fa-address-book fa-2x"></i> Usuários <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="usuarios/pesquisar.php">Pesquisar</a></li>
-                    </ul>
+                  <li><a href="usuarios/pesquisar.php"><i class="fas fa-address-book fa-2x"></i> Usuários</a>
                   </li>
-                  <li><a><i class="fas fa-users fa-2x"></i> Anunciantes <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="anunciantes/pesquisar.php">Pesquisar</a></li>
-                    </ul>
+                  <li><a href="anunciantes/pesquisar.php"><i class="fas fa-users fa-2x"></i> Anunciantes</a>
                   </li>
                   <li><a><i class="far fa-id-card fa-2x"></i> Imagens portal <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -58,16 +46,10 @@
                     </ul>
                   </li>
 
-                  <li><a><i class="fas fa-microphone fa-2x"></i> Depoimentos <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="depoimentos/pesquisar.php">Pesquisar</a></li>
-                    </ul>
+                  <li><a href="depoimentos/pesquisar.php"><i class="fas fa-microphone fa-2x"></i> Depoimentos</a>
                   </li>
 
-                  <li><a><i class="fas fa-envelope-square fa-2x"></i> Newsletter <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="newsletter/pesquisar.php">Pesquisar</a></li>
-                    </ul>
+                  <li><a href="newsletter/pesquisar.php"><i class="fas fa-envelope-square fa-2x"></i> Newsletter </a>
                   </li>
                 </ul>
               </div>
