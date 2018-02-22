@@ -89,9 +89,15 @@
                         </li>
                         <li><i class="fa fa-map-marker user-profile-icon"></i> 06764-040
                         </li>
-                        
-                        
                       </ul>
+                                         
+                        <hr>
+                                         
+                                         <div class="text-left mtop20">                            
+                            <a href="#" class="btn btn-xl btn-danger">Deletar</a>
+                          </div>
+                                          
+                          <hr>                
                                            
 
                     </div>
