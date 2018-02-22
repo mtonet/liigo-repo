@@ -60,6 +60,10 @@
            <label>Celular*</label>
             <input class="border" type="text" name="celular" />
           </div>
+          <div>
+          <label>CPF/ CNPJ</label>
+            <input class="border" type="text" name="CPF/ CNPJ" />
+          </div>
         <div class="form-block border">
                   <label>Estado*</label>
                   <select name="property-type" class="border" style="display: none;">
