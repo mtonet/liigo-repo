@@ -11,7 +11,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="../images/avatar.jpg" alt="..." class="img-circle profile_img">
+                <img src="../../images/avatar.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bem-vindo(a),</span>
@@ -28,35 +28,35 @@
                 <ul class="nav side-menu">
                   
 
-                  <li><a href="home.php"><i class="fas fa-home fa-2x"></i> Home</a></li>
+                  <li><a href="../home.php"><i class="fas fa-home fa-2x"></i> Home</a></li>
 
                   <li><a><i class="fas fa-file-alt fa-2x"></i> Categorias <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="categorias/categoria.php">Categoria</a></li>
-                      <li><a href="categorias/subcategoria.php">Subcategoria</a></li>
+                      <li><a href="../categorias/categoria.php">Categoria</a></li>
+                      <li><a href="../categorias/subcategoria.php">Subcategoria</a></li>
                     </ul>
                   </li>
 
-                  <li><a href="anuncios/pesquisar.php"><i class="far fa-file fa-2x"></i> Anuncios pendentes</a>
+                  <li><a href="../anuncios/pesquisar.php"><i class="far fa-file fa-2x"></i> Anuncios pendentes</a>
                   </li>
 
-                  <li><a href="chamados/pesquisar.php"><i class="far fa-comment fa-2x"></i> Chamados abertos</a>
+                  <li><a href="../chamados/pesquisar.php"><i class="far fa-comment fa-2x"></i> Chamados abertos</a>
                   </li>
-                  <li><a href="usuarios/pesquisar.php"><i class="fas fa-address-book fa-2x"></i> Usuários</a>
+                  <li><a href="../usuarios/pesquisar.php"><i class="fas fa-address-book fa-2x"></i> Usuários</a>
                   </li>
-                  <li><a href="anunciantes/pesquisar.php"><i class="fas fa-users fa-2x"></i> Anunciantes</a>
+                  <li><a href="../anunciantes/pesquisar.php"><i class="fas fa-users fa-2x"></i> Anunciantes</a>
                   </li>
 
                   <li><a><i class="far fa-id-card fa-2x"></i> Imagens portal <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="imagens/slide-home.php">Slide home</a></li>
-                      <li><a href="imagens/paginas-internas.php">Páginas internas</a></li>
+                      <li><a href="../imagens/slide-home.php">Slide home</a></li>
+                      <li><a href="../imagens/paginas-internas.php">Páginas internas</a></li>
                     </ul>
                   </li>
 
-                  <li><a href="depoimentos/pesquisar.php"><i class="fas fa-microphone fa-2x"></i> Depoimentos</a></li>
+                  <li><a href="../depoimentos/pesquisar.php"><i class="fas fa-microphone fa-2x"></i> Depoimentos</a></li>
 
-                  <li><a href="newsletter/pesquisar.php"><i class="fas fa-envelope-square fa-2x"></i> Newsletter </a></li>
+                  <li><a href="../newsletter/pesquisar.php"><i class="fas fa-envelope-square fa-2x"></i> Newsletter </a></li>
                 </ul>
               </div>
 
@@ -78,11 +78,11 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../images/avatar.jpg" alt="">Administrador
+                    <img src="../../images/avatar.jpg" alt="">Administrador
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="logout.php"><i class="glyphicon glyphicon-log-out pull-right"></i> Sair</a></li>
+                    <li><a href="../logout.php"><i class="glyphicon glyphicon-log-out pull-right"></i> Sair</a></li>
                   </ul>
                 </li>
 

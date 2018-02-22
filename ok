@@ -1,0 +1,83 @@
+[33mcommit 704dec9b63cd4c12f2c41e09aac5e54efc00e700[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: rcdesigners <webmaster@rcdesigners.com.br>
+Date:   Tue Feb 20 14:40:55 2018 -0300
+
+    htaccess
+
+[33mcommit 4c5d74e3c8814cf9915205b8ef1189fdeb9bd874[m
+Author: rcdesigners <webmaster@rcdesigners.com.br>
+Date:   Tue Feb 20 14:30:27 2018 -0300
+
+    alteração do menu sem drop down
+
+[33mcommit 8243ed5f1b4e7cc543886393e126b8336b973f4f[m
+Author: rcdesigners <webmaster@rcdesigners.com.br>
+Date:   Tue Feb 20 13:06:41 2018 -0300
+
+    renomeando o _index.php para index.php
+
+[33mcommit efea515036e418d96762a5828b6ea23956f0ba19[m
+Author: rcdesigners <webmaster@rcdesigners.com.br>
+Date:   Tue Feb 20 13:05:15 2018 -0300
+
+    exclusão de arquivo desktop.ini inútil
+
+[33mcommit effaf53bd3ca3209eee152d43b0ac4d7ffa73be6[m
+Author: rcdesigners <webmaster@rcdesigners.com.br>
+Date:   Tue Feb 20 12:57:55 2018 -0300
+
+    envio do admin. Página de login, home e logout
+
+[33mcommit bb3fe60da441f781a0e03b56c2357708f4494dad[m
+Author: mtonet <marcelotonet@gmail.com>
+Date:   Thu Feb 15 15:18:05 2018 -0200
+
+    tarefas front
+
+[33mcommit a4dd7f23117550de83e4381994ffa55e2335baee[m
+Author: mtonet <marcelotonet@gmail.com>
+Date:   Thu Feb 15 14:38:03 2018 -0200
+
+    formularios
+
+[33mcommit 11d0b40a1499ede805e1bc75f4e35de3933b41d6[m[33m ([m[1;31morigin/test[m[33m)[m
+Author: mtonet <marcelotonet@gmail.com>
+Date:   Thu Feb 8 12:48:26 2018 -0200
+
+    test push
+
+[33mcommit 71b2b10aaf740cdf9756da50cf0a4a4c640fe3bd[m
+Author: mtonet <marcelotonet@gmail.com>
+Date:   Thu Feb 8 12:37:16 2018 -0200
+
+    arquivos admin
+
+[33mcommit bac07cf4df9d3b9ff039daff19ef8b9824e917cd[m
+Author: mtonet <marcelotonet@gmail.com>
+Date:   Thu Feb 1 16:02:54 2018 -0200
+
+    teste2 na test
+
+[33mcommit 3d627dd1b2bbe60f0b33428cb3e87ed14b6324b7[m
+Author: mtonet <marcelotonet@gmail.com>
+Date:   Thu Feb 1 15:54:45 2018 -0200
+
+    teste na branch test
+
+[33mcommit 3fbfd2c7075cdb43a95bc6b76411267e4e85189d[m
+Author: mtonet <marcelotonet@gmail.com>
+Date:   Thu Feb 1 15:52:17 2018 -0200
+
+    index renomeada para acesso direto
+
+[33mcommit 8f7f4ffd0ea18e34ff6e195d02f087252dd43798[m
+Author: mtonet <marcelotonet@gmail.com>
+Date:   Mon Jan 22 20:55:47 2018 -0200
+
+    php files
+
+[33mcommit af9991c46a7e22ae5ab18748f49c58ae762617f6[m
+Author: MARCELO TONET <marcelotonet@gmail.com>
+Date:   Mon Jan 22 20:24:14 2018 -0200
+
+    Initial commit
