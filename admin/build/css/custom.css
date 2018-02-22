@@ -2989,8 +2989,9 @@ ul.stats-overview li:last-child {
     border-right: 0
 }
 ul.stats-overview li .name {
-    font-size: 12px
+    font-size: 15px !important;
 }
+    
 ul.stats-overview li .value {
     font-size: 14px;
     font-weight: bold;
@@ -3125,7 +3126,7 @@ ul.project_files li a i {
     margin-bottom: 5px
 }
 .thumbnail {
-    height: 190px;
+
     overflow: hidden
 }
 .view {
