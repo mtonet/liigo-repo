@@ -42,9 +42,9 @@
 
                   <li><a href="chamados/pesquisar.php"><i class="far fa-comment fa-2x"></i> Chamados abertos</a>
                   </li>
-                  <li><a href="usuarios/pesquisar.php"><i class="fas fa-address-book fa-2x"></i> Usuários</a>
+                  <li><a href="usuarios/index.php"><i class="fas fa-address-book fa-2x"></i> Usuários</a>
                   </li>
-                  <li><a href="anunciantes/pesquisar.php"><i class="fas fa-users fa-2x"></i> Anunciantes</a>
+                  <li><a href="anunciantes/index.php"><i class="fas fa-users fa-2x"></i> Anunciantes</a>
                   </li>
 
                   <li><a><i class="far fa-id-card fa-2x"></i> Imagens portal <span class="fa fa-chevron-down"></span></a>
