@@ -84,7 +84,6 @@
                           <th>Nome</th>
                           <th class="email">Email</th>
                           <th>Celular</th>
-                          <th>Status</th>
                           <th >Edição</th>
                         </tr>
                       </thead>
@@ -98,7 +97,6 @@
                             marcelo@maonaweb.com.br
                           </td>
                           <td>11 99871 9700</td>
-                          <td><button type="button" class="btn btn-success btn-xs">Ativo</button></td>
                           <td>
                             <a href="profile-user.php" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View</a>
                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
@@ -112,8 +110,6 @@
                           <td class="email">robson@maonaweb.com.br</td>
                           <td>19 99854 9710</td>
                           <td>
-                          <button type="button" class="btn btn-success btn-xs">Ativo</button></td>
-                          <td>
                             <a href="profile-user.php" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View</a>
                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
                           </td>
@@ -125,9 +121,6 @@
                           </td>
                           <td class="email">vitor@maonaweb.com.br</td>
                           <td>11 99632 8514</td>
-                          <td>
-                            <button type="button" class="btn btn-danger btn-xs">Inativo</button>
-                          </td>
                           <td>
                             <a href="profile-user.php" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View</a>
                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
