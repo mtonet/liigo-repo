@@ -56,7 +56,7 @@
 
                   <li><a href="../depoimentos/pesquisar.php"><i class="fas fa-microphone fa-2x"></i> Depoimentos</a></li>
 
-                  <li><a href="../newsletter/pesquisar.php"><i class="fas fa-envelope-square fa-2x"></i> Newsletter </a></li>
+                  <li><a href="../newsletter/index.php"><i class="fas fa-envelope-square fa-2x"></i> Newsletter </a></li>
                 </ul>
               </div>
 
