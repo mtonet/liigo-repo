@@ -45,15 +45,23 @@
         <p>Você já possui uma conta?<strong><a href="login.html"> Faça o Login aqui.</a></strong></p> 
         <form method="post" class="login-form">
           <div class="form-block">
-            <label>Nome</label>
+            <label>Nome*</label>
             <input class="border" type="text" name="name" />
           </div>
           <div class="form-block">
-            <label>Email</label>
+            <label>Email*</label>
             <input class="border" type="text" name="email" />
           </div>
+          <div>
+           <label>Telefone</label>
+            <input class="border" type="text" name="telefone" />
+          </div>
+          <div>
+           <label>Celular*</label>
+            <input class="border" type="text" name="celular" />
+          </div>
         <div class="form-block border">
-                  <label>Estado</label>
+                  <label>Estado*</label>
                   <select name="property-type" class="border" style="display: none;">
                     <option></option>
                     <option value="family-house">São Paulo</option>
@@ -62,7 +70,7 @@
                   </select>
             </div>
             <div class="form-block border">
-                  <label>Cidade</label>
+                  <label>Cidade*</label>
                   <select name="property-type" class="border" style="display: none;">
                     <option></option>
                     <option value="family-house">Campinas</option>
