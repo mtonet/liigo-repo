@@ -37,7 +37,7 @@
                     </ul>
                   </li>
 
-                  <li><a href="../anuncios/pesquisar.php"><i class="far fa-file fa-2x"></i> Anuncios pendentes</a>
+                  <li><a href="../anuncios-pendentes/index.php"><i class="far fa-file fa-2x"></i> Anuncios pendentes</a>
                   </li>
 
                   <li><a href="../chamados/pesquisar.php"><i class="far fa-comment fa-2x"></i> Chamados abertos</a>
