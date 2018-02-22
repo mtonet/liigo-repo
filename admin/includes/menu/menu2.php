@@ -40,8 +40,6 @@
                   <li><a href="../anuncios-pendentes/index.php"><i class="far fa-file fa-2x"></i> Anuncios pendentes</a>
                   </li>
 
-                  <li><a href="../chamados/pesquisar.php"><i class="far fa-comment fa-2x"></i> Chamados abertos</a>
-                  </li>
                   <li><a href="../users/index.php"><i class="fas fa-address-book fa-2x"></i> Usuários</a>
                   </li>
                   <li><a href="../anunciantes/index.php"><i class="fas fa-users fa-2x"></i> Anunciantes</a>
@@ -54,7 +52,7 @@
                     </ul>
                   </li>
 
-                  <li><a href="../depoimentos/pesquisar.php"><i class="fas fa-microphone fa-2x"></i> Depoimentos</a></li>
+                  <li><a href="../depoimentos/index.php"><i class="fas fa-microphone fa-2x"></i> Depoimentos</a></li>
 
                   <li><a href="../newsletter/index.php"><i class="fas fa-envelope-square fa-2x"></i> Newsletter </a></li>
                 </ul>
