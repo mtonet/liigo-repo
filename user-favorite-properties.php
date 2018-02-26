@@ -52,7 +52,7 @@
 					<img class="hex" src="images/hexagon.png" alt="" />
 					<ul>
 						<li><a href="user-profile.php"><i class="fa fa-user icon"></i>Profile</a></li>
-						<li><a href="user-my-properties.php"><i class="fa fa-home icon"></i>Meus anúncios</a></li>
+						<li class="active"><a href="user-my-properties.php"><i class="fa fa-home icon"></i>Meus anúncios</a></li>
 						<li class="active"><a href="user-favorite-properties.php"><i class="fa fa-heart icon"></i>Favoritos</a></li>
 						<li><a href="envio-anuncio.php"><i class="fa fa-plus icon"></i>Anuncie</a></li>
 						<li><a href="#"><i class="fa fa-reply icon"></i>Chat</a></li>
