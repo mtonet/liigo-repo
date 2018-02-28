@@ -1,3 +1,10 @@
+<?php
+session_start();
+//conn
+require"../../../conn/exe.php";
+//session
+require"../../includes-acoes/session/session2.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>

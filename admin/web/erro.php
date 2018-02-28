@@ -1,10 +1,3 @@
-<?php
-session_start();
-//conn
-require"../../conn/exe.php";
-//logout
-require"../includes-acoes/logout/logout.php";
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -13,7 +6,7 @@ require"../includes-acoes/logout/logout.php";
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="icon" href="../images/favicon.ico" type="image/ico" />
+    <link rel="icon" href="../images/favicon.ico" type="image/ico" />
 
     <title>Liigo | Painel do Administrador </title>
 
@@ -35,10 +28,11 @@ require"../includes-acoes/logout/logout.php";
         <div class="col-md-12">
           <div class="col-middle">
             <div class="text-center text-center">
-              <h1 class="error-number">Você efetuou logout</h1>
-              <h2>Obrigado por usar o sistema</h2>
-              <p>Clique <a href="../index.php">aqui</a> para acessar o sistema novamente.
+              <h1 class="error-number">Erro!</h1>
+              <h2>Por favor, efetue seu login novamente</h2>
+              <p>Para logar-se novamente <a href="../">clique aqui</a>
               </p>
+              
             </div>
           </div>
         </div>

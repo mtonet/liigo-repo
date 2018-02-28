@@ -1,3 +1,9 @@
+<?php
+//conn
+require"../conn/exe.php";
+//login
+require"includes-acoes/login/login.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -31,16 +37,23 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form action="" method="post">
+            <form action="" method="post" id="formlogin" name="formlogin">
               <h1>Administrador</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Login" required=""/>
+                <input type="text" class="form-control" placeholder="Login" required name="login" id="login" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Senha" required="" />
+                <input type="password" class="form-control" placeholder="Senha" required name="passw" id="passw" />
               </div>
               <div>
+
+                <?php if($logaenvio=="s"){
+                  echo $msgla;
+                }
+                ?>
+
                 <button type="submit" class="btn btn-success">Entrar</button>
+                <input name="logaenvio" type="hidden" id="logaenvio" value="s" />
               </div>
 
               <div class="clearfix"></div>

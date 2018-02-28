@@ -1,5 +1,12 @@
+<?php
+session_start();
+//conn
+require"../../../conn/exe.php";
+//session
+require"../../includes-acoes/session/session2.php";
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->

@@ -1,3 +1,10 @@
+<?php
+session_start();
+//conn
+require"../../conn/exe.php";
+//session
+require"../includes-acoes/session/session.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -72,7 +79,7 @@
                             <div class="byline">
                               <span>19/02/18</span> por <a>Jane Smith</a>
                             </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="#">visualize</a>
+                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
                             </p>
                           </div>
                         </div>
@@ -88,7 +95,7 @@
                             <div class="byline">
                               <span>19/02/18</span> por <a>Jane Smith</a>
                             </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="#">visualize</a>
+                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
                             </p>
                           </div>
                         </div>
@@ -103,7 +110,7 @@
                             <div class="byline">
                               <span>19/02/18</span> por <a>Jane Smith</a>
                             </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="#">visualize</a>
+                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
                             </p>
                           </div>
                         </div>
@@ -118,7 +125,7 @@
                             <div class="byline">
                               <span>19/02/18</span> por <a>Jane Smith</a>
                             </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="#">visualize</a>
+                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
                             </p>
                           </div>
                         </div>
@@ -133,7 +140,7 @@
                             <div class="byline">
                               <span>19/02/18</span> por <a>Jane Smith</a>
                             </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="#">visualize</a>
+                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
                             </p>
                           </div>
                         </div>
@@ -148,7 +155,7 @@
                             <div class="byline">
                               <span>19/02/18</span> por <a>Jane Smith</a>
                             </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="#">visualize</a>
+                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
                             </p>
                           </div>
                         </div>
@@ -163,7 +170,7 @@
                             <div class="byline">
                               <span>19/02/18</span> por <a>Jane Smith</a>
                             </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="#">visualize</a>
+                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
                             </p>
                           </div>
                         </div>
@@ -178,7 +185,7 @@
                             <div class="byline">
                               <span>19/02/18</span> por <a>Jane Smith</a>
                             </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="#">visualize</a>
+                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
                             </p>
                           </div>
                         </div>
