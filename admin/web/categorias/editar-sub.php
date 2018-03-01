@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//subcategoria
+require"../../includes-acoes/categoria/editar2.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,11 +75,10 @@ require"../../includes-acoes/session/session2.php";
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Categoria</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
-                            <option>Transportadoras</option>
-                            <option>Equipamentos</option>
-                            <option>Assistência Técnica</option>
-                            
+                          <select class="form-control" name="categoria" id="categoria" required>
+                            <?php while($linec=$queryc->fetch_array()){?>
+                            <option value="<?php echo $linec['id_cod']?>" <?php if($linec['id_cod']==$linedd['id_categoria']){?>selected="selected"<?php }?>><?php echo $linec['nome']?></option>
+                            <?php }?>
                           </select>
                         </div>
                       </div>
@@ -85,7 +88,7 @@ require"../../includes-acoes/session/session2.php";
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome Subcategoria <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nome" required="required" class="form-control col-md-7 col-xs-12" name="nome">
+                          <input type="text" id="nome" required="required" class="form-control col-md-7 col-xs-12" name="nome" value="<?php echo $linedd['nome']?>">
                         </div>
                       </div>
 
@@ -95,14 +98,14 @@ require"../../includes-acoes/session/session2.php";
 
                           <div class="radio">
                             <label>
-                              <input type="radio" class="flat" name="status" value="1"> Ativo
+                              <input type="radio" class="flat" name="status" value="1" <?php if($linedd['status']=="1"){?>checked<?php }?>> Ativo
                             </label>
                           </div>
 
 
                           <div class="radio">
                             <label>
-                              <input type="radio" class="flat" name="status" value="0"> Inativo
+                              <input type="radio" class="flat" name="status" value="0" <?php if($linedd['status']=="0"){?>checked<?php }?>> Inativo
                             </label>
                           </div>
 
@@ -112,7 +115,14 @@ require"../../includes-acoes/session/session2.php";
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                          <?php if($enviocad=="s"){
+                            echo $msgs;
+                          }
+                            ?>
+
                           <button type="submit" class="btn btn-warning">Alterar</button>
+                          <input name="enviocad" type="hidden" id="enviocad" value="s" />
                         </div>
                       </div>
 

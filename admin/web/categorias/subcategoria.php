@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//subcategoria
+require"../../includes-acoes/categoria/lista2.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -50,9 +54,10 @@ require"../../includes-acoes/session/session2.php";
                 <form id="formp" name="formp" method="post" action="">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Pesquisar...">
+                    <input type="text" class="form-control" placeholder="Pesquisar..." name="pesq" id="pesq" value="<?php echo $pesq?>">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="submit">ok</button>
+                      <input name="enviopesq" type="hidden" id="enviopesq" value="s" />
                     </span>
                   </div>
                 </div>
@@ -84,8 +89,10 @@ require"../../includes-acoes/session/session2.php";
                   <div class="x_content">
 
                     
-
-                    <!-- start project list -->
+                    <?php
+                  if($row!=""){
+                  ?>
+                   
                     <table class="table table-striped projects">
                       <thead>
                         <tr>
@@ -98,60 +105,79 @@ require"../../includes-acoes/session/session2.php";
                       </thead>
                       <tbody>
 
-                        <tr>
-                          <td>
-                            <a>Equipamentos</a>
-                          </td>
-                          <td>
-                            <a>Equipamentos subcategoria</a>
-                          </td>
-                          <td>
-                            <button type="button" class="btn btn-success btn-xs">Ativo</button>
-                          </td>
-                          <td>
-                            <a href="../categorias/editar-sub.php" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                          </td>
-                        </tr>
+                        <?php
+                        while($line=$query->fetch_array()){
+                        ?>
 
                         <tr>
                           <td>
-                            <a>Transportadoras</a>
+                            <a><?php echo $line['categoria']?></a>
                           </td>
                           <td>
-                            <a>Transportadoras subcategoria</a>
+                            <a><?php echo $line['nome']?></a>
                           </td>
                           <td>
+                            <?php if($line['status']=="1"){?>
                             <button type="button" class="btn btn-success btn-xs">Ativo</button>
-                          </td>
-                          <td>
-                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td>
-                            <a>Assistência Técnica</a>
-                          </td>
-                          <td>
-                            <a>Assistência Técnica subcategoria</a>
-                          </td>
-                          <td>
+                            <?php }else{?>
                             <button type="button" class="btn btn-danger btn-xs">Inativo</button>
+                            <?php }?>
                           </td>
                           <td>
-                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
+                            <a href="../categorias/editar-sub.php?area=<?php echo $line['id_cod']?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+                            <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".deletar<?php echo $line['id_cod']?>"><i class="fa fa-trash-o"></i> Deletar </a>
+
+
+                            <div class="modal fade deletar<?php echo $line['id_cod']?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Deletar registro</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Deseja realmente excluir a categoria <b><?php echo $line['categoria']?></b> e subcategoria <b><?php echo $line['nome']?></b>?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <a href="?area=<?php echo $line['id_cod']?>&action=delete" class="btn btn-danger">Excluir</a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
                           </td>
                         </tr>
 
-
+                        <?php
+                        }
+                        ?>
                        
 
                       </tbody>
                     </table>
-                    <!-- end project list -->
+
+
+                    <?php
+                    }else{
+                      ?>
+
+                      <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 100%; text-align: center;">Nenhum resultado disponível</th>
+                        </tr>
+                      </thead>
+                    </table>
+
+                       <?php
+                        }
+                        ?>
+                    
 
                   </div>
                 </div>

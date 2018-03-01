@@ -1,0 +1,30 @@
+<?php
+//---
+//retira ascento
+//---
+function ascento($string) {
+$palavra = strtr($string, "ŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ,()/", "SOZsozYYuAAAAAAACEEEEIIIIDNOOOOOOUUUUYsaaaaaaaceeeeiiiionoooooouuuuyy----");
+$palavranova = str_replace("_", " ", $palavra);
+return $palavranova; 
+}
+//minusculo
+function loCase($string){
+      $string = strtolower($string);
+      $string = str_replace("Â","â",$string);
+      $string = str_replace("Á","á",$string);
+      $string = str_replace("A","a",$string);
+      $string = str_replace("A","a",$string);
+      $string = str_replace("E","e",$string);
+      $string = str_replace("É","é",$string);
+      $string = str_replace("Ê","ê",$string);
+      $string = str_replace("I","Î",$string);
+      $string = str_replace("Í","í",$string);
+      $string = str_replace("Ó","ó",$string);
+      $string = str_replace("O","o",$string);
+      $string = str_replace("Ô","ô",$string);
+      $string = str_replace("Ú","ú",$string);
+      $string = str_replace("U","u",$string);
+      $string = str_replace("Ç","ç",$string);
+      return ($string);
+   }
+?>

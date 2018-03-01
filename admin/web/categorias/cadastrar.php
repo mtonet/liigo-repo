@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//categoria
+require"../../includes-acoes/categoria/cadastrar.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -82,14 +86,14 @@ require"../../includes-acoes/session/session2.php";
 
                           <div class="radio">
                             <label>
-                              <input type="radio" class="flat" name="status" value="1"> Ativo
+                              <input type="radio" class="flat" name="status" value="1" required> Ativo
                             </label>
                           </div>
 
 
                           <div class="radio">
                             <label>
-                              <input type="radio" class="flat" name="status" value="0"> Inativo
+                              <input type="radio" class="flat" name="status" value="0" required> Inativo
                             </label>
                           </div>
 
@@ -99,7 +103,14 @@ require"../../includes-acoes/session/session2.php";
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                          <?php if($enviocad=="s"){
+                            echo $msgs;
+                          }
+                            ?>
+
                           <button type="submit" class="btn btn-success">Cadastrar</button>
+                          <input name="enviocad" type="hidden" id="enviocad" value="s" />
                         </div>
                       </div>
 

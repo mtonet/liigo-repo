@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//subcategoria
+require"../../includes-acoes/categoria/cadastrar2.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,11 +75,10 @@ require"../../includes-acoes/session/session2.php";
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Categoria</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
-                            <option>Transportadoras</option>
-                            <option>Equipamentos</option>
-                            <option>Assistência Técnica</option>
-                            
+                          <select class="form-control" name="categoria" id="categoria" required>
+                            <?php while($linec=$queryc->fetch_array()){?>
+                            <option value="<?php echo $linec['id_cod']?>"><?php echo $linec['nome']?></option>
+                            <?php }?>
                           </select>
                         </div>
                       </div>
@@ -95,14 +98,14 @@ require"../../includes-acoes/session/session2.php";
 
                           <div class="radio">
                             <label>
-                              <input type="radio" class="flat" name="status" value="1"> Ativo
+                              <input type="radio" class="flat" name="status" value="1" required> Ativo
                             </label>
                           </div>
 
 
                           <div class="radio">
                             <label>
-                              <input type="radio" class="flat" name="status" value="0"> Inativo
+                              <input type="radio" class="flat" name="status" value="0" required> Inativo
                             </label>
                           </div>
 
@@ -112,7 +115,14 @@ require"../../includes-acoes/session/session2.php";
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                          <?php if($enviocad=="s"){
+                            echo $msgs;
+                          }
+                            ?>
+
                           <button type="submit" class="btn btn-success">Cadastrar</button>
+                          <input name="enviocad" type="hidden" id="enviocad" value="s" />
                         </div>
                       </div>
 
