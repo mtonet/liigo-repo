@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//usuarios
+require"../../includes-acoes/users/dados.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -58,32 +62,40 @@ require"../../includes-acoes/session/session2.php";
                     <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
                       <div class="profile_img">
                         <div id="crop-avatar">
-                          <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" src="../../images/picture.jpg" alt="Avatar" title="Change the avatar">
+                          
+                          <?php
+                          if($line['avatar']!=""){
+                          ?>
+                          <img class="img-responsive avatar-view" src="../../../uploads/usuarios/<?php echo $line['avatar'];?>" alt="Avatar" title="avatar">
+
+                          <?php }else{?>
+                          <img class="img-responsive avatar-view" src="../../../uploads/usuarios/no.jpg" alt="Avatar" title="avatar">
+                          <?php }?>
+
                         </div>
                       </div>
-                      <h3>Ana Silva</h3>
+                      <h3><?php echo $line['nome']?></h3>
 
                       <ul class="list-unstyled user_data">                        
                         <li>
-                          <i class="fa fa-briefcase user-profile-icon"></i> ana@gmail.com
+                          <i class="fa fa-briefcase user-profile-icon"></i> <?php echo $line['email']?>
                         </li>
 
                         <li class="m-top-xs">
-                          <i class="fa  fa-mobile user-profile-icon"></i> 19 99871 8900
+                          <i class="fa  fa-mobile user-profile-icon"></i> <?php echo $line['celular']?>
                         </li>
                         
                         <li class="m-top-xs">
-                          <i class="fa fa-phone user-profile-icon"></i> 19 3739 3258
+                          <i class="fa fa-phone user-profile-icon"></i> <?php echo $line['telefone']?>
                         </li>                                                
                        
                        <hr>
                         <h4>CPF/ CNPJ</h4>
                         <li class="m-top-xs">
-                          <i class="fa fa-file user-profile-icon"></i> 34.268.715/0001-31
+                          <i class="fa fa-file user-profile-icon"></i> <?php echo $line['cpf_cnpj']?>
                         </li>
                         
-                        <hr>
+                       <!-- <hr>
                         
                         <h4>Localização</h4>
                         
@@ -96,13 +108,34 @@ require"../../includes-acoes/session/session2.php";
                         </li>
                         <li><i class="fa fa-map-marker user-profile-icon"></i> 06764-040
                         </li>
-                      </ul>
+                      </ul>-->
                                          
                         <hr>
                                          
-                                         <div class="text-left mtop20">                            
-                            <a href="#" class="btn btn-xl btn-danger">Deletar</a>
+                            <div class="text-left mtop20">                            
+                            <a href="#" class="btn btn-xl btn-danger" data-toggle="modal" data-target=".deletar<?php echo $line['id_cod']?>">Deletar</a>
                           </div>
+
+                          <div class="modal fade deletar<?php echo $line['id_cod']?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Deletar registro</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Deseja realmente excluir o usuário <b><?php echo $line['nome']?></b>?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <a href="?area=<?php echo $line['id_cod']?>&action=delete" class="btn btn-danger">Excluir</a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
                                           
                           <hr>                
                                            
@@ -133,7 +166,7 @@ require"../../includes-acoes/session/session2.php";
                                   <td><span class="label label-success">ativo</span></td>
                                   <td></td>
                                   <td class="vertical-align-mid">                                  
-                            <a href="../../../anuncio-detalhe.php" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>                            
+                            <a href="../../../anuncio-detalhe.php" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>                            
                             
                                     </td>                        
                                 </tr>

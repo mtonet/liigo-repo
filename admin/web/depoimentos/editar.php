@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//depoimentos
+require"../../includes-acoes/depoimentos/editar.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -62,13 +66,13 @@ require"../../includes-acoes/session/session2.php";
                   
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="" method="post">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="" method="post" enctype="multipart/form-data">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nome" required="required" class="form-control col-md-7 col-xs-12" name="nome">
+                          <input type="text" id="nome" required="required" class="form-control col-md-7 col-xs-12" name="nome" value="<?php echo $line['nome'];?>">
                         </div>
                       </div>
 
@@ -76,7 +80,7 @@ require"../../includes-acoes/session/session2.php";
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Profissão <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="profissao" required="required" class="form-control col-md-7 col-xs-12" name="profissao">
+                          <input type="text" id="profissao" required="required" class="form-control col-md-7 col-xs-12" name="profissao" value="<?php echo $line['profissao'];?>">
                         </div>
                       </div>
 
@@ -84,15 +88,21 @@ require"../../includes-acoes/session/session2.php";
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Depoimento <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea class="resizable_textarea form-control" name="depoimento" id="depoimento"></textarea>
+                          <textarea class="resizable_textarea form-control" name="depoimento" id="depoimento"><?php echo $line['depoimento'];?></textarea>
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Imagem <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Imagem 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="file" name="imagem" id="imagem">
+                          <?php if($line['avatar']!=""){?>
+                          <img src="../../../uploads/depoimentos/<?php echo $line['avatar'];?>">
+                          <?php }else{?>
+                          <img src="../../../uploads/depoimentos/no.jpg">
+                          <?php }?>
+                          <input type="file" name="imagem" id="imagem" style="margin-top: 20px;">
+                          <p class="red small"><i>Dimensões: 70x70 pixel em JPG</i></p>
                         </div>
                       </div>
 
@@ -102,14 +112,14 @@ require"../../includes-acoes/session/session2.php";
 
                           <div class="radio">
                             <label>
-                              <input type="radio" class="flat" name="status" value="1"> Ativo
+                              <input type="radio" class="flat" name="status" value="1" <?php if($line['status']=="1"){?>checked<?php }?>> Ativo
                             </label>
                           </div>
 
 
                           <div class="radio">
                             <label>
-                              <input type="radio" class="flat" name="status" value="0"> Inativo
+                              <input type="radio" class="flat" name="status" value="0" <?php if($line['status']=="0"){?>checked<?php }?>> Inativo
                             </label>
                           </div>
 
@@ -119,7 +129,14 @@ require"../../includes-acoes/session/session2.php";
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                          <?php if($enviocad=="s"){
+                            echo $msgs;
+                          }
+                            ?>
+
                           <button type="submit" class="btn btn-warning">Alterar</button>
+                          <input name="enviocad" type="hidden" id="enviocad" value="s" />
                         </div>
                       </div>
 

@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//depoimentos
+require"../../includes-acoes/depoimentos/lista.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -50,9 +54,10 @@ require"../../includes-acoes/session/session2.php";
                 <form id="formp" name="formp" method="post" action="">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Pesquisar...">
+                    <input type="text" class="form-control" placeholder="Pesquisar..." name="pesq" id="pesq" value="<?php echo $pesq?>">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="submit">ok</button>
+                      <input name="enviopesq" type="hidden" id="enviopesq" value="s" />
                     </span>
                   </div>
                 </div>
@@ -83,9 +88,10 @@ require"../../includes-acoes/session/session2.php";
                   </div>
                   <div class="x_content">
 
-                    
+                      <?php
+                  if($row!=""){
+                  ?>
 
-                    <!-- start project list -->
                     <table class="table table-striped projects">
                       <thead>
                         <tr>
@@ -98,69 +104,87 @@ require"../../includes-acoes/session/session2.php";
                       </thead>
                       <tbody>
 
-                        <tr>
-                          <td>
-                            <a><img src="../../images/img.jpg" width="70" height="70"></a>
-                          </td>
-                          <td>
-                            <a>Fulano</a>
-                          </td>
-                          <td>
-                            <a>CEO Popopo</a>
-                          </td>
-                          <td>
-                            <button type="button" class="btn btn-success btn-xs">Ativo</button>
-                          </td>
-                          <td>
-                            <a href="../depoimentos/editar.php" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                          </td>
-                        </tr>
+                        <?php
+                        while($line=$query->fetch_array()){
+                        ?>
 
                         <tr>
-                        	<td>
-                            <a><img src="../../images/img.jpg" width="70" height="70"></a>
+                          <td>
+                            <?php if($line['avatar']!=""){?>
+                            <a><img src="../../../uploads/depoimentos/<?php echo $line['avatar'];?>" width="70" height="70"></a>
+                            <?php }else{?>
+                            <a><img src="../../../uploads/depoimentos/no.jpg" width="70" height="70"></a>
+                            <?php }?>
                           </td>
                           <td>
-                            <a>Joãozinho</a>
+                            <a><?php echo $line['nome'];?></a>
                           </td>
                           <td>
-                            <a>CEO Popopo</a>
+                            <a><?php echo $line['profissao'];?></a>
                           </td>
                           <td>
+                            <?php if($line['status']=="1"){?>
                             <button type="button" class="btn btn-success btn-xs">Ativo</button>
-                          </td>
-                          <td>
-                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                          </td>
-                        </tr>
-
-                        <tr>
-                        	<td>
-                            <a><img src="../../images/picture.jpg" width="70" height="70"></a>
-                          </td>
-                          <td>
-                            <a>Maria</a>
-                          </td>
-                          <td>
-                            <a>CEO Popopo</a>
-                          </td>
-                          <td>
+                            <?php }else{?>
                             <button type="button" class="btn btn-danger btn-xs">Inativo</button>
+                            <?php }?>
                           </td>
                           <td>
-                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
+                            <a href="../depoimentos/editar.php?area=<?php echo $line['id_cod']?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+                            <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".deletar<?php echo $line['id_cod']?>"><i class="fa fa-trash-o"></i> Deletar </a>
+
+
+                            <div class="modal fade deletar<?php echo $line['id_cod']?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Deletar registro</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Deseja realmente excluir o depoimento de <b><?php echo $line['nome']?></b>?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <a href="?area=<?php echo $line['id_cod']?>&action=delete" class="btn btn-danger">Excluir</a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
                           </td>
                         </tr>
 
 
-                       
+                        <?php
+                        }
+                        ?>
+
 
                       </tbody>
                     </table>
-                    <!-- end project list -->
+                    
+
+
+                    <?php
+                    }else{
+                      ?>
+
+                      <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 100%; text-align: center;">Nenhum resultado disponível</th>
+                        </tr>
+                      </thead>
+                    </table>
+
+                       <?php
+                        }
+                        ?>
+
 
                   </div>
                 </div>
