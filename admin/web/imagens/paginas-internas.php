@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//pagina internas
+require"../../includes-acoes/imagens/lista2.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -73,9 +77,11 @@ require"../../includes-acoes/session/session2.php";
                   </div>
                   <div class="x_content">
 
-                    
+                    <?php
+                  if($row!=""){
+                  ?>
 
-                    <!-- start project list -->
+                      
                     <table class="table table-striped projects">
                       <thead>
                         <tr>
@@ -87,66 +93,86 @@ require"../../includes-acoes/session/session2.php";
                       </thead>
                       <tbody>
 
+
+                        <?php
+                        while($line=$query->fetch_array()){
+                        ?>
+
+
                         <tr>
                           <td>
-                            <a><img src="../../images/media.jpg" width="90" height="70"></a>
+                            <a><img src="../../../uploads/paginas-internas/thumb/<?php echo $line['avatar'];?>"></a>
                           </td>
 
                           <td>
-                            Equipamentos
+                            <?php echo $line['pagina'];?>
                           </td>
                           
                           <td>
+                            <?php if($line['status']=="1"){?>
                             <button type="button" class="btn btn-success btn-xs">Ativo</button>
-                          </td>
-                          <td>
-                            <a href="../imagens/editar-paginas-internas.php" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                          </td>
-                        </tr>
-
-                        <tr>
-                        	<td>
-                            <a><img src="../../images/media.jpg" width="90" height="70"></a>
-                          </td>
-
-                          <td>
-                            Transportadoras   
-                          </td>
-                          
-                          <td>
-                            <button type="button" class="btn btn-success btn-xs">Ativo</button>
-                          </td>
-                          <td>
-                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                          </td>
-                        </tr>
-
-                        <tr>
-                        	<td>
-                            <a><img src="../../images/media.jpg" width="90" height="70"></a>
-                          </td>
-
-                          <td>
-                            Assistência Técnica
-                          </td>
-                          
-                          <td>
+                            <?php }else{?>
                             <button type="button" class="btn btn-danger btn-xs">Inativo</button>
+                            <?php }?>
                           </td>
                           <td>
-                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
+                            <a href="../imagens/editar-paginas-internas.php?area=<?php echo $line['id_cod']?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+                            <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".deletar<?php echo $line['id_cod']?>"><i class="fa fa-trash-o"></i> Deletar </a>
+
+
+                            <div class="modal fade deletar<?php echo $line['id_cod']?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Deletar registro</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Deseja realmente excluir a imagem da página interna ?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <a href="?area=<?php echo $line['id_cod']?>&action=delete" class="btn btn-danger">Excluir</a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
                           </td>
                         </tr>
+
+                        <?php
+                        }
+                        ?>
 
 
                        
 
                       </tbody>
                     </table>
-                    <!-- end project list -->
+                   
+
+
+                    <?php
+                    }else{
+                      ?>
+
+                      <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 100%; text-align: center;">Nenhum resultado disponível</th>
+                        </tr>
+                      </thead>
+                    </table>
+
+                       <?php
+                        }
+                        ?>
+
 
                   </div>
                 </div>

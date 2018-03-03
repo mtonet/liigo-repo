@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//slide home
+require"../../includes-acoes/imagens/cadastrar-slide.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -67,7 +71,23 @@ require"../../includes-acoes/session/session2.php";
                   
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="" method="post">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="" method="post" enctype="multipart/form-data">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Texto 1
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="texto1" class="form-control col-md-7 col-xs-12" name="texto1">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Texto 2
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="texto2" class="form-control col-md-7 col-xs-12" name="texto2">
+                        </div>
+                      </div>
 
                       
                       <div class="form-group">
@@ -75,7 +95,8 @@ require"../../includes-acoes/session/session2.php";
                           
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="file" name="imagem" id="imagem">
+                          <input type="file" name="imagem" id="imagem" required>
+                          <p class="red small"><i>Dimensões: 1920x950 pixel em JPG</i></p>
                         </div>
                       </div>
 
@@ -102,7 +123,14 @@ require"../../includes-acoes/session/session2.php";
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                          <?php if($enviocad=="s"){
+                            echo $msgs;
+                          }
+                            ?>
+
                           <button type="submit" class="btn btn-success">Cadastrar</button>
+                          <input name="enviocad" type="hidden" id="enviocad" value="s" />
                         </div>
                       </div>
 

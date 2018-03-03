@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//pagina internas
+require"../../includes-acoes/imagens/cadastrar-paginas.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -67,7 +71,7 @@ require"../../includes-acoes/session/session2.php";
                   
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="" method="post">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="" method="post" enctype="multipart/form-data">
 
                       
                       <div class="form-group">
@@ -75,22 +79,22 @@ require"../../includes-acoes/session/session2.php";
                           
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="file" name="imagem" id="imagem">
+                          <input type="file" name="imagem" id="imagem" required>
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Páginas</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="select2_multiple form-control" multiple="multiple">
-                            <option>Equipamentos</option>
-                            <option>Transportadoras</option>
-                            <option>Assistência Técnica</option>
-                          
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Página <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <select class="form-control" id="pagina" name="pagina" required>
+                            <option value="">selecione</option>
+
+                            <?php while($linecc=$querycc->fetch_array()){?>
+                            <option value="<?php echo $linecc['id_cod']?>"><?php echo $linecc['nome']?></option>
+                            <?php }?>
                           </select>
                         </div>
                       </div>
-
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
@@ -115,7 +119,14 @@ require"../../includes-acoes/session/session2.php";
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                          <?php if($enviocad=="s"){
+                            echo $msgs;
+                          }
+                            ?>
+
                           <button type="submit" class="btn btn-success">Cadastrar</button>
+                          <input name="enviocad" type="hidden" id="enviocad" value="s" />
                         </div>
                       </div>
 

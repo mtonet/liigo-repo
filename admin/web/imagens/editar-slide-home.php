@@ -4,6 +4,10 @@ session_start();
 require"../../../conn/exe.php";
 //session
 require"../../includes-acoes/session/session2.php";
+//regras
+require"../../includes-acoes/regras/regras.php";
+//slide home
+require"../../includes-acoes/imagens/editar-slide.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -67,16 +71,34 @@ require"../../includes-acoes/session/session2.php";
                   
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="" method="post">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="" method="post" enctype="multipart/form-data">
+
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Texto 1
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="texto1" class="form-control col-md-7 col-xs-12" name="texto1" value="<?php echo $line['texto1'];?>">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Texto 2
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="texto2" class="form-control col-md-7 col-xs-12" name="texto2" value="<?php echo $line['texto2'];?>">
+                        </div>
+                      </div>
 
                       
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Imagem <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Imagem
                           
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <a><img src="../../images/media.jpg" width="280" height="200"></a><br><br>
-                          <input type="file" name="imagem" id="imagem">
+                          <a><img src="../../../uploads/slide-home/thumb/<?php echo $line['avatar'];?>" width="153" height="76"></a>
+                          <input type="file" name="imagem" id="imagem" style="margin-top: 20px;">
+                          <p class="red small"><i>Dimensões: 1920x950 pixel em JPG</i></p>
                         </div>
                       </div>
 
@@ -86,14 +108,14 @@ require"../../includes-acoes/session/session2.php";
 
                           <div class="radio">
                             <label>
-                              <input type="radio" class="flat" name="status" value="1"> Ativo
+                              <input type="radio" class="flat" name="status" value="1" <?php if($line['status']=="1"){?>checked<?php }?>> Ativo
                             </label>
                           </div>
 
 
                           <div class="radio">
                             <label>
-                              <input type="radio" class="flat" name="status" value="0"> Inativo
+                              <input type="radio" class="flat" name="status" value="0" <?php if($line['status']=="0"){?>checked<?php }?>> Inativo
                             </label>
                           </div>
 
@@ -103,7 +125,14 @@ require"../../includes-acoes/session/session2.php";
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                          <?php if($enviocad=="s"){
+                            echo $msgs;
+                          }
+                            ?>
+
                           <button type="submit" class="btn btn-warning">Alterar</button>
+                          <input name="enviocad" type="hidden" id="enviocad" value="s" />
                         </div>
                       </div>
 
