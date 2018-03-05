@@ -12,7 +12,7 @@
               <td><i class="fa fa-search"></i></td>
               <td class="header-item-text">
                 <form class="search-form">
-                  <input type="text" placeholder="Search..." />
+                  <input type="text" placeholder="Busca..." />
                   <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
               </td>
@@ -23,7 +23,7 @@
           <table>
             <tr>
               <td class="header-item-text">                
-                <span><a href="cadastre-se">Cadastre-se</a></span>
+                <span><a href="cadastre-se" style="color: #000;">Cadastre-se</a></span>
               </td>
             </tr>
           </table>
@@ -32,7 +32,7 @@
           <table>
             <tr>
               <td class="header-item-text">
-                <span>Login</span>
+                <span><a href="login" style="color: #000;">Login</a></span>
               </td>
             </tr>
           </table>
@@ -41,7 +41,7 @@
           <table>
             <tr>
               <td class="header-item-text">
-                <span>Anuncie</span>
+                <span><a href="anuncie" style="color: #44BB6F;">Anuncie</a></span>
               </td>
             </tr>
           </table>
@@ -74,7 +74,7 @@
         <form action="" method="post" id="busca">
           
          <div class="col-md-2">
-           <select class="form-control">
+           <select class="form-control" name="estado">
   <option>Estado</option>
   <option>2</option>
   <option>3</option>
@@ -83,7 +83,7 @@
 </select>
          </div>
          <div class="col-md-3">
-           <select class="form-control">
+           <select class="form-control" name="cidade">
   <option>Cidade</option>
   <option>2</option>
   <option>3</option>
@@ -92,7 +92,7 @@
 </select>
          </div>
          <div class="col-md-3">
-           <select class="form-control">
+           <select class="form-control" name="precisa">
   <option>O que você precisa?</option>
   <option>2</option>
   <option>3</option>
@@ -101,7 +101,7 @@
 </select>
          </div>
          <div class="col-md-2">
-           <select class="form-control">
+           <select class="form-control" name="servicos">
   <option>Serviços</option>
   <option>2</option>
   <option>3</option>

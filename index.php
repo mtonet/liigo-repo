@@ -1,3 +1,11 @@
+<?php
+//conn
+require"conn/exe.php";
+//regras
+require"includes-acoes/regras/regras.php";
+//home
+require"includes-acoes/home/home.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -24,6 +32,13 @@
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+  
+  <style type="text/css">
+  <?php while($linesl2=$querysl2->fetch_array()){?>
+        .subheader.subheader-slider .slide:nth-child(<?php echo $linesl2['id'];?>) { background:url(uploads/slide-home/<?php echo $linesl2['image'];?>) no-repeat center; background-size:cover; }
+  <?php }?>
+  </style>
+  
 </head>
 <body>
 
@@ -39,29 +54,16 @@
 
   	<div class="slider slider-simple">
   	 
-  		<div class="slide">
+  		<?php while($linesl=$querysl->fetch_array()){?>
+      
+      <div class="slide" id="<?php echo $linesl['id'];?>">
         <div class="img-overlay black"></div>
-  			<div class="container">
-  				<h1>Mordern Family Home</h1>
-  				<p><i class="fa fa-map-marker icon"></i>432 Smith Dr. Balitmore, MD</p>
-  				<div class="slider-simple-buttons">
-  					<a href="#" class="button">View Details</a>
-  					<a href="#" class="button">Contact Agent</a>
-  				</div>
-  			</div>
-  		</div>
-  		
-  		<div class="slide">
-        <div class="img-overlay black"></div>
-  			<div class="container">
-  				<h1>Beautiful Waterfront Home</h1>
-  				<p><i class="fa fa-map-marker icon"></i> 432 Smith Dr. Balitmore, MD</p>
-  				<div class="slider-simple-buttons">
-  					<a href="#" class="button">View Details</a>
-  					<a href="#" class="button">Contact Agent</a>
-  				</div>
-  			</div>
-  		</div>
+        <div class="container">
+          <h1><?php echo $linesl['texto1'];?></h1>
+          <p><?php echo $linesl['texto2'];?></p>
+        </div>
+      </div>
+      <?php }?>
   	
   	</div><!-- end slider -->
   </div><!-- end slider wrap -->
@@ -73,28 +75,22 @@
       <div class="col-lg-4 col-md-4">
         <div class="service-item shadow-hover">
           <i class="fa fa-home"></i>
-          <h4>Sell Property</h4>
-          <p>Morbi accumsan ipsum velit Nam nec tellus 
-          a odio tincidunt auctor a ornare odio sedlon 
-          maurisvitae erat consequat auctor</p>
+          <h4>Anuncie</h4>
+          <p>Mais de 30.000 usuários vendo o seu anúncio</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4">
         <div class="service-item shadow-hover">
           <i class="fa fa-group"></i>
-          <h4>Expert Agents</h4>
-          <p>Morbi accumsan ipsum velit Nam nec tellus 
-          a odio tincidunt auctor a ornare odio sedlon 
-          maurisvitae erat consequat auctor</p>
+          <h4>Profissionais</h4>
+          <p>Na Liigo todos os anunciantes são profissionais da área de comunicação</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4">
         <div class="service-item shadow-hover">
           <i class="fa fa-file-text"></i>
-          <h4>Daily Listings</h4>
-          <p>Morbi accumsan ipsum velit Nam nec tellus 
-          a odio tincidunt auctor a ornare odio sedlon 
-          maurisvitae erat consequat auctor</p>
+          <h4>Atualização diária</h4>
+          <p>Os anúncios são monitorados diariamente e o atendimento será excelente</p>
         </div>
       </div>
     </div><!-- end row -->
@@ -106,9 +102,9 @@
   <div class="container">
 
     <div class="module-header">
-      <h2>Browse Our Most <strong>Popular Categories</strong></h2>
+      <h2>As buscas <strong>mais populares</strong></h2>
       <img src="images/divider.png" alt="" />
-      <p>Morbi accumsan ipsum velit nam nec tellus a odiose tincidunt auctor a ornare odio sed non mauris vitae erat consequat auctor</p>
+      <p>Diariamente nossos usuários realizam diversas pesquisas, veja aqui quais são as mais procuradas</p>
     </div>
 
     <div class="row">
@@ -159,9 +155,9 @@
 
   <div class="container">
     <div class="module-header">
-      <h2>Our <strong>Testimonials</strong></h2>
+      <h2><strong>Quem utiliza?</strong></h2>
       <img src="images/divider-white.png" alt="" />
-      <p>Morbi accumsan ipsum velit nam nec tellus a odiose tincidunt auctor a ornare odio sed non mauris vitae erat consequat auctor</p>
+      <p>Veja a opinião de todos que gostam da LIIGO</p>
     </div>
   </div>
 
@@ -172,22 +168,20 @@
 
   <div class="container">
     <div class="slider slider-testimonials">
+      <?php while($linedep=$querydep->fetch_array()){?>
       <div class="testimonial slide">
-        <h3>"Homely helped us sell our house with minimal effort. Their team was efficient and always there to help!"</h3>
+        <h3>"<?php echo $linedep['depoimento']?>"</h3>
         <div class="testimonial-details">
-          <img class="testimonial-img" src="images/70x70.png" alt="" />
-          <p class="testimonial-name"><strong>John Doe</strong></p>
-          <span class="testiomnial-title"><em>CEO at <a href="#">Rype Creative</a></em></span>
+          <?php if($linedep['avatar']!=""){?>
+          <img class="testimonial-img" src="uploads/depoimentos/<?php echo $linedep['avatar']?>" alt="<?php echo $linedep['nome']?>" />
+          <?php }else{?>
+          <img class="testimonial-img" src="uploads/depoimentos/no.jpg" alt="<?php echo $linedep['nome']?>" />
+          <?php }?>
+          <p class="testimonial-name"><strong><?php echo $linedep['nome']?></strong></p>
+          <span class="testiomnial-title"><em><?php echo $linedep['profissao']?></em></span>
         </div>
       </div>
-      <div class="testimonial slide">
-        <h3>"Homely helped us sell our house with minimal effort. Their team was efficient and always there to help! Homely helped us sell our house with minimal effort. Their team was efficient and always there to help!"</h3>
-        <div class="testimonial-details">
-          <img class="testimonial-img" src="images/70x70.png" alt="" />
-          <p class="testimonial-name"><strong>John Doe</strong></p>
-          <span class="testiomnial-title"><em>CEO at <a href="#">Rype Creative</a></em></span>
-        </div>
-      </div>
+      <?php }?>
     </div><!-- end slider -->
   </div><!-- end container -->
 </section>
@@ -197,14 +191,11 @@
   <div class="container">
 	<div class="row">
 		<div class="col-lg-7 col-md-7">
-			<h3>Sign up for our <strong>newsletter.</strong></h3>
-			<p>Lorem molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+			<h3>Precisa anunciar seu produto ou serviço?</h3>
+			<p>A Liigo vai te ajudar a encontrar pessoas que precisam do seu produto ou serviço</p>
 		</div>
 		<div class="col-lg-5 col-md-5">
-			<form method="post" id="newsletter-form" class="newsletter-form">
-				<input type="email" placeholder="Your email..." />
-				<button type="submit" form="newsletter-form"><i class="fa fa-send"></i></button>
-			</form>
+			<a href="anuncie" class="button branco large">Anuncie com a gente</a>
 		</div>
 	</div><!-- end row -->
   </div><!-- end container -->
