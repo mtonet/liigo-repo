@@ -1,3 +1,9 @@
+<?php
+//conn
+require"conn/exe.php";
+//regras
+require"includes-acoes/regras/regras.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>

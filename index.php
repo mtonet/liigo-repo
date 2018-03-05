@@ -112,14 +112,14 @@ require"includes-acoes/home/home.php";
         <a href="#" class="property-cat property-cat-apartments">
           <h3>Studio Apartments</h3>
           <div class="color-bar"></div>
-          <span class="button small">234 Properties</span>
+          <span class="button alt small">234 encontrados</span>
         </a>
       </div>
       <div class="col-lg-4 col-md-4">
         <a href="#" class="property-cat property-cat-houses">
           <h3>Family Homes</h3>
           <div class="color-bar"></div>
-          <span class="button small">234 Properties</span>
+          <span class="button alt small">234 encontrados</span>
         </a>
       </div>
     </div><!-- end row -->
@@ -129,21 +129,21 @@ require"includes-acoes/home/home.php";
         <a href="#" class="property-cat property-cat-condos">
           <h3>Condos & Villas</h3>
           <div class="color-bar"></div>
-          <span class="button small">234 Properties</span>
+          <span class="button alt small">234 encontrados</span>
         </a>
       </div>
       <div class="col-lg-4 col-md-4">
         <a href="#" class="property-cat property-cat-waterfront">
           <h3>Waterfront Homes</h3>
           <div class="color-bar"></div>
-          <span class="button small">234 Properties</span>
+          <span class="button alt small">234 encontrados</span>
         </a>
       </div>
       <div class="col-lg-4 col-md-4">
         <a href="#" class="property-cat property-cat-cozy">
           <h3>Cozy Houses</h3>
           <div class="color-bar"></div>
-          <span class="button small">234 Properties</span>
+          <span class="button alt small">234 encontrados</span>
         </a>
       </div>
     </div><!-- end row -->
