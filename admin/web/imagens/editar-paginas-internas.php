@@ -93,6 +93,27 @@ require"../../includes-acoes/imagens/editar-paginas.php";
                             <?php while($linecc=$querycc->fetch_array()){?>
                             <option value="<?php echo $linecc['id_cod'];?>" <?php if($line['id_pagina']==$linecc['id_cod']){?>selected<?php }?>><?php echo $linecc['nome'];?></option>
                             <?php }?>
+                            <option value="1" <?php if($line['id_pagina']=="1"){?>selected<?php }?>>Cadastre-se</option>
+                            <option value="2" <?php if($line['id_pagina']=="2"){?>selected<?php }?>>Anuncie</option>
+                            <option value="3" <?php if($line['id_pagina']=="3"){?>selected<?php }?>>Anúncio assistência</option>
+                            <option value="4" <?php if($line['id_pagina']=="4"){?>selected<?php }?>>Detalhe Anúncio</option>
+                            <option value="5" <?php if($line['id_pagina']=="5"){?>selected<?php }?>>Anúncio equipamento</option>
+                            <option value="6" <?php if($line['id_pagina']=="6"){?>selected<?php }?>>Anúncio serviço</option>
+                            <option value="7" <?php if($line['id_pagina']=="7"){?>selected<?php }?>>Anúncio suprimento</option>
+                            <option value="8" <?php if($line['id_pagina']=="8"){?>selected<?php }?>>Anúncio transportadora</option>
+                            <option value="9" <?php if($line['id_pagina']=="9"){?>selected<?php }?>>Chat</option>
+                            <option value="10" <?php if($line['id_pagina']=="10"){?>selected<?php }?>>Envio anúncio</option>
+                            <option value="11" <?php if($line['id_pagina']=="11"){?>selected<?php }?>>Lista assistência</option>
+                            <option value="12" <?php if($line['id_pagina']=="12"){?>selected<?php }?>>Lista anúncios</option>
+                            <option value="13" <?php if($line['id_pagina']=="13"){?>selected<?php }?>>Lista equipamento</option>
+                            <option value="14" <?php if($line['id_pagina']=="14"){?>selected<?php }?>>Lista suprimento</option>
+                            <option value="15" <?php if($line['id_pagina']=="15"){?>selected<?php }?>>Lista transportadora</option>
+                            <option value="16" <?php if($line['id_pagina']=="16"){?>selected<?php }?>>Lista login</option>
+                            <option value="17" <?php if($line['id_pagina']=="17"){?>selected<?php }?>>Resultado busca</option>
+                            <option value="18" <?php if($line['id_pagina']=="18"){?>selected<?php }?>>Esqueci senha</option>
+                            <option value="19" <?php if($line['id_pagina']=="19"){?>selected<?php }?>>Favoritos</option>
+                            <option value="20" <?php if($line['id_pagina']=="20"){?>selected<?php }?>>Meus anúncios</option>
+                            <option value="21" <?php if($line['id_pagina']=="21"){?>selected<?php }?>>Meu perfil</option>
                           </select>
                         </div>
                       </div>

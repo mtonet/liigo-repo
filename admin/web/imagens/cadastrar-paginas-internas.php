@@ -92,6 +92,27 @@ require"../../includes-acoes/imagens/cadastrar-paginas.php";
                             <?php while($linecc=$querycc->fetch_array()){?>
                             <option value="<?php echo $linecc['id_cod']?>"><?php echo $linecc['nome']?></option>
                             <?php }?>
+                            <option value="1">Cadastre-se</option>
+                            <option value="2">Anuncie</option>
+                            <option value="3">Anúncio assistência</option>
+                            <option value="4">Detalhe Anúncio</option>
+                            <option value="5">Anúncio equipamento</option>
+                            <option value="6">Anúncio serviço</option>
+                            <option value="7">Anúncio suprimento</option>
+                            <option value="8">Anúncio transportadora</option>
+                            <option value="9">Chat</option>
+                            <option value="10">Envio anúncio</option>
+                            <option value="11">Lista assistência</option>
+                            <option value="12">Lista anúncios</option>
+                            <option value="13">Lista equipamento</option>
+                            <option value="14">Lista suprimento</option>
+                            <option value="15">Lista transportadora</option>
+                            <option value="16">Lista login</option>
+                            <option value="17">Resultado busca</option>
+                            <option value="18">Esqueci senha</option>
+                            <option value="19">Favoritos</option>
+                            <option value="20">Meus anúncios</option>
+                            <option value="21">Meu perfil</option>
                           </select>
                         </div>
                       </div>

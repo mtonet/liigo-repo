@@ -23,7 +23,7 @@
           <table>
             <tr>
               <td class="header-item-text">                
-                <span>Cadastre-se</span>
+                <span><a href="cadastre-se">Cadastre-se</a></span>
               </td>
             </tr>
           </table>
@@ -49,7 +49,7 @@
         <div class="clear"></div>
       </div>
 
-      <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Homely" /></a>
+      <a class="navbar-brand" href="index"><img src="images/logo.png" alt="logo liigo" /></a>
 
       <!-- nav toggle -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
