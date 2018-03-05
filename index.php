@@ -15,7 +15,7 @@ require"includes-acoes/home/home.php";
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liigo</title>
-
+   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <!-- CSS file links -->
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="assets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
@@ -186,20 +186,6 @@ require"includes-acoes/home/home.php";
   </div><!-- end container -->
 </section>
 
-
-<section class="module cta newsletter">
-  <div class="container">
-	<div class="row">
-		<div class="col-lg-7 col-md-7">
-			<h3>Precisa anunciar seu produto ou serviço?</h3>
-			<p>A Liigo vai te ajudar a encontrar pessoas que precisam do seu produto ou serviço</p>
-		</div>
-		<div class="col-lg-5 col-md-5">
-			<a href="anuncie" class="button branco large">Anuncie com a gente</a>
-		</div>
-	</div><!-- end row -->
-  </div><!-- end container -->
-</section>
 
 <?php require"includes/rodape/rodape.php";?>
 

@@ -11,8 +11,8 @@
               <tr>
               <td><i class="fa fa-search"></i></td>
               <td class="header-item-text">
-                <form class="search-form">
-                  <input type="text" placeholder="Busca..." />
+                <form class="search-form" method="get" id="busca" name="busca">
+                  <input type="text" placeholder="Busca..." required />
                   <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
               </td>

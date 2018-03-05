@@ -13,7 +13,7 @@ require"includes-acoes/regras/regras.php";
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liigo | Suprimentos</title>
-
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <!-- CSS file links -->
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="assets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
@@ -322,23 +322,6 @@ require"includes-acoes/regras/regras.php";
 		
 	</div><!-- end row -->
 
-  </div><!-- end container -->
-</section>
-
-<section class="module cta newsletter">
-  <div class="container">
-	<div class="row">
-		<div class="col-lg-7 col-md-7">
-			<h3>Sign up for our <strong>newsletter.</strong></h3>
-			<p>Lorem molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-		</div>
-		<div class="col-lg-5 col-md-5">
-			<form method="post" id="newsletter-form" class="newsletter-form">
-				<input type="email" placeholder="Your email..." />
-				<button type="submit" form="newsletter-form"><i class="fa fa-send"></i></button>
-			</form>
-		</div>
-	</div><!-- end row -->
   </div><!-- end container -->
 </section>
 

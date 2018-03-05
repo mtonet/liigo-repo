@@ -13,7 +13,7 @@ require"includes-acoes/regras/regras.php";
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liigo | Profile</title>
-
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <!-- CSS file links -->
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="assets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
@@ -37,8 +37,8 @@ require"includes-acoes/regras/regras.php";
 
 <section class="subheader">
   <div class="container">
-    <h1>Profile</h1>
-    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="#" class="current">Profile</a></div>
+    <h1>Meu perfil</h1>
+    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="#" class="current">perfil</a></div>
     <div class="clear"></div>
   </div>
 </section>
@@ -57,12 +57,12 @@ require"includes-acoes/regras/regras.php";
 				<div class="member-card-content">
 					<img class="hex" src="images/hexagon.png" alt="" />
 					<ul>
-						<li class="active"><a href="user-profile.php"><i class="fa fa-user icon"></i>Profile</a></li>
-						<li><a href="user-my-properties.php"><i class="fa fa-home icon"></i>Meus anúncios</a></li>
-						<li ><a href="user-favorite-properties.php"><i class="fa fa-heart icon"></i>Favoritos</a></li>
-						<li><a href="envio-anuncio.php"><i class="fa fa-plus icon"></i>Anuncie</a></li>
-						<li><a href="#"><i class="fa fa-plus icon"></i>Chat</a></li>
-						<li><a href="#"><i class="fa fa-reply icon"></i>Logout</a></li>
+						<li class="active"><a href="meu-perfil"><i class="fa fa-user icon"></i>Perfil</a></li>
+						<li><a href="meus-anuncios"><i class="fa fa-home icon"></i>Meus anúncios</a></li>
+						<li ><a href="favoritos"><i class="fa fa-heart icon"></i>Favoritos</a></li>
+						<li><a href="anuncie"><i class="fa fa-plus icon"></i>Anuncie</a></li>
+						<li><a href="chat"><i class="fa fa-plus icon"></i>Chat</a></li>
+						<li><a href="logout"><i class="fa fa-reply icon"></i>Logout</a></li>
 					</ul>
 				</div>
 			</div>
@@ -148,23 +148,6 @@ require"includes-acoes/regras/regras.php";
 		</div><!-- end col -->
 	</div><!-- end row -->
 
-  </div><!-- end container -->
-</section>
-
-<section class="module cta newsletter">
-  <div class="container">
-	<div class="row">
-		<div class="col-lg-7 col-md-7">
-			<h3>Sign up for our <strong>newsletter.</strong></h3>
-			<p>Lorem molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-		</div>
-		<div class="col-lg-5 col-md-5">
-			<form method="post" id="newsletter-form" class="newsletter-form">
-				<input type="email" placeholder="Your email..." />
-				<button type="submit" form="newsletter-form"><i class="fa fa-send"></i></button>
-			</form>
-		</div>
-	</div><!-- end row -->
   </div><!-- end container -->
 </section>
 
