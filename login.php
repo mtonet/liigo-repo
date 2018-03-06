@@ -7,7 +7,7 @@ require"includes-acoes/regras/regras.php";
 //login
 require"includes-acoes/login/login.php";
 //condicao
-if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689'])){
+if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689']) AND $enviolog==""){
 header("Location:meu-perfil");
 }
 ?>

@@ -27,7 +27,7 @@ $_SESSION['passadaco_site_liigo_689']=$passna;
 $msgslog='<div class="alert-box success"><i class="fa fa-check icon"></i> Acesso correto, em alguns segundos você será direcionado...</div>';
 //direciona
 //echo '<meta http-equiv="refresh" content="3;URL=meu-perfil" />';
-header( "Refresh:3; url=meu-perfil");
+header("Refresh:3; url=meu-perfil");
 }
 }
 ?>
