@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Mar-2018 às 20:13
+-- Generation Time: 06-Mar-2018 às 20:26
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -127,7 +127,8 @@ CREATE TABLE `tbl_img_internas` (
 
 INSERT INTO `tbl_img_internas` (`id`, `id_cod`, `avatar`, `image`, `id_pagina`, `pagina`, `status`) VALUES
 (1, '8e037bcf66a0237237448c2fd070866a', 'thumb-931539645.jpg', '931539645.jpg', '21b2e6efe1400635f92d0320eed420a5', 'Suprimentos', 1),
-(2, '388df0fc61a5db4d3f3d3f5335f92607', 'thumb-517593191.jpg', '517593191.jpg', '318b9cddcea5ebcb2c1171fe1cf277db', 'ServiÃ§os', 1);
+(2, '388df0fc61a5db4d3f3d3f5335f92607', 'thumb-517593191.jpg', '517593191.jpg', '318b9cddcea5ebcb2c1171fe1cf277db', 'ServiÃ§os', 1),
+(8, 'bac36c130d1c4932e0085cf5edd94567', 'thumb-29198918.jpg', '29198918.jpg', '1', 'Cadastre-se', 1);
 
 -- --------------------------------------------------------
 
@@ -148,7 +149,8 @@ CREATE TABLE `tbl_newsletter` (
 INSERT INTO `tbl_newsletter` (`id`, `id_cod`, `email`) VALUES
 (3, 'dce8c1f63dfc752c7502e823763179a9', 'teste@teste.com.br'),
 (4, '2077089eff32e3b862efed14c4f00acb', 'teste2@teste2.com.br'),
-(5, '5423cdd0c2157ff5088b8f14e494f145', 'teste3@teste3.com.br');
+(5, '5423cdd0c2157ff5088b8f14e494f145', 'teste3@teste3.com.br'),
+(10, '5e5458a8e2405089040167934b684ce8', 'teste@teste2.com.br');
 
 -- --------------------------------------------------------
 
@@ -171,8 +173,8 @@ CREATE TABLE `tbl_slide_home` (
 --
 
 INSERT INTO `tbl_slide_home` (`id`, `id_cod`, `avatar`, `image`, `texto1`, `texto2`, `status`) VALUES
-(2, '78f98855faaea294bd00dc90056a3b48', 'thumb-911571354banner.jpg.jpg', '911571354banner.jpg.jpg', 'Texto 1 do slilde', 'Texto 2 do slilde', 1),
-(3, '438d33a22bb55f4dd24be1b44716b512', 'thumb-848765425banner2.jpg.jpg', '848765425banner2.jpg.jpg', 'Texto 1 do slilde 2', 'Texto 2 do slilde 2', 1);
+(1, '78f98855faaea294bd00dc90056a3b48', 'thumb-911571354banner.jpg.jpg', '911571354banner.jpg.jpg', 'Texto 1 do slilde', 'Texto 2 do slilde', 1),
+(2, '438d33a22bb55f4dd24be1b44716b512', 'thumb-848765425banner2.jpg.jpg', '848765425banner2.jpg.jpg', 'Texto 1 do slilde 2', 'Texto 2 do slilde 2', 1);
 
 -- --------------------------------------------------------
 
@@ -227,7 +229,8 @@ CREATE TABLE `tbl_usuarios` (
 
 INSERT INTO `tbl_usuarios` (`id`, `id_cod`, `avatar`, `nome`, `descricao`, `facebook`, `twitter`, `linkedin`, `email`, `telefone`, `celular`, `cpf_cnpj`, `estado`, `cidade`, `pass`, `s_v`) VALUES
 (1, '69b2dc16d375e9da8f570d07806c09c2', '', 'Teste', '', '', '', '', 'teste@teste.com', '(11) 2899-0000', '(11) 9999-0000', '00000000', 'SP', 'São Paulo', 'e10adc3949ba59abbe56e057f20f883e', '123456'),
-(2, 'ee4abf29721bd208ec30282b62ddc109', '', 'Teste2', '', '', '', '', 'teste2@teste2.com', '(11) 2899-0000', '(11) 9999-0000', '00000000', 'SP', 'São Paulo', 'e10adc3949ba59abbe56e057f20f883e', '123456');
+(2, 'ee4abf29721bd208ec30282b62ddc109', '', 'Teste2', '', '', '', '', 'teste2@teste2.com', '(11) 2899-0000', '(11) 9999-0000', '00000000', 'SP', 'São Paulo', 'e10adc3949ba59abbe56e057f20f883e', '123456'),
+(3, '36aa411da83a9019132f8c207558f301', '501543206.jpg', 'Robson Cavalcante', 'Teste de descriÃ§Ã£o.', 'face aqui', 'Twitter aqui', 'Linkedin aqui', 'webmaster@rcdesigners.com.br', '11 28913100', '11 9666666', '101010', 'SP', 'suzano', '25f9e794323b453885f5181f1b624d0b', '123456789');
 
 --
 -- Indexes for dumped tables
@@ -315,17 +318,17 @@ ALTER TABLE `tbl_favoritos`
 -- AUTO_INCREMENT for table `tbl_img_internas`
 --
 ALTER TABLE `tbl_img_internas`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tbl_newsletter`
 --
 ALTER TABLE `tbl_newsletter`
-  MODIFY `id` int(40) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(40) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tbl_slide_home`
 --
 ALTER TABLE `tbl_slide_home`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_subcategoria`
 --
