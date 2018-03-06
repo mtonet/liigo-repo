@@ -113,6 +113,8 @@ require"../../includes-acoes/imagens/cadastrar-paginas.php";
                             <option value="19">Favoritos</option>
                             <option value="20">Meus anúncios</option>
                             <option value="21">Meu perfil</option>
+                            <option value="22">Login</option>
+                            <option value="23">Senha</option>
                           </select>
                         </div>
                       </div>

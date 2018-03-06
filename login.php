@@ -1,8 +1,15 @@
 <?php
+session_start();
 //conn
 require"conn/exe.php";
 //regras
 require"includes-acoes/regras/regras.php";
+//login
+require"includes-acoes/login/login.php";
+//condicao
+if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689'])){
+header("Location:meu-perfil");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,6 +37,13 @@ require"includes-acoes/regras/regras.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+
+<style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
+
 </head>
 <body>
 
@@ -42,25 +56,34 @@ require"includes-acoes/regras/regras.php";
     <div class="clear"></div>
   </div>
 </section>
-
+<a id="log"></a>
 <section class="module login">
   <div class="container">
 
     <div class="row">
       <div class="col-lg-4 col-lg-offset-4"> 
         <p>Não possui cadastro? <strong><a href="cadastre-se">Cadastre-se aqui.</a></strong></p> 
-        <form method="post" class="login-form">
+        <form method="post" class="login-form" action="#log" name="formlog" id="formlog">
+          
           <div class="form-block">
             <label>Email</label>
-            <input class="border" type="text" name="email" />
+            <input class="border" type="email" name="email" required />
           </div>
           <div class="form-block">
             <label>Password</label>
-            <input class="border" type="password" name="pass" />
+            <input class="border" type="password" name="pass" required/>
           </div>
           
           <div class="form-block">
+
+            <?php if($enviolog=="s"){
+                            echo $msgslog;
+                          }
+                            ?>
+
+
             <button class="button button-icon" type="submit"><i class="fa fa-angle-right"></i>Login</button>
+            <input name="enviolog" type="hidden" id="enviolog" value="s" />
           </div>
           <div class="divider"></div>
           <p class="note"><a href="senha">Esqueci minha senha.</a> </p>    

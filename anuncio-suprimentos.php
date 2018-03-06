@@ -3,6 +3,8 @@
 require"conn/exe.php";
 //regras
 require"includes-acoes/regras/regras.php";
+//session
+require"includes-acoes/session/session.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

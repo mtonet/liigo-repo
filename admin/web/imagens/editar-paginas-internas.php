@@ -114,6 +114,8 @@ require"../../includes-acoes/imagens/editar-paginas.php";
                             <option value="19" <?php if($line['id_pagina']=="19"){?>selected<?php }?>>Favoritos</option>
                             <option value="20" <?php if($line['id_pagina']=="20"){?>selected<?php }?>>Meus anúncios</option>
                             <option value="21" <?php if($line['id_pagina']=="21"){?>selected<?php }?>>Meu perfil</option>
+                            <option value="22" <?php if($line['id_pagina']=="22"){?>selected<?php }?>>Login</option>
+                            <option value="23" <?php if($line['id_pagina']=="23"){?>selected<?php }?>>Senha</option>
                           </select>
                         </div>
                       </div>

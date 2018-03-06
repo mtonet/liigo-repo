@@ -17,7 +17,8 @@ require"../../includes-acoes/anunciantes/dados.php";
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="../../images/favicon.ico" type="image/ico" />
+    
     <title>Liigo | Painel do Administrador </title>
 
     <!-- Bootstrap -->
@@ -96,20 +97,20 @@ require"../../includes-acoes/anunciantes/dados.php";
                           <i class="fa fa-file user-profile-icon"></i> <?php echo $line['cpf_cnpj']?>
                         </li>
                         
-                        <!--<hr>
+                        <hr>
                         
                         <h4>Localização</h4>
                         
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> Rua Jose Martins, 34
+                        <!--<li><i class="fa fa-map-marker user-profile-icon"></i> Rua Jose Martins, 34
                         </li>
                         <li><i class="user-profile-icon"></i> Apto 211- Bloco 2
-                        </li>
+                        </li>-->
 
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> Campinas, SP
+                        <li style="text-transform: capitalize;"><i class="fa fa-map-marker user-profile-icon"></i> <?php echo $line['cidade']?>, <?php echo $line['estado']?>
                         </li>
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> 06764-040
-                        </li>
-                      </ul>-->
+                        <!--<li><i class="fa fa-map-marker user-profile-icon"></i> 06764-040
+                        </li>-->
+                      </ul>
                                          
                         <hr>
                                          

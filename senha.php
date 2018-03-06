@@ -3,6 +3,8 @@
 require"conn/exe.php";
 //regras
 require"includes-acoes/regras/regras.php";
+//senha
+require"includes-acoes/senha/senha.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +14,7 @@ require"includes-acoes/regras/regras.php";
   <meta name="author" content="Rype Creative [Chris Gipple]">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liigo | Register</title>
+  <title>Liigo | Esqueci minha senha</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <!-- CSS file links -->
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -30,6 +32,13 @@ require"includes-acoes/regras/regras.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+
+<style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
+
 </head>
 <body>
 
@@ -42,21 +51,27 @@ require"includes-acoes/regras/regras.php";
     <div class="clear"></div>
   </div>
 </section>
-
+<a id="esq"></a>
 <section class="module login">
   <div class="container">
 
     <div class="row">
       <div class="col-lg-4 col-lg-offset-4"> 
         <p>Insira seu email para cadastrar uma nova senha</p> 
-        <form method="post" class="login-form">
+        <form method="post" class="login-form" id="esqueci" name="esqueci" action="#esq">
+        
+          <?php if($envioesq=="s"){
+                            echo $msgs;
+                          }
+                            ?>
         
           <div class="form-block">
             <label>Email</label>
-            <input class="border" type="text" name="email" />
+            <input class="border" type="email" name="emails" required />
           </div>          
           <div class="form-block">
             <button class="button button-icon" type="submit"><i class="fa fa-angle-right"></i>Enviar</button>
+            <input name="envioesq" type="hidden" id="envioesq" value="s" />
           </div>
           <div class="divider"></div>
         </form>

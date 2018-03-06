@@ -6,6 +6,10 @@ require"conn/exe.php";
 require"includes-acoes/regras/regras.php";
 //cadastre-se
 require"includes-acoes/cadastro/cadastro.php";
+//condicao
+if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689'])){
+header("Location:meu-perfil");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -49,14 +53,21 @@ require"includes-acoes/cadastro/cadastro.php";
     <div class="clear"></div>
   </div>
 </section>
-
+<a id="cad"></a>
 <section class="module login">
   <div class="container">
-
+ 
     <div class="row">
       <div class="col-lg-4 col-lg-offset-4"> 
         <p>Você já possui uma conta?<strong><a href="login"> Faça o Login aqui.</a></strong></p> 
         <form method="post" class="login-form" id="cadastro" name="cadastro" action="#cad">
+         
+
+          <?php if($enviocad=="s"){
+                            echo $msgscad;
+                          }
+                            ?>
+
           <div class="form-block">
             <label>Nome*</label>
             <input class="border" type="text" name="nome" required value="<?php echo $_SESSION['nome'];?>" />
@@ -81,33 +92,33 @@ require"includes-acoes/cadastro/cadastro.php";
                   <label>Estado*</label>
                   <select class="border" style="display: none;" name="estado" id="estado">   
                   <option value="">Selecione o Estado</option>
-   <option value="AC">Acre</option>
-    <option value="AL">Alagoas</option>
-    <option value="AP">Amapá</option>
-    <option value="AM">Amazonas</option>
-    <option value="BA">Bahia</option>
-    <option value="CE">Ceará</option>
-    <option value="DF">Distrito Federal</option>
-    <option value="ES">Espírito Santo</option>
-    <option value="GO">Goiás</option>
-    <option value="MA">Maranhão</option>
-    <option value="MT">Mato Grosso</option>
-    <option value="MS">Mato Grosso do Sul</option>
-    <option value="MG">Minas Gerais</option>
-    <option value="PA">Pará</option>
-    <option value="PB">Paraíba</option>
-    <option value="PR">Paraná</option>
-    <option value="PE">Pernambuco</option>
-    <option value="PI">Piauí</option>
-    <option value="RJ">Rio de Janeiro</option>
-    <option value="RN">Rio Grande do Norte</option>
-    <option value="RS">Rio Grande do Sul</option>
-    <option value="RO">Rondônia</option>
-    <option value="RR">Rorâima</option>
-    <option value="SC">Santa Catarina</option>
-    <option value="SP">São Paulo</option>
-    <option value="SE">Sergipe</option>
-    <option value="TO">Tocantins</option>            
+   <option value="AC" <?php if($_SESSION['estado']=="AC"){?>selected<?php }?>>Acre</option>
+    <option value="AL" <?php if($_SESSION['estado']=="AL"){?>selected<?php }?>>Alagoas</option>
+    <option value="AP" <?php if($_SESSION['estado']=="AP"){?>selected<?php }?>>Amapá</option>
+    <option value="AM" <?php if($_SESSION['estado']=="AM"){?>selected<?php }?>>Amazonas</option>
+    <option value="BA" <?php if($_SESSION['estado']=="BA"){?>selected<?php }?>>Bahia</option>
+    <option value="CE" <?php if($_SESSION['estado']=="CE"){?>selected<?php }?>>Ceará</option>
+    <option value="DF" <?php if($_SESSION['estado']=="DF"){?>selected<?php }?>>Distrito Federal</option>
+    <option value="ES" <?php if($_SESSION['estado']=="ES"){?>selected<?php }?>>Espírito Santo</option>
+    <option value="GO" <?php if($_SESSION['estado']=="GO"){?>selected<?php }?>>Goiás</option>
+    <option value="MA" <?php if($_SESSION['estado']=="MA"){?>selected<?php }?>>Maranhão</option>
+    <option value="MT" <?php if($_SESSION['estado']=="MT"){?>selected<?php }?>>Mato Grosso</option>
+    <option value="MS" <?php if($_SESSION['estado']=="MS"){?>selected<?php }?>>Mato Grosso do Sul</option>
+    <option value="MG" <?php if($_SESSION['estado']=="MG"){?>selected<?php }?>>Minas Gerais</option>
+    <option value="PA" <?php if($_SESSION['estado']=="PA"){?>selected<?php }?>>Pará</option>
+    <option value="PB" <?php if($_SESSION['estado']=="PB"){?>selected<?php }?>>Paraíba</option>
+    <option value="PR" <?php if($_SESSION['estado']=="PR"){?>selected<?php }?>>Paraná</option>
+    <option value="PE" <?php if($_SESSION['estado']=="PE"){?>selected<?php }?>>Pernambuco</option>
+    <option value="PI" <?php if($_SESSION['estado']=="PI"){?>selected<?php }?>>Piauí</option>
+    <option value="RJ" <?php if($_SESSION['estado']=="RJ"){?>selected<?php }?>>Rio de Janeiro</option>
+    <option value="RN" <?php if($_SESSION['estado']=="RN"){?>selected<?php }?>>Rio Grande do Norte</option>
+    <option value="RS" <?php if($_SESSION['estado']=="RS"){?>selected<?php }?>>Rio Grande do Sul</option>
+    <option value="RO" <?php if($_SESSION['estado']=="RO"){?>selected<?php }?>>Rondônia</option>
+    <option value="RR" <?php if($_SESSION['estado']=="RR"){?>selected<?php }?>>Rorâima</option>
+    <option value="SC" <?php if($_SESSION['estado']=="SC"){?>selected<?php }?>>Santa Catarina</option>
+    <option value="SP" <?php if($_SESSION['estado']=="SP"){?>selected<?php }?>>São Paulo</option>
+    <option value="SE" <?php if($_SESSION['estado']=="SE"){?>selected<?php }?>>Sergipe</option>
+    <option value="TO" <?php if($_SESSION['estado']=="TO"){?>selected<?php }?>>Tocantins</option>            
                   </select>
             </div>
             <div class="form-block border">
@@ -121,17 +132,11 @@ require"includes-acoes/cadastro/cadastro.php";
             <input class="border" type="password" name="pass" required/>
           </div>
           <div class="form-block">
-            <a id="cad"></a>
+            
             <label>Confirme a senha*</label>
             <input class="border" type="password" name="pass_confirm" required/>
           </div>
           <div class="form-block">
-            
-            <?php if($enviocad=="s"){
-                            echo $msgscad;
-                          }
-                            ?>
-
             <button class="button button-icon" type="submit"><i class="fa fa-angle-right"></i>Registrar</button>
             <input name="enviocad" type="hidden" id="enviocad" value="s" />
           </div>

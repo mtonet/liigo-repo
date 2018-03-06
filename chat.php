@@ -1,8 +1,11 @@
 <?php
+session_start();
 //conn
 require"conn/exe.php";
 //regras
 require"includes-acoes/regras/regras.php";
+//session
+require"includes-acoes/session/session.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +15,7 @@ require"includes-acoes/regras/regras.php";
   <meta name="author" content="Rype Creative [Chris Gipple]">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homely | Chat</title>
+  <title>Liigo | Chat</title>
    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <!-- CSS file links -->
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">

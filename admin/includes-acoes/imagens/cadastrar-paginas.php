@@ -106,6 +106,14 @@ switch ($pagina) {
         $idcat="21";
         $cat="Meu perfil";
         break;
+    case 22:
+        $idcat="22";
+        $cat="Login";
+        break;
+    case 23:
+        $idcat="23";
+        $cat="Senha";
+        break;
 }
 
 }else{
