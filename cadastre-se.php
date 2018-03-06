@@ -1,8 +1,11 @@
 <?php
+session_start();
 //conn
 require"conn/exe.php";
 //regras
 require"includes-acoes/regras/regras.php";
+//cadastre-se
+require"includes-acoes/cadastro/cadastro.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,12 +27,16 @@ require"includes-acoes/regras/regras.php";
   <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/responsive.css" rel="stylesheet" type="text/css" media="all" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
-
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+  <style type="text/css">
+    .subheader {
+  background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+  </style>
 </head>
 <body>
 
@@ -49,55 +56,84 @@ require"includes-acoes/regras/regras.php";
     <div class="row">
       <div class="col-lg-4 col-lg-offset-4"> 
         <p>Você já possui uma conta?<strong><a href="login"> Faça o Login aqui.</a></strong></p> 
-        <form method="post" class="login-form">
+        <form method="post" class="login-form" id="cadastro" name="cadastro" action="#cad">
           <div class="form-block">
             <label>Nome*</label>
-            <input class="border" type="text" name="name" />
+            <input class="border" type="text" name="nome" required value="<?php echo $_SESSION['nome'];?>" />
           </div>
           <div class="form-block">
             <label>Email*</label>
-            <input class="border" type="text" name="email" />
+            <input class="border" type="email" name="email" required value="<?php echo $_SESSION['email'];?>"/>
           </div>
           <div>
            <label>Telefone</label>
-            <input class="border" type="text" name="telefone" />
+            <input class="border" type="tel" name="telefone" value="<?php echo $_SESSION['telefone'];?>"/>
           </div>
           <div>
            <label>Celular*</label>
-            <input class="border" type="text" name="celular" />
+            <input class="border" type="tel" name="celular" required value="<?php echo $_SESSION['celular'];?>"/>
           </div>
           <div>
-          <label>CPF/ CNPJ</label>
-            <input class="border" type="text" name="CPF/ CNPJ" />
+          <label>CPF/ CNPJ*</label>
+            <input class="border" type="text" name="cpf_cnpj" required value="<?php echo $_SESSION['cpf_cnpj'];?>"/>
           </div>
         <div class="form-block border">
                   <label>Estado*</label>
-                  <select name="property-type" class="border" style="display: none;">
-                    <option></option>
-                    <option value="family-house">São Paulo</option>
-                    <option value="apartment">Rio de Janeiro</option>
-                    <option value="condo">Paraná</option>                    
+                  <select class="border" style="display: none;" name="estado" id="estado">   
+                  <option value="">Selecione o Estado</option>
+   <option value="AC">Acre</option>
+    <option value="AL">Alagoas</option>
+    <option value="AP">Amapá</option>
+    <option value="AM">Amazonas</option>
+    <option value="BA">Bahia</option>
+    <option value="CE">Ceará</option>
+    <option value="DF">Distrito Federal</option>
+    <option value="ES">Espírito Santo</option>
+    <option value="GO">Goiás</option>
+    <option value="MA">Maranhão</option>
+    <option value="MT">Mato Grosso</option>
+    <option value="MS">Mato Grosso do Sul</option>
+    <option value="MG">Minas Gerais</option>
+    <option value="PA">Pará</option>
+    <option value="PB">Paraíba</option>
+    <option value="PR">Paraná</option>
+    <option value="PE">Pernambuco</option>
+    <option value="PI">Piauí</option>
+    <option value="RJ">Rio de Janeiro</option>
+    <option value="RN">Rio Grande do Norte</option>
+    <option value="RS">Rio Grande do Sul</option>
+    <option value="RO">Rondônia</option>
+    <option value="RR">Rorâima</option>
+    <option value="SC">Santa Catarina</option>
+    <option value="SP">São Paulo</option>
+    <option value="SE">Sergipe</option>
+    <option value="TO">Tocantins</option>            
                   </select>
             </div>
             <div class="form-block border">
                   <label>Cidade*</label>
-                  <select name="property-type" class="border" style="display: none;">
-                    <option></option>
-                    <option value="family-house">Campinas</option>
-                    <option value="apartment">Curitiba</option>
-                    <option value="condo">Recife</option>                    
+                  <input class="border" type="text" name="cidade" required value="<?php echo $_SESSION['cidade'];?>"/>               
                   </select>
             </div>
+            
           <div class="form-block">
-            <label>Senha</label>
-            <input class="border" type="password" name="pass" />
+            <label>Senha*</label>
+            <input class="border" type="password" name="pass" required/>
           </div>
           <div class="form-block">
-            <label>Confirme a senha</label>
-            <input class="border" type="password" name="pass-confirm" />
+            <a id="cad"></a>
+            <label>Confirme a senha*</label>
+            <input class="border" type="password" name="pass_confirm" required/>
           </div>
           <div class="form-block">
+            
+            <?php if($enviocad=="s"){
+                            echo $msgscad;
+                          }
+                            ?>
+
             <button class="button button-icon" type="submit"><i class="fa fa-angle-right"></i>Registrar</button>
+            <input name="enviocad" type="hidden" id="enviocad" value="s" />
           </div>
           <div class="divider"></div>
           <p class="note">Clicando em registrarvocê aceita nossos <br><a href="#">Termos and condições</a></p>    
