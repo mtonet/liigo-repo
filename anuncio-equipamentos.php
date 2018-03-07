@@ -5,6 +5,8 @@ require"conn/exe.php";
 require"includes-acoes/regras/regras.php";
 //session
 require"includes-acoes/session/session.php";
+//anuncio
+require"includes-acoes/anuncio/equipamentos.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

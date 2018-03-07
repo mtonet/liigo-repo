@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Mar-2018 às 20:26
+-- Generation Time: 07-Mar-2018 às 16:39
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -46,6 +46,27 @@ INSERT INTO `tbl_admin` (`id`, `login`, `s_v`, `senha`, `nome`, `nivel`, `status
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tbl_cabeca_impressao`
+--
+
+CREATE TABLE `tbl_cabeca_impressao` (
+  `id` int(30) NOT NULL,
+  `id_cod` varchar(32) NOT NULL,
+  `nome` varchar(250) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbl_cabeca_impressao`
+--
+
+INSERT INTO `tbl_cabeca_impressao` (`id`, `id_cod`, `nome`, `status`) VALUES
+(1, '7e244d026b7821dff4f3a2330b76423d', 'Opção de teste Cabeça de impressão 1', 1),
+(2, '4353989d1c9dcfdad2975e3776cc7ef3', 'Opção de teste Cabeça de impressão 2', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbl_categoria`
 --
 
@@ -66,6 +87,27 @@ INSERT INTO `tbl_categoria` (`id`, `id_cod`, `nome`, `status`) VALUES
 (31, '318b9cddcea5ebcb2c1171fe1cf277db', 'ServiÃ§os', 1),
 (32, '21b2e6efe1400635f92d0320eed420a5', 'Suprimentos', 1),
 (33, '70f7e11763a006e605ec81c4a4858b10', 'Transportadoras', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbl_condicao_equipamento`
+--
+
+CREATE TABLE `tbl_condicao_equipamento` (
+  `id` int(30) NOT NULL,
+  `id_cod` varchar(32) NOT NULL,
+  `nome` varchar(250) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbl_condicao_equipamento`
+--
+
+INSERT INTO `tbl_condicao_equipamento` (`id`, `id_cod`, `nome`, `status`) VALUES
+(1, '891f1f215634f0abadfe3f39c4504b77', 'Opção de teste Condição equipamento 1', 1),
+(2, 'f379851a90283d74318c072f46bd56c4', 'Opção de teste Condição equipamento 2', 1);
 
 -- --------------------------------------------------------
 
@@ -129,6 +171,27 @@ INSERT INTO `tbl_img_internas` (`id`, `id_cod`, `avatar`, `image`, `id_pagina`, 
 (1, '8e037bcf66a0237237448c2fd070866a', 'thumb-931539645.jpg', '931539645.jpg', '21b2e6efe1400635f92d0320eed420a5', 'Suprimentos', 1),
 (2, '388df0fc61a5db4d3f3d3f5335f92607', 'thumb-517593191.jpg', '517593191.jpg', '318b9cddcea5ebcb2c1171fe1cf277db', 'ServiÃ§os', 1),
 (8, 'bac36c130d1c4932e0085cf5edd94567', 'thumb-29198918.jpg', '29198918.jpg', '1', 'Cadastre-se', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbl_marca`
+--
+
+CREATE TABLE `tbl_marca` (
+  `id` int(30) NOT NULL,
+  `id_cod` varchar(32) NOT NULL,
+  `nome` varchar(250) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbl_marca`
+--
+
+INSERT INTO `tbl_marca` (`id`, `id_cod`, `nome`, `status`) VALUES
+(1, '5s5as4a54sa54s', 'Opção de teste Marca 1', 1),
+(2, '2b5178fa058b9a1dc704473358ae8621', 'Opção de teste Marca 2', 1);
 
 -- --------------------------------------------------------
 
@@ -201,6 +264,69 @@ INSERT INTO `tbl_subcategoria` (`id`, `id_cod`, `nome`, `id_categoria`, `categor
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tbl_tecnologia`
+--
+
+CREATE TABLE `tbl_tecnologia` (
+  `id` int(30) NOT NULL,
+  `id_cod` varchar(32) NOT NULL,
+  `nome` varchar(250) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbl_tecnologia`
+--
+
+INSERT INTO `tbl_tecnologia` (`id`, `id_cod`, `nome`, `status`) VALUES
+(1, '2f3f17241f591954d666f2942383adcf', 'Opção de teste Tecnologia 1', 1),
+(2, 'd86fc0a6010ec250a2b3dd1daca32b81', 'Opção de teste Tecnologia 2', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbl_tipo_suprimento`
+--
+
+CREATE TABLE `tbl_tipo_suprimento` (
+  `id` int(30) NOT NULL,
+  `id_cod` varchar(32) NOT NULL,
+  `nome` varchar(250) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbl_tipo_suprimento`
+--
+
+INSERT INTO `tbl_tipo_suprimento` (`id`, `id_cod`, `nome`, `status`) VALUES
+(1, '38de8f8344e2026805cb1af7eac8f584', 'Opção de teste Tipo de Suprimento 1', 1),
+(2, '60e5f0d53ad4dcf82e09063e5010fcee', 'Opção de teste Tipo de Suprimento 2', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbl_tipo_transporte`
+--
+
+CREATE TABLE `tbl_tipo_transporte` (
+  `id` int(30) NOT NULL,
+  `id_cod` varchar(32) NOT NULL,
+  `nome` varchar(250) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbl_tipo_transporte`
+--
+
+INSERT INTO `tbl_tipo_transporte` (`id`, `id_cod`, `nome`, `status`) VALUES
+(1, '286f9d3bc0f00b56ec5ab6a6ebc978aa', 'Opção de teste Tipo de Transporte 1', 1),
+(2, 'e0ea4d2418767f5db61e2a4c70f49569', 'Opção de teste Tipo de Transporte 2', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbl_usuarios`
 --
 
@@ -243,9 +369,21 @@ ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_cabeca_impressao`
+--
+ALTER TABLE `tbl_cabeca_impressao`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_categoria`
 --
 ALTER TABLE `tbl_categoria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_condicao_equipamento`
+--
+ALTER TABLE `tbl_condicao_equipamento`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -267,6 +405,12 @@ ALTER TABLE `tbl_img_internas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_marca`
+--
+ALTER TABLE `tbl_marca`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_newsletter`
 --
 ALTER TABLE `tbl_newsletter`
@@ -285,6 +429,24 @@ ALTER TABLE `tbl_subcategoria`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_tecnologia`
+--
+ALTER TABLE `tbl_tecnologia`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_tipo_suprimento`
+--
+ALTER TABLE `tbl_tipo_suprimento`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_tipo_transporte`
+--
+ALTER TABLE `tbl_tipo_transporte`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
@@ -300,10 +462,20 @@ ALTER TABLE `tbl_usuarios`
 ALTER TABLE `tbl_admin`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `tbl_cabeca_impressao`
+--
+ALTER TABLE `tbl_cabeca_impressao`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `tbl_categoria`
 --
 ALTER TABLE `tbl_categoria`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+--
+-- AUTO_INCREMENT for table `tbl_condicao_equipamento`
+--
+ALTER TABLE `tbl_condicao_equipamento`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_depoimentos`
 --
@@ -320,6 +492,11 @@ ALTER TABLE `tbl_favoritos`
 ALTER TABLE `tbl_img_internas`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
+-- AUTO_INCREMENT for table `tbl_marca`
+--
+ALTER TABLE `tbl_marca`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `tbl_newsletter`
 --
 ALTER TABLE `tbl_newsletter`
@@ -334,6 +511,21 @@ ALTER TABLE `tbl_slide_home`
 --
 ALTER TABLE `tbl_subcategoria`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_tecnologia`
+--
+ALTER TABLE `tbl_tecnologia`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_tipo_suprimento`
+--
+ALTER TABLE `tbl_tipo_suprimento`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_tipo_transporte`
+--
+ALTER TABLE `tbl_tipo_transporte`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_usuarios`
 --
