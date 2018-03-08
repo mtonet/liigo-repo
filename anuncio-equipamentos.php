@@ -34,6 +34,12 @@ require"includes-acoes/anuncio/equipamentos.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+
+  <style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
 </head>
 <body>
 
@@ -53,7 +59,7 @@ require"includes-acoes/anuncio/equipamentos.php";
     <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
 
-    <form class="multi-page-form" method="post">
+    <form class="multi-page-form" method="post" name="anuncioequip" id="anuncioequip" action="anuncio-equipamentos-enviado" enctype="multipart/form-data">
 
       <div class="center">
         <div class="form-nav">
@@ -73,31 +79,30 @@ require"includes-acoes/anuncio/equipamentos.php";
             <td><span class="property-submit-num">1</span></td>
             <td>
               <h4>Informações do anúncio</h4>
-              <p>Lorem molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+              <p>Preencha as informações para criar seu anúncio.</p>
             </td>
           </tr>
         </table>
 
             <div class="form-block">
               <label>Título*</label>
-              <input class="border required" type="text" name="property-title" />
+              <input class="border required" type="text" name="titulo" required />
             </div>
 
             <div class="row">
               <div class="col-lg-6 col-md-6">
                 <div class="form-block">
                   <label>Preço*</label>
-                  <input class="border required" type="number" name="price" />
+                  <input class="border required" type="number" name="preco" />
                 </div>
               </div>
               <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
-                  <label>Marca</label>
-                    <select name="property-type" class="border">
-                    <option></option>
-                    <option value="family-house">Family House</option>
-                    <option value="apartment">Apartment</option>
-                    <option value="condo">Condo</option>
+                  <label>Marca*</label>
+                    <select name="marca" class="border">
+                    <?php while($linemarc=$querymarc->fetch_array()){?>
+                    <option value="<?php echo $linemarc['id_cod']?>"><?php echo $linemarc['nome']?></option>
+                    <?php }?>
                   </select>
                 </div>
               </div>
@@ -108,22 +113,20 @@ require"includes-acoes/anuncio/equipamentos.php";
               <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
                   <label>Cabeça de impressão</label>
-                    <select name="property-type" class="border">
-                    <option></option>
-                    <option value="family-house">Family House</option>
-                    <option value="apartment">Apartment</option>
-                    <option value="condo">Condo</option>
+                    <select name="cabeca" class="border">
+                    <?php while($linecab=$querycab->fetch_array()){?>
+                    <option value="<?php echo $linecab['id_cod']?>"><?php echo $linecab['nome']?></option>
+                    <?php }?>
                   </select>
                 </div>
               </div>
               <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
                   <label>Tecnologia</label>
-                    <select name="property-type" class="border">
-                    <option></option>
-                    <option value="family-house">Family House</option>
-                    <option value="apartment">Apartment</option>
-                    <option value="condo">Condo</option>
+                    <select name="tecnologia" class="border">
+                    <?php while($linetec=$querytec->fetch_array()){?>
+                    <option value="<?php echo $linetec['id_cod']?>"><?php echo $linetec['nome']?></option>
+                    <?php }?>
                   </select>
                 </div>
               </div>
@@ -131,11 +134,10 @@ require"includes-acoes/anuncio/equipamentos.php";
               <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
                   <label>Condição do equipamento</label>
-                    <select name="property-type" class="border">
-                    <option></option>
-                    <option value="family-house">Family House</option>
-                    <option value="apartment">Apartment</option>
-                    <option value="condo">Condo</option>
+                    <select name="condicao" class="border">
+                    <?php while($linecond=$querycond->fetch_array()){?>
+                    <option value="<?php echo $linecond['id_cod']?>"><?php echo $linecond['nome']?></option>
+                    <?php }?>
                   </select>
                 </div>
               </div>
@@ -146,7 +148,7 @@ require"includes-acoes/anuncio/equipamentos.php";
 
             <div class="form-block">
               <label>Descrição</label>
-              <textarea class="border" name="description"></textarea>
+              <textarea class="border" name="descricao"></textarea>
             </div>
 
             <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Próximo</span>
@@ -156,7 +158,7 @@ require"includes-acoes/anuncio/equipamentos.php";
 
       <div class="multi-page-form-content">
 
-        <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Enviar</span>
+        <span class="button button-icon small right form-next" onclick="javascript:anuncioequip.submit()"><i class="fa fa-angle-right"></i> Enviar</span>
         <span class="button button-icon small right form-prev"><i class="fa fa-angle-left"></i> Anterior</span>
 
         <table class="property-submit-title">
@@ -164,14 +166,14 @@ require"includes-acoes/anuncio/equipamentos.php";
             <td><span class="property-submit-num">2</span></td>
             <td>
               <h4>Imagens</h4>
-              <p>Lorem molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+              <p>Informe imagens para seu anúncio.</p>
             </td>
           </tr>
         </table>
 
         <div class="form-block">
           <label>Imagem principal</label>
-          <input type="file" name="featured-img" />
+          <input type="file" name="image" />
         </div>
         <br/>
 
@@ -182,22 +184,22 @@ require"includes-acoes/anuncio/equipamentos.php";
                     <tr>
                     <td>
                     <div class="media-uploader-additional-img">
-                    <input type="file" class="additional_img" name="additional_img1" value="" />
+                    <input type="file" class="additional_img" name="additional_img[]" value="" />
                     <span class="delete-additional-img right"><i class="fa fa-trash"></i> Deletar</span>
                     </div>
                     </td>
                     </tr>
                 </table>
             </div>
-            <span class="button small add-additional-img">Add imagem</span>
+            <span class="button small add-additional-img">Adicionar mais uma imagem</span>
         </div>
 
-        <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Enviar</span>
+        <span class="button button-icon small right form-next" onclick="javascript:anuncioequip.submit()"><i class="fa fa-angle-right"></i> Enviar</span>
         <span class="button button-icon small right form-prev"><i class="fa fa-angle-left"></i> Anterior</span>
         <div class="clear"></div>
       </div><!-- end property images -->
 
-
+<input name="enviocad" type="hidden" id="enviocad" value="s" />
     </form>
 
   </div><!-- end col -->

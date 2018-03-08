@@ -6,6 +6,10 @@ require"conn/exe.php";
 require"includes-acoes/regras/regras.php";
 //session
 require"includes-acoes/session/session.php";
+//imagem topo
+$listaimgt="SELECT image,id_pagina,status FROM tbl_img_internas WHERE id_pagina='2' AND status='1'";
+$queryimgt=$mysqli->query($listaimgt);
+$lineimgt=$queryimgt->fetch_array();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -33,6 +37,11 @@ require"includes-acoes/session/session.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+  <style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
 </head>
 <body>
 

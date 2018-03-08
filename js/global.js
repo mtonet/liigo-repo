@@ -207,7 +207,7 @@ jQuery(document).ready(function($) {
 		$('.multi-page-form').find('.error').remove();
 		$( ".multi-page-form .multi-page-form-content.active input.required" ).each(function( index ) {
 			if(!$(this).val()) {
-				$(this).parent().find('label').append('<span class="error"> This field is required</span>');
+				$(this).parent().find('label').append('<span class="error"> Campo obrigat&oacute;rio</span>');
 				errors.push(index);
 			}
 		});
@@ -256,7 +256,7 @@ jQuery(document).ready(function($) {
 	var files_count = $('.additional-img-container .additional-image').length + 1;
     $('.add-additional-img').on('click', function() {
         files_count++;
-        $('.additional-img-container').append('<table><tr><td><div class="media-uploader-additional-img"><input type="file" class="additional_img" name="additional_img'+ files_count +'" value="" /><span class="delete-additional-img appended right"><i class="fa fa-trash"></i> Delete</span></div></td></tr></table>');
+        $('.additional-img-container').append('<table><tr><td><div class="media-uploader-additional-img"><input type="file" class="additional_img" name="additional_img[]" value="" /><span class="delete-additional-img appended right"><i class="fa fa-trash"></i> Delete</span></div></td></tr></table>');
     });
 
     $('.additional-img-container').on("click", ".delete-additional-img", function() {
