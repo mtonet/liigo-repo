@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Mar-2018 às 16:39
+-- Generation Time: 07-Mar-2018 às 21:10
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -46,6 +46,64 @@ INSERT INTO `tbl_admin` (`id`, `login`, `s_v`, `senha`, `nome`, `nivel`, `status
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tbl_anuncio`
+--
+
+CREATE TABLE `tbl_anuncio` (
+  `id` int(30) NOT NULL,
+  `id_cod` varchar(32) NOT NULL,
+  `titulo` varchar(280) NOT NULL,
+  `preco` float NOT NULL,
+  `id_categoria` varchar(32) NOT NULL,
+  `categoria` varchar(280) NOT NULL,
+  `id_marca` varchar(32) NOT NULL,
+  `marca` varchar(280) NOT NULL,
+  `id_cabeca_impressao` varchar(32) NOT NULL,
+  `cabeca_impressao` varchar(280) NOT NULL,
+  `id_tecnologia` varchar(32) NOT NULL,
+  `tecnologia` varchar(280) NOT NULL,
+  `id_condicao` varchar(32) NOT NULL,
+  `condicao` varchar(280) NOT NULL,
+  `descricao` text NOT NULL,
+  `avatar` varchar(80) NOT NULL,
+  `image` varchar(80) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbl_anuncio`
+--
+
+INSERT INTO `tbl_anuncio` (`id`, `id_cod`, `titulo`, `preco`, `id_categoria`, `categoria`, `id_marca`, `marca`, `id_cabeca_impressao`, `cabeca_impressao`, `id_tecnologia`, `tecnologia`, `id_condicao`, `condicao`, `descricao`, `avatar`, `image`, `status`) VALUES
+(1, '477eaf1f41c975903e0cff02a6693808', 'Teste de anÃºncio', 1500, '4633a7bd213e1971059c2ce5b76c7e0e', 'Equipamentos', '62a8d6e346c28b05db8f9c92ffd9bec9', 'Opcao de teste Marca 1', '7e244d026b7821dff4f3a2330b76423d', 'Opcao de teste Cabeca de impressao 1', '2f3f17241f591954d666f2942383adcf', 'Opcao de teste Tecnologia 1', '891f1f215634f0abadfe3f39c4504b77', 'Opcao de teste Condicao equipamento 1', 'teste de descriÃ§Ã£o.', '', '', 0),
+(13, '165784552a161a8d2a6752623ad2114c', 'Teste de anÃºncio 2', 1500, '4633a7bd213e1971059c2ce5b76c7e0e', 'Equipamentos', '2b5178fa058b9a1dc704473358ae8621', 'Opcao de teste Marca 2', '7e244d026b7821dff4f3a2330b76423d', 'Opcao de teste Cabeca de impressao 1', 'd86fc0a6010ec250a2b3dd1daca32b81', 'Opcao de teste Tecnologia 2', '891f1f215634f0abadfe3f39c4504b77', 'Opcao de teste Condicao equipamento 1', 'Testeeee', 'thumb-339724691-teste-de-anuncio-2.jpg', '339724691-teste-de-anuncio-2.jpg', 0),
+(15, '419399bc42e54e0061dc0728737f0fc6', 'Teste de anÃºncio 3', 155000, '4633a7bd213e1971059c2ce5b76c7e0e', 'Equipamentos', '2b5178fa058b9a1dc704473358ae8621', 'Opcao de teste Marca 2', '7e244d026b7821dff4f3a2330b76423d', 'Opcao de teste Cabeca de impressao 1', '2f3f17241f591954d666f2942383adcf', 'Opcao de teste Tecnologia 1', 'f379851a90283d74318c072f46bd56c4', 'Opcao de teste Condicao equipamento 2', 'testeeeeee now', 'thumb-1111329622-teste-de-anuncio-3.jpg', '1111329622-teste-de-anuncio-3.jpg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbl_anuncio_galeria`
+--
+
+CREATE TABLE `tbl_anuncio_galeria` (
+  `id` int(30) NOT NULL,
+  `id_cod` varchar(32) NOT NULL,
+  `id_anuncio` varchar(32) NOT NULL,
+  `avatar` varchar(80) NOT NULL,
+  `image` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbl_anuncio_galeria`
+--
+
+INSERT INTO `tbl_anuncio_galeria` (`id`, `id_cod`, `id_anuncio`, `avatar`, `image`) VALUES
+(1, 'af6f073ae2528479a9da69bd85ca0f85', '419399bc42e54e0061dc0728737f0fc6', 'thumb-336333849-teste-de-anuncio-3.jpg', '336333849-teste-de-anuncio-3.jpg'),
+(2, 'b81a00de32e5a9639ce8dd0b2839a082', '419399bc42e54e0061dc0728737f0fc6', 'thumb-96036181-teste-de-anuncio-3-2.jpg', '96036181-teste-de-anuncio-3-2.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbl_cabeca_impressao`
 --
 
@@ -61,8 +119,8 @@ CREATE TABLE `tbl_cabeca_impressao` (
 --
 
 INSERT INTO `tbl_cabeca_impressao` (`id`, `id_cod`, `nome`, `status`) VALUES
-(1, '7e244d026b7821dff4f3a2330b76423d', 'Opção de teste Cabeça de impressão 1', 1),
-(2, '4353989d1c9dcfdad2975e3776cc7ef3', 'Opção de teste Cabeça de impressão 2', 1);
+(1, '7e244d026b7821dff4f3a2330b76423d', 'Opcao de teste Cabeca de impressao 1', 1),
+(2, '4353989d1c9dcfdad2975e3776cc7ef3', 'Opcao de teste Cabeca de impressao 2', 1);
 
 -- --------------------------------------------------------
 
@@ -106,8 +164,8 @@ CREATE TABLE `tbl_condicao_equipamento` (
 --
 
 INSERT INTO `tbl_condicao_equipamento` (`id`, `id_cod`, `nome`, `status`) VALUES
-(1, '891f1f215634f0abadfe3f39c4504b77', 'Opção de teste Condição equipamento 1', 1),
-(2, 'f379851a90283d74318c072f46bd56c4', 'Opção de teste Condição equipamento 2', 1);
+(1, '891f1f215634f0abadfe3f39c4504b77', 'Opcao de teste Condicao equipamento 1', 1),
+(2, 'f379851a90283d74318c072f46bd56c4', 'Opcao de teste Condicao equipamento 2', 1);
 
 -- --------------------------------------------------------
 
@@ -190,8 +248,8 @@ CREATE TABLE `tbl_marca` (
 --
 
 INSERT INTO `tbl_marca` (`id`, `id_cod`, `nome`, `status`) VALUES
-(1, '5s5as4a54sa54s', 'Opção de teste Marca 1', 1),
-(2, '2b5178fa058b9a1dc704473358ae8621', 'Opção de teste Marca 2', 1);
+(1, '62a8d6e346c28b05db8f9c92ffd9bec9', 'Opcao de teste Marca 1', 1),
+(2, '2b5178fa058b9a1dc704473358ae8621', 'Opcao de teste Marca 2', 1);
 
 -- --------------------------------------------------------
 
@@ -279,8 +337,8 @@ CREATE TABLE `tbl_tecnologia` (
 --
 
 INSERT INTO `tbl_tecnologia` (`id`, `id_cod`, `nome`, `status`) VALUES
-(1, '2f3f17241f591954d666f2942383adcf', 'Opção de teste Tecnologia 1', 1),
-(2, 'd86fc0a6010ec250a2b3dd1daca32b81', 'Opção de teste Tecnologia 2', 1);
+(1, '2f3f17241f591954d666f2942383adcf', 'Opcao de teste Tecnologia 1', 1),
+(2, 'd86fc0a6010ec250a2b3dd1daca32b81', 'Opcao de teste Tecnologia 2', 1);
 
 -- --------------------------------------------------------
 
@@ -300,8 +358,8 @@ CREATE TABLE `tbl_tipo_suprimento` (
 --
 
 INSERT INTO `tbl_tipo_suprimento` (`id`, `id_cod`, `nome`, `status`) VALUES
-(1, '38de8f8344e2026805cb1af7eac8f584', 'Opção de teste Tipo de Suprimento 1', 1),
-(2, '60e5f0d53ad4dcf82e09063e5010fcee', 'Opção de teste Tipo de Suprimento 2', 1);
+(1, '38de8f8344e2026805cb1af7eac8f584', 'Opcao de teste Tipo de Suprimento 1', 1),
+(2, '60e5f0d53ad4dcf82e09063e5010fcee', 'Opcao de teste Tipo de Suprimento 2', 1);
 
 -- --------------------------------------------------------
 
@@ -321,8 +379,8 @@ CREATE TABLE `tbl_tipo_transporte` (
 --
 
 INSERT INTO `tbl_tipo_transporte` (`id`, `id_cod`, `nome`, `status`) VALUES
-(1, '286f9d3bc0f00b56ec5ab6a6ebc978aa', 'Opção de teste Tipo de Transporte 1', 1),
-(2, 'e0ea4d2418767f5db61e2a4c70f49569', 'Opção de teste Tipo de Transporte 2', 1);
+(1, '286f9d3bc0f00b56ec5ab6a6ebc978aa', 'Opcao de teste Tipo de Transporte 1', 1),
+(2, 'e0ea4d2418767f5db61e2a4c70f49569', 'Opcao de teste Tipo de Transporte 2', 1);
 
 -- --------------------------------------------------------
 
@@ -366,6 +424,18 @@ INSERT INTO `tbl_usuarios` (`id`, `id_cod`, `avatar`, `nome`, `descricao`, `face
 -- Indexes for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_anuncio`
+--
+ALTER TABLE `tbl_anuncio`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_anuncio_galeria`
+--
+ALTER TABLE `tbl_anuncio_galeria`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -461,6 +531,16 @@ ALTER TABLE `tbl_usuarios`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_anuncio`
+--
+ALTER TABLE `tbl_anuncio`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `tbl_anuncio_galeria`
+--
+ALTER TABLE `tbl_anuncio_galeria`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_cabeca_impressao`
 --
