@@ -5,6 +5,8 @@ require"conn/exe.php";
 require"includes-acoes/regras/regras.php";
 //session
 require"includes-acoes/session/session.php";
+//anuncio
+require"includes-acoes/anuncio/assistencia.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,6 +34,11 @@ require"includes-acoes/session/session.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+    <style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
 </head>
 <body>
 
@@ -51,7 +58,8 @@ require"includes-acoes/session/session.php";
     <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
 
-    <form class="multi-page-form" method="post">
+    
+    <form class="multi-page-form" method="post" name="anuncioassist" id="anuncioassist" action="anuncio-assistencia-enviado" enctype="multipart/form-data">
 
       <div class="center">
         <div class="form-nav">
@@ -71,7 +79,7 @@ require"includes-acoes/session/session.php";
             <td><span class="property-submit-num">1</span></td>
             <td>
               <h4>Informações do anúncio</h4>
-              <p>Lorem molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+              <p>Preencha as informações para criar seu anúncio.</p>
             </td>
           </tr>
         </table>
@@ -79,65 +87,28 @@ require"includes-acoes/session/session.php";
                 
             <div class="form-block">
               <label>Título*</label>
-              <input class="border required" type="text" name="property-title" />
+              <input class="border required" type="text" name="titulo" />
             </div>
 
               <div class="row">
                <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
-                  <label>Tecnologia*** - Campo de múltipla escolha.</label>
-                  <select name="property-type" class="border" style="display: none;">
-                    <option></option>
-                <option value="">Todos</option>
-                <option value="">Impressora Solvente / Ecosolvente</option>
-                <option value="Apartment">Impressora com recorte conjugado</option>
-                <option value="Beach House">Impressora UV</option>
-                <option value="Condo">Impressora Sublimática</option>
-                <option value="Family House">Impressora direta em tecido</option>
-                <option value="Villa">Impressoras 3D</option>
-                <option value="Villa">Plotter de recorte</option>
-                <option value="Villa">Prensa Térmica</option>
-                <option value="Villa">Router</option>
-                <option value="Villa">Corte a Laser</option>
-                <option value="Villa">Calandra</option>
-                <option value="Villa">Laminadora</option>
-                <option value="Villa">Nobreak</option>                   
+                  <label>Tecnologia***</label>
+                  <select name="tecnologia" class="border">
+                    <?php while($linetec=$querytec->fetch_array()){?>
+                    <option value="<?php echo $linetec['id_cod']?>"><?php echo $linetec['nome']?></option>
+                    <?php }?>
                   </select></div>
           </div>
                  
                  <div class="col-lg-6 col-md-6">                
                   
                      <div class="form-block border">
-                         <label>Marcas*** - Campo de múltipla escolha.</label>
-                  <select name="property-type" class="border" style="display: none;">
-                    <option></option>
-                 <option value="Villa">3D Systems</option>
-                <option value="Villa">AGFA</option>
-                <option value="Villa">Ampla</option>
-                <option value="Villa">Banner Jet</option>
-                <option value="Villa">Efi</option>
-                <option value="Villa">Epson</option>
-                <option value="Villa">Esko</option>
-                <option value="Villa">FlockColor</option>
-                <option value="Villa">Hp</option>
-                <option value="Villa">ISSuprimentos</option>
-                <option value="Villa">J- teck</option>
-                <option value="Villa">KG Print</option>
-                <option value="Villa">Maquinatec</option>
-                <option value="Villa">Mecolor</option>
-                <option value="Villa">Mimaki</option>
-                <option value="Villa">Mutoh</option>
-                <option value="Villa">Nova Dampex</option>
-                <option value="Villa">Nova Jet</option>
-                <option value="Villa">Oce</option>
-                <option value="Villa">Potencial Laser</option>
-                <option value="Villa">Prisma Jet</option>
-                <option value="Villa">Roland</option>
-                <option value="Villa">Stratasys</option>
-                <option value="Villa">Tex Jet</option>
-                <option value="Villa">Tucano equipamentos</option>
-                <option value="Villa">Cliever</option>
-                <option value="Villa">Yguaçu Maquinas</option>                  
+                         <label>Marcas*** </label>
+                   <select name="marca" class="border">
+                    <?php while($linemarc=$querymarc->fetch_array()){?>
+                    <option value="<?php echo $linemarc['id_cod']?>"><?php echo $linemarc['nome']?></option>
+                    <?php }?>
                   </select></div>
 
           </div>
@@ -153,7 +124,7 @@ require"includes-acoes/session/session.php";
               <label>Descrição*</label> 
               <p>Abaixo faça uma descrição detalhada de todos serviços de assistência que sua empresa realiza. <br>
 Não se esqueça de citar as regiões onde presta serviço.</p>           
-              <textarea class="border" name="description"></textarea>
+              <textarea class="border" name="descricao"></textarea>
             </div>
 
             <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Próximo</span>
@@ -163,7 +134,7 @@ Não se esqueça de citar as regiões onde presta serviço.</p>
 
       <div class="multi-page-form-content">
 
-        <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Enviar</span>
+        <span class="button button-icon small right form-next" onclick="javascript:anuncioassist.submit()"><i class="fa fa-angle-right"></i> Enviar</span>
         <span class="button button-icon small right form-prev"><i class="fa fa-angle-left"></i> Anterior</span>
 
         <table class="property-submit-title">
@@ -171,14 +142,14 @@ Não se esqueça de citar as regiões onde presta serviço.</p>
             <td><span class="property-submit-num">2</span></td>
             <td>
               <h4>Imagens</h4>
-              <p>Lorem molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+              <p>Informe imagens para seu anúncio.</p>
             </td>
           </tr>
         </table>
 
         <div class="form-block">
           <label>Imagem principal</label>
-          <input type="file" name="featured-img" />
+          <input type="file" name="image" />
         </div>
         <br/>
 
@@ -189,22 +160,22 @@ Não se esqueça de citar as regiões onde presta serviço.</p>
                     <tr>
                     <td>
                     <div class="media-uploader-additional-img">
-                    <input type="file" class="additional_img" name="additional_img1" value="" />
+                    <input type="file" class="additional_img" name="additional_img[]" value="" />
                     <span class="delete-additional-img right"><i class="fa fa-trash"></i> Deletar</span>
                     </div>
                     </td>
                     </tr>
                 </table>
             </div>
-            <span class="button small add-additional-img">Add imagem</span>
+            <span class="button small add-additional-img">Adicionar mais uma imagem</span>
         </div>
 
-        <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Enviar</span>
+        <span class="button button-icon small right form-next" onclick="javascript:anuncioassist.submit()"><i class="fa fa-angle-right"></i> Enviar</span>
         <span class="button button-icon small right form-prev"><i class="fa fa-angle-left"></i> Anterior</span>
         <div class="clear"></div>
       </div><!-- end property images -->
 
-
+<input name="enviocad" type="hidden" id="enviocad" value="s" />
     </form>
 
   </div><!-- end col -->
