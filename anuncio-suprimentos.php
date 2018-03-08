@@ -5,6 +5,8 @@ require"conn/exe.php";
 require"includes-acoes/regras/regras.php";
 //session
 require"includes-acoes/session/session.php";
+//anuncio
+require"includes-acoes/anuncio/suprimentos.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,6 +34,12 @@ require"includes-acoes/session/session.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+
+    <style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
 </head>
 <body>
 
@@ -51,7 +59,8 @@ require"includes-acoes/session/session.php";
     <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
 
-    <form class="multi-page-form" method="post">
+    
+    <form class="multi-page-form" method="post" name="anunciosupri" id="anunciosupri" action="anuncio-suprimentos-enviado" enctype="multipart/form-data">
 
       <div class="center">
         <div class="form-nav">
@@ -71,53 +80,38 @@ require"includes-acoes/session/session.php";
             <td><span class="property-submit-num">1</span></td>
             <td>
               <h4>Informações do anúncio</h4>
-              <p>Lorem molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+              <p>Preencha as informações para criar seu anúncio.</p>
             </td>
           </tr>
         </table>
 
              <div class="form-block border">
                   <label>Tecnologia*</label>
-                    <select name="property-type" class="border">
-                    <option></option>
-                    <option value="family-house">Family House</option>
-                    <option value="apartment">Apartment</option>
-                    <option value="condo">Condo</option>
+                    <select name="tecnologia" class="border" style="display: none;">
+                    <?php while($linetec=$querytec->fetch_array()){?>
+                    <option value="<?php echo $linetec['id_cod']?>"><?php echo $linetec['nome']?></option>
+                    <?php }?>
                   </select>
                 </div>
                 
                 <div class="form-block border">
-                  <label>Tipo de suprimentos (Campo de multipla escolha)*</label>
-                  <select name="property-type" class="border" style="display: none;">
-                    <option></option>
-                    <option value="family-house">Lona</option>
-                    <option value="apartment">Adesivos</option>
-                    <option value="condo">Tinta Solvente</option>
-                     <option value="condo">Tinta Ecosolvente</option>
-                      <option value="condo">Tinta UV</option>
-                       <option value="condo">Tinta Sublimática</option>
-                    <option value="condo">Tecidos</option>
-                    <option value="condo">Papel de parede</option>
-                    <option value="condo">Chapa Acrílica</option>
-                    <option value="condo">Chapa PVC</option>
-                    <option value="condo">Chapa de PS</option>
-                    <option value="condo">Chapa de ACM</option>
-                    <option value="condo">Peças para máquinas</option>
-                    <option value="condo">Etiquetas</option>
-                    <option value="condo">Back Light</option>
-                    <option value="condo">Acrílicos</option>                    
+                  <label>Tipo de suprimentos*</label>
+                  <select name="suprimento" class="border" style="display: none;">
+                    <?php while($linesupri=$querysupri->fetch_array()){?>
+                    <option value="<?php echo $linesupri['id_cod']?>"><?php echo $linesupri['nome']?></option>
+                    <?php }?>                    
                   </select></div>
                 
             <div class="form-block">
               <label>Título*</label>
-              <input class="border required" type="text" name="property-title" />
+              <input class="border required" type="text" name="titulo" />
             </div>
 
             <div class="row">
               <div class="col-lg-6 col-md-6">
                 <div class="form-block">
                   <label>Preço*</label>
-                  <input class="border required" type="number" name="price" />
+                  <input class="border required" type="number" name="preco" />
                 </div>
               </div>        
             </div>
@@ -126,7 +120,7 @@ require"includes-acoes/session/session.php";
               <label>Descrição*</label>
               <p>Abaixo faça uma descrição detalhada de todos os suprimentos que sua empresa fornece. <br>
 Marca, Material, Tecnologia e Medidas são importantes.</p>
-              <textarea class="border" name="description"></textarea>
+              <textarea class="border" name="descricao"></textarea>
             </div>
 
             <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Próximo</span>
@@ -136,7 +130,7 @@ Marca, Material, Tecnologia e Medidas são importantes.</p>
 
       <div class="multi-page-form-content">
 
-        <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Enviar</span>
+        <span class="button button-icon small right form-next" onclick="javascript:anunciosupri.submit()"><i class="fa fa-angle-right"></i> Enviar</span>
         <span class="button button-icon small right form-prev"><i class="fa fa-angle-left"></i> Anterior</span>
 
         <table class="property-submit-title">
@@ -144,14 +138,14 @@ Marca, Material, Tecnologia e Medidas são importantes.</p>
             <td><span class="property-submit-num">2</span></td>
             <td>
               <h4>Imagens</h4>
-              <p>Lorem molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+              <p>Informe imagens para seu anúncio.</p>
             </td>
           </tr>
         </table>
 
         <div class="form-block">
           <label>Imagem principal</label>
-          <input type="file" name="featured-img" />
+          <input type="file" name="image" />
         </div>
         <br/>
 
@@ -162,22 +156,22 @@ Marca, Material, Tecnologia e Medidas são importantes.</p>
                     <tr>
                     <td>
                     <div class="media-uploader-additional-img">
-                    <input type="file" class="additional_img" name="additional_img1" value="" />
+                    <input type="file" class="additional_img" name="additional_img[]" value="" />
                     <span class="delete-additional-img right"><i class="fa fa-trash"></i> Deletar</span>
                     </div>
                     </td>
                     </tr>
                 </table>
             </div>
-            <span class="button small add-additional-img">Add imagem</span>
+            <span class="button small add-additional-img">Adicionar mais uma imagem</span>
         </div>
 
-        <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Enviar</span>
+        <span class="button button-icon small right form-next" onclick="javascript:anunciosupri.submit()"><i class="fa fa-angle-right"></i> Enviar</span>
         <span class="button button-icon small right form-prev"><i class="fa fa-angle-left"></i> Anterior</span>
         <div class="clear"></div>
       </div><!-- end property images -->
 
-
+<input name="enviocad" type="hidden" id="enviocad" value="s" />
     </form>
 
   </div><!-- end col -->
