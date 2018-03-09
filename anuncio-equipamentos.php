@@ -86,7 +86,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
             <div class="form-block">
               <label>Título*</label>
-              <input class="border required" type="text" name="titulo" required />
+              <input class="border required" type="text" name="titulo" />
             </div>
 
             <div class="row">
@@ -99,7 +99,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
               <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
                   <label>Marca*</label>
-                    <select name="marca" class="border">
+                    <select name="marca" class="border required">
+                      <option value="">Selecione...</option>
                     <?php while($linemarc=$querymarc->fetch_array()){?>
                     <option value="<?php echo $linemarc['id_cod']?>"><?php echo $linemarc['nome']?></option>
                     <?php }?>
@@ -112,8 +113,9 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
                         <div class="row">
               <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
-                  <label>Cabeça de impressão</label>
-                    <select name="cabeca" class="border">
+                  <label>Cabeça de impressão*</label>
+                    <select name="cabeca" class="border required">
+                      <option value="">Selecione...</option>
                     <?php while($linecab=$querycab->fetch_array()){?>
                     <option value="<?php echo $linecab['id_cod']?>"><?php echo $linecab['nome']?></option>
                     <?php }?>
@@ -122,8 +124,10 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
               </div>
               <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
-                  <label>Tecnologia</label>
-                    <select name="tecnologia" class="border">
+                  <label>Tecnologia*</label>
+                  
+                    <select name="tecnologia" class="border required">
+                      <option value="">Selecione...</option>
                     <?php while($linetec=$querytec->fetch_array()){?>
                     <option value="<?php echo $linetec['id_cod']?>"><?php echo $linetec['nome']?></option>
                     <?php }?>
@@ -133,8 +137,10 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
               
               <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
-                  <label>Condição do equipamento</label>
-                    <select name="condicao" class="border">
+                  <label>Condição do equipamento*</label>
+                  
+                    <select name="condicao" class="border required">
+                      <option value="">Selecione...</option>
                     <?php while($linecond=$querycond->fetch_array()){?>
                     <option value="<?php echo $linecond['id_cod']?>"><?php echo $linecond['nome']?></option>
                     <?php }?>
@@ -147,8 +153,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
 
             <div class="form-block">
-              <label>Descrição</label>
-              <textarea class="border" name="descricao"></textarea>
+              <label>Descrição*</label>
+              <textarea class="border required" name="descricao"></textarea>
             </div>
 
             <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Próximo</span>

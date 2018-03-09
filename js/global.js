@@ -211,6 +211,18 @@ jQuery(document).ready(function($) {
 				errors.push(index);
 			}
 		});
+		$( ".multi-page-form .multi-page-form-content.active select.required" ).each(function( index ) {
+			if(!$(this).val()) {
+				$(this).parent().find('label').append('<span class="error"> Campo obrigat&oacute;rio</span>');
+				errors.push(index);
+			}
+		});
+		$( ".multi-page-form .multi-page-form-content.active textarea.required" ).each(function( index ) {
+			if(!$(this).val()) {
+				$(this).parent().find('label').append('<span class="error"> Campo obrigat&oacute;rio</span>');
+				errors.push(index);
+			}
+		});
 
 		//if no errors
 		if (errors.length === 0) {

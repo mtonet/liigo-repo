@@ -87,7 +87,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
              <div class="form-block border">
                   <label>Tipo de transporte*</label>
-                    <select name="transporte" class="border" style="display: none;">
+                    <select name="transporte" class="border required" style="display: none;">
+                      <option value="">Selecione...</option>
                     <?php while($linetrans=$querytrans->fetch_array()){?>
                     <option value="<?php echo $linetrans['id_cod']?>"><?php echo $linetrans['nome']?></option>
                     <?php }?>
@@ -102,7 +103,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
            <div class="form-block">
               <label>Descrição*</label>            
-              <textarea class="border" name="descricao"></textarea>
+              <textarea class="border required" name="descricao"></textarea>
             </div>
 
             <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Próximo</span>

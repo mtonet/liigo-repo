@@ -87,7 +87,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
              <div class="form-block border">
                   <label>Tecnologia*</label>
-                    <select name="tecnologia" class="border" style="display: none;">
+                    <select name="tecnologia" class="border required" style="display: none;">
+                      <option value="">Selecione...</option>
                     <?php while($linetec=$querytec->fetch_array()){?>
                     <option value="<?php echo $linetec['id_cod']?>"><?php echo $linetec['nome']?></option>
                     <?php }?>
@@ -96,7 +97,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
                 
                 <div class="form-block border">
                   <label>Tipo de suprimentos*</label>
-                  <select name="suprimento" class="border" style="display: none;">
+                  <select name="suprimento" class="border required" style="display: none;">
+                    <option value="">Selecione...</option>
                     <?php while($linesupri=$querysupri->fetch_array()){?>
                     <option value="<?php echo $linesupri['id_cod']?>"><?php echo $linesupri['nome']?></option>
                     <?php }?>                    
@@ -120,7 +122,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
               <label>Descrição*</label>
               <p>Abaixo faça uma descrição detalhada de todos os suprimentos que sua empresa fornece. <br>
 Marca, Material, Tecnologia e Medidas são importantes.</p>
-              <textarea class="border" name="descricao"></textarea>
+              <textarea class="border required" name="descricao"></textarea>
             </div>
 
             <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Próximo</span>

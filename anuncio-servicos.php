@@ -88,7 +88,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
              <div class="form-block border">
                   <label>Tipo de serviço*</label>
-                    <select name="servico" class="border" style="display: none;">
+                    <select name="servico" class="border required" style="display: none;">
+                      <option value="">Selecione...</option>
                     <?php while($lineserv=$queryserv->fetch_array()){?>
                     <option value="<?php echo $lineserv['id_cod']?>"><?php echo $lineserv['nome']?></option>
                     <?php }?>
@@ -111,7 +112,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
            <div class="form-block">
               <label>Descrição*</label>
-              <textarea class="border" name="descricao"></textarea>
+              <textarea class="border required" name="descricao"></textarea>
             </div>
 
             <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Próximo</span>
