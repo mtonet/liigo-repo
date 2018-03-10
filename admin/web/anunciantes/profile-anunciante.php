@@ -154,44 +154,56 @@ require"../../includes-acoes/anunciantes/dados.php";
                             <table class="data table table-striped no-margin">
                               <thead>
                                 <tr>
-                                  <th>#</th>
+
                                   <th>Título</th>
-                                  <th>Status</th>  
-                                  <th></th>                                
-                                  <th>View</th>
+                                  <th>Status</th>                           
+                                  <th>Ações</th>
                                 </tr>
                               </thead>
                               <tbody>
+
+                                <?php while($lineanu=$queryanu->fetch_array()){?>
                                 <tr>
-                                  <td>1</td>
-                                  <td>Plotter Mimaki Cjv 150 - 107 - Bs Impressão E Corte</td>
-                                  <td><span class="label label-success">ativo</span></td>
-                                  <td></td>
+                                  <td><?php echo $lineanu['titulo']?></td>
+                                  <td>
+                                    <?php if($lineanu['status']=="1"){?>
+                                    <span class="label label-success">ativo</span>
+                                    <?php }elseif($lineanu['status']=="0"){?>
+                                    <span class="label label-danger">Inativo</span>
+                                    <?php }?>
+                                  </td>
                                   <td class="vertical-align-mid">                                  
-                            <a href="anuncio-detalhe.php" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>                            
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                  <a href="../anuncios-pendentes/anuncio-detalhe.php?area=<?php echo $lineanu['id_cod']?>" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>                            
+                                  <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".deletar2<?php echo $lineanu['id_cod']?>"><i class="fa fa-trash-o"></i> Delete </a>
+
+
+                                  <div class="modal fade deletar2<?php echo $lineanu['id_cod']?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Deletar registro</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Deseja realmente excluir o anúncio <b><?php echo $lineanu['titulo']?></b> do usuário <b><?php echo $line['nome']?></b>?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <a href="?area=<?php echo $area?>&area2=<?php echo $lineanu['id_cod']?>&action=delete2" class="btn btn-danger">Excluir</a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+
                                     </td>                        
                                 </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>Impressora Mimaki Bs160</td>
-                                  <td><span class="label label-danger">inativo</span></td>
-                                  <td class="hidden-phone"></td>
-                                  <td class="vertical-align-mid">
-                                   <a href="anuncio-detalhe.php" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>                            
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>3</td>
-                                  <td>Impressora Mimaki Jv5 P/ Impressão Base D'água - Completa</td>
-                                  <td><span class="label label-success">ativo</span></td>
-                                  <td class="hidden-phone"></td>
-                                  <td class="vertical-align-mid">
-                                    <a href="anuncio-detalhe.php" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>                            
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
-                                  </td>
-                                </tr>
+                                <?php }?>
+
                               </tbody>
                             </table>
                     </div>

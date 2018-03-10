@@ -13,6 +13,7 @@ require"includes-acoes/usuario/perfil.php";
 <html lang="pt-br">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="UTF-8">
   <meta name="description" content="Homely - Responsive Real Estate Template">
   <meta name="author" content="Rype Creative [Chris Gipple]">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

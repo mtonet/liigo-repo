@@ -3,11 +3,14 @@
 require"conn/exe.php";
 //regras
 require"includes-acoes/regras/regras.php";
+//busca
+require"includes-acoes/busca/busca.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="UTF-8">
   <meta name="description" content="Homely - Responsive Real Estate Template">
   <meta name="author" content="Rype Creative [Chris Gipple]">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,6 +33,13 @@ require"includes-acoes/regras/regras.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+
+<style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
+
 </head>
 <body>
 
@@ -50,206 +60,98 @@ require"includes-acoes/regras/regras.php";
 		<div class="col-lg-8 col-md-8">
 		
 			<div class="property-listing-header">
-				<span class="property-count left">8 properties found</span>
-				<form action="#" method="get" class="right">
-					<select name="sort_by" onchange="this.form.submit();">
-						<option value="date_desc">New to Old</option>
-						<option value="date_asc">Old to New</option>
-						<option value="price_desc">Price (High to Low)</option>
-						<option value="price_asc">Price (Low to High)</option>
+				<span class="property-count left"><?php echo $numCont?> anúncio(s) encontrado(s)</span>
+				<?php if($numCont!=""){?><form class="right">
+					<select name="acao" onchange="MM_jumpMenu('parent',this,0)">
+						<option value="">Selecione...</option>
+						<option value="?buscaprinc=<?php echo $buscaprinc?>&acao=date_desc" <?php if($acao=="date_desc"){?>selected<?php }?>>Novo para o mais antigo</option>
+						<option value="?buscaprinc=<?php echo $buscaprinc?>&acao=date_asc" <?php if($acao=="date_asc"){?>selected<?php }?>>Antigo para o mais novo</option>
+						<option value="?buscaprinc=<?php echo $buscaprinc?>&acao=price_desc" <?php if($acao=="price_desc"){?>selected<?php }?>>Preço maior para o menor</option>
+						<option value="?buscaprinc=<?php echo $buscaprinc?>&acao=price_asc" <?php if($acao=="price_asc"){?>selected<?php }?>>Preço menor para o maior</option>
 					</select>
-				</form>
-				<div class="property-layout-toggle right">
+				</form><?php }?>
+
+				<!--<div class="property-layout-toggle right">
 					<a href="property-listing-grid-sidebar.html" class="property-layout-toggle-item"><i class="fa fa-th-large"></i></a>
 					<a href="property-listing-row-sidebar.html" class="property-layout-toggle-item active"><i class="fa fa-bars"></i></a>
-				</div>
-				<div class="clear"></div>
+				</div>-->
+
+			<div class="clear"></div>
 			</div><!-- end property listing header -->
 			
+			<?php
+			if($numCont!=""){
+            while($ddadosped=$querycup->fetch_array()){
+            ?>
 			<div class="property property-row property-row-sidebar shadow-hover">
-		      <a href="#" class="property-img">
+		      <a href="anuncio-detalhe?area=<?php echo $ddadosped['id_cod']?>" class="property-img">
 		        <div class="img-fade"></div>
-		        <div class="property-tag button status">For Sale</div>
-		        <div class="property-price">$150,000</div>
+		        <?php if($ddadosped['preco']!="0"){?><div class="property-price">R$ <?php echo number_format($ddadosped['preco'], 2, ',','.');?></div><?php }?>
 		        <div class="property-color-bar"></div>
-		        <img src="images/1837x1206.png" alt="" />
+		        <?php if($ddadosped['image']!=""){?>
+		        <img src="uploads/anuncios/<?php echo $ddadosped['image']?>" alt="anuncio" />
+		        <?php }else{?>
+		        <img src="uploads/anuncios/no.jpg" alt="anuncio" />
+		        <?php }?>
 		      </a>
 		      <div class="property-content">
 		        <div class="property-title">
-		          <h4><a href="#">Modern Family Home</a></h4>
-		          <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
+		          <h4><a href="anuncio-detalhe?area=<?php echo $ddadosped['id_cod']?>"><?php echo $ddadosped['titulo']?></a></h4>
+		          <p class="property-address"><i class="fa fa-map-marker icon"></i><?php echo $ddadosped['estado']?>, <?php echo $ddadosped['cidade']?></p>
 		          <div class="clear"></div>
-		          <p class="property-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
+		          <p class="property-text"><?php echo mb_strimwidth($ddadosped['descricao'], 0, 100, "...")?></p>
 		        </div>
-		        <table class="property-details">
-		          <tr>
-		            <td><i class="fa fa-bed"></i> 3 Beds</td>
-		            <td><i class="fa fa-tint"></i> 2 Baths</td>
-		            <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-		          </tr>
-		        </table>
+		        
 		      </div>
 		      <div class="property-footer">
-		        <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
+		        <span class="left"><i class="fa fa-calendar-o icon"></i> <?php echo utf8_encode(tempo_corrido($ddadosped['data']));?></span>
 		        <span class="right">
 		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
-		          <a href="#"><i class="fa fa-share-alt"></i></a>
-		          <a href="#" class="button button-icon"><i class="fa fa-angle-right"></i>Details</a>
+		          <!--<a href="#"><i class="fa fa-share-alt"></i></a>-->
+		          <a href="anuncio-detalhe?area=<?php echo $ddadosped['id_cod']?>" class="button button-icon"><i class="fa fa-angle-right"></i>Detalhes</a>
 		        </span>
 		        <div class="clear"></div>
 		      </div>
 		      <div class="clear"></div>
 		  </div>
+		  <?php }?>
 
-		  <div class="property property-row property-row-sidebar shadow-hover">
-		      <a href="#" class="property-img">
-		        <div class="img-fade"></div>
-		        <div class="property-tag button status">For Rent</div>
-		        <div class="property-price">$6,500 <span>Per Month</span></div>
-		        <div class="property-color-bar"></div>
-		        <img src="images/1837x1206.png" alt="" />
-		      </a>
-		      <div class="property-content">
-		        <div class="property-title">
-		          <h4><a href="#">Beautiful Waterfront Condo</a></h4>
-		          <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
-		          <div class="clear"></div>
-		          <p class="property-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
-		        </div>
-		        <table class="property-details">
-		          <tr>
-		            <td><i class="fa fa-bed"></i> 3 Beds</td>
-		            <td><i class="fa fa-tint"></i> 2 Baths</td>
-		            <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-		          </tr>
-		        </table>
-		      </div>
-		      <div class="property-footer">
-		        <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
-		        <span class="right">
-		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
-		          <a href="#"><i class="fa fa-share-alt"></i></a>
-		          <a href="#" class="button button-icon"><i class="fa fa-angle-right"></i>Details</a>
-		        </span>
-		        <div class="clear"></div>
-		      </div>
-		      <div class="clear"></div>
-		  </div>
+		  <?php
+		}else{
+		  ?>
+		<h4>Nenhum resultado encontrado pelo termo "<?php echo $buscaprinc?>"</h4>
+		<?php
+		}
+		  ?>
+		  
+<div class="pagination">
+<div class="center">
+<?php
+if($numCont > 0){
+if($numTotal>$num_registro){
+$totalPag = Ceil($numTotal / $num_registro);
+$proximo=$pag+1;
+$anterior=$pag-1;
+?>
+<ul>
+<?php if($totalPag<=$anterior){?><li><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&pagina=<?php echo $anterior?>" class="button small grey"><i class="fa fa-angle-left"></i></a></li><?php }?>
+<?php
+for($i=1; $i <= $totalPag; $i++){
+$indice ="pagina=".$i."";
+?>
 
-		  <div class="property property-row property-row-sidebar shadow-hover">
-		      <a href="#" class="property-img">
-		        <div class="img-fade"></div>
-		        <div class="property-tag button status">For Sale</div>
-		        <div class="property-price">$600,500</div>
-		        <div class="property-color-bar"></div>
-		        <img src="images/1837x1206.png" alt="" />
-		      </a>
-		      <div class="property-content">
-		        <div class="property-title">
-		          <h4><a href="#">Urban Apartment</a></h4>
-		          <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
-		          <div class="clear"></div>
-		          <p class="property-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
-		        </div>
-		        <table class="property-details">
-		          <tr>
-		            <td><i class="fa fa-bed"></i> 3 Beds</td>
-		            <td><i class="fa fa-tint"></i> 2 Baths</td>
-		            <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-		          </tr>
-		        </table>
-		      </div>
-		      <div class="property-footer">
-		        <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
-		        <span class="right">
-		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
-		          <a href="#"><i class="fa fa-share-alt"></i></a>
-		          <a href="#" class="button button-icon"><i class="fa fa-angle-right"></i>Details</a>
-		        </span>
-		        <div class="clear"></div>
-		      </div>
-		      <div class="clear"></div>
-		  </div>
+<li <?php if($i==$pag){?> class="current" <?php }?>><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&<?php echo $indice?>" class="button small grey"><?php echo $i?></a></li>
+<?php
+}
+?>  
 
-		  <div class="property property-row property-row-sidebar shadow-hover">
-		      <a href="#" class="property-img">
-		        <div class="img-fade"></div>
-		        <div class="property-tag button status">For Sale</div>
-		        <div class="property-price">$220,300</div>
-		        <div class="property-color-bar"></div>
-		        <img src="images/1837x1206.png" alt="" />
-		      </a>
-		      <div class="property-content">
-		        <div class="property-title">
-		          <h4><a href="#">Beautiful Waterfront Condo</a></h4>
-		          <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
-		          <div class="clear"></div>
-		          <p class="property-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
-		        </div>
-		        <table class="property-details">
-		          <tr>
-		            <td><i class="fa fa-bed"></i> 3 Beds</td>
-		            <td><i class="fa fa-tint"></i> 2 Baths</td>
-		            <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-		          </tr>
-		        </table>
-		      </div>
-		      <div class="property-footer">
-		        <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
-		        <span class="right">
-		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
-		          <a href="#"><i class="fa fa-share-alt"></i></a>
-		          <a href="#" class="button button-icon"><i class="fa fa-angle-right"></i>Details</a>
-		        </span>
-		        <div class="clear"></div>
-		      </div>
-		      <div class="clear"></div>
-		  </div>
+<?php if($totalPag>=$proximo){?><li><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&pagina=<?php echo $proximo?>" class="button small grey"><i class="fa fa-angle-right"></i></a></li><?php }?>
 
-		  <div class="property property-row property-row-sidebar shadow-hover">
-		      <a href="#" class="property-img">
-		        <div class="img-fade"></div>
-		        <div class="property-tag button status">For Sale</div>
-		        <div class="property-price">$150,000</div>
-		        <div class="property-color-bar"></div>
-		        <img src="images/1837x1206.png" alt="" />
-		      </a>
-		      <div class="property-content">
-		        <div class="property-title">
-		          <h4><a href="#">Modern Family Home</a></h4>
-		          <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
-		          <div class="clear"></div>
-		          <p class="property-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
-		        </div>
-		        <table class="property-details">
-		          <tr>
-		            <td><i class="fa fa-bed"></i> 3 Beds</td>
-		            <td><i class="fa fa-tint"></i> 2 Baths</td>
-		            <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-		          </tr>
-		        </table>
-		      </div>
-		      <div class="property-footer">
-		        <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
-		        <span class="right">
-		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
-		          <a href="#"><i class="fa fa-share-alt"></i></a>
-		          <a href="#" class="button button-icon"><i class="fa fa-angle-right"></i>Details</a>
-		        </span>
-		        <div class="clear"></div>
-		      </div>
-		      <div class="clear"></div>
-		 	</div>
-			
-			<div class="pagination">
-				<div class="center">
-					<ul>
-					  <li><a href="#" class="button small grey"><i class="fa fa-angle-left"></i></a></li>
-					  <li class="current"><a href="#" class="button small grey">1</a></li>
-					  <li><a href="#" class="button small grey">2</a></li>
-					  <li><a href="#" class="button small grey">3</a></li>
-					  <li><a href="#" class="button small grey"><i class="fa fa-angle-right"></i></a></li>
-					</ul>
+</ul>
+<?php
+} 
+} 
+?>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -264,10 +166,18 @@ require"includes-acoes/regras/regras.php";
 				<form>
 				  <div class="form-block border">
 					<label for="property-location">Categorias</label>	
-					<p><a href="#">Equpamentos (163)</a></p>
-					<p><a href="#">Suprimentos (255)</a></p>
-					<p><a href="#">Serviços (9)</a></p>				
-
+					<?php
+					while($linecat2=$querycup2->fetch_array()){
+					//categorias
+					$listacat="SELECT id_cod,nome,status from tbl_categoria WHERE nome like'%".$linecat2['categoria']."%' ORDER BY nome asc";
+					$querycat=$mysqli->query($listacat);
+					$linecat=$querycat->fetch_array();
+					$numcat=$querycat->num_rows;	
+					?>
+					<p><a href="lista-<?php echo str_replace(" ", "-",loCase(ascento(utf8_decode($linecat2['categoria']))))?>"><?php echo $linecat2['categoria']?> (<?php echo $numcat?>)</a></p>
+					<?php
+					}
+					?>
 
 				</form>
 			  </div><!-- end widget content -->

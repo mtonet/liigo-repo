@@ -80,7 +80,7 @@ require"../../includes-acoes/newsletter/lista.php";
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>View</h2>
+                    <h2>Visualização</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a href="?action=exportar"><i class="fas fa-file-excel"></i> Exportar</a>
                       </li>                     

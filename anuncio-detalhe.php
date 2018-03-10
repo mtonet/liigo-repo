@@ -3,16 +3,19 @@
 require"conn/exe.php";
 //regras
 require"includes-acoes/regras/regras.php";
+//detalhes anuncio
+require"includes-acoes/anuncio-detalhe/anuncio-detalhe.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="UTF-8">
   <meta name="description" content="Homely - Responsive Real Estate Template">
   <meta name="author" content="Rype Creative [Chris Gipple]">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homely | Property Single</title>
+  <title>Liigo | <?php echo $linean['titulo']?></title>
    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <!-- CSS file links -->
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -30,6 +33,13 @@ require"includes-acoes/regras/regras.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+
+<style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
+
 </head>
 <body>
 
@@ -38,7 +48,7 @@ require"includes-acoes/regras/regras.php";
 <section class="subheader">
   <div class="container">
     <h1>Detalhe do Anuncio</h1>
-    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> Properties <i class="fa fa-angle-right"></i> <a href="#" class="current">123 Smith Drive</a></div>
+    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> Detalhes <i class="fa fa-angle-right"></i> <a href="#" class="current"><?php echo $linean['titulo']?></a></div>
     <div class="clear"></div>
   </div>
 </section>
@@ -52,27 +62,26 @@ require"includes-acoes/regras/regras.php";
 			<div class="property-single-item property-main">
 				<div class="property-header">
 					<div class="property-title">
-						<h4>Modern Family Home</h4>
-            <div class="property-price-single right">$255,000 <span>Per Month</span></div>
-						<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
+						<h4><?php echo $linean['titulo']?></h4>
+            <?php if($linean['preco']!="0"){?><div class="property-price-single right">R$ <?php echo number_format($linean['preco'], 2, ',','.');?></div><?php }?>
+						<p class="property-address"><i class="fa fa-map-marker icon"></i><?php echo $linean['estado']?>, <?php echo $linean['cidade']?></p>
             <div class="clear"></div>
 					</div>
 					<div class="property-single-tags">
-						<div class="property-tag button alt featured">Featured</div>
-						<div class="property-tag button status">For Rent</div>
-						<div class="property-type right">Property Type: <a href="#">Family Home</a></div>
+
+						<div class="property-tag button alt featured"><?php echo $linean['categoria']?></div>
+						<?php if($linean['marca']!=""){?><div class="property-tag button alt featured"><?php echo $linean['marca']?></div><?php }?>
+						<?php if($linean['cabeca_impressao']!=""){?><div class="property-tag button alt featured"><?php echo $linean['cabeca_impressao']?></div><?php }?>
+						<?php if($linean['tecnologia']!=""){?><div class="property-tag button alt featured"><?php echo $linean['tecnologia']?></div><?php }?>
+						<?php if($linean['condicao']!=""){?><div class="property-tag button alt featured"><?php echo $linean['condicao']?></div><?php }?>
+						<?php if($linean['tipo_suprimento']!=""){?><div class="property-tag button alt featured"><?php echo $linean['tipo_suprimento']?></div><?php }?>
+						<?php if($linean['tipo_servico']!=""){?><div class="property-tag button alt featured"><?php echo $linean['tipo_servico']?></div><?php }?>
+						<?php if($linean['tipo_transporte']!=""){?><div class="property-tag button alt featured"><?php echo $linean['tipo_transporte']?></div><?php }?>
 					</div>
 				</div>
 
-				<table class="property-details-single">
-					<tr>
-						<td><i class="fa fa-bed"></i> <span>3</span> Beds</td>
-						<td><i class="fa fa-tint"></i> <span>2</span> Baths</td>
-						<td><i class="fa fa-expand"></i> <span>25,000</span> Sq Ft</td>
-						<td><i class="fa fa-car"></i> <span>1</span> Garage</td>
-					</tr>
-				</table>
-
+				
+		<?php if($linean['avatar']!=""){?>
         <div class="property-gallery">
           <div class="slider-nav slider-nav-property-gallery">
             <span class="slider-prev"><i class="fa fa-angle-left"></i></span>
@@ -80,210 +89,75 @@ require"includes-acoes/regras/regras.php";
           </div>
           <div class="slide-counter"></div>
           <div class="slider slider-property-gallery">
-            <div class="slide"><img src="images/1837x1206.png" alt="" /></div>
-            <div class="slide"><img src="images/1837x1206.png" alt="" /></div>
-            <div class="slide"><img src="images/1837x1206.png" alt="" /></div>
-            <div class="slide"><img src="images/1837x1206.png" alt="" /></div>
-            <div class="slide"><img src="images/1837x1206.png" alt="" /></div>
-            <div class="slide"><img src="images/1837x1206.png" alt="" /></div>
-            <div class="slide"><img src="images/1837x1206.png" alt="" /></div>
+            <div class="slide"><img src="uploads/anuncios/<?php echo $linean['image']?>" alt="imagem" /></div>
+            <?php if($linha2!=""){
+            	while($line2=$query2->fetch_array()){
+            	?>
+            <div class="slide"><img src="uploads/anuncios/<?php echo $line2['image']?>" alt="imagem" /></div>
+           <?php 
+       }
+   }
+           ?>
           </div>
           <div class="slider property-gallery-pager">
-            <a class="property-gallery-thumb"><img src="images/1837x1206.png" alt="" /></a>
-            <a class="property-gallery-thumb"><img src="images/1837x1206.png" alt="" /></a>
-            <a class="property-gallery-thumb"><img src="images/1837x1206.png" alt="" /></a>
-            <a class="property-gallery-thumb"><img src="images/1837x1206.png" alt="" /></a>
-            <a class="property-gallery-thumb"><img src="images/1837x1206.png" alt="" /></a>
-            <a class="property-gallery-thumb"><img src="images/1837x1206.png" alt="" /></a>
-            <a class="property-gallery-thumb"><img src="images/1837x1206.png" alt="" /></a>
+            <a class="property-gallery-thumb"><img src="uploads/anuncios/thumb/<?php echo $linean['avatar']?>" alt="imagem" /></a>
+            <?php if($linha2!=""){
+            	while($line3=$query3->fetch_array()){
+            	?>
+            <a class="property-gallery-thumb"><img src="uploads/anuncios/thumb/<?php echo $line3['avatar']?>" alt="imagem" /></a>
+           <?php 
+       }
+   }
+           ?>
           </div>
         </div>
 
 			</div><!-- end property title and gallery -->
+			<?php }?>
 
 			<div class="widget property-single-item property-description content">
 				<h4>
-					<span>Description</span> <img class="divider-hex" src="images/divider-half.png" alt="" />
+					<span>Descrição</span> <img class="divider-hex" src="images/divider-half.png" alt="" />
 					<div class="divider-fade"></div>
 				</h4>
-				<p>Ut euismod ultricies sollicitudin. Curabitur sed dapibus nulla. Nulla eget iaculis lectus. Mauris ac maximus neque. Nam 
-				in mauris quis libero sodales eleifend. Morbi varius, nulla sit amet rutrum elementum, est elit finibus tellus, ut 
-				tristique elit risus at metus. Sed fermentum, lorem vitae efficitur imperdiet, neque velit tristique turpis, et iaculis 
-				mi tortor finibus turpis.
+				<p><?php echo $linean['descricao']?>
 				</p>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. 
-				Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. 
-				Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, 
-				a consequat purus viverra a. Aliquam pellentesque nibh et nibh feugiat gravida. Maecenas ultricies, diam vitae semper 
-				placerat, velit risus accumsan nisl, eget tempor lacus est vel nunc. Proin accumsan elit sed neque euismod fringilla. 
-				Curabitur lobortis nunc velit, et fermentum urna dapibus non. Vivamus magna lorem, elementum id gravida ac, laoreet 
-				tristique augue. Maecenas dictum lacus eu nunc porttitor, ut hendrerit arcu efficitur.</p>
-
-				<div class="tabs">
-			        <ul>
-			          <li><a href="#tabs-1"><i class="fa fa-pencil icon"></i>Additional Details</a></li>
-			          <li><a href="#tabs-2"><i class="fa fa-crop icon"></i>Floor Plans</a></li>
-			          <li><a href="#tabs-3"><i class="fa fa-files-o icon"></i>Attachments</a></li>
-			        </ul>
-			        <div id="tabs-1" class="ui-tabs-hide">
-			          <ul class="additional-details-list">
-			          	<li>Property ID: <span>11234</span></li>
-			          	<li>Contact: <span>Rent</span></li>
-			          	<li>Type: <span>Single Family Home</span></li>
-			          	<li>Year Built: <span>2001</span></li>
-			          	<li>Lot Dimensions: <span>50x60 ft</span></li>
-			          	<li>Deposit Amount: <span>20%</span></li>
-			          </ul>
-			        </div>
-			        <div id="tabs-2" class="ui-tabs-hide">
-			          <a href="#"><img src="images/floor-plan1.jpg" alt="" /></a>
-			        </div>
-			        <div id="tabs-3" class="ui-tabs-hide">
-			          <a href="#"><i class="fa fa-file-o icon"></i> Lease Agreement</a><br/><br/>
-			          <a href="#"><i class="fa fa-file-o icon"></i> Brochure</a><br/><br/>
-			          <a href="#"><i class="fa fa-file-o icon"></i> Property Details</a>
-			        </div>
-			    </div>
 			</div><!-- end description -->
 
-			<div class="widget property-single-item property-amenities">
-				<h4>
-					<span>Amenities</span> <img class="divider-hex" src="images/divider-half.png" alt="" />
-					<div class="divider-fade"></div>
-				</h4>
-				<ul class="amenities-list">
-					<li><i class="fa fa-check icon"></i> Balcony</li>
-					<li><i class="fa fa-check icon"></i> Cable TV</li>
-					<li><i class="fa fa-check icon"></i> Deck</li>
-					<li><i class="fa fa-check icon"></i> Dishwasher</li>
-					<li><i class="fa fa-check icon"></i> Heating</li>
-					<li><i class="fa fa-close icon"></i> Internet</li>
-					<li><i class="fa fa-check icon"></i> Parking</li>
-					<li><i class="fa fa-check icon"></i> Pool</li>
-					<li><i class="fa fa-check icon"></i> Oven</li>
-					<li><i class="fa fa-close icon"></i> Gym</li>
-					<li><i class="fa fa-check icon"></i> Laundry Room</li>
-				</ul>
-			</div><!-- end amenities -->
+			
 
-			<div class="widget property-single-item property-location">
-				<h4>
-					<span>Location</span> <img class="divider-hex" src="images/divider-half.png" alt="" />
-					<div class="divider-fade"></div>
-				</h4>
-				<div id="map-single"></div>
-			</div><!-- end location -->
+			
 
 			<div class="widget property-single-item property-agent">
 				<h4>
-					<span>Agent</span> <img class="divider-hex" src="images/divider-half.png" alt="" />
+					<span>Informaçõesde contato</span> <img class="divider-hex" src="images/divider-half.png" alt="" />
 					<div class="divider-fade"></div>
 				</h4>
 				<div class="agent">
 			        <a href="#" class="agent-img">
 			            <div class="img-fade"></div>
-			            <div class="button alt agent-tag">68 Properties</div>
-			            <img src="images/1197x1350.png" alt="" />
+			            <img src="uploads/usuarios/<?php echo $lineuser['avatar']?>" alt="avatar <?php echo $lineuser['nome']?>" />
 			        </a>
 			        <div class="agent-content">
-			            <a href="#" class="button button-icon small right"><i class="fa fa-angle-right"></i>Contact Agent</a>
-			            <a href="#" class="button button-icon small grey right"><i class="fa fa-angle-right"></i>Agent Details</a>
+			            
 			            <div class="agent-details">
-			                <h4><a href="#">John Doe</a></h4>
-			                <p><i class="fa fa-tag icon"></i>Buying Agent</p>
-			                <p><i class="fa fa-envelope icon"></i>jdoe@homely.com</p>
-			                <p><i class="fa fa-phone icon"></i>(123) 456-6789</p>
+			                <h4><a href="#"><?php echo $lineuser['nome']?></a></h4>
+			                <p><i class="fa fa-tag icon"></i>Atendimento</p>
+			                <p><i class="fa fa-envelope icon"></i><?php echo $lineuser['email']?></p>
+			                <p><i class="fa fa-phone icon"></i><?php echo $lineuser['celular']?></p>
 			            </div>
 			            <ul class="social-icons">
-			                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-			                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-			                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-			                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-			                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+			                <?php if($lineuser['facebook']!=""){?><li><a href="<?php echo $lineuser['facebook']?>" target="_blank"><i class="fa fa-facebook"></i></a></li><?php }?>
+			                <?php if($lineuser['twitter']!=""){?><li><a href="<?php echo $lineuser['twitter']?>" target="_blank"><i class="fa fa-twitter"></i></a></li><?php }?>
+			                <?php if($lineuser['linkedin']!=""){?><li><a href="<?php echo $lineuser['linkedin']?>" target="_blank"><i class="fa fa-linkedin"></i></a></li><?php }?>
 			            </ul>
 			        </div>
 			        <div class="clear"></div>
 			    </div>
 			</div><!-- end agent -->
 
-			<div class="widget property-single-item property-related">
-				<h4>
-					<span>Related Properties</span> <img class="divider-hex" src="images/divider-half.png" alt="" />
-					<div class="divider-fade"></div>
-				</h4>
-
-				<div class="row">
-			        <div class="col-lg-6 col-md-6">
-			          <div class="property shadow-hover">
-			            <a href="#" class="property-img">
-			              <div class="img-fade"></div>
-			              <div class="property-tag button alt featured">Featured</div>
-			              <div class="property-tag button status">For Sale</div>
-			              <div class="property-price">$150,000</div>
-			              <div class="property-color-bar"></div>
-			              <img src="images/1837x1206.png" alt="" />
-			            </a>
-			            <div class="property-content">
-			              <div class="property-title">
-			              <h4><a href="#">Modern Family Home</a></h4>
-			                <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
-			              </div>
-			              <table class="property-details">
-			                <tr>
-			                  <td><i class="fa fa-bed"></i> 3 Beds</td>
-			                  <td><i class="fa fa-tint"></i> 2 Baths</td>
-			                  <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-			                </tr>
-			              </table>
-			            </div>
-			            <div class="property-footer">
-			              <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
-			              <span class="right">
-			                <a href="#"><i class="fa fa-heart-o icon"></i></a>
-			                <a href="#"><i class="fa fa-share-alt"></i></a>
-			              </span>
-			              <div class="clear"></div>
-			            </div>
-			          </div>
-			        </div>
-
-			        <div class="col-lg-6 col-md-6">
-			          <div class="property shadow-hover">
-			            <a href="#" class="property-img">
-			              <div class="img-fade"></div>
-			              <div class="property-tag button alt featured">Featured</div>
-			              <div class="property-tag button status">For Rent</div>
-			              <div class="property-price">$6,500 <span>Per Month</span></div>
-			              <div class="property-color-bar"></div>
-			              <img src="images/1837x1206.png" alt="" />
-			            </a>
-			            <div class="property-content">
-			              <div class="property-title">
-			              <h4><a href="#">Beautiful Waterfront Condo</a></h4>
-			                <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
-			              </div>
-			              <table class="property-details">
-			                <tr>
-			                  <td><i class="fa fa-bed"></i> 3 Beds</td>
-			                  <td><i class="fa fa-tint"></i> 2 Baths</td>
-			                  <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-			                </tr>
-			              </table>
-			            </div>
-			            <div class="property-footer">
-			              <span class="left"><i class="fa fa-calendar-o icon"></i> 1 week ago</span>
-			              <span class="right">
-			                <a href="#"><i class="fa fa-heart-o icon"></i></a>
-			                <a href="#"><i class="fa fa-share-alt"></i></a>
-			              </span>
-			              <div class="clear"></div>
-			            </div>
-			          </div>
-			        </div>
-
-			    </div><!-- end row -->
-			</div><!-- end related properties -->
+			
 
 		</div><!-- end col -->
 		

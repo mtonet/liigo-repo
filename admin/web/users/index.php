@@ -80,7 +80,7 @@ require"../../includes-acoes/users/lista.php";
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>View</h2>
+                    <h2>Visualização</h2>
                     
                     <div class="clearfix"></div>
                   </div>

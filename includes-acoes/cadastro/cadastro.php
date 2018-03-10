@@ -60,7 +60,7 @@ $msgscad='<div class="alert-box error"><i class="fa fa-close icon"></i> Por favo
 //cad
 
 $cod=rand("1","1234567890");
-$cadast="INSERT into tbl_usuarios (id_cod,nome,email,telefone,celular,cpf_cnpj,estado,cidade,pass,s_v) values ('".md5($cod)."','".$nome."','".$email."','".$telefone."','".$celular."','".$cpf_cnpj."','".$estado."','".strtolower($cidade)."','".md5($pass)."','".$pass."')";
+$cadast="INSERT into tbl_usuarios (id_cod,nome,email,telefone,celular,cpf_cnpj,estado,cidade,pass,s_v) values ('".md5($cod)."','".$nome."','".$email."','".$telefone."','".$celular."','".$cpf_cnpj."','".$estado."','".$cidade."','".md5($pass)."','".$pass."')";
 $query=$mysqli->query($cadast);
 
 //email para o usuário

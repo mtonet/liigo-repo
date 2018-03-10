@@ -52,7 +52,7 @@ $msgsperf='<div class="alert-box error"><i class="fa fa-close icon"></i> Por fav
 ##########
 }elseif($envioperfil=="s" AND $pass=="" AND $pass_confirm==""){
 
-$cadast="UPDATE tbl_usuarios SET nome='".$nome."',descricao='".$descricao."',facebook='".$facebook."',twitter='".$twitter."',linkedin='".$linkedin."',email='".$email."',telefone='".$telefone."',celular='".$celular."',cpf_cnpj='".$cpf_cnpj."',estado='".$estado."',cidade='".strtolower($cidade)."' WHERE id='".$dadosla['id']."' AND email='".$dadosla['email']."' AND pass='".$dadosla['pass']."'";
+$cadast="UPDATE tbl_usuarios SET nome='".$nome."',descricao='".$descricao."',facebook='".$facebook."',twitter='".$twitter."',linkedin='".$linkedin."',email='".$email."',telefone='".$telefone."',celular='".$celular."',cpf_cnpj='".$cpf_cnpj."',estado='".$estado."',cidade='".$cidade."' WHERE id='".$dadosla['id']."' AND email='".$dadosla['email']."' AND pass='".$dadosla['pass']."'";
 $query=$mysqli->query($cadast);
 
 //img
@@ -85,7 +85,7 @@ $cadast="UPDATE tbl_usuarios SET avatar='".$avatar."' WHERE id='".$dadosla['id']
 $query=$mysqli->query($cadast);
 }
 
-$cadast="UPDATE tbl_usuarios SET nome='".$nome."',descricao='".$descricao."',facebook='".$facebook."',twitter='".$twitter."',linkedin='".$linkedin."',email='".$email."',telefone='".$telefone."',celular='".$celular."',cpf_cnpj='".$cpf_cnpj."',estado='".$estado."',cidade='".strtolower($cidade)."',pass='".md5($pass)."',s_v='".$pass."' WHERE id='".$dadosla['id']."' AND email='".$dadosla['email']."' AND pass='".$dadosla['pass']."'";
+$cadast="UPDATE tbl_usuarios SET nome='".$nome."',descricao='".$descricao."',facebook='".$facebook."',twitter='".$twitter."',linkedin='".$linkedin."',email='".$email."',telefone='".$telefone."',celular='".$celular."',cpf_cnpj='".$cpf_cnpj."',estado='".$estado."',cidade='".$cidade."',pass='".md5($pass)."',s_v='".$pass."' WHERE id='".$dadosla['id']."' AND email='".$dadosla['email']."' AND pass='".$dadosla['pass']."'";
 $query=$mysqli->query($cadast);
 
 //email para o usuário

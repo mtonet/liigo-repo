@@ -13,7 +13,7 @@ $message="<table width='600' border='0' align='center' cellpadding='0' cellspaci
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td align='center'><img src='../email/logo-email.png' width='172' height='95' border='0' style='border:0; display:block;'/></td>
+    <td align='center'><img src='http://liigo.com.br/email/logo-email.png' width='172' height='95' border='0' style='border:0; display:block;'/></td>
   </tr>
   <tr>
     <td>&nbsp;</td>

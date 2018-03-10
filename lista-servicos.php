@@ -3,11 +3,14 @@
 require"conn/exe.php";
 //regras
 require"includes-acoes/regras/regras.php";
+//lista
+require"includes-acoes/listas/servicos.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="UTF-8">
   <meta name="description" content="Homely - Responsive Real Estate Template">
   <meta name="author" content="Rype Creative [Chris Gipple]">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,6 +33,12 @@ require"includes-acoes/regras/regras.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+
+     <style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style> 
 </head>
 <body>
 
@@ -38,7 +47,7 @@ require"includes-acoes/regras/regras.php";
 <section class="subheader subheader-listing-sidebar">
   <div class="container">
     <h1>Lista de Anúncios</h1>
-    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="#" class="current">Categoria do Anúncio</a></div>
+    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="#" class="current">Serviços</a></div>
     <div class="clear"></div>
   </div>
 </section>
@@ -50,206 +59,99 @@ require"includes-acoes/regras/regras.php";
 		<div class="col-lg-8 col-md-8">
 		
 			<div class="property-listing-header">
-				<span class="property-count left">8 properties found</span>
-				<form action="#" method="get" class="right">
-					<select name="sort_by" onchange="this.form.submit();">
-						<option value="date_desc">New to Old</option>
-						<option value="date_asc">Old to New</option>
-						<option value="price_desc">Price (High to Low)</option>
-						<option value="price_asc">Price (Low to High)</option>
+				<span class="property-count left"><?php echo $numCont?> anúncio(s) encontrado(s)</span>
+				<form class="right">
+					<select name="sort_by" onchange="MM_jumpMenu('parent',this,0)">
+						<option value="">Selecione...</option>
+						<option value="?servico=<?php echo $servico?>&acao=date_desc" <?php if($acao=="date_desc"){?>selected<?php }?>>Novo para o mais antigo</option>
+						<option value="?servico=<?php echo $servico?>&acao=date_asc" <?php if($acao=="date_asc"){?>selected<?php }?>>Antigo para o mais novo</option>
+						<option value="?servico=<?php echo $servico?>&acao=price_desc" <?php if($acao=="price_desc"){?>selected<?php }?>>Preço maior para o menor</option>
+						<option value="?servico=<?php echo $servico?>&acao=price_asc" <?php if($acao=="price_asc"){?>selected<?php }?>>Preço menor para o maior</option>
 					</select>
 				</form>
-				<div class="property-layout-toggle right">
+				<!--<div class="property-layout-toggle right">
 					<a href="property-listing-grid-sidebar.html" class="property-layout-toggle-item"><i class="fa fa-th-large"></i></a>
 					<a href="property-listing-row-sidebar.html" class="property-layout-toggle-item active"><i class="fa fa-bars"></i></a>
-				</div>
+				</div>-->
 				<div class="clear"></div>
 			</div><!-- end property listing header -->
 			
+			<?php
+			if($numCont!=""){
+            while($ddadosped=$querycup->fetch_array()){
+            ?>
+
 			<div class="property property-row property-row-sidebar shadow-hover">
-		      <a href="#" class="property-img">
+		      <a href="anuncio-detalhe?area=<?php echo $ddadosped['id_cod']?>" class="property-img">
 		        <div class="img-fade"></div>
-		        <div class="property-tag button status">For Sale</div>
-		        <div class="property-price">$150,000</div>
+		        <?php if($ddadosped['preco']!="0"){?><div class="property-price">R$ <?php echo number_format($ddadosped['preco'], 2, ',','.');?></div><?php }?>
 		        <div class="property-color-bar"></div>
-		        <img src="images/1837x1206.png" alt="" />
+		        <?php if($ddadosped['image']!=""){?>
+		        <img src="uploads/anuncios/<?php echo $ddadosped['image']?>" alt="anuncio" />
+		        <?php }else{?>
+		        <img src="uploads/anuncios/no.jpg" alt="anuncio" />
+		        <?php }?>
 		      </a>
 		      <div class="property-content">
 		        <div class="property-title">
-		          <h4><a href="#">Modern Family Home</a></h4>
-		          <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
+		          <h4><a href="anuncio-detalhe?area=<?php echo $ddadosped['id_cod']?>"><?php echo $ddadosped['titulo']?></a></h4>
+		          <p class="property-address"><i class="fa fa-map-marker icon"></i><?php echo $ddadosped['estado']?>, <?php echo $ddadosped['cidade']?></p>
 		          <div class="clear"></div>
-		          <p class="property-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
+		          <p class="property-text"><?php echo mb_strimwidth($ddadosped['descricao'], 0, 100, "...")?></p>
 		        </div>
-		        <table class="property-details">
-		          <tr>
-		            <td><i class="fa fa-bed"></i> 3 Beds</td>
-		            <td><i class="fa fa-tint"></i> 2 Baths</td>
-		            <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-		          </tr>
-		        </table>
+		        
 		      </div>
 		      <div class="property-footer">
-		        <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
+		        <span class="left"><i class="fa fa-calendar-o icon"></i> <?php echo utf8_encode(tempo_corrido($ddadosped['data']));?></span>
 		        <span class="right">
 		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
-		          <a href="#"><i class="fa fa-share-alt"></i></a>
-		          <a href="#" class="button button-icon"><i class="fa fa-angle-right"></i>Details</a>
+		          <!--<a href="#"><i class="fa fa-share-alt"></i></a>-->
+		          <a href="anuncio-detalhe?area=<?php echo $ddadosped['id_cod']?>" class="button button-icon"><i class="fa fa-angle-right"></i>Detalhes</a>
 		        </span>
 		        <div class="clear"></div>
 		      </div>
 		      <div class="clear"></div>
 		  </div>
 
-		  <div class="property property-row property-row-sidebar shadow-hover">
-		      <a href="#" class="property-img">
-		        <div class="img-fade"></div>
-		        <div class="property-tag button status">For Rent</div>
-		        <div class="property-price">$6,500 <span>Per Month</span></div>
-		        <div class="property-color-bar"></div>
-		        <img src="images/1837x1206.png" alt="" />
-		      </a>
-		      <div class="property-content">
-		        <div class="property-title">
-		          <h4><a href="#">Beautiful Waterfront Condo</a></h4>
-		          <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
-		          <div class="clear"></div>
-		          <p class="property-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
-		        </div>
-		        <table class="property-details">
-		          <tr>
-		            <td><i class="fa fa-bed"></i> 3 Beds</td>
-		            <td><i class="fa fa-tint"></i> 2 Baths</td>
-		            <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-		          </tr>
-		        </table>
-		      </div>
-		      <div class="property-footer">
-		        <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
-		        <span class="right">
-		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
-		          <a href="#"><i class="fa fa-share-alt"></i></a>
-		          <a href="#" class="button button-icon"><i class="fa fa-angle-right"></i>Details</a>
-		        </span>
-		        <div class="clear"></div>
-		      </div>
-		      <div class="clear"></div>
-		  </div>
+		  <?php }?>
 
-		  <div class="property property-row property-row-sidebar shadow-hover">
-		      <a href="#" class="property-img">
-		        <div class="img-fade"></div>
-		        <div class="property-tag button status">For Sale</div>
-		        <div class="property-price">$600,500</div>
-		        <div class="property-color-bar"></div>
-		        <img src="images/1837x1206.png" alt="" />
-		      </a>
-		      <div class="property-content">
-		        <div class="property-title">
-		          <h4><a href="#">Urban Apartment</a></h4>
-		          <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
-		          <div class="clear"></div>
-		          <p class="property-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
-		        </div>
-		        <table class="property-details">
-		          <tr>
-		            <td><i class="fa fa-bed"></i> 3 Beds</td>
-		            <td><i class="fa fa-tint"></i> 2 Baths</td>
-		            <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-		          </tr>
-		        </table>
-		      </div>
-		      <div class="property-footer">
-		        <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
-		        <span class="right">
-		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
-		          <a href="#"><i class="fa fa-share-alt"></i></a>
-		          <a href="#" class="button button-icon"><i class="fa fa-angle-right"></i>Details</a>
-		        </span>
-		        <div class="clear"></div>
-		      </div>
-		      <div class="clear"></div>
-		  </div>
+		  <?php
+		}else{
+		  ?>
+		<h4>Nenhum anúncio de Serviços disponível</h4>
+		<?php
+		}
+		  ?>
 
-		  <div class="property property-row property-row-sidebar shadow-hover">
-		      <a href="#" class="property-img">
-		        <div class="img-fade"></div>
-		        <div class="property-tag button status">For Sale</div>
-		        <div class="property-price">$220,300</div>
-		        <div class="property-color-bar"></div>
-		        <img src="images/1837x1206.png" alt="" />
-		      </a>
-		      <div class="property-content">
-		        <div class="property-title">
-		          <h4><a href="#">Beautiful Waterfront Condo</a></h4>
-		          <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
-		          <div class="clear"></div>
-		          <p class="property-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
-		        </div>
-		        <table class="property-details">
-		          <tr>
-		            <td><i class="fa fa-bed"></i> 3 Beds</td>
-		            <td><i class="fa fa-tint"></i> 2 Baths</td>
-		            <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-		          </tr>
-		        </table>
-		      </div>
-		      <div class="property-footer">
-		        <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
-		        <span class="right">
-		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
-		          <a href="#"><i class="fa fa-share-alt"></i></a>
-		          <a href="#" class="button button-icon"><i class="fa fa-angle-right"></i>Details</a>
-		        </span>
-		        <div class="clear"></div>
-		      </div>
-		      <div class="clear"></div>
-		  </div>
-
-		  <div class="property property-row property-row-sidebar shadow-hover">
-		      <a href="#" class="property-img">
-		        <div class="img-fade"></div>
-		        <div class="property-tag button status">For Sale</div>
-		        <div class="property-price">$150,000</div>
-		        <div class="property-color-bar"></div>
-		        <img src="images/1837x1206.png" alt="" />
-		      </a>
-		      <div class="property-content">
-		        <div class="property-title">
-		          <h4><a href="#">Modern Family Home</a></h4>
-		          <p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Dr, Annapolis, MD</p>
-		          <div class="clear"></div>
-		          <p class="property-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
-		        </div>
-		        <table class="property-details">
-		          <tr>
-		            <td><i class="fa fa-bed"></i> 3 Beds</td>
-		            <td><i class="fa fa-tint"></i> 2 Baths</td>
-		            <td><i class="fa fa-expand"></i> 25,000 Sq Ft</td>
-		          </tr>
-		        </table>
-		      </div>
-		      <div class="property-footer">
-		        <span class="left"><i class="fa fa-calendar-o icon"></i> 5 days ago</span>
-		        <span class="right">
-		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
-		          <a href="#"><i class="fa fa-share-alt"></i></a>
-		          <a href="#" class="button button-icon"><i class="fa fa-angle-right"></i>Details</a>
-		        </span>
-		        <div class="clear"></div>
-		      </div>
-		      <div class="clear"></div>
-		 	</div>
 			
-			<div class="pagination">
+		<div class="pagination">
 				<div class="center">
-					<ul>
-					  <li><a href="#" class="button small grey"><i class="fa fa-angle-left"></i></a></li>
-					  <li class="current"><a href="#" class="button small grey">1</a></li>
-					  <li><a href="#" class="button small grey">2</a></li>
-					  <li><a href="#" class="button small grey">3</a></li>
-					  <li><a href="#" class="button small grey"><i class="fa fa-angle-right"></i></a></li>
-					</ul>
+<?php
+if($numCont > 0){
+if($numTotal>$num_registro){
+$totalPag = Ceil($numTotal / $num_registro);
+$proximo=$pag+1;
+$anterior=$pag-1;
+?>
+<ul>
+<?php if($totalPag<=$anterior){?><li><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&pagina=<?php echo $anterior?>" class="button small grey"><i class="fa fa-angle-left"></i></a></li><?php }?>
+<?php
+for($i=1; $i <= $totalPag; $i++){
+$indice ="pagina=".$i."";
+?>
+
+<li <?php if($i==$pag){?> class="current" <?php }?>><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&<?php echo $indice?>" class="button small grey"><?php echo $i?></a></li>
+<?php
+}
+?>  
+
+<?php if($totalPag>=$proximo){?><li><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&pagina=<?php echo $proximo?>" class="button small grey"><i class="fa fa-angle-right"></i></a></li><?php }?>
+
+</ul>
+<?php
+} 
+} 
+?>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -261,96 +163,28 @@ require"includes-acoes/regras/regras.php";
 			<div class="widget widget-sidebar sidebar-properties advanced-search">
 			  <h4><span>Filtre sua busca</span> <img src="images/divider-half-white.png" alt="" /></h4>
 			  <div class="widget-content box">
-				<form>
+				<form id="formfiltro" name="formfiltro" method="get" action="">
 				
 
         <div class="form-block border">
-					<label for="property-status">Nossos serviços</label>
-					<select id="property-status" class="border">				
+					<label for="property-status">Tipo de serviços</label>
+					<select id="servico" name="servico" class="border">				
                  <option value="">Todos</option>
-                <option value="Villa">Abadá</option>
-                <option value="Villa">Adesivo de chão</option>
-                <option value="Villa">Adesivo de piso</option>
-                <option value="Villa">Adesivo eletrostático</option>
-                <option value="Villa">Adesivo imantado</option>
-                <option value="Villa">Adesivo jateado</option>
-                <option value="Villa">Adesivo transparente</option>
-                <option value="Villa">Adesivos</option>
-                <option value="Villa">Adesivos com impressão e recorte</option>
-                <option value="Villa">Adesivos perfurados</option>
-                <option value="Villa">Adesivos resinados</option>
-                <option value="Villa">Almofada</option>
-                <option value="Villa">Avental</option>
-                <option value="Villa">Bandana</option>
-                <option value="Villa">Bandeira</option>
-                <option value="Villa">Banners</option>
-                <option value="Villa">Banner roll up</option>
-                <option value="Villa">Bolsas promocionais</option>
-                <option value="Villa">Brindes</option>
-                <option value="Villa">Cachecol</option>
-                <option value="Villa">Calça legging sublimação</option>
-                <option value="Villa">Nobreak</option>
-                       <option value="Villa">Calendário</option>
-                       <option value="Villa">Camiseta</option>
-                       <option value="Villa">Cangas</option>
-                       <option value="Villa">Capa fichários</option>
-                       <option value="Villa">Capa Notebook</option>
-                       <option value="Villa">Cartão de visita</option>
-                       <option value="Villa">Cordão para crachá</option>
-                       <option value="Villa">Cortinas</option>
-                       <option value="Villa">Criação de Artes</option>
-                       <option value="Villa">Display</option>
-                       <option value="Villa">Embalagem</option>
-                       <option value="Villa">Envelopamento</option>
-                       <option value="Villa">Etiquetas</option>
-                       <option value="Villa">Fachadas</option>
-                       <option value="Villa">Fotoluminescentes</option>
-                       <option value="Villa">Impressão em Canvas</option>
-                       <option value="Villa">Impressão em duratrans</option>
-                       <option value="Villa">Impressão em lona Front</option>
-                       <option value="Villa">Impressão em lona perfurada</option>
-                       <option value="Villa">Impressão em mídia ecológica</option>
-                       <option value="Villa">Impressão em papel translúcido</option>
-                       <option value="Villa">Impressão em poliéster</option>
-                       <option value="Villa">Impressão em PVC</option>
-                       <option value="Villa">Jogo americano</option>
-                       <option value="Villa">Nobreak</option>
-                       <option value="Villa">Lembranças</option>
-                       <option value="Villa">Lenço</option>
-                       <option value="Villa">Letra caixa</option>
-                       <option value="Villa">Luminosos</option>
-                       <option value="Villa">Material político</option>
-                       <option value="Villa">Mega Banner</option>
-                       <option value="Villa">Mochila de saco</option>
-                       <option value="Villa">Mochila personalizada</option>
-                       <option value="Villa">Necessariebreak</option>
-                       <option value="Villa">Painel</option>
-                       <option value="Villa">Painel backdropbreak</option>
-                       <option value="Villa">Papel de parede</option>
-                       <option value="Villa">Placa de identificação</option>
-                       <option value="Villa">Placa em PS</option>
-                       <option value="Villa">Placa sinalização</option>
-                       <option value="Villa">Placas de homenagem</option>
-                       <option value="Villa">Pôsteres</option>
-                       <option value="Villa">Quadros adesivados</option>
-                       <option value="Villa">Quadros em tecidos</option>
-                       <option value="Villa">Sacola</option>
-                        <option value="Villa">Sinalização corporativa</option>
-                        <option value="Villa">Sunga e biquinis</option>
-                        <option value="Villa">Toalha</option>
-                        <option value="Villa">Toalha de mesaNobreak</option>
-                        <option value="Villa">Totens</option>
+                <?php while($lineserv=$queryserv->fetch_array()){?>
+                    <option value="<?php echo $lineserv['nome']?>" <?php if($servico==$lineserv['nome']){?>selected<?php }?>><?php echo $lineserv['nome']?></option>
+                    <?php }?>
 					</select>
 				  </div>
   				 
            
-             <div class="form-block">
+             <!--<div class="form-block">
             <label>Preço</label>
             <div class="price-slider" id="price-slider"></div>
-          </div>	
+          </div>	-->
 
 				  <div class="form-block">
-					<input type="submit" class="button" value="Filtrar" />
+					<input type="submit" id="button" value="Filtrar" class="button" onclick="javascript:formfiltro.submit()"/>
+				  </div>
 				  </div>
 				</form>
 			  </div><!-- end widget content -->

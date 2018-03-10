@@ -10,6 +10,7 @@ require"includes-acoes/home/home.php";
 <html lang="pt-br">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="UTF-8">
   <meta name="description" content="Homely - Responsive Real Estate Template">
   <meta name="author" content="Rype Creative [Chris Gipple]">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -109,44 +110,29 @@ require"includes-acoes/home/home.php";
     </div>
 
     <div class="row">
-      <div class="col-lg-8 col-md-8">
-        <a href="#" class="property-cat property-cat-apartments">
-          <h3>Studio Apartments</h3>
-          <div class="color-bar"></div>
-          <span class="button alt small">234 encontrados</span>
-        </a>
-      </div>
-      <div class="col-lg-4 col-md-4">
-        <a href="#" class="property-cat property-cat-houses">
-          <h3>Family Homes</h3>
-          <div class="color-bar"></div>
-          <span class="button alt small">234 encontrados</span>
-        </a>
-      </div>
-    </div><!-- end row -->
 
-    <div class="row">
-      <div class="col-lg-4 col-md-4">
-        <a href="#" class="property-cat property-cat-condos">
-          <h3>Condos & Villas</h3>
+      <div class="col-lg-8 col-md-8">
+        <a href="resultado-busca?buscaprinc=<?php echo $linemais['termo']?>" class="property-cat property-cat-apartments">
+          <h3 style="text-transform: capitalize;"><?php echo $linemais['termo']?></h3>
           <div class="color-bar"></div>
-          <span class="button alt small">234 encontrados</span>
+          <span class="button alt small"><?php echo $numCont?> encontrados</span>
         </a>
       </div>
+      <?php while($linemais2=$querymais2->fetch_array()){
+        //anuncios
+        $sqlcup2="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$linemais2['termo']."%' OR marca like'%".$linemais2['termo']."%' OR cabeca_impressao like'%".$linemais2['termo']."%' OR tecnologia like'%".$linemais2['termo']."%' OR condicao like'%".$linemais2['termo']."%' OR tipo_suprimento like'%".$linemais2['termo']."%' OR tipo_servico like'%".$linemais2['termo']."%' OR tipo_transporte like'%".$linemais2['termo']."%' OR descricao like'%".$linemais2['termo']."%') AND status='1'";
+        $querycup2=$mysqli->query($sqlcup2);
+        $numCont2=$querycup2->num_rows;
+        if($numCont2!="0"){
+        ?>
       <div class="col-lg-4 col-md-4">
-        <a href="#" class="property-cat property-cat-waterfront">
-          <h3>Waterfront Homes</h3>
+        <a href="resultado-busca?buscaprinc=<?php echo $linemais2['termo']?>" class="property-cat property-cat-houses">
+          <h3 style="text-transform: capitalize;"><?php echo $linemais2['termo']?></h3>
           <div class="color-bar"></div>
-          <span class="button alt small">234 encontrados</span>
+          <span class="button alt small"><?php echo $numCont2?> encontrados</span>
         </a>
       </div>
-      <div class="col-lg-4 col-md-4">
-        <a href="#" class="property-cat property-cat-cozy">
-          <h3>Cozy Houses</h3>
-          <div class="color-bar"></div>
-          <span class="button alt small">234 encontrados</span>
-        </a>
-      </div>
+      <?php }}?>
     </div><!-- end row -->
 
   </div><!-- end container -->

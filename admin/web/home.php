@@ -4,6 +4,10 @@ session_start();
 require"../../conn/exe.php";
 //session
 require"../includes-acoes/session/session.php";
+//regras
+require"../includes-acoes/regras/regras.php";
+//home
+require"../includes-acoes/home/home.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,15 +46,15 @@ require"../includes-acoes/session/session.php";
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fas fa-file"></i> Total de anuncios</span>
-              <div class="count">120</div>
+              <div class="count"><?php echo $rowat;?></div>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fas fa-users"></i>  Total de anunciantes</span>
-              <div class="count">123</div>
+              <div class="count"><?php echo $rowat2;?></div>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="far fa-file"></i>  Anuncios pendentes </span>
-              <div class="count red">2500</div>
+              <div class="count red"><?php echo $rowat3;?></div>
             </div>
             
           </div>
@@ -69,128 +73,26 @@ require"../includes-acoes/session/session.php";
                   <div class="dashboard-widget-content">
 
                     <ul class="list-unstyled timeline widget">
-
+                      <?php
+                        while($lineult=$queryult->fetch_array()){
+                        ?>
                       <li>
                         <div class="block">
                           <div class="block_content">
                             <h2 class="title">
-                                              <a>Título do anúncio</a>
+                                              <a><?php echo $lineult['titulo']?></a>
                                           </h2>
                             <div class="byline">
-                              <span>19/02/18</span> por <a>Jane Smith</a>
+                              <span><?php echo utf8_encode(tempo_corrido($lineult['data']))?></span> por <a><?php echo $lineult['user']?></a>
                             </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
+                            <p class="excerpt"><?php echo mb_strimwidth($lineult['descricao'], 0, 100, "...")?> <br><a href="anuncios-pendentes/anuncio-detalhe.php?area=<?php echo $lineult['id_cod']?>">visualize</a>
                             </p>
                           </div>
                         </div>
                       </li>
-
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h2 class="title">
-                            <h2 class="title">
-                                              <a>Título do anúncio</a>
-                                          </h2>
-                            <div class="byline">
-                              <span>19/02/18</span> por <a>Jane Smith</a>
-                            </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h2 class="title">
-                                              <a>Título do anúncio</a>
-                                          </h2>
-                            <div class="byline">
-                              <span>19/02/18</span> por <a>Jane Smith</a>
-                            </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h2 class="title">
-                                              <a>Título do anúncio</a>
-                                          </h2>
-                            <div class="byline">
-                              <span>19/02/18</span> por <a>Jane Smith</a>
-                            </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h2 class="title">
-                                              <a>Título do anúncio</a>
-                                          </h2>
-                            <div class="byline">
-                              <span>19/02/18</span> por <a>Jane Smith</a>
-                            </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h2 class="title">
-                                              <a>Título do anúncio</a>
-                                          </h2>
-                            <div class="byline">
-                              <span>19/02/18</span> por <a>Jane Smith</a>
-                            </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h2 class="title">
-                                              <a>Título do anúncio</a>
-                                          </h2>
-                            <div class="byline">
-                              <span>19/02/18</span> por <a>Jane Smith</a>
-                            </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li>
-                        <div class="block">
-                          <div class="block_content">
-                            <h2 class="title">
-                                              <a>Título do anúncio</a>
-                                          </h2>
-                            <div class="byline">
-                              <span>19/02/18</span> por <a>Jane Smith</a>
-                            </div>
-                            <p class="excerpt">Descrição do anuncio. <br><a href="anuncios-pendentes/anuncio-detalhe.php">visualize</a>
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-
+                      <?php
+                        }
+                        ?>
                     </ul>
                   </div>
                 </div>

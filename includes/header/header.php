@@ -12,7 +12,7 @@
               <td><i class="fa fa-search"></i></td>
               <td class="header-item-text">
                 <form class="search-form" method="get" id="buscaprinc" name="buscaprinc" action="resultado-busca">
-                  <input type="text" placeholder="Busca..." required name="buscaprinc" />
+                  <input type="text" placeholder="Busca..." required name="buscaprinc" value="<?php echo $buscaprinc?>" />
                   <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
               </td>
@@ -74,7 +74,7 @@
         <form action="" method="post" id="busca">
           
          <div class="col-md-2">
-           <select class="form-control" name="estadop">
+           <select class="form-control" name="estadobusc">
   <option value="">Estado</option>
   <!-- MOSTRAR os estado apenas que possui anúncio
     <option value="AC">Acre</option>
@@ -107,7 +107,7 @@
 </select>
          </div>
          <div class="col-md-3">
-           <select class="form-control" name="cidadep">
+           <select class="form-control" name="cidadebusc">
   <option>Cidade</option>
   <!-- MOSTRAR as cidades apenas que possui anúncio
   <option>2</option>
@@ -118,7 +118,7 @@
 
          </div>
          <div class="col-md-3">
-           <select class="form-control" name="precisa">
+           <select class="form-control" name="precisabusc">
   <option>O que você precisa?</option>
   <option>2</option>
   <option>3</option>
@@ -127,7 +127,7 @@
 </select>
          </div>
          <div class="col-md-2">
-           <select class="form-control" name="servicos">
+           <select class="form-control" name="servicosbusc">
   <option>Serviços</option>
   <option>2</option>
   <option>3</option>

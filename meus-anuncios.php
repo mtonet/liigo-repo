@@ -6,11 +6,14 @@ require"conn/exe.php";
 require"includes-acoes/regras/regras.php";
 //session
 require"includes-acoes/session/session.php";
+//meus anuncios
+require"includes-acoes/meus-anuncios/meus-anuncios.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="UTF-8">
   <meta name="description" content="Homely - Responsive Real Estate Template">
   <meta name="author" content="Rype Creative [Chris Gipple]">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,6 +36,12 @@ require"includes-acoes/session/session.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+
+  <style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
 </head>
 <body>
 
@@ -53,9 +62,15 @@ require"includes-acoes/session/session.php";
 		<div class="col-lg-3 col-md-3 sidebar-left">
 			<div class="widget member-card">
 				<div class="member-card-header">
-					<a href="#" class="member-card-avatar"><img src="images/1197x1350.png" alt="" /></a>
-					<h3>John Doe</h3>
-					<p><i class="fa fa-envelope icon"></i>jdoe@gmail.com</p>
+					<a href="#" class="member-card-avatar">
+					<?php if($linedpu['avatar']==""){?>
+						<img src="uploads/usuarios/no.jpg" alt="<?php echo $linedpu['avatar'];?>" />
+						<?php }else{?>
+						<img src="uploads/usuarios/<?php echo $linedpu['avatar'];?>" alt="<?php echo $linedpu['avatar'];?>" />
+						<?php }?>
+					</a>
+					<h3><?php echo $linedpu['nome']?></h3>
+					<p><i class="fa fa-envelope icon"></i><?php echo $linedpu['email']?></p>
 				</div>
 				<div class="member-card-content">
 					<img class="hex" src="images/hexagon.png" alt="" />
@@ -72,92 +87,93 @@ require"includes-acoes/session/session.php";
 		</div>
 
 		<div class="col-lg-9 col-md-9">
-			<table class="my-properties-list">
+
+		<?php if($numanunc!=""){?>
+
+			<table class="my-properties-list" id="pagnav">
 			  <tr>
-				<th>Image</th>
-				<th>Property</th>
-				<th>Post Status</th>
-				<th>Date Created</th>
-				<th>Actions</th>
+				<th>Imagem</th>
+				<th>Título</th>
+				<th>Status</th>
+				<th>Date de criação</th>
+				<th>Ações</th>
 			  </tr>
+		<?php while($lineanunc=$queryanunc->fetch_array()){
+			//tipo anuncio
+			switch ($lineanunc['categoria']) {
+		    case Equipamentos:
+		        $link="editar-anuncio-equipamentos";
+		        break;
+		    case Suprimentos:
+		        $link="editar-anuncio-suprimentos";
+		        break;
+		    case Transportadoras:
+		        $link="editar-anuncio-transportadoras";
+		        break;
+		    case Assistência:
+		        $link="editar-anuncio-assistencia";
+		        break;
+		    case Serviços:
+		        $link="editar-anuncio-servicos";
+		        break;
+				}
+			?>
 			  <tr>
-				<td class="property-img"><a href="property-single.html"><img src="images/1837x1206.png" alt="" /></a></td>
+				<td class="property-img">
+					
+					<?php if($lineanunc['avatar']==""){?>	
+					<img src="uploads/anuncios/thumb/no.jpg" alt="avatar anuncio" />
+					<?php }else{?>
+					<img src="uploads/anuncios/thumb/<?php echo $lineanunc['avatar'];?>" alt="avatar anuncio" />
+					<?php }?>
+				
+				</td>
 				<td class="property-title">
-					<a href="property-single.html">Modern Family Home</a><br/>
-					<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Drive, Baltimore, MD</p>
-					<p><strong>$253,000</strong></p>
+					<?php echo $lineanunc['titulo'];?><br/>
+					<?php if($lineanunc['preco']!="0"){?><p><strong>R$ <?php echo number_format($lineanunc['preco'], 2, ',','.');?></strong></p><?php }?>
 				</td>
-				<td class="property-post-status"><span class="button small alt">Published</span></td>
-				<td class="property-date">2/27/2017</td>
+				<td class="property-post-status">
+					<?php if($lineanunc['status']=="1"){?>
+					<span class="button small alt">Ativo</span>
+					<?php }elseif($lineanunc['status']=="0"){?>
+					<span class="button small vermelho">Inativo</span>
+					<?php }?>
+				</td>
+				<td class="property-date"><?php echo  date('d/m/Y', strtotime($lineanunc['data']))?></td>
 				<td class="property-actions">
-					<a href="#"><i class="fa fa-eye icon"></i>View</a>
-					<a href="#"><i class="fa fa-pencil icon"></i>Edit</a>
-					<a href="#"><i class="fa fa-close icon"></i>Delete</a>
+					<?php if($lineanunc['status']=="1"){?><a href="anuncio-detalhe?area=<?php echo $lineanunc['id_cod']?>"><i class="fa fa-eye icon"></i>Ver</a><?php }?>
+					<a href="<?php echo $link."?area=".$lineanunc['id_cod'];?>"><i class="fa fa-pencil icon"></i>Editar</a>
+					<a href="#" data-toggle="modal" data-target=".deletar<?php echo $lineanunc['id_cod']?>"><i class="fa fa-close icon"></i>Excluir</a>
 				</td>
 			  </tr>
-			  <tr>
-				<td class="property-img"><a href="property-single.html"><img src="images/1837x1206.png" alt="" /></a></td>
-				<td class="property-title">
-					<a href="property-single.html">Ubran Apartment</a><br/>
-					<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Drive, Baltimore, MD</p>
-					<p><strong>$12,000</strong> Per Month</p>
-				</td>
-				<td class="property-post-status"><span class="button small grey">Pending</span></td>
-				<td class="property-date">2/27/2017</td>
-				<td class="property-actions">
-					<a href="#"><i class="fa fa-eye icon"></i>View</a>
-					<a href="#"><i class="fa fa-pencil icon"></i>Edit</a>
-					<a href="#"><i class="fa fa-close icon"></i>Delete</a>
-				</td>
-			  </tr>
-			  <tr>
-				<td class="property-img"><a href="property-single.html"><img src="images/1837x1206.png" alt="" /></a></td>
-				<td class="property-title">
-					<a href="property-single.html">Modern Family Home</a><br/>
-					<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Drive, Baltimore, MD</p>
-					<p><strong>$253,000</strong></p>
-				</td>
-				<td class="property-post-status"><span class="button small alt">Published</span></td>
-				<td class="property-date">2/27/2017</td>
-				<td class="property-actions">
-					<a href="#"><i class="fa fa-eye icon"></i>View</a>
-					<a href="#"><i class="fa fa-pencil icon"></i>Edit</a>
-					<a href="#"><i class="fa fa-close icon"></i>Delete</a>
-				</td>
-			  </tr>
-			  <tr>
-				<td class="property-img"><a href="property-single.html"><img src="images/1837x1206.png" alt="" /></a></td>
-				<td class="property-title">
-					<a href="property-single.html">Modern Family Home</a><br/>
-					<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Drive, Baltimore, MD</p>
-					<p><strong>$253,000</strong></p>
-				</td>
-				<td class="property-post-status"><span class="button small alt">Published</span></td>
-				<td class="property-date">2/27/2017</td>
-				<td class="property-actions">
-					<a href="#"><i class="fa fa-eye icon"></i>View</a>
-					<a href="#"><i class="fa fa-pencil icon"></i>Edit</a>
-					<a href="#"><i class="fa fa-close icon"></i>Delete</a>
-				</td>
-			  </tr>
-			  <tr>
-				<td class="property-img"><a href="property-single.html"><img src="images/1837x1206.png" alt="" /></a></td>
-				<td class="property-title">
-					<a href="property-single.html">Modern Family Home</a><br/>
-					<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Drive, Baltimore, MD</p>
-					<p><strong>$253,000</strong></p>
-				</td>
-				<td class="property-post-status"><span class="button small alt">Published</span></td>
-				<td class="property-date">2/27/2017</td>
-				<td class="property-actions">
-					<a href="#"><i class="fa fa-eye icon"></i>View</a>
-					<a href="#"><i class="fa fa-pencil icon"></i>Edit</a>
-					<a href="#"><i class="fa fa-close icon"></i>Delete</a>
-				</td>
-			  </tr>
+
+
+			  <div class="modal fade deletar<?php echo $lineanunc['id_cod']?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Excluir registro</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Deseja realmente excluir o anúncio <b><?php echo $lineanunc['titulo']?></b>?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <a href="?area=<?php echo $lineanunc['id_cod']?>&action=delete" class="btn btn-danger">Excluir</a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+		<?php }?>	  
+
 			</table>
 			
-			<div class="pagination">
+			<!--<div class="pagination">
 				<div class="center">
 					<ul>
 					  <li><a href="#" class="button small grey"><i class="fa fa-angle-left"></i></a></li>
@@ -168,7 +184,17 @@ require"includes-acoes/session/session.php";
 					</ul>
 				</div>
 				<div class="clear"></div>
-			</div>
+			</div>-->
+
+<?php }else{?>
+
+<table class="my-properties-list">
+			  <tr>
+				<th>Nenhum anúncio criado até o momento.</th>
+			  </tr>
+			</table>
+
+<?php }?>
 		</div><!-- end col -->
 	</div><!-- end row -->
 
@@ -188,7 +214,6 @@ require"includes-acoes/session/session.php";
 <script src="js/nouislider.min.js"></script> <!-- price slider -->
 <script src="assets/html5lightbox/html5lightbox.js"></script> <!-- lightbox -->
 <script src="js/global.js"></script>
-
 
 </body>
 </html>
