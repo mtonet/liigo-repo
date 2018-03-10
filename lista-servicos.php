@@ -11,8 +11,8 @@ require"includes-acoes/listas/servicos.php";
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="UTF-8">
-  <meta name="description" content="Homely - Responsive Real Estate Template">
-  <meta name="author" content="Rype Creative [Chris Gipple]">
+  <meta name="description" content="Anuncie na Liigo - Mais de 30.000 usuários vendo o seu anúncio">
+  <meta name="author" content="MãonaWeb">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liigo | Serviços</title>
@@ -210,7 +210,6 @@ $indice ="pagina=".$i."";
 <script src="js/wNumb.js"></script> <!-- price formatting -->
 <script src="js/nouislider.min.js"></script> <!-- price slider -->
 <script src="js/global.js"></script>
-
-
+<script src="js/pbox.js"></script>
 </body>
 </html>

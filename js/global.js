@@ -322,6 +322,11 @@ jQuery(document).ready(function($) {
             return false;   
     });
     //-->!]]>
+	<!--retira o chosen de alguns campos-->
+	$("#estadobusc").chosen("destroy");
+	$("#cidadebusc").chosen("destroy");
+	$("#precisabusc").chosen("destroy");
+	$("#servicosbusc").chosen("destroy");
 });
 
 /*pula select*/

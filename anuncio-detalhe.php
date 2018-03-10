@@ -11,8 +11,8 @@ require"includes-acoes/anuncio-detalhe/anuncio-detalhe.php";
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="UTF-8">
-  <meta name="description" content="Homely - Responsive Real Estate Template">
-  <meta name="author" content="Rype Creative [Chris Gipple]">
+  <meta name="description" content="Anuncie na Liigo - Mais de 30.000 usuários vendo o seu anúncio">
+  <meta name="author" content="MãonaWeb">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liigo | <?php echo $linean['titulo']?></title>
@@ -131,7 +131,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
 			<div class="widget property-single-item property-agent">
 				<h4>
-					<span>Informaçõesde contato</span> <img class="divider-hex" src="images/divider-half.png" alt="" />
+					<span>Informações de contato</span> <img class="divider-hex" src="images/divider-half.png" alt="" />
 					<div class="divider-fade"></div>
 				</h4>
 				<div class="agent">
@@ -203,7 +203,6 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqb3fT3SbMSDMggMEK7fJOIkvamccLrjA&sensor=false"></script>
 <script src="js/map-single.js"></script> <!-- google maps -->
 <script src="js/global.js"></script>
-
-
+<script src="js/pbox.js"></script>
 </body>
 </html>

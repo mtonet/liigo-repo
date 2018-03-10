@@ -65,53 +65,50 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
     </div>
 
     <!-- main menu -->
+    <form action="lista-de-anuncios" method="get" id="buscaselect" name="buscaselect">
     <div class="navbar-collapse collapse">
  <div class="main-menu-wrap">
         <div class="container-fixed">
 
         <div class="member-actions right">
-          <a href="user-submit-property.html" class="button small alt button-icon"><i class="fa fa-search"></i>BUSCAR</a>
+          <a onclick="javascript:buscaselect.submit()" class="button small alt button-icon"><i class="fa fa-search"></i>BUSCAR</a>
         </div>
 
 
         <div class="busca">
-        <form action="" method="post" id="busca">
+        
           
          <div class="col-md-2">
-           <select class="form-control" name="estadobusc" id="estadobusc">
+           <select class="form-control require" name="estadobusc" id="estadobusc">
   <option value="">Estado</option>
 <?php while($lineestados=$queryestados->fetch_array()){?>
-    <option value="<?php echo $lineestados['estado'];?>"><?php echo $lineestados['estado'];?></option>
+    <option value="<?php echo $lineestados['estado'];?>" <?php if($estadobusc==$lineestados['estado']){?>selected<?php }?>><?php echo $lineestados['estado'];?></option>
 <?php }?>
 </select>
          </div>
-         <div class="col-md-3">
-           <select name="cidadebusc" id="cidadebusc">
+         <div class="col-md-2">
+           <select class="form-control" name="cidadebusc" id="cidadebusc">
   <option value="">Cidade</option>
-  <!-- MOSTRAR as cidades apenas que possui anúncio
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>-->
+  <?php if($cidadebusc!=""){?>
+  <option value="<?php echo ucfirst($cidadebusc)?>" selected><?php echo ucfirst($cidadebusc)?></option>
+  <?php }?>
 </select>
 
          </div>
          <div class="col-md-3">
-           <select class="form-control" name="precisabusc">
-  <option>O que você precisa?</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
+           <select class="form-control" name="precisabusc" id="precisabusc">
+  <option value="">O que você precisa?</option>
+  <?php while($linecategoria=$querycategoria->fetch_array()){?>
+    <option value="<?php echo $linecategoria['nome'];?>" <?php if($precisabusc==$linecategoria['nome']){?>selected<?php }?>><?php echo $linecategoria['nome'];?></option>
+<?php }?>
 </select>
          </div>
-         <div class="col-md-2">
-           <select class="form-control" name="servicosbusc">
-  <option>Serviços</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
+         <div class="col-md-3">
+           <select class="form-control" name="servicosbusc" id="servicosbusc">
+  <option value="">Serviços</option>
+  <?php if($servicosbusc!=""){?>
+  <option value="<?php echo ucfirst($servicosbusc)?>" selected><?php echo ucfirst($servicosbusc)?></option>
+  <?php }?>
 </select>
          </div>
 
