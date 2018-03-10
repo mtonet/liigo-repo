@@ -186,6 +186,7 @@ require"includes-acoes/home/home.php";
 <script src="js/wNumb.js"></script> <!-- price formatting -->
 <script src="js/nouislider.min.js"></script> <!-- price slider -->
 <script src="js/global.js"></script>
+<script src="js/pbox.js"></script>
 
 </body>
 </html>
