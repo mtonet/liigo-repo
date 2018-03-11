@@ -327,6 +327,8 @@ jQuery(document).ready(function($) {
 	$("#cidadebusc").chosen("destroy");
 	$("#precisabusc").chosen("destroy");
 	$("#servicosbusc").chosen("destroy");
+	$("#estado").chosen("destroy");
+	$("#cidade").chosen("destroy");
 });
 
 /*pula select*/

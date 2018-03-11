@@ -32,6 +32,10 @@ $listacad="SELECT cpf_cnpj,email FROM tbl_usuarios WHERE cpf_cnpj='".$cpf_cnpj."
 $querycad=$mysqli->query($listacad);
 $rowcad=$querycad->num_rows;
 
+//estados
+$listaestad="SELECT Uf FROM tbl_estado ORDER BY Uf ASC";
+$queryestad=$mysqli->query($listaestad);
+
 //condicao
 if($nome==""){
 $msgscad='<div class="alert-box error"><i class="fa fa-close icon"></i> Por favor informe um nome</div>';

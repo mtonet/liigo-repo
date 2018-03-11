@@ -7,7 +7,7 @@ $precisabusc=$mysqli->real_escape_string(strip_tags(trim($_GET['precisabusc'])))
 $servicosbusc=$mysqli->real_escape_string(strip_tags(trim($_GET['servicosbusc'])));
 
 //estados dos anuncios apenas
-$listaestados="SELECT estado, COUNT(estado) AS estados FROM tbl_anuncio GROUP BY estado ORDER BY estado ASC";
+$listaestados="SELECT status,estado, COUNT(estado) AS estados FROM tbl_anuncio WHERE status='1' GROUP BY estado ORDER BY estado ASC";
 $queryestados=$mysqli->query($listaestados);
 
 //categorias

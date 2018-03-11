@@ -93,38 +93,16 @@ header("Location:meu-perfil");
                   <label>Estado*</label>
                   <select class="border" style="display: none;" name="estado" id="estado">   
                   <option value="">Selecione o Estado</option>
-   <option value="AC" <?php if($_SESSION['estado']=="AC"){?>selected<?php }?>>Acre</option>
-    <option value="AL" <?php if($_SESSION['estado']=="AL"){?>selected<?php }?>>Alagoas</option>
-    <option value="AP" <?php if($_SESSION['estado']=="AP"){?>selected<?php }?>>Amapá</option>
-    <option value="AM" <?php if($_SESSION['estado']=="AM"){?>selected<?php }?>>Amazonas</option>
-    <option value="BA" <?php if($_SESSION['estado']=="BA"){?>selected<?php }?>>Bahia</option>
-    <option value="CE" <?php if($_SESSION['estado']=="CE"){?>selected<?php }?>>Ceará</option>
-    <option value="DF" <?php if($_SESSION['estado']=="DF"){?>selected<?php }?>>Distrito Federal</option>
-    <option value="ES" <?php if($_SESSION['estado']=="ES"){?>selected<?php }?>>Espírito Santo</option>
-    <option value="GO" <?php if($_SESSION['estado']=="GO"){?>selected<?php }?>>Goiás</option>
-    <option value="MA" <?php if($_SESSION['estado']=="MA"){?>selected<?php }?>>Maranhão</option>
-    <option value="MT" <?php if($_SESSION['estado']=="MT"){?>selected<?php }?>>Mato Grosso</option>
-    <option value="MS" <?php if($_SESSION['estado']=="MS"){?>selected<?php }?>>Mato Grosso do Sul</option>
-    <option value="MG" <?php if($_SESSION['estado']=="MG"){?>selected<?php }?>>Minas Gerais</option>
-    <option value="PA" <?php if($_SESSION['estado']=="PA"){?>selected<?php }?>>Pará</option>
-    <option value="PB" <?php if($_SESSION['estado']=="PB"){?>selected<?php }?>>Paraíba</option>
-    <option value="PR" <?php if($_SESSION['estado']=="PR"){?>selected<?php }?>>Paraná</option>
-    <option value="PE" <?php if($_SESSION['estado']=="PE"){?>selected<?php }?>>Pernambuco</option>
-    <option value="PI" <?php if($_SESSION['estado']=="PI"){?>selected<?php }?>>Piauí</option>
-    <option value="RJ" <?php if($_SESSION['estado']=="RJ"){?>selected<?php }?>>Rio de Janeiro</option>
-    <option value="RN" <?php if($_SESSION['estado']=="RN"){?>selected<?php }?>>Rio Grande do Norte</option>
-    <option value="RS" <?php if($_SESSION['estado']=="RS"){?>selected<?php }?>>Rio Grande do Sul</option>
-    <option value="RO" <?php if($_SESSION['estado']=="RO"){?>selected<?php }?>>Rondônia</option>
-    <option value="RR" <?php if($_SESSION['estado']=="RR"){?>selected<?php }?>>Rorâima</option>
-    <option value="SC" <?php if($_SESSION['estado']=="SC"){?>selected<?php }?>>Santa Catarina</option>
-    <option value="SP" <?php if($_SESSION['estado']=="SP"){?>selected<?php }?>>São Paulo</option>
-    <option value="SE" <?php if($_SESSION['estado']=="SE"){?>selected<?php }?>>Sergipe</option>
-    <option value="TO" <?php if($_SESSION['estado']=="TO"){?>selected<?php }?>>Tocantins</option>            
+                  <?php while($lineestad=$queryestad->fetch_array()){?>
+   <option value="<?php echo $lineestad['Uf']?>" <?php if($_SESSION['estado']==$lineestad['Uf']){?>selected<?php }?>><?php echo $lineestad['Uf']?></option>
+                  <?php }?>
                   </select>
             </div>
             <div class="form-block border">
                   <label>Cidade*</label>
-                  <input class="border" type="text" name="cidade" required value="<?php echo $_SESSION['cidade'];?>"/>               
+                  <select class="border" style="display: none;" name="cidade" id="cidade">   
+                  <option value="">Selecione uma Cidade</option>
+                  </select>               
                   </select>
             </div>
             

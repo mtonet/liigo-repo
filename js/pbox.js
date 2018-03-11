@@ -19,6 +19,15 @@ $("select[name=servicosbusc]").html(valor);
 }
 )
 })
-
+//combo cidade cadastro
+$("select[name=estado]").change(function(){
+$("select[name=cidade]").html('<option value="0">carregando...</option>');
+$.post("includes-acoes/cadastro/cidades.php",
+{estado:$(this).val()},
+function(valor){
+$("select[name=cidade]").html(valor);
+}
+)
+})
 
 })
