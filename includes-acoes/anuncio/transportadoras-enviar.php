@@ -20,7 +20,7 @@ $arquivo01_nome=$_FILES['image']['name'];
 $arquivo01_temporario=$_FILES['image']['tmp_name'];
 
 //servicos
-$listatrans2="SELECT id_cod,nome from tbl_tipo_transporte WHERE id_cod='".$transporte."'";
+$listatrans2="SELECT id_cod,nome from tbl_subcategoria WHERE id_cod='".$transporte."'";
 $querytrans2=$mysqli->query($listatrans2);
 $linetrans2=$querytrans2->fetch_array();
 
@@ -33,7 +33,7 @@ $lineuser=$queryuser->fetch_array();
 if($enviocad=="s" AND $arquivo01_nome==""){
 
 $cod=rand("1","1234567890");
-$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,id_categoria,categoria,id_tipo_transporte,tipo_transporte,descricao,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$idcat."','".$cat."','".$linetrans2['id_cod']."','".$linetrans2['nome']."','".$descricao."','0')";
+$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,id_categoria,categoria,id_subcategoria,subcategoria,descricao,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$idcat."','".$cat."','".$linetrans2['id_cod']."','".$linetrans2['nome']."','".$descricao."','0')";
 $query=$mysqli->query($cadast);
 
 //galeria
@@ -59,7 +59,7 @@ break;
 //img
 require"img.php";
 $cod=rand("1","1234567890");
-$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,id_categoria,categoria,id_tipo_transporte,tipo_transporte,descricao,avatar,image,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$idcat."','".$cat."','".$linetrans2['id_cod']."','".$linetrans2['nome']."','".$descricao."','".$avatar."','".$avatar2."','0')";
+$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,id_categoria,categoria,id_subcategoria,subcategoria,descricao,avatar,image,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$idcat."','".$cat."','".$linetrans2['id_cod']."','".$linetrans2['nome']."','".$descricao."','".$avatar."','".$avatar2."','0')";
 $query=$mysqli->query($cadast);
 
 //galeria

@@ -22,7 +22,7 @@ $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 
 //demais
-$listamais2="SELECT termo, COUNT(termo) AS qtd from tbl_termos_pesquisados WHERE termo!='".$linemais['termo']."' GROUP BY termo ORDER BY qtd DESC LIMIT 5";
+$listamais2="SELECT termo, COUNT(termo) AS qtd from tbl_termos_pesquisados WHERE termo!='".$linemais['termo']."' GROUP BY termo ORDER BY qtd DESC LIMIT 4";
 $querymais2=$mysqli->query($listamais2);
 $numCont2=$querymais2->num_rows;
 

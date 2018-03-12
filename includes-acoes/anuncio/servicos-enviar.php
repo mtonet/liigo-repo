@@ -21,7 +21,7 @@ $arquivo01_nome=$_FILES['image']['name'];
 $arquivo01_temporario=$_FILES['image']['tmp_name'];
 
 //servicos
-$listaserv2="SELECT id_cod,nome from tbl_tipo_servico WHERE id_cod='".$servico."'";
+$listaserv2="SELECT id_cod,nome from tbl_subcategoria WHERE id_cod='".$servico."'";
 $queryserv2=$mysqli->query($listaserv2);
 $lineserv2=$queryserv2->fetch_array();
 
@@ -34,7 +34,7 @@ $lineuser=$queryuser->fetch_array();
 if($enviocad=="s" AND $arquivo01_nome==""){
 
 $cod=rand("1","1234567890");
-$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,preco,id_categoria,categoria,id_tipo_servico,tipo_servico,descricao,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$preco."','".$idcat."','".$cat."','".$lineserv2['id_cod']."','".$lineserv2['nome']."','".$descricao."','0')";
+$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,preco,id_categoria,categoria,id_subcategoria,subcategoria,descricao,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$preco."','".$idcat."','".$cat."','".$lineserv2['id_cod']."','".$lineserv2['nome']."','".$descricao."','0')";
 $query=$mysqli->query($cadast);
 
 //galeria
@@ -60,7 +60,7 @@ break;
 //img
 require"img.php";
 $cod=rand("1","1234567890");
-$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,preco,id_categoria,categoria,id_tipo_servico,tipo_servico,descricao,avatar,image,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$preco."','".$idcat."','".$cat."','".$lineserv2['id_cod']."','".$lineserv2['nome']."','".$descricao."','".$avatar."','".$avatar2."','0')";
+$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,preco,id_categoria,categoria,id_subcategoria,subcategoria,descricao,avatar,image,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$preco."','".$idcat."','".$cat."','".$lineserv2['id_cod']."','".$lineserv2['nome']."','".$descricao."','".$avatar."','".$avatar2."','0')";
 $query=$mysqli->query($cadast);
 
 //galeria

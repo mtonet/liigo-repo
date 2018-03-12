@@ -12,7 +12,7 @@ $pag=$mysqli->real_escape_string(strip_tags(trim($_GET['pagina'])));
 
 
 //servicos
-$listaserv="SELECT id_cod,nome from tbl_tipo_servico ORDER BY nome asc";
+$listaserv="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' ORDER BY nome asc";
 $queryserv=$mysqli->query($listaserv);
 
 //
@@ -29,32 +29,32 @@ $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }else{
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (tipo_servico='".$servico."') AND id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND subcategoria='".$servico."' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 
 if($acao=="date_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1') OR subcategoria='".$servico."' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="date_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1') OR subcategoria='".$servico."' ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="price_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1') OR subcategoria='".$servico."' ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="price_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1') OR subcategoria='".$servico."' ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }

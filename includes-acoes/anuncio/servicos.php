@@ -8,7 +8,7 @@ $queryimgt=$mysqli->query($listaimgt);
 $lineimgt=$queryimgt->fetch_array();
 
 //servicos
-$listaserv="SELECT id_cod,nome from tbl_tipo_servico ORDER BY nome asc";
+$listaserv="SELECT id_cod,nome,status from tbl_subcategoria WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ORDER BY nome asc";
 $queryserv=$mysqli->query($listaserv);
 
 

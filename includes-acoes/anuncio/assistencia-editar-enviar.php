@@ -1,6 +1,5 @@
 <?php
-//assistencia
-
+//assistencia editar
 
 //imagem topo
 $listaimgt="SELECT image,id_pagina,status FROM tbl_img_internas WHERE id_pagina='3' AND status='1'";
@@ -8,6 +7,7 @@ $queryimgt=$mysqli->query($listaimgt);
 $lineimgt=$queryimgt->fetch_array();
 
 //
+$area=$mysqli->real_escape_string(strip_tags(trim($_GET['area'])));
 $idcat="c614d0c0bb7cb5993004d956564b1687";
 $cat="Assistência Técnica";
 $marca=$mysqli->real_escape_string(strip_tags(trim($_POST['marca'])));
@@ -39,7 +39,7 @@ $lineuser=$queryuser->fetch_array();
 if($enviocad=="s" AND $arquivo01_nome==""){
 
 $cod=rand("1","1234567890");
-$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,id_categoria,categoria,id_marca,marca,id_tecnologia,tecnologia,descricao,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$idcat."','".$cat."','".$linemarc2['id_cod']."','".$linemarc2['nome']."','".$linetec2['id_cod']."','".$linetec2['nome']."','".$descricao."','0')";
+$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',id_categoria='".$idcat."',categoria='".$cat."',id_marca='".$linemarc2['id_cod']."',marca='".$linemarc2['nome']."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',descricao='".$descricao."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
 
 //galeria
@@ -53,7 +53,7 @@ $ii++;
 require"img2.php";
 $codimg=rand("1","1234567890");
 //cadastra imagens
-$cadastimg="INSERT into tbl_anuncio_galeria (id_cod,id_anuncio,avatar,image) values ('".md5($codimg)."','".md5($cod)."','".$avatar3."','".$avatar4."')";
+$cadastimg="INSERT into tbl_anuncio_galeria (id_cod,id_anuncio,avatar,image) values ('".md5($codimg)."','".$area."','".$avatar3."','".$avatar4."')";
 $queryimg=$mysqli->query($cadastimg);
 }
 break;
@@ -65,7 +65,7 @@ break;
 //img
 require"img.php";
 $cod=rand("1","1234567890");
-$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,id_categoria,categoria,id_marca,marca,id_tecnologia,tecnologia,descricao,avatar,image,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$idcat."','".$cat."','".$linemarc2['id_cod']."','".$linemarc2['nome']."','".$linetec2['id_cod']."','".$linetec2['nome']."','".$descricao."','".$avatar."','".$avatar2."','0')";
+$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',id_categoria='".$idcat."',categoria='".$cat."',id_marca='".$linemarc2['id_cod']."',marca='".$linemarc2['nome']."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',descricao='".$descricao."',avatar='".$avatar."',image='".$avatar2."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
 
 //galeria
@@ -79,7 +79,7 @@ $ii++;
 require"img2.php";
 $codimg=rand("1","1234567890");
 //cadastra imagens
-$cadastimg="INSERT into tbl_anuncio_galeria (id_cod,id_anuncio,avatar,image) values ('".md5($codimg)."','".md5($cod)."','".$avatar3."','".$avatar4."')";
+$cadastimg="INSERT into tbl_anuncio_galeria (id_cod,id_anuncio,avatar,image) values ('".md5($codimg)."','".$area."','".$avatar3."','".$avatar4."')";
 $queryimg=$mysqli->query($cadastimg);
 
 }

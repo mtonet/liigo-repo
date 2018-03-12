@@ -101,19 +101,19 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 		<?php while($lineanunc=$queryanunc->fetch_array()){
 			//tipo anuncio
 			switch ($lineanunc['categoria']) {
-		    case Equipamentos:
+		    case 'Equipamentos':
 		        $link="editar-anuncio-equipamentos";
 		        break;
-		    case Suprimentos:
+		    case 'Suprimentos':
 		        $link="editar-anuncio-suprimentos";
 		        break;
-		    case Transportadoras:
+		    case 'Transportadoras':
 		        $link="editar-anuncio-transportadoras";
 		        break;
-		    case Assistência:
+		    case 'Assistência Técnica':
 		        $link="editar-anuncio-assistencia";
 		        break;
-		    case Serviços:
+		    case 'Serviços':
 		        $link="editar-anuncio-servicos";
 		        break;
 				}
@@ -141,7 +141,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 				</td>
 				<td class="property-date"><?php echo  date('d/m/Y', strtotime($lineanunc['data']))?></td>
 				<td class="property-actions">
-					<?php if($lineanunc['status']=="1"){?><a href="anuncio-detalhe?area=<?php echo $lineanunc['id_cod']?>"><i class="fa fa-eye icon"></i>Ver</a><?php }?>
+					<?php if($lineanunc['status']=="1"){?><a href="anuncio-detalhe?area=<?php echo $lineanunc['id_cod']?>" target="_blank"><i class="fa fa-eye icon"></i>Ver</a><?php }?>
 					<a href="<?php echo $link."?area=".$lineanunc['id_cod'];?>"><i class="fa fa-pencil icon"></i>Editar</a>
 					<a href="#" data-toggle="modal" data-target=".deletar<?php echo $lineanunc['id_cod']?>"><i class="fa fa-close icon"></i>Excluir</a>
 				</td>

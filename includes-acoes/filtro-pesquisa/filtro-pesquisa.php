@@ -11,7 +11,7 @@ $listaestados="SELECT status,estado, COUNT(estado) AS estados FROM tbl_anuncio W
 $queryestados=$mysqli->query($listaestados);
 
 //categorias
-$listacategoria="SELECT * FROM tbl_categoria WHERE status='1' ORDER BY nome ASC";
+$listacategoria="SELECT status,categoria, COUNT(categoria) AS categorias FROM tbl_anuncio WHERE status='1' GROUP BY categoria ORDER BY categoria ASC";
 $querycategoria=$mysqli->query($listacategoria);
 
 ?>

@@ -22,23 +22,23 @@ $pagina = 1;
 $inicio = ($pagina * $num_registro) - $num_registro;
 //
 if($acao==""){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR tipo_suprimento like'%".$buscaprinc."%' OR tipo_servico like'%".$buscaprinc."%' OR tipo_transporte like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }elseif($acao=="date_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR tipo_suprimento like'%".$buscaprinc."%' OR tipo_servico like'%".$buscaprinc."%' OR tipo_transporte like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }elseif($acao=="date_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR tipo_suprimento like'%".$buscaprinc."%' OR tipo_servico like'%".$buscaprinc."%' OR tipo_transporte like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }elseif($acao=="price_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR tipo_suprimento like'%".$buscaprinc."%' OR tipo_servico like'%".$buscaprinc."%' OR tipo_transporte like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }elseif($acao=="price_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR tipo_suprimento like'%".$buscaprinc."%' OR tipo_servico like'%".$buscaprinc."%' OR tipo_transporte like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
@@ -51,7 +51,7 @@ $numTotal=$queryTotal->num_rows;
 
 
 //verifica se o termo buscado encontra-se com alguma categoria
-$sqlcup2="SELECT categoria,status FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR tipo_suprimento like'%".$buscaprinc."%' OR tipo_servico like'%".$buscaprinc."%' OR tipo_transporte like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1'";
+$sqlcup2="SELECT categoria,status,marca,cabeca_impressao,tecnologia,condicao,descricao, COUNT(categoria) AS categorias FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' GROUP BY categoria";
 $querycup2=$mysqli->query($sqlcup2);
 $numCont2=$querycup2->num_rows;
 

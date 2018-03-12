@@ -12,7 +12,7 @@ $listatec="SELECT id_cod,nome from tbl_tecnologia ORDER BY nome asc";
 $querytec=$mysqli->query($listatec);
 
 //tipo supri
-$listasupri="SELECT id_cod,nome from tbl_tipo_suprimento ORDER BY nome asc";
+$listasupri="SELECT id_cod,nome,status from tbl_subcategoria WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ORDER BY nome asc";
 $querysupri=$mysqli->query($listasupri);
 
 

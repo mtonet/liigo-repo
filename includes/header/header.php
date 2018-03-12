@@ -99,7 +99,7 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
            <select class="form-control" name="precisabusc" id="precisabusc">
   <option value="">O que você precisa?</option>
   <?php while($linecategoria=$querycategoria->fetch_array()){?>
-    <option value="<?php echo $linecategoria['nome'];?>" <?php if($precisabusc==$linecategoria['nome']){?>selected<?php }?>><?php echo $linecategoria['nome'];?></option>
+    <option value="<?php echo $linecategoria['categoria'];?>" <?php if($precisabusc==$linecategoria['categoria']){?>selected<?php }?>><?php echo $linecategoria['categoria'];?></option>
 <?php }?>
 </select>
          </div>

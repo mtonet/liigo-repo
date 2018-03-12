@@ -171,11 +171,12 @@ $indice ="pagina=".$i."";
 					//categorias
 					$listacat="SELECT id_cod,nome,status from tbl_categoria WHERE nome like'%".$linecat2['categoria']."%' ORDER BY nome asc";
 					$querycat=$mysqli->query($listacat);
-					$linecat=$querycat->fetch_array();
 					$numcat=$querycat->num_rows;	
+					while($linecat=$querycat->fetch_array()){
 					?>
-					<p><a href="lista-<?php echo str_replace(" ", "-",loCase(ascento(utf8_decode($linecat2['categoria']))))?>"><?php echo $linecat2['categoria']?> (<?php echo $numcat?>)</a></p>
+					<p><a href="lista-<?php echo str_replace(" ", "-",loCase(ascento(utf8_decode($linecat['nome']))))?>"><?php echo $linecat['nome']?> (<?php echo $linecat2['categorias']?>)</a></p>
 					<?php
+				}
 					}
 					?>
 
