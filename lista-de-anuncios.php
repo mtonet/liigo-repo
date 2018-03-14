@@ -1,4 +1,5 @@
 <?php
+session_start();
 //conn
 require"conn/exe.php";
 //regras
@@ -57,18 +58,25 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
   
 	<div class="row">
 		<div class="col-lg-8 col-md-8">
+
+			<div class="row">
+					<?php if($action=="fav"){
+		          	echo $msgfav;
+		          }
+		          	?>
+				</div>
 		
 			<div class="property-listing-header">
 				<span class="property-count left"><?php echo $numCont?> anúncio(s) encontrado(s)</span>
-				<form class="right">
-					<select name="sort_by" onchange="MM_jumpMenu('parent',this,0)">
+				<?php if($numCont!=""){?><form class="right">
+					<select name="acao" onchange="MM_jumpMenu('parent',this,0)">	
 						<option value="">Selecione...</option>
 						<option value="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&acao=date_desc" <?php if($acao=="date_desc"){?>selected<?php }?>>Novo para o mais antigo</option>
 						<option value="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&acao=date_asc" <?php if($acao=="date_asc"){?>selected<?php }?>>Antigo para o mais novo</option>
 						<option value="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&acao=price_desc" <?php if($acao=="price_desc"){?>selected<?php }?>>Preço maior para o menor</option>
 						<option value="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&acao=price_asc" <?php if($acao=="price_asc"){?>selected<?php }?>>Preço menor para o maior</option>
 					</select>
-				</form>
+				</form><?php }?>
 				<!--<div class="property-layout-toggle right">
 					<a href="property-listing-grid-sidebar.html" class="property-layout-toggle-item"><i class="fa fa-th-large"></i></a>
 					<a href="property-listing-row-sidebar.html" class="property-layout-toggle-item active"><i class="fa fa-bars"></i></a>
@@ -102,7 +110,33 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 		      <div class="property-footer">
 		        <span class="left"><i class="fa fa-calendar-o icon"></i> <?php echo utf8_encode(tempo_corrido($ddadosped['data']));?></span>
 		        <span class="right">
-		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
+
+		          <?php if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689'])){?>
+		          <a href="#" data-toggle="modal" data-target=".fav<?php echo $ddadosped['id_cod']?>"><i class="fa fa-heart-o icon"></i></a>
+
+		          <div class="modal fade fav<?php echo $ddadosped['id_cod']?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-md">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Adicionar aos Favoritos</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Deseja realmente adicionar esse anúncio <b><?php echo $ddadosped['titulo']?></b> a sua lista de Favoritos?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <a href="?estadobusc=<?php echo $estadobusc;?>&cidadebusc=<?php echo $cidadebusc;?>&precisabusc=<?php echo $precisabusc;?>&servicosbusc=<?php echo $servicosbusc;?>&area=<?php echo $ddadosped['id_cod'];?>&action=fav" class="btn btn-success" style="color:#FFF">Adicionar</a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+		          <?php }?>
 		          <!--<a href="#"><i class="fa fa-share-alt"></i></a>-->
 		          <a href="anuncio-detalhe?area=<?php echo $ddadosped['id_cod']?>" class="button button-icon"><i class="fa fa-angle-right"></i>Detalhes</a>
 		        </span>
@@ -243,6 +277,7 @@ $indice ="pagina=".$i."";
 				  <div class="form-block">
 					<input type="submit" id="button" value="Filtrar" class="button" onclick="javascript:formfiltro.submit()"/>
 				  </div>
+
 				</form>
 			  </div><!-- end widget content -->
 			</div><!-- end widget -->

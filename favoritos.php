@@ -6,6 +6,8 @@ require"conn/exe.php";
 require"includes-acoes/regras/regras.php";
 //session
 require"includes-acoes/session/session.php";
+//favoritos
+require"includes-acoes/favoritos/favoritos.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,6 +36,13 @@ require"includes-acoes/session/session.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+
+  <style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
+
 </head>
 <body>
 
@@ -54,9 +63,15 @@ require"includes-acoes/session/session.php";
 		<div class="col-lg-3 col-md-3 sidebar-left">
 			<div class="widget member-card">
 				<div class="member-card-header">
-					<a href="#" class="member-card-avatar"><img src="images/1197x1350.png" alt="" /></a>
-					<h3>John Doe</h3>
-					<p><i class="fa fa-envelope icon"></i>jdoe@gmail.com</p>
+					<a href="#" class="member-card-avatar">
+					<?php if($linedpu['avatar']==""){?>
+						<img src="uploads/usuarios/no.jpg" alt="<?php echo $linedpu['avatar'];?>" />
+						<?php }else{?>
+						<img src="uploads/usuarios/<?php echo $linedpu['avatar'];?>" alt="<?php echo $linedpu['avatar'];?>" />
+						<?php }?>
+					</a>
+					<h3><?php echo $linedpu['nome']?></h3>
+					<p><i class="fa fa-envelope icon"></i><?php echo $linedpu['email']?></p>
 				</div>
 				<div class="member-card-content">
 					<img class="hex" src="images/hexagon.png" alt="" />
@@ -73,75 +88,67 @@ require"includes-acoes/session/session.php";
 		</div>
 
 		<div class="col-lg-9 col-md-9">
+			<?php if($numfav!=""){?>
 			<table class="my-properties-list favorite-properties-list">
 			  <tr>
-				<th>Image</th>
-				<th>Property</th>
-				<th>Actions</th>
+				<th>Imagem</th>
+				<th>Título</th>
+				<th>Ações</th>
 			  </tr>
+			  <?php
+			  while($linefav=$queryfav->fetch_array()){
+			  	//dados anuncio
+			  	$listaanunc="SELECT id_cod,id_user,titulo,preco,avatar,data,status,categoria FROM tbl_anuncio WHERE id_cod='".$linefav['id_anuncio']."' ORDER BY data desc";
+				$queryanunc=$mysqli->query($listaanunc);
+				$lineanunc=$queryanunc->fetch_array();
+			  ?>
 			  <tr>
-				<td class="property-img"><a href="property-single.html"><img src="images/1837x1206.png" alt="" /></a></td>
+				<td class="property-img">
+					<?php if($lineanunc['avatar']==""){?>	
+					<img src="uploads/anuncios/thumb/no.jpg" alt="avatar anuncio" />
+					<?php }else{?>
+					<img src="uploads/anuncios/thumb/<?php echo $lineanunc['avatar'];?>" alt="avatar anuncio" />
+					<?php }?>
+					</a></td>
 				<td class="property-title">
-					<a href="property-single.html">Modern Family Home</a><br/>
-					<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Drive, Baltimore, MD</p>
-					<p><strong>$253,000</strong></p>
+					<?php echo $lineanunc['titulo'];?><br/>
+					<?php if($lineanunc['preco']!="0"){?><p><strong>R$ <?php echo number_format($lineanunc['preco'], 2, ',','.');?></strong></p><?php }?>
 				</td>
 				<td class="property-actions">
-					<a href="#"><i class="fa fa-eye icon"></i>View</a>
-					<a href="#"><i class="fa fa-close icon"></i>Delete</a>
+					<a href="anuncio-detalhe?area=<?php echo $lineanunc['id_cod']?>" target="_blank"><i class="fa fa-eye icon"></i>Ver</a>
+					<a href="#" data-toggle="modal" data-target=".deletar<?php echo $lineanunc['id_cod']?>"><i class="fa fa-close icon"></i>Excluir</a>
 				</td>
 			  </tr>
-			  <tr>
-				<td class="property-img"><a href="property-single.html"><img src="images/1837x1206.png" alt="" /></a></td>
-				<td class="property-title">
-					<a href="property-single.html">Ubran Apartment</a><br/>
-					<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Drive, Baltimore, MD</p>
-					<p><strong>$12,000</strong> Per Month</p>
-				</td>
-				<td class="property-actions">
-					<a href="#"><i class="fa fa-eye icon"></i>View</a>
-					<a href="#"><i class="fa fa-close icon"></i>Delete</a>
-				</td>
-			  </tr>
-			  <tr>
-				<td class="property-img"><a href="property-single.html"><img src="images/1837x1206.png" alt="" /></a></td>
-				<td class="property-title">
-					<a href="property-single.html">Modern Family Home</a><br/>
-					<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Drive, Baltimore, MD</p>
-					<p><strong>$253,000</strong></p>
-				</td>
-				<td class="property-actions">
-					<a href="#"><i class="fa fa-eye icon"></i>View</a>
-					<a href="#"><i class="fa fa-close icon"></i>Delete</a>
-				</td>
-			  </tr>
-			  <tr>
-				<td class="property-img"><a href="property-single.html"><img src="images/1837x1206.png" alt="" /></a></td>
-				<td class="property-title">
-					<a href="property-single.html">Modern Family Home</a><br/>
-					<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Drive, Baltimore, MD</p>
-					<p><strong>$253,000</strong></p>
-				</td>
-				<td class="property-actions">
-					<a href="#"><i class="fa fa-eye icon"></i>View</a>
-					<a href="#"><i class="fa fa-close icon"></i>Delete</a>
-				</td>
-			  </tr>
-			  <tr>
-				<td class="property-img"><a href="property-single.html"><img src="images/1837x1206.png" alt="" /></a></td>
-				<td class="property-title">
-					<a href="property-single.html">Modern Family Home</a><br/>
-					<p class="property-address"><i class="fa fa-map-marker icon"></i>123 Smith Drive, Baltimore, MD</p>
-					<p><strong>$253,000</strong></p>
-				</td>
-				<td class="property-actions">
-					<a href="#"><i class="fa fa-eye icon"></i>View</a>
-					<a href="#"><i class="fa fa-close icon"></i>Delete</a>
-				</td>
-			  </tr>
+
+
+			  <div class="modal fade deletar<?php echo $lineanunc['id_cod']?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Excluir registro</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Deseja realmente excluir o anúncio <b><?php echo $lineanunc['titulo']?></b> dos Favoritos?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <a href="?area=<?php echo $linefav['id_cod']?>&action=delete" class="btn btn-danger">Excluir</a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+			  <?php
+			  }
+			  ?>
 			</table>
 			
-			<div class="pagination">
+			<!--<div class="pagination">
 				<div class="center">
 					<ul>
 					  <li><a href="#" class="button small grey"><i class="fa fa-angle-left"></i></a></li>
@@ -152,7 +159,20 @@ require"includes-acoes/session/session.php";
 					</ul>
 				</div>
 				<div class="clear"></div>
-			</div>
+			</div>-->
+
+
+<?php }else{?>
+
+<table class="my-properties-list">
+			  <tr>
+				<th>Nenhum anúncio criado até o momento.</th>
+			  </tr>
+			</table>
+
+<?php }?>
+
+
 		</div><!-- end col -->
 	</div><!-- end row -->
 

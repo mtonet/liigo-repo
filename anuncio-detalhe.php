@@ -137,7 +137,11 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 				<div class="agent">
 			        <a href="#" class="agent-img">
 			            <div class="img-fade"></div>
+			            <?php if($lineuser['avatar']!=""){?>
 			            <img src="uploads/usuarios/<?php echo $lineuser['avatar']?>" alt="avatar <?php echo $lineuser['nome']?>" />
+			            <?php }else{?>
+			            <img src="uploads/usuarios/no.jpg" alt="avatar <?php echo $lineuser['nome']?>" />
+			            <?php }?>
 			        </a>
 			        <div class="agent-content">
 			            
