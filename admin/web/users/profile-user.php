@@ -149,50 +149,56 @@ require"../../includes-acoes/users/dados.php";
                           <h2>Lista de Favoritos</h2>
                         </div>
                       </div>                      
-
+                      <?php if($numfav!=""){?>
                             <table class="data table table-striped no-margin">
                               <thead>
                                 <tr>
-                                  <th>#</th>
                                   <th>Título</th>
                                   <th>Status</th>  
                                   <th></th>                                
-                                  <th>View</th>
+                                  <th>Edição</th>
                                 </tr>
                               </thead>
                               <tbody>
+                                <?php
+        while($linefav=$queryfav->fetch_array()){
+          //dados anuncio
+          $listaanunc="SELECT id_cod,id_user,titulo,preco,avatar,data,status,categoria,status FROM tbl_anuncio WHERE id_cod='".$linefav['id_anuncio']."' ORDER BY data desc";
+        $queryanunc=$mysqli->query($listaanunc);
+        $lineanunc=$queryanunc->fetch_array();
+        ?>
                                 <tr>
-                                  <td>1</td>
-                                  <td>Plotter Mimaki Cjv 150 - 107 - Bs Impressão E Corte</td>
-                                  <td><span class="label label-success">ativo</span></td>
+                                  <td><?php echo $lineanunc['titulo'];?></td>
+                                  <td>
+                                    <?php if($lineanunc['status']=="1"){?>
+                                    <span class="label label-success">ativo</span>
+                                    <?php }else{?>
+                                    <span class="label label-danger">inativo</span>
+                                    <?php }?>
+                                  </td>
                                   <td></td>
                                   <td class="vertical-align-mid">                                  
-                            <a href="../../../anuncio-detalhe.php" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>                            
-                            
+                            <a href="../../../anuncio-detalhe?area=<?php echo $lineanunc['id_cod'];?>" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
                                     </td>                        
                                 </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>Impressora Mimaki Bs160</td>
-                                  <td><span class="label label-danger">inativo</span></td>
-                                  <td class="hidden-phone"></td>
-                                  <td class="vertical-align-mid">
-                                   <a href="../../../anuncio-detalhe.php" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>                            
-                            
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>3</td>
-                                  <td>Impressora Mimaki Jv5 P/ Impressão Base D'água - Completa</td>
-                                  <td><span class="label label-success">ativo</span></td>
-                                  <td class="hidden-phone"></td>
-                                  <td class="vertical-align-mid">
-                                    <a href="../../../anuncio-detalhe.php" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>                            
-                           
-                                  </td>
-                                </tr>
+<?php
+        }
+        ?>
                               </tbody>
                             </table>
+
+
+                            <?php }else{?>
+
+<table class="my-properties-list">
+        <tr>
+        <th>Nenhum anúncio no momento.</th>
+        </tr>
+      </table>
+
+<?php }?>
+
+
                     </div>
                   </div>
                 </div>

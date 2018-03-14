@@ -1,4 +1,5 @@
 <?php
+session_start();
 //conn
 require"conn/exe.php";
 //regras
@@ -57,6 +58,14 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
   
 	<div class="row">
 		<div class="col-lg-8 col-md-8">
+
+
+			<div class="row">
+					<?php if($action=="fav"){
+		          	echo $msgfav;
+		          }
+		          	?>
+				</div>
 		
 			<div class="property-listing-header">
 				<span class="property-count left"><?php echo $numCont?> anúncio(s) encontrado(s)</span>
@@ -104,7 +113,32 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 		      <div class="property-footer">
 		        <span class="left"><i class="fa fa-calendar-o icon"></i> <?php echo utf8_encode(tempo_corrido($ddadosped['data']));?></span>
 		        <span class="right">
-		          <a href="#"><i class="fa fa-heart-o icon"></i></a>
+		          <?php if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689'])){?>
+		          <a href="#" data-toggle="modal" data-target=".fav<?php echo $ddadosped['id_cod']?>"><i class="fa fa-heart-o icon"></i></a>
+
+		          <div class="modal fade fav<?php echo $ddadosped['id_cod']?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-md">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Adicionar aos Favoritos</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Deseja realmente adicionar esse anúncio <b><?php echo $ddadosped['titulo']?></b> a sua lista de Favoritos?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <a href="?area=<?php echo $ddadosped['id_cod']?>&action=fav" class="btn btn-success" style="color:#FFF">Adicionar</a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+		          <?php }?>
 		          <!--<a href="#"><i class="fa fa-share-alt"></i></a>-->
 		          <a href="anuncio-detalhe?area=<?php echo $ddadosped['id_cod']?>" class="button button-icon"><i class="fa fa-angle-right"></i>Detalhes</a>
 		        </span>

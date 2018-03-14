@@ -122,7 +122,7 @@ require"../../includes-acoes/users/lista.php";
                           </td>
                           <td><?php echo $line['celular']?></td>
                           <td>
-                            <a href="profile-user.php?area=<?php echo $line['id_cod']?>" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View</a>
+                            <a href="profile-user.php?area=<?php echo $line['id_cod']?>" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver</a>
                             <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".deletar<?php echo $line['id_cod']?>"><i class="fa fa-trash-o"></i> Deletar </a>
 
                             <div class="modal fade deletar<?php echo $line['id_cod']?>" tabindex="-1" role="dialog" aria-hidden="true">
