@@ -104,12 +104,38 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
 </select>
          </div>
          <div class="col-md-3">
-           <select class="form-control" name="servicosbusc" id="servicosbusc">
-  <option value="">Serviços</option>
-  <?php if($servicosbusc!=""){?>
-  <option value="<?php echo ucfirst($servicosbusc)?>" selected><?php echo ucfirst($servicosbusc)?></option>
-  <?php }?>
+
+<?php if($precisabusc==""){?>
+
+ <select class="form-control" name="servicosbusc" id="servicosbusc">
+ <option value=""></option>
+ <?php if($servicosbusc!=""){?>
+ <option value="<?php echo ucfirst($servicosbusc)?>" selected><?php echo ucfirst($servicosbusc)?></option>
+ <?php }?>
 </select>
+
+<?php }elseif($precisabusc!=""){?>
+<select class="form-control" name="servicosbusc" id="servicosbusc">
+<option value=""></option>
+<?php 
+//categoria 
+$listasubh="SELECT * from tbl_subcategoria WHERE categoria='".$precisabusc."' AND status='1' ORDER BY nome ASC";
+$querysubh=$mysqli->query($listasubh);
+$numsubh=$querysubh->num_rows;
+if($numsubh==0){
+echo"<option value=''>nenhum resultado ...</option>";
+}else{
+while($linesubh=$querysubh->fetch_array()){
+?>
+<option value="<?php echo $linesubh['nome'];?>" <?php if($linesubh['nome']==$servicosbusc){?>selected<?php }?>><?php echo $linesubh['nome'];?></option>
+<?php
+}
+}
+?>
+</select>
+<?php 
+}
+?>
          </div>
 
         </form>

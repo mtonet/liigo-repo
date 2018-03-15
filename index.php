@@ -172,10 +172,7 @@ require"includes-acoes/home/home.php";
     </div><!-- end slider -->
   </div><!-- end container -->
 </section>
-
-
 <?php require"includes/rodape/rodape.php";?>
-
 <!-- JavaScript file links -->
 <script src="js/jquery-3.1.1.min.js"></script>      <!-- Jquery -->
 <script src="assets/jquery-ui-1.12.1/jquery-ui.min.js"></script>
