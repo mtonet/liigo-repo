@@ -23,6 +23,7 @@ $estadobusc=$mysqli->real_escape_string(strip_tags(trim($_GET['estadobusc'])));
 $cidadebusc=$mysqli->real_escape_string(strip_tags(trim($_GET['cidadebusc'])));
 $precisabusc=$mysqli->real_escape_string(strip_tags(trim($_GET['precisabusc'])));
 $servicosbusc=$mysqli->real_escape_string(strip_tags(trim($_GET['servicosbusc'])));
+$enviofiltro=$mysqli->real_escape_string(strip_tags(trim($_GET['enviofiltro'])));
 
 //condicao
 $listacond="SELECT id_cod,nome from tbl_condicao_equipamento ORDER BY nome asc";
@@ -81,7 +82,6 @@ $msgfav='<div class="alert-box success"><i class="fa fa-close icon"></i> Anúnci
 }
 }
 
-
 //
 $num_registro = 10;
 $pagina = isset($pag) ? $pag : 0;
@@ -91,40 +91,40 @@ $pagina = 1;
 }
 $inicio = ($pagina * $num_registro) - $num_registro;
 
-
-if($equipamento=="" AND $tecnologia=="" AND $marca=="" AND $cabeca=="" AND $servico=="" AND $transporte=="" AND $suprimento=="" AND $acao==""){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
-$querycup=$mysqli->query($sqlcup);
-$numCont=$querycup->num_rows;
-}else{
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (condicao='".$equipamento."' OR tecnologia='".$tecnologia."' OR marca='".$marca."' OR cabeca_impressao='".$cabeca."' OR tipo_suprimento='".$suprimento."' OR tipo_servico='".$servico."' OR tipo_transporte='".$transporte."') AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+if($precisabusc!=""){
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (estado LIKE '%".$estadobusc."%' OR (cidade LIKE '%".$cidadebusc."%')) AND categoria LIKE '%".$precisabusc."%' AND subcategoria LIKE '%".$servicosbusc."%' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 
+if($enviofiltro=="s"){
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (estado LIKE '%".$estadobusc."%' OR (cidade LIKE '%".$cidadebusc."%') OR (condicao='".$equipamento."') OR (tecnologia='".$tecnologia."') OR (marca='".$marca."') OR (cabeca_impressao='".$cabeca_impressao."') OR (subcategoria='".$suprimento."') OR (subcategoria='".$servico."') OR (subcategoria='".$transporte."')) AND categoria LIKE '%".$precisabusc."%' AND subcategoria LIKE '%".$servicosbusc."%' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$querycup=$mysqli->query($sqlcup);
+$numCont=$querycup->num_rows;
+}
+
 if($acao=="date_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (estado LIKE '%".$estadobusc."%' OR (cidade LIKE '%".$cidadebusc."%') OR (condicao='".$equipamento."') OR (tecnologia='".$tecnologia."') OR (marca='".$marca."') OR (cabeca_impressao='".$cabeca_impressao."') OR (subcategoria='".$suprimento."') OR (subcategoria='".$servico."') OR (subcategoria='".$transporte."')) AND categoria LIKE '%".$precisabusc."%' AND subcategoria LIKE '%".$servicosbusc."%' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="date_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE status='1' ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (estado LIKE '%".$estadobusc."%' OR (cidade LIKE '%".$cidadebusc."%') OR (condicao='".$equipamento."') OR (tecnologia='".$tecnologia."') OR (marca='".$marca."') OR (cabeca_impressao='".$cabeca_impressao."') OR (subcategoria='".$suprimento."') OR (subcategoria='".$servico."') OR (subcategoria='".$transporte."')) AND categoria LIKE '%".$precisabusc."%' AND subcategoria LIKE '%".$servicosbusc."%' AND status='1' ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="price_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE status='1' ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (estado LIKE '%".$estadobusc."%' OR (cidade LIKE '%".$cidadebusc."%') OR (condicao='".$equipamento."') OR (tecnologia='".$tecnologia."') OR (marca='".$marca."') OR (cabeca_impressao='".$cabeca_impressao."') OR (subcategoria='".$suprimento."') OR (subcategoria='".$servico."') OR (subcategoria='".$transporte."')) AND categoria LIKE '%".$precisabusc."%' AND subcategoria LIKE '%".$servicosbusc."%' AND status='1' ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="price_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE status='1' ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (estado LIKE '%".$estadobusc."%' OR (cidade LIKE '%".$cidadebusc."%') OR (condicao='".$equipamento."') OR (tecnologia='".$tecnologia."') OR (marca='".$marca."') OR (cabeca_impressao='".$cabeca_impressao."') OR (subcategoria='".$suprimento."') OR (subcategoria='".$servico."') OR (subcategoria='".$transporte."')) AND categoria LIKE '%".$precisabusc."%' AND subcategoria LIKE '%".$servicosbusc."%' AND status='1' ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
-
 ?>

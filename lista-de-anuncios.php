@@ -276,6 +276,11 @@ $indice ="pagina=".$i."";
 
 				  <div class="form-block">
 					<input type="submit" id="button" value="Filtrar" class="button" onclick="javascript:formfiltro.submit()"/>
+					<input name="enviofiltro" type="hidden" id="enviofiltro" value="s" />
+					<input name="estadobusc" type="hidden" id="estadobusc" value="<?php echo $estadobusc?>" />
+					<input name="cidadebusc" type="hidden" id="cidadebusc" value="<?php echo $cidadebusc?>" />
+					<input name="precisabusc" type="hidden" id="precisabusc" value="<?php echo $precisabusc?>" />
+					<input name="servicosbusc" type="hidden" id="servicosbusc" value="<?php echo $servicosbusc?>" />
 				  </div>
 
 				</form>
