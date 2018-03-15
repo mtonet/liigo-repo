@@ -30,7 +30,7 @@ $listacond="SELECT id_cod,nome from tbl_condicao_equipamento ORDER BY nome asc";
 $querycond=$mysqli->query($listacond);
 
 //tecnologia
-$listatec="SELECT id_cod,nome from tbl_tecnologia ORDER BY nome asc";
+$listatec="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' ORDER BY nome asc";
 $querytec=$mysqli->query($listatec);
 
 //marca
@@ -42,15 +42,15 @@ $listacab="SELECT id_cod,nome from tbl_cabeca_impressao ORDER BY nome asc";
 $querycab=$mysqli->query($listacab);
 
 //servicos
-$listaserv="SELECT id_cod,nome from tbl_subcategoria ORDER BY nome asc";
+$listaserv="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' ORDER BY nome asc";
 $queryserv=$mysqli->query($listaserv);
 
 //transporte
-$listatrans="SELECT id_cod,nome from tbl_subcategoria ORDER BY nome asc";
+$listatrans="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' ORDER BY nome asc";
 $querytrans=$mysqli->query($listatrans);
 
 //tipo supri
-$listasupri="SELECT id_cod,nome from tbl_subcategoria ORDER BY nome asc";
+$listasupri="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' ORDER BY nome asc";
 $querysupri=$mysqli->query($listasupri);
 
 

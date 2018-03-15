@@ -15,12 +15,12 @@ $acao=$mysqli->real_escape_string(strip_tags(trim($_GET['acao'])));
 $pag=$mysqli->real_escape_string(strip_tags(trim($_GET['pagina'])));
 
 
-//tecnologia
-$listatec="SELECT id_cod,nome from tbl_tecnologia ORDER BY nome asc";
+//tecnologia (tbl_subcategoria equipamentos)
+$listatec="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' ORDER BY nome asc";
 $querytec=$mysqli->query($listatec);
 
 //tipo supri
-$listasupri="SELECT id_cod,nome from tbl_tipo_suprimento ORDER BY nome asc";
+$listasupri="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' ORDER BY nome asc";
 $querysupri=$mysqli->query($listasupri);
 
 //
@@ -36,11 +36,18 @@ if($suprimento=="" AND $tecnologia=="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
-}else{
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (tipo_suprimento='".$suprimento."' OR tecnologia='".$tecnologia."') AND id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+}elseif($suprimento!="" AND $tecnologia=="" AND $acao==""){
+$sqlcup="SELECT * FROM tbl_anuncio WHERE subcategoria='".$suprimento."' AND id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$querycup=$mysqli->query($sqlcup);
+$numCont=$querycup->num_rows;
+}elseif($suprimento=="" AND $tecnologia!="" AND $acao==""){
+$sqlcup="SELECT * FROM tbl_anuncio WHERE tecnologia='".$tecnologia."' AND id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
+
+
+
 
 
 //favoritos
@@ -71,27 +78,29 @@ $msgfav='<div class="alert-box success"><i class="fa fa-close icon"></i> Anúnci
 }
 }
 
+if($suprimento!=""){$suprimentodb="AND subcategoria='".$suprimento."'";}
+if($tecnologia!=""){$tecnologiadb="AND tecnologia='".$tecnologia."'";}
 
 if($acao=="date_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ".$suprimentodb." ".$tecnologiadb." ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="date_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ".$suprimentodb." ".$tecnologiadb." ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="price_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ".$suprimentodb." ".$tecnologiadb." ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="price_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='21b2e6efe1400635f92d0320eed420a5' AND status='1' ".$suprimentodb." ".$tecnologiadb." ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }

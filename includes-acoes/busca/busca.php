@@ -79,7 +79,7 @@ $msgfav='<div class="alert-box success"><i class="fa fa-close icon"></i> Anúnci
 }
 
 //verifica se o termo buscado encontra-se com alguma categoria
-$sqlcup2="SELECT categoria,status,marca,cabeca_impressao,tecnologia,condicao,descricao, COUNT(categoria) AS categorias FROM tbl_anuncio WHERE (categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' GROUP BY categoria";
+$sqlcup2="SELECT titulo,categoria,status,marca,cabeca_impressao,tecnologia,condicao,descricao, COUNT(categoria) AS categorias FROM tbl_anuncio WHERE (titulo='%".$buscaprinc."%' OR categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' GROUP BY categoria";
 $querycup2=$mysqli->query($sqlcup2);
 $numCont2=$querycup2->num_rows;
 

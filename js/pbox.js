@@ -29,5 +29,15 @@ $("select[name=cidade]").html(valor);
 }
 )
 })
+//combo cidade filtro
+$("select[name=estadof]").change(function(){
+$("select[name=cidadef]").html('<option value="0">carregando...</option>');
+$.post("includes-acoes/listas/cidades.php",
+{estadof:$(this).val()},
+function(valor){
+$("select[name=cidadef]").html(valor);
+}
+)
+})
 
 })

@@ -205,7 +205,7 @@ $indice ="pagina=".$i."";
 					<?php
 					while($linecat2=$querycup2->fetch_array()){
 					//categorias
-					$listacat="SELECT id_cod,nome,status from tbl_categoria WHERE nome like'%".$linecat2['categoria']."%' ORDER BY nome asc";
+					$listacat="SELECT id_cod,nome,status from tbl_categoria WHERE nome like'%".$linecat2['categoria']."%' ORDER BY nome ASC";
 					$querycat=$mysqli->query($listacat);
 					$numcat=$querycat->num_rows;	
 					while($linecat=$querycat->fetch_array()){

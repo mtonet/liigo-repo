@@ -200,7 +200,7 @@ $indice ="pagina=".$i."";
 				
 
 				  <div class="form-block border">
-					<label for="property-status">Tecnologia</label>
+					<label for="property-status">Tipo de equipamento</label>
 					<select id="tecnologia" name="tecnologia" class="border">
 					 <option value="">Todos</option>
 <?php while($linetec=$querytec->fetch_array()){?>

@@ -67,8 +67,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 				</div>
 		
 			<div class="property-listing-header">
-				<span class="property-count left"><?php echo $numCont?> anúncio(s) encontrado(s)</span>
-				<?php if($numCont!=""){?><form class="right">
+				<?php if($numCont!=""){?><span class="property-count left"><?php echo $numCont?> anúncio(s) encontrado(s)</span>
+				<form class="right">
 					<select name="acao" onchange="MM_jumpMenu('parent',this,0)">	
 						<option value="">Selecione...</option>
 						<option value="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&acao=date_desc" <?php if($acao=="date_desc"){?>selected<?php }?>>Novo para o mais antigo</option>
@@ -150,7 +150,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 		  <?php
 		}else{
 		  ?>
-		<h4>Nenhum anúncio de Equipamentos disponível</h4>
+		<h4>Nenhum anúncio disponível com base na sua busca</h4>
 		<?php
 		}
 		  ?>

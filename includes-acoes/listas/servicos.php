@@ -66,27 +66,28 @@ $msgfav='<div class="alert-box success"><i class="fa fa-close icon"></i> Anúnci
 }
 }
 
+if($servico!=""){$servicodb="AND subcategoria='".$servico."'";}
 
 if($acao=="date_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1') OR subcategoria='".$servico."' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="date_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1') OR subcategoria='".$servico."' ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="price_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1') OR subcategoria='".$servico."' ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="price_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE (id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1') OR subcategoria='".$servico."' ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }

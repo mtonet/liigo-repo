@@ -26,8 +26,12 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
         <div class="header-item header-phone left">
           <table>
             <tr>
-              <td class="header-item-text">                
+              <td class="header-item-text">      
+                <?php if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689']) AND $enviolog==""){?>
+                <span><a href="meu-perfil" style="color: #000;">Meu perfil</a></span>
+                <?php }else{?>
                 <span><a href="cadastre-se" style="color: #000;">Cadastre-se</a></span>
+                <?php }?>
               </td>
             </tr>
           </table>
@@ -36,7 +40,11 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
           <table>
             <tr>
               <td class="header-item-text">
+                <?php if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689']) AND $enviolog==""){?>
+                <span><a href="meus-anuncios" style="color: #000;">Anúncios</a></span>                
+                <?php }else{?>
                 <span><a href="login" style="color: #000;">Login</a></span>
+                <?php }?>
               </td>
             </tr>
           </table>

@@ -201,47 +201,46 @@ $indice ="pagina=".$i."";
 
 				  <div class="form-block border">
 					<label for="property-status">Estado</label>
-					<select id="estado" name="estado" class="border">
+					<select id="estadof" name="estadof" class="border">
 					 <option value="">Todos</option>
-                                        <option value="AC">AC</option>
-                                        <option value="AL">AL</option>
-                                        <option value="AP">AP</option>
-                                        <option value="AM">AM</option>
-                                        <option value="BA">BA</option>
-                                        <option value="CE">CE</option>
-                                        <option value="DF">DF</option>
-                                        <option value="ES">ES</option>
-                                        <option value="GO">GO</option>
-                                        <option value="MA">MA</option>
-                                        <option value="MT">MT</option>
-                                        <option value="MS">MS</option>
-                                        <option value="MG">MG</option>
-                                        <option value="PA">PA</option>
-                                        <option value="PB">PB</option>
-                                        <option value="PR">PR</option>
-                                        <option value="PE">PE</option>
-                                        <option value="PI">PI</option>
-                                        <option value="RJ">RJ</option>
-                                        <option value="RN">RN</option>
-                                        <option value="RS">RS</option>
-                                        <option value="RO">RO</option>
-                                        <option value="RR">RR</option>
-                                        <option value="SC">SC</option>
-                                        <option value="SP">SP</option>
-                                        <option value="SE">SE</option>
-                                        <option value="TO">TO</option>
+                      <?php while($lineestad=$queryestad->fetch_array()){?>
+   <option value="<?php echo $lineestad['Uf']?>" <?php if($estadof==$lineestad['Uf']){?>selected<?php }?>><?php echo $lineestad['Uf']?></option>
+                  <?php }?>              
 					</select>
 				  </div>
 
 				  <div class="form-block border">
 					 <label>Cidade</label>
-                    <select name="cidade" id="cidade" class="form-dropdown">
-                                               
+
+					 <?php if($cidadef==""){?>
+
+                    <select name="cidadef" id="cidadef" class="border">            
                 <option value="">Todos</option>
-                <option value="São Paulo">São Paulo</option>
-                <option value="Campinas">Campinas</option>
-                <option value="Ribeirão Preto">Ribeirão Preto</option>   
                 </select>
+
+                <?php }elseif($cidadef!=""){?>
+<select class="border" name="cidadef" id="cidadef">
+<option value=""></option>
+<?php 
+//cidade 
+$listacf="SELECT * from tbl_municipio WHERE Uf='".$estadof."' ORDER BY Nome ASC";
+$querycf=$mysqli->query($listacf);
+$numcf=$querycf->num_rows;
+if($numcf==0){
+echo"<option value=''>nenhum resultado ...</option>";
+}else{
+while($linecf=$querycf->fetch_array()){
+?>
+<option value="<?php echo utf8_encode($linecf['Nome']);?>" <?php if($linecf['Nome']==$cidadef){?>selected<?php }?>><?php echo utf8_encode($linecf['Nome']);?></option>
+<?php
+}
+}
+?>
+</select>
+<?php 
+}
+?>
+
 				  </div>
 				  
 				    <div class="form-block border">

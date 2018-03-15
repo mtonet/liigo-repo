@@ -20,7 +20,7 @@ $listamarc="SELECT id_cod,nome from tbl_marca ORDER BY nome asc";
 $querymarc=$mysqli->query($listamarc);
 
 //tecnologia
-$listatec="SELECT id_cod,nome from tbl_tecnologia ORDER BY nome asc";
+$listatec="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' ORDER BY nome asc";
 $querytec=$mysqli->query($listatec);
 
 //
@@ -71,28 +71,29 @@ $msgfav='<div class="alert-box success"><i class="fa fa-close icon"></i> Anúnci
 }
 }
 
-
+if($marca!=""){$marcadb="AND marca='".$marca."'";}
+if($tecnologia!=""){$tecnologiadb="AND tecnologia='".$tecnologia."'";}
 
 if($acao=="date_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='c614d0c0bb7cb5993004d956564b1687' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='c614d0c0bb7cb5993004d956564b1687' AND status='1' ".$marcadb." ".$tecnologiadb." ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="date_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='c614d0c0bb7cb5993004d956564b1687' AND status='1' ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='c614d0c0bb7cb5993004d956564b1687' AND status='1' ".$marcadb." ".$tecnologiadb." ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="price_desc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='c614d0c0bb7cb5993004d956564b1687' AND status='1' ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='c614d0c0bb7cb5993004d956564b1687' AND status='1' ".$marcadb." ".$tecnologiadb." ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 
 if($acao=="price_asc"){
-$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='c614d0c0bb7cb5993004d956564b1687' AND status='1' ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
+$sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='c614d0c0bb7cb5993004d956564b1687' AND status='1' ".$marcadb." ".$tecnologiadb." ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
