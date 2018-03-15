@@ -209,8 +209,12 @@ $indice ="pagina=".$i."";
 					$querycat=$mysqli->query($listacat);
 					$numcat=$querycat->num_rows;	
 					while($linecat=$querycat->fetch_array()){
+					//anuncios
+					$sqlcupnum="SELECT * FROM tbl_anuncio WHERE (titulo like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' AND categoria='".$linecat['nome']."'";
+					$querycupnum=$mysqli->query($sqlcupnum);
+					$numContnum=$querycupnum->num_rows;
 					?>
-					<p><a href="lista-<?php echo str_replace(" ", "-",loCase(ascento(utf8_decode($linecat['nome']))))?>"><?php echo $linecat['nome']?> (<?php echo $linecat2['categorias']?>)</a></p>
+					<p><a href="lista-<?php echo str_replace(" ", "-",loCase(ascento(utf8_decode($linecat['nome']))))?>"><?php echo $linecat['nome']?> (<?php echo $numContnum?>)</a></p>
 					<?php
 				}
 					}

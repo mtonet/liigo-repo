@@ -39,7 +39,7 @@ $lineuser=$queryuser->fetch_array();
 if($enviocad=="s" AND $arquivo01_nome==""){
 
 $cod=rand("1","1234567890");
-$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',id_categoria='".$idcat."',categoria='".$cat."',id_marca='".$linemarc2['id_cod']."',marca='".$linemarc2['nome']."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',descricao='".$descricao."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
+$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',id_categoria='".$idcat."',categoria='".$cat."',id_subcategoria='".$linetec2['id_cod']."',subcategoria='".$linetec2['nome']."',id_marca='".$linemarc2['id_cod']."',marca='".$linemarc2['nome']."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',descricao='".$descricao."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
 
 //galeria
@@ -65,7 +65,7 @@ break;
 //img
 require"img.php";
 $cod=rand("1","1234567890");
-$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',id_categoria='".$idcat."',categoria='".$cat."',id_marca='".$linemarc2['id_cod']."',marca='".$linemarc2['nome']."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',descricao='".$descricao."',avatar='".$avatar."',image='".$avatar2."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
+$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',id_categoria='".$idcat."',categoria='".$cat."',id_subcategoria='".$linetec2['id_cod']."',subcategoria='".$linetec2['nome']."',id_marca='".$linemarc2['id_cod']."',marca='".$linemarc2['nome']."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',descricao='".$descricao."',avatar='".$avatar."',image='".$avatar2."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
 
 //galeria
