@@ -26,7 +26,7 @@ $querymarc2=$mysqli->query($listamarc2);
 $linemarc2=$querymarc2->fetch_array();
 
 //tecnologia
-$listatec2="SELECT id_cod,nome from tbl_tecnologia WHERE id_cod='".$tecnologia."'";
+$listatec2="SELECT id_cod,nome from tbl_subcategoria WHERE id_cod='".$tecnologia."'";
 $querytec2=$mysqli->query($listatec2);
 $linetec2=$querytec2->fetch_array();
 

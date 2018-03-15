@@ -14,8 +14,8 @@ $lineimgt=$queryimgt->fetch_array();
 $listamarc="SELECT id_cod,nome from tbl_marca ORDER BY nome asc";
 $querymarc=$mysqli->query($listamarc);
 
-//tecnologia
-$listatec="SELECT id_cod,nome from tbl_tecnologia ORDER BY nome asc";
+//tecnologia (tbl_subcategoria equipamentos)
+$listatec="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' ORDER BY nome asc";
 $querytec=$mysqli->query($listatec);
 
 //dados usuario

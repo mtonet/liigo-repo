@@ -21,8 +21,8 @@ $enviocad=$mysqli->real_escape_string(strip_tags(trim($_POST['enviocad'])));
 $arquivo01_nome=$_FILES['image']['name'];     
 $arquivo01_temporario=$_FILES['image']['tmp_name'];
 
-//tecnologia
-$listatec2="SELECT id_cod,nome from tbl_tecnologia WHERE id_cod='".$tecnologia."'";
+//tecnologia (tbl_subcategoria equipamentos)
+$listatec2="SELECT id_cod,nome from tbl_subcategoria WHERE id_cod='".$tecnologia."'";
 $querytec2=$mysqli->query($listatec2);
 $linetec2=$querytec2->fetch_array();
 

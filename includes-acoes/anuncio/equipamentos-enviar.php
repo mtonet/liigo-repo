@@ -33,8 +33,8 @@ $listacab2="SELECT id_cod,nome from tbl_cabeca_impressao WHERE id_cod='".$cabeca
 $querycab2=$mysqli->query($listacab2);
 $linecab2=$querycab2->fetch_array();
 
-//tecnologia
-$listatec2="SELECT id_cod,nome from tbl_tecnologia WHERE id_cod='".$tecnologia."'";
+//tecnologia(subcategoria)
+$listatec2="SELECT id_cod,nome from tbl_subcategoria WHERE id_cod='".$tecnologia."'";
 $querytec2=$mysqli->query($listatec2);
 $linetec2=$querytec2->fetch_array();
 
@@ -52,7 +52,7 @@ $lineuser=$queryuser->fetch_array();
 if($enviocad=="s" AND $arquivo01_nome==""){
 
 $cod=rand("1","1234567890");
-$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,preco,id_categoria,categoria,id_marca,marca,id_cabeca_impressao,cabeca_impressao,id_tecnologia,tecnologia,id_condicao,condicao,descricao,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$preco."','".$idcat."','".$cat."','".$linemarc2['id_cod']."','".$linemarc2['nome']."','".$linecab2['id_cod']."','".$linecab2['nome']."','".$linetec2['id_cod']."','".$linetec2['nome']."','".$linecond2['id_cod']."','".$linecond2['nome']."','".$descricao."','0')";
+$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,preco,id_categoria,categoria,id_subcategoria,subcategoria,id_marca,marca,id_cabeca_impressao,cabeca_impressao,id_condicao,condicao,descricao,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$preco."','".$idcat."','".$cat."','".$linetec2['id_cod']."','".$linetec2['nome']."','".$linemarc2['id_cod']."','".$linemarc2['nome']."','".$linecab2['id_cod']."','".$linecab2['nome']."','".$linecond2['id_cod']."','".$linecond2['nome']."','".$descricao."','0')";
 $query=$mysqli->query($cadast);
 
 //galeria
@@ -78,7 +78,7 @@ break;
 //img
 require"img.php";
 $cod=rand("1","1234567890");
-$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,preco,id_categoria,categoria,id_marca,marca,id_cabeca_impressao,cabeca_impressao,id_tecnologia,tecnologia,id_condicao,condicao,descricao,avatar,image,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$preco."','".$idcat."','".$cat."','".$linemarc2['id_cod']."','".$linemarc2['nome']."','".$linecab2['id_cod']."','".$linecab2['nome']."','".$linetec2['id_cod']."','".$linetec2['nome']."','".$linecond2['id_cod']."','".$linecond2['nome']."','".$descricao."','".$avatar."','".$avatar2."','0')";
+$cadast="INSERT into tbl_anuncio (id_cod,id_user,user,estado,cidade,titulo,preco,id_categoria,categoria,id_subcategoria,subcategoria,id_marca,marca,id_cabeca_impressao,cabeca_impressao,id_condicao,condicao,descricao,avatar,image,status) values ('".md5($cod)."','".$lineuser['id_cod']."','".$lineuser['nome']."','".$lineuser['estado']."','".$lineuser['cidade']."','".$titulo."','".$preco."','".$idcat."','".$cat."','".$linetec2['id_cod']."','".$linetec2['nome']."','".$linemarc2['id_cod']."','".$linemarc2['nome']."','".$linecab2['id_cod']."','".$linecab2['nome']."','".$linecond2['id_cod']."','".$linecond2['nome']."','".$descricao."','".$avatar."','".$avatar2."','0')";
 $query=$mysqli->query($cadast);
 
 //galeria

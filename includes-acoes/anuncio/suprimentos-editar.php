@@ -11,8 +11,8 @@ $listaimgt="SELECT image,id_pagina,status FROM tbl_img_internas WHERE id_pagina=
 $queryimgt=$mysqli->query($listaimgt);
 $lineimgt=$queryimgt->fetch_array();
 
-//tecnologia
-$listatec="SELECT id_cod,nome from tbl_tecnologia ORDER BY nome asc";
+//tecnologia (tbl_subcategoria equipamentos)
+$listatec="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' ORDER BY nome asc";
 $querytec=$mysqli->query($listatec);
 
 //tipo supri

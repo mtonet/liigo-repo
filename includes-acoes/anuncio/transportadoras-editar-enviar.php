@@ -20,7 +20,7 @@ $enviocad=$mysqli->real_escape_string(strip_tags(trim($_POST['enviocad'])));
 $arquivo01_nome=$_FILES['image']['name'];     
 $arquivo01_temporario=$_FILES['image']['tmp_name'];
 
-//servicos
+//transporte
 $listatrans2="SELECT id_cod,nome from tbl_subcategoria WHERE id_cod='".$transporte."'";
 $querytrans2=$mysqli->query($listatrans2);
 $linetrans2=$querytrans2->fetch_array();

@@ -33,8 +33,8 @@ $listacab2="SELECT id_cod,nome from tbl_cabeca_impressao WHERE id_cod='".$cabeca
 $querycab2=$mysqli->query($listacab2);
 $linecab2=$querycab2->fetch_array();
 
-//tecnologia
-$listatec2="SELECT id_cod,nome from tbl_tecnologia WHERE id_cod='".$tecnologia."'";
+//tecnologia (tbl_subcategoria)
+$listatec2="SELECT id_cod,nome from tbl_subcategoria WHERE id_cod='".$tecnologia."'";
 $querytec2=$mysqli->query($listatec2);
 $linetec2=$querytec2->fetch_array();
 
@@ -52,7 +52,7 @@ $lineuser=$queryuser->fetch_array();
 if($enviocad=="s" AND $arquivo01_nome==""){
 
 $cod=rand("1","1234567890");
-$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',preco='".$preco."',id_categoria='".$idcat."',categoria='".$cat."',id_marca='".$linemarc2['id_cod']."',marca='".$linemarc2['nome']."',id_cabeca_impressao='".$linecab2['id_cod']."',cabeca_impressao='".$linecab2['nome']."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',id_condicao='".$linecond2['id_cod']."',condicao='".$linecond2['nome']."',descricao='".$descricao."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
+$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',preco='".$preco."',id_categoria='".$idcat."',categoria='".$cat."',id_marca='".$linemarc2['id_cod']."',marca='".$linemarc2['nome']."',id_cabeca_impressao='".$linecab2['id_cod']."',cabeca_impressao='".$linecab2['nome']."',id_subcategoria='".$linetec2['id_cod']."',subcategoria='".$linetec2['nome']."',id_condicao='".$linecond2['id_cod']."',condicao='".$linecond2['nome']."',descricao='".$descricao."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
 
 //galeria
@@ -78,7 +78,7 @@ break;
 //img
 require"img.php";
 $cod=rand("1","1234567890");
-$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',preco='".$preco."',id_categoria='".$idcat."',categoria='".$cat."',id_marca='".$linemarc2['id_cod']."',marca='".$linemarc2['nome']."',id_cabeca_impressao='".$linecab2['id_cod']."',cabeca_impressao='".$linecab2['nome']."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',id_condicao='".$linecond2['id_cod']."',condicao='".$linecond2['nome']."',descricao='".$descricao."',avatar='".$avatar."',image='".$avatar2."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
+$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',preco='".$preco."',id_categoria='".$idcat."',categoria='".$cat."',id_marca='".$linemarc2['id_cod']."',marca='".$linemarc2['nome']."',id_cabeca_impressao='".$linecab2['id_cod']."',cabeca_impressao='".$linecab2['nome']."',id_subcategoria='".$linetec2['id_cod']."',subcategoria='".$linetec2['nome']."',id_condicao='".$linecond2['id_cod']."',condicao='".$linecond2['nome']."',descricao='".$descricao."',avatar='".$avatar."',image='".$avatar2."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
 
 //galeria

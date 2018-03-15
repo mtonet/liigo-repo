@@ -19,8 +19,8 @@ $querymarc=$mysqli->query($listamarc);
 $listacab="SELECT id_cod,nome from tbl_cabeca_impressao ORDER BY nome asc";
 $querycab=$mysqli->query($listacab);
 
-//tecnologia
-$listatec="SELECT id_cod,nome from tbl_tecnologia ORDER BY nome asc";
+//tecnologia (tbl_subcategoria equipamentos)
+$listatec="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' ORDER BY nome asc";
 $querytec=$mysqli->query($listatec);
 
 //condicao
@@ -33,7 +33,7 @@ $queryuser=$mysqli->query($listauser);
 $lineuser=$queryuser->fetch_array();
 
 //dados
-$listaanuncio="SELECT id_cod,id_user,titulo,preco,id_tecnologia,tecnologia,id_marca,marca,id_cabeca_impressao,cabeca_impressao,id_condicao,condicao,descricao,avatar from tbl_anuncio WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
+$listaanuncio="SELECT id_cod,id_user,titulo,preco,id_subcategoria,subcategoria,id_marca,marca,id_cabeca_impressao,cabeca_impressao,id_condicao,condicao,descricao,avatar from tbl_anuncio WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $queryanuncio=$mysqli->query($listaanuncio);
 $lineanuncio=$queryanuncio->fetch_array();
 

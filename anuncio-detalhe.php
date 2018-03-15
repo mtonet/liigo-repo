@@ -1,4 +1,5 @@
 <?php
+session_start();
 //conn
 require"conn/exe.php";
 //regras

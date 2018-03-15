@@ -1,4 +1,5 @@
 <?php
+session_start();
 //conn
 require"conn/exe.php";
 //regras
@@ -87,7 +88,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
         </table>
 
              <div class="form-block border">
-                  <label>Tecnologia*</label>
+                  <label>Tipo de equipamento*</label>
                     <select name="tecnologia" class="border required" style="display: none;">
                       <option value="">Selecione...</option>
                     <?php while($linetec=$querytec->fetch_array()){?>
