@@ -59,6 +59,13 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
   
 	<div class="row">
 		<div class="col-lg-8 col-md-8">
+
+			<div class="row">
+					<?php if($enviomsgtxt=="s"){
+		          	echo $msgtxt;
+		          }
+		          	?>
+				</div>
 		
 			<div class="property-single-item property-main">
 				<div class="property-header">
@@ -171,16 +178,42 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 			<div class="widget widget-sidebar advanced-search">
 			  <h4><span>Faça uma pergunta</span> <img src="images/divider-half-white.png" alt="" /></h4>
 			  <div class="widget-content box">
-				<form>
+				<form action="" name="formmsgtxt" id="formmsgtxt" method="post">
 				  
 				  <div class="form-block">
 					<label>Escreva aqui sua pergunta</label>
-					<textarea class="requiredField" placeholder="" style="border: 1px solid #ccc;" name="message"></textarea>		
+					<textarea class="requiredField" placeholder="" style="border: 1px solid #ccc;" name="mensagemtxt" id="mensagemtxt" required <?php if(!isset($_SESSION['logadaco_site_liigo_265']) AND !isset($_SESSION['passadaco_site_liigo_689']) AND $enviolog==""){?>disabled<?php }?>></textarea>		
 					<div class="clear"></div>
 				  </div>
 
 				  <div class="form-block">
+				  	<?php if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689']) AND $enviolog==""){?>
 					<input type="submit" class="button" value="Enviar" />
+					<?php }else{?>
+					<a href="#" class="button" data-toggle="modal" data-target=".msglog">Enviar</a>
+
+					<div class="modal fade msglog" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-md">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Login necessário</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Para enviar sua pergunta em relação ao anúncio <b><?php echo $linean['titulo']?></b> é necessário estar logado.</p>
+                          <p>Caso já seja cadastrado, <a href="login?ref=<?php echo $area?>">clique aqui</a> para efetuar o login.</p>
+                          <p>Caso não tenha um cadastro, cadastre-se <a href="cadastre-se?ref=<?php echo $area?>">clicando aqui</a>.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+					<?php }?>
+					<input name="enviomsgtxt" type="hidden" id="enviomsgtxt" value="s" />
 				  </div>
 				</form>
 			  </div><!-- end widget content -->

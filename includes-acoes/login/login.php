@@ -6,6 +6,7 @@ $listaimgt="SELECT image,id_pagina,status FROM tbl_img_internas WHERE id_pagina=
 $queryimgt=$mysqli->query($listaimgt);
 $lineimgt=$queryimgt->fetch_array();
 
+$ref=$mysqli->real_escape_string(strip_tags(trim($_GET['ref'])));
 $emailna=$mysqli->real_escape_string(strip_tags(trim($_POST['email'])));
 $passna=$mysqli->real_escape_string(strip_tags(trim($_POST['pass'])));
 $enviolog=$mysqli->real_escape_string(strip_tags(trim($_POST['enviolog'])));
@@ -27,7 +28,12 @@ $_SESSION['passadaco_site_liigo_689']=$passna;
 $msgslog='<div class="alert-box success"><i class="fa fa-check icon"></i> Acesso correto, em alguns segundos você será direcionado...</div>';
 //direciona
 //echo '<meta http-equiv="refresh" content="3;URL=meu-perfil" />';
-header("Refresh:3; url=meu-perfil");
+if($ref==""){
+header("Refresh:2; url=meu-perfil");
+}else{
+header("Refresh:2; url=anuncio-detalhe?area=".$ref."");	
+}
+
 }
 }
 ?>

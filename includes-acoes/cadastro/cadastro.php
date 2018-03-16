@@ -7,6 +7,7 @@ $queryimgt=$mysqli->query($listaimgt);
 $lineimgt=$queryimgt->fetch_array();
 
 //cad
+$ref=$mysqli->real_escape_string(strip_tags(trim($_GET['ref'])));
 $nome=$mysqli->real_escape_string(strip_tags(trim($_POST['nome'])));
 $email=$mysqli->real_escape_string(strip_tags(trim($_POST['email'])));
 $telefone=$mysqli->real_escape_string(strip_tags(trim($_POST['telefone'])));
@@ -70,6 +71,15 @@ $query=$mysqli->query($cadast);
 //email para o usuário
 require"email.php";
 
-$msgscad='<div class="alert-box success"><i class="fa fa-check icon"></i> Email cadastrado com sucesso!</div>';
+session_start();
+$_SESSION['logadaco_site_liigo_265']=$email;
+$_SESSION['passadaco_site_liigo_689']=$pass;
+
+$msgscad='<div class="alert-box success"><i class="fa fa-check icon"></i> Cadastro efetuado com sucesso!</div>';
+
+if($ref!=""){
+header("Refresh:2; url=anuncio-detalhe?area=".$ref."");	
+}
+
 }
 ?>

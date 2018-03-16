@@ -7,9 +7,9 @@ require"includes-acoes/regras/regras.php";
 //cadastre-se
 require"includes-acoes/cadastro/cadastro.php";
 //condicao
-if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689'])){
+/*if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689'])){
 header("Location:meu-perfil");
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
