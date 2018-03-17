@@ -48,5 +48,6 @@ if ($seconds <= 60) return"1 min atrás";
  else if ($months <= 12) return $months == 1 ?'1 mês atrás':$months.' meses atrás';
  else return $years == 1 ? 'um ano atrás':$years.' anos atrás';
  }
-
+//
+ $mesextenso = array('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
 ?>

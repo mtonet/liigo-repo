@@ -6,6 +6,8 @@ require"conn/exe.php";
 require"includes-acoes/regras/regras.php";
 //session
 require"includes-acoes/session/session.php";
+//chat
+require"includes-acoes/chat/chat.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -46,6 +48,12 @@ require"includes-acoes/session/session.php";
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
   <![endif]-->
+
+  <style type="text/css">
+.subheader {
+background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
+}
+</style>
 </head>
 <body>
 
@@ -66,9 +74,15 @@ require"includes-acoes/session/session.php";
 		<div class="col-lg-3 col-md-3 sidebar-left">
 			<div class="widget member-card">
 				<div class="member-card-header">
-					<a href="#" class="member-card-avatar"><img src="images/1197x1350.png" alt="" /></a>
-					<h3>John Doe</h3>
-					<p><i class="fa fa-envelope icon"></i>jdoe@gmail.com</p>
+					<a href="#" class="member-card-avatar">
+                        <?php if($linedpu['avatar']==""){?>
+                        <img src="uploads/usuarios/no.jpg" alt="<?php echo $linedpu['avatar'];?>" />
+                        <?php }else{?>
+                        <img src="uploads/usuarios/<?php echo $linedpu['avatar'];?>" alt="<?php echo $linedpu['avatar'];?>" />
+                        <?php }?>
+                    </a>
+					<h3><?php echo $linedpu['nome']?></h3>
+					<p><i class="fa fa-envelope icon"></i><?php echo $linedpu['email']?></p>
 				</div>
 				<div class="member-card-content">
 					<img class="hex" src="images/hexagon.png" alt="" />
@@ -86,12 +100,17 @@ require"includes-acoes/session/session.php";
 
 		<div class="col-lg-9 col-md-9">
 		
+        <?php if($numchat!=""){?>
 		<div id="accordion" class="ui-accordion ui-widget ui-helper-reset" role="tablist">
 
+<?php
+while($linechat=$querychat->fetch_array()){
+?>
 
-          <h3 class="ui-accordion-header ui-corner-top ui-state-default ui-accordion-icons ui-accordion-header-active ui-state-active" role="tab" id="ui-id-4" aria-controls="ui-id-5" aria-selected="true" aria-expanded="true" tabindex="0"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s"></span>Nome do cliente 1</h3>
+<h3 class="panel-collapse collapse" id="<?php echo $linechat['id_chat']?>" aria-controls="<?php echo $linechat['id_chat']?>" data-toggle="collapse">
+<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s"></span><?php echo $linechat['anuncio']?></h3>
 
-          <div class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content ui-accordion-content-active" style="" id="ui-id-5" aria-labelledby="ui-id-4" role="tabpanel" aria-hidden="false">
+          <div class="panel-collapse collapse" style="" id="<?php echo $linechat['id_chat']?>" aria-labelledby="<?php echo $linechat['id_chat']?>">
 
     <div class="main-app-container">
     <article id="app-container" class="ui-box myml-ui-box">
@@ -102,70 +121,60 @@ require"includes-acoes/session/session.php";
         <div class="messaging--messages-container" data-js="messages">
             <div class="messaging-messages">
 
-<div class="messaging-messages-line">    
+<?php 
+//data
+$listachatdta="SELECT id_chat,data FROM tbl_chat WHERE id_chat='".$linechat['id_chat']."' GROUP BY data ORDER BY data ASC";
+$querychatdta=$mysqli->query($listachatdta);
+while($linechatdta=$querychatdta->fetch_array()){
+?>   
 
-    <div class="message-date">
-        <small class="message-date__key">24 de Outubro</small>
-    </div>
+<div class="message-date">
+<small class="message-date__key"><?php echo date("d/m/Y", strtotime($linechatdta['data']))?></small>
+</div>
 
+<?php 
+$listachatmsg="SELECT * FROM tbl_chat WHERE id_chat='".$linechat['id_chat']."' AND data='".$linechatdta['data']."' ORDER BY data ASC";
+$querychatmsg=$mysqli->query($listachatmsg);    
+while($linechatmsg=$querychatmsg->fetch_array()){
+?>
 
-<article class="message message--sender">
+<div class="messaging-messages-line"> 
+<article class="message <?php if($dadosla['id_cod']!=$linechatmsg['id_user']){?>message--sender<?php }else{?>message--receiver<?php }?>">
 <div class="u--arrange-fill message__message">
             <div class="message__box">
-                <p class="message__name"><strong></strong></p>
-
-                        <p class="message__text">ok pode enviarx</p>
-
+                <p class="message__name"><?php if($dadosla['id_cod']==$linechatmsg['id_user']){?><strong><?php echo $linechatmsg['nome_user_anuncio']?></strong><?php }?></p>
+                        <p class="message__text"><?php echo $linechatmsg['msg']?></p>
                 <p class="message__time">
                             <span class="message__tick message_tick_read ch-icon-done-all"></span>
-                    <span class="message__timestamp">14:04</span>
+                    <span class="message__timestamp"><?php echo date("H:i", strtotime($linechatmsg['hora']))?></span>
                 </p>
             </div>
     </div>
 </article>
 </div>
 
+<?php }?>
 
 
-<div class="messaging-messages-line">
-    <article class="message message--receiver">
-<div class="u--arrange-fill message__message">
-            <div class="message__box">
-                <p class="message__name"><strong>Nova Digital</strong></p>
 
-                        <p class="message__text">
-                            
-                            Olá, boa tarde!<br>Não, temos que fazer a devolução do valor da mangueira
-                            
-                        </p>
-
-                <p class="message__time">
-                    <span class="message__timestamp">14:20</span>
-                </p>
-            </div>
-    </div>
-</article>
+<?php }?>
 </div>
-
-
-
-
-
-</div></div>
+</div>
 
     
 
         <div class="messaging--controls-container" data-js="controls">
         <div class="message-controls">
-            <form class="message-controls__form u--clearfix enabled" action="#" method="post">
+            <form class="message-controls__form u--clearfix enabled" action="?area=<?php echo $linechat['id_chat']?>&anuncio=<?php echo $linechat['id_anuncio']?>" method="post">
     <div class="message-controls__container with-menu is-desktop">
-            <textarea class="message-controls__text-input" name="txtNewMessage" rows="1" placeholder="Escreva sua mensagem" autofocus="" style="overflow: hidden; word-wrap: break-word; height: 36px;"></textarea>
+            <textarea class="message-controls__text-input" name="txtNewMessage" rows="1" placeholder="Escreva sua mensagem" autofocus="" style="overflow: hidden; word-wrap: break-word; height: 36px;" required></textarea>
     </div>
         <div class="message-controls__controls-wrapper u--clearfix with-menu is-desktop">
             <button class="ch-btn message-controls__action-primary u--pull-left btn-controls-full" type="submit" data-js="submit-form" >
                     Enviar
             </button>
         </div>
+        <input name="enviotxtNewMessage" type="hidden" id="enviotxtNewMessage" value="s" />
 </form>
 </div>
 </div>
@@ -176,104 +185,17 @@ require"includes-acoes/session/session.php";
 </div>
 </div>
           
-          
-          <h3 class="ui-accordion-header ui-corner-top ui-state-default ui-accordion-icons ui-accordion-header-collapsed ui-corner-all" role="tab" id="ui-id-6" aria-controls="ui-id-7" aria-selected="false" aria-expanded="false" tabindex="-1"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>Nome do cliente 2</h3>
-          <div class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content" style="display: none;" id="ui-id-7" aria-labelledby="ui-id-6" role="tabpanel" aria-hidden="true">
-        <div class="main-app-container">
-    
-    <article id="app-container" class="ui-box myml-ui-box">
-        <div class="messsages--controls">
-
-<div class=" messaging-newroom  messaging-newroom--realtime">
-   
-        <div class="messaging--messages-container" data-js="messages">
-            <div class="messaging-messages">
-
-                
-                <div class="messaging-messages-line">    
-                <div class="message-date">
-        <small class="message-date__key">24 de Outubro</small>
-    </div>
-
-<article class="message message--sender   ">
-<div class="u--arrange-fill message__message">
-            <div class="message__box">
-                <p class="message__name"><strong></strong></p>
-
-                        <p class="message__text">
-                            
-                            ok pode enviar
-                            <span class="message__status message__status--sending">Enviando...</span>
-                            <span class="message__status message__status--fail">Hubo un error al enviar el mensaje. <a href="#" data-js="retry-link">Reintentar</a></span>
-                        </p>
-
-                <p class="message__time">
-                            <span class="message__tick message_tick_read ch-icon-done-all"></span>
-                    <span class="message__timestamp">14:04</span>
-                </p>
-            </div>
-    </div>
-</article>
-</div>
+<?php
+}
+?>
 
 
 
 
-
-<div class="messaging-messages-line">
-     <div class="message-date">
-        <small class="message-date__key">25 de Outubro</small>
-    </div>
-    <article class="message message--receiver   ">
-<div class="u--arrange-fill message__message">
-            <div class="message__box">
-                <p class="message__name"><strong>Nova Digital</strong></p>
-
-                        <p class="message__text">
-                            
-                            Código da Autorização de Postagem: 947871248<br><br>É só apresentar este código na agência dos correios e postar o produto (não vai precisar pagar nada, ok?). Eles já possui os nossos dados no sistema. Assim que o produto chegar, entro em contato para que seja feita a devolução do valor (Toda devolução é realizada através do Mercado Pago que ficará disponível para que  possa realizar novas compras no Mercado livre). Peço que assim que postar o produto, anexe o comprovante dos correios na mensagem. <br>                                  Att Julia
-                            <span class="message__status message__status--sending">Enviando...</span>
-                            <span class="message__status message__status--fail">Hubo un error al enviar el mensaje. <a href="#" data-js="retry-link">Reintentar</a></span>
-                        </p>
-
-                <p class="message__time">
-                    <span class="message__timestamp">15:06</span>
-                </p>
-            </div>
-    </div>
-</article>
-</div>
-
-</div></div>
-
-   
-
-        <div class="messaging--controls-container" data-js="controls">
-            <div class="message-controls">
-                <form class="message-controls__form u--clearfix enabled" action="#" method="post">
-    <div class="message-controls__container with-menu is-desktop">
-            <textarea class="message-controls__text-input" name="txtNewMessage" rows="1" placeholder="Escreva sua mensagem" autofocus="" style="overflow: hidden; word-wrap: break-word; height: 36px;"></textarea>
-    </div>
-
-        <div class="message-controls__controls-wrapper u--clearfix with-menu is-desktop">
-
-            <button class="ch-btn message-controls__action-primary u--pull-left btn-controls-full" type="submit" data-js="submit-form" >
-                    Enviar
-            </button>
-
-        </div>
-</form>
-</div></div>
-
-</div>
-</div>
-</article>
-</div>
-          </div>
-        </div>
-		 
-				
-						
+        </div>			
+        <?php }else{?>
+        <h2>Nenhum chat disponível.</h2>
+<?php }?>
 		</div><!-- end col -->
 	</div><!-- end row -->
 

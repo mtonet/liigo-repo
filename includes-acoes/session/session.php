@@ -20,7 +20,7 @@ if (isset($_SESSION['passadaco_site_liigo_689']));
 $obtem_pass = $_SESSION['passadaco_site_liigo_689'];
 if ( !(empty($obtem_log) or empty($obtem_pass) AND !isset($_SESSION['md5'])))
 {
-$consultala="SELECT id,email,pass FROM tbl_usuarios WHERE email='".$obtem_log."' AND pass='".md5($obtem_pass)."'";
+$consultala="SELECT id,id_cod,nome,email,pass FROM tbl_usuarios WHERE email='".$obtem_log."' AND pass='".md5($obtem_pass)."'";
 $queryla = $mysqli->query($consultala);
 $dadosla = $queryla->fetch_array();
 $linhala = $queryla->num_rows;

@@ -89,7 +89,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 				</div>
 
 				
-		<?php if($linean['avatar']!=""){?>
+		
         <div class="property-gallery">
           <div class="slider-nav slider-nav-property-gallery">
             <span class="slider-prev"><i class="fa fa-angle-left"></i></span>
@@ -97,7 +97,11 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
           </div>
           <div class="slide-counter"></div>
           <div class="slider slider-property-gallery">
+          	<?php if($linean['avatar']!=""){?>
             <div class="slide"><img src="uploads/anuncios/<?php echo $linean['image']?>" alt="imagem" /></div>
+            <?php }else{?>
+            <div class="slide"><img src="uploads/anuncios/no.jpg" alt="imagem" /></div>
+            <?php }?>
             <?php if($linha2!=""){
             	while($line2=$query2->fetch_array()){
             	?>
@@ -108,7 +112,11 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
            ?>
           </div>
           <div class="slider property-gallery-pager">
+          	<?php if($linean['avatar']!=""){?>
             <a class="property-gallery-thumb"><img src="uploads/anuncios/thumb/<?php echo $linean['avatar']?>" alt="imagem" /></a>
+            <?php }else{?>
+            <a class="property-gallery-thumb"><img src="uploads/anuncios/thumb/no.jpg" alt="imagem" /></a>
+            <?php }?>
             <?php if($linha2!=""){
             	while($line3=$query3->fetch_array()){
             	?>
@@ -121,7 +129,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
         </div>
 
 			</div><!-- end property title and gallery -->
-			<?php }?>
+			
 
 			<div class="widget property-single-item property-description content">
 				<h4>
