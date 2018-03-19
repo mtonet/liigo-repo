@@ -62,11 +62,9 @@
             <div class="col-lg-3 col-md-3 col-sm-12 widget footer-widget newsletter">
                 <h4><span>Entre em contato</span> <img src="images/divider-half.png" alt="" /></h4>
                 <p><b>Nossos horários</b></p>
-                <p>Segunda - Sexta: 9h - 18h<br>
-                    Sábados: 9h - 13h<br>
-                    Domingo: Atendimento via email
+                <p>Segunda à Sábado: 9h - 18h
                 </p>
-                <p class="footer-phone"><i class="fa fa-phone icon"></i> (11) 3785-0631</p>
+                <p class="footer-phone"><i class="fa fa-envelope"></i><a href="mailto:contato@liigo.com.br"> contato@liigo.com.br</a> </p>
             </div>
         </div><!-- end row -->
     </div><!-- end footer container -->
