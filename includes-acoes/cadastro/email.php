@@ -1,10 +1,9 @@
 <?php
 //----email
 /////dados email
-$to="webmaster@rcdesigners.com.br";
 $headers ="MIME-Version: 1.1\n";
 $headers.="Content-type: text/html; charset=utf-8\n";
-$headers .= "From: Liigo <'webmaster@rcdesigners.com.br'>\n";
+$headers .= "From: webmaster@rcdesigners.com.br\n";
 $headers .= "Return-Path: 'webmaster@rcdesigners.com.br'\n";
 $subject="Bem-vindo(a) a Liigo";
 //mensagem
@@ -57,7 +56,7 @@ $message="<table width='600' border='0' align='center' cellpadding='0' cellspaci
   </tr>
 </table>";
 //envio do email
-mail($to, $subject, $message, $headers);
+mail($email, $subject, $message, $headers);
 //mail($to, $subject, $message, $headers,"-r".$emailsender);
 //----
 ?>
