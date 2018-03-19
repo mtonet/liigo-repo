@@ -3,8 +3,8 @@
 /////dados email
 $headers ="MIME-Version: 1.1\n";
 $headers.="Content-type: text/html; charset=utf-8\n";
-$headers .= "From: webmaster@rcdesigners.com.br\n";
-$headers .= "Return-Path: 'webmaster@rcdesigners.com.br'\n";
+$headers .= "From: contato@liigo.com.br\n";
+$headers .= "Return-Path: 'contato@liigo.com.br'\n";
 $subject="Reenvio de acesso Liigo";
 //mensagem
 $message="<table width='600' border='0' align='center' cellpadding='0' cellspacing='0'>

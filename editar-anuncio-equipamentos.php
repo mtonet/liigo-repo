@@ -115,8 +115,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
                         <div class="row">
               <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
-                  <label>Cabeça de impressão*</label>
-                    <select name="cabeca" class="border required">
+                  <label>Cabeça de impressão</label>
+                    <select name="cabeca" class="border">
                       <option value="">Selecione...</option>
                     <?php while($linecab=$querycab->fetch_array()){?>
                     <option value="<?php echo $linecab['id_cod']?>" <?php if($lineanuncio['id_cabeca_impressao']==$linecab['id_cod']){?>selected<?php }?>><?php echo $linecab['nome']?></option>
