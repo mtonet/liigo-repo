@@ -3,7 +3,7 @@
 /////dados email
 $headers ="MIME-Version: 1.1\n";
 $headers.="Content-type: text/html; charset=utf-8\n";
-$headers .= "From: Liigo <'webmaster@rcdesigners.com.br'>\n";
+$headers .= "From: webmaster@rcdesigners.com.br\n";
 $headers .= "Return-Path: 'webmaster@rcdesigners.com.br'\n";
 $subject="Alteracao de acesso Liigo";
 //mensagem

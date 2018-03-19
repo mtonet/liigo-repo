@@ -58,11 +58,11 @@
   .header-default .header-item { width:33.33% !important; float:left; font-size:12px; margin:5px 0px; padding:5px 15px 5px 15px; }
   .header-default .header-item table { width:auto; }
   .header-default .header-search table { width:100%; }
-  .header-default .header-item span { font-size:13px; }
+  .header-default .header-item span { font-size:11px; text-align:center }
   .header-default .header-item td > .fa { font-size:25px; }
   .header-default .main-menu-wrap { background:transparent; }
   .header-default .main-menu-wrap.fixed { background:#323746; height:100%; overflow-y:auto; padding:15px; margin-top:45px; }
-  .header-default .nav.navbar-nav li a { color:#838893; padding:20px 20px; border-bottom:1px solid rgba(255, 255, 255, 0.04); }
+  .header-default .nav.navbar-nav li a { color:#838893; padding:20px 20px; border-bottom:1px solid rgba(0, 0, 0, 0.04); }
   .header-default .member-actions .button-icon { width:100%; }
   .header-default .member-actions .button-icon .fa { box-shadow:0px 0px 0px 5px white; }
 
@@ -192,6 +192,7 @@
     padding:10px;
     top:40px;
   }
+  
   .header-default .header-search td > .fa { display:block; }
   .header-default .header-search { border-right:1px solid rgba(0, 0, 0, 0.1); }
   .header-default .header-search table { width:auto; }

@@ -139,7 +139,7 @@ require"includes-acoes/home/home.php";
   </div><!-- end container -->
 </section>
 
-<section class="module testimonials">
+<!--<section class="module testimonials">
 
   <div class="container">
     <div class="module-header">
@@ -170,9 +170,9 @@ require"includes-acoes/home/home.php";
         </div>
       </div>
       <?php }?>
-    </div><!-- end slider -->
-  </div><!-- end container -->
-</section>
+    </div>
+  </div>
+</section>-->
 <?php require"includes/rodape/rodape.php";?>
 <!-- JavaScript file links -->
 <script src="js/jquery-3.1.1.min.js"></script>      <!-- Jquery -->

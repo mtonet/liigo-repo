@@ -120,7 +120,7 @@ header("Location:meu-perfil");
             <input name="enviocad" type="hidden" id="enviocad" value="s" />
           </div>
           <div class="divider"></div>
-          <p class="note">Clicando em registrar você aceita nossos <br><a href="#">Termos and condições</a></p>    
+          <p class="note">Clicando em registrar você aceita nossos <br><a href="uploads/pdf/contrato-de-intermedicao-de-negocios-liigo.pdf" target="_blank">Termos e condições</a></p>    
         </form>
       </div>
     </div><!-- end row -->
