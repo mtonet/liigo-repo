@@ -192,6 +192,7 @@
     padding:10px;
     top:40px;
   }
+  .header-default .header-item span { font-size:11px; text-align:center }
   
   .header-default .header-search td > .fa { display:block; }
   .header-default .header-search { border-right:1px solid rgba(0, 0, 0, 0.1); }
