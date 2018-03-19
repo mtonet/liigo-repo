@@ -37,6 +37,12 @@
                     </ul>
                   </li>
 
+                  <li><a href="../marcas/index.php"><i class="fas fa-clipboard fa-2x"></i> Marcas</a></li>
+
+                  <li><a href="../condicoes-equipamento/index.php"><i class="fas fa-file-archive fa-2x"></i> Condições de equipamento </a></li>
+
+                  <li><a href="../cabeca-impressao/index.php"><i class="far fa-folder fa-2x"></i> Cabeça de impressão </a></li>
+
                   <li><a href="../anuncios-pendentes/index.php"><i class="far fa-file fa-2x"></i> Anuncios pendentes</a>
                   </li>
 
