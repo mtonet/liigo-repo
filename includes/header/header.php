@@ -26,7 +26,7 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
         <div class="header-item header-phone left">
           <table>
             <tr>
-              <td class="header-item-text">      
+              <td>      
                 <?php if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689']) AND $enviolog==""){?>
                 <span><a href="meu-perfil" style="color: #000;">Meu perfil</a></span>
                 <?php }else{?>
@@ -39,7 +39,7 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
         <div class="header-item header-phone left">
           <table>
             <tr>
-              <td class="header-item-text">
+              <td>
                 <?php if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689']) AND $enviolog==""){?>
                 <span><a href="meus-anuncios" style="color: #000;">Anúncios</a></span>                
                 <?php }else{?>
@@ -52,7 +52,7 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
           <div class="header-item header-phone left">
           <table>
             <tr>
-              <td class="header-item-text">
+              <td>
                 <span><a href="anuncie" style="color: #44BB6F;">Anuncie</a></span>
               </td>
             </tr>
