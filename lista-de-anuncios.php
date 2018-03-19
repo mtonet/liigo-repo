@@ -196,6 +196,9 @@ $indice ="pagina=".$i."";
 			  <div class="widget-content box">
 				<form id="formfiltro" name="formfiltro" method="get" action="">
 
+				<?php 
+				if($precisabusc=="Equipamentos"){
+				?>
 				  <div class="form-block border">
 					<label for="property-status">Condição do equipamento</label>
 					<select id="equipamento" name="equipamento" class="border">
@@ -205,9 +208,13 @@ $indice ="pagina=".$i."";
                     <?php }?>
 					</select>
 				  </div>
+				  <?php }?>
 
+				  <?php 
+				if($precisabusc=="Equipamentos" OR $precisabusc=="Suprimentos" OR $precisabusc=="Assistência Técnica"){
+				?>
 				  <div class="form-block border">
-					<label for="property-status">Tecnologia</label>
+					<label for="property-status">Tipo de equipamento</label>
 					<select id="tecnologia" name="tecnologia" class="border">
 					 <option value="">Todos</option>
 <?php while($linetec=$querytec->fetch_array()){?>
@@ -215,7 +222,11 @@ $indice ="pagina=".$i."";
                     <?php }?>
 					</select>
 				  </div>
+				  <?php }?>
 
+				  <?php 
+				if($precisabusc=="Equipamentos" OR $precisabusc=="Assistência Técnica"){
+				?>
 				  <div class="form-block border">
 					<label for="property-type">Marcas</label>
 					<select id="marca" name="marca" class="border">
@@ -225,12 +236,16 @@ $indice ="pagina=".$i."";
                     <?php }?>
 					</select>
 				  </div>
+				  <?php }?>
 				  
 				  <!--<div class="form-block">
             <label>Price</label>
             <div class="price-slider" id="price-slider"></div>
           </div>-->
 
+          		<?php 
+				if($precisabusc=="Equipamentos"){
+				?>
 				  <div class="form-block border">
 					<label>Cabeça de impressão</label>
 					<select name="cabeca" id="cabeca" class="border">
@@ -240,7 +255,11 @@ $indice ="pagina=".$i."";
                     <?php }?>
 					</select>
 				  </div>
+				  <?php }?>
 
+				  <?php 
+				if($precisabusc=="Serviços"){
+				?>
 				  <div class="form-block border">
 					<label for="property-status">Tipo de serviços</label>
 					<select id="servico" name="servico" class="border">				
@@ -250,7 +269,11 @@ $indice ="pagina=".$i."";
                     <?php }?>
 					</select>
 				  </div>
+				  <?php }?>
 
+				  <?php 
+				if($precisabusc=="Suprimentos"){
+				?>
 				  <div class="form-block border">
 					 <label>Tipo de suprimento</label>
                     <select name="suprimento" id="suprimento" class="form-dropdown">            
@@ -260,18 +283,21 @@ $indice ="pagina=".$i."";
                     <?php }?>    
                 </select>
 				  </div>
+				  <?php }?>
 
+				  <?php 
+				if($precisabusc=="Transportadoras"){
+				?>
 				  <div class="form-block border">
 					 <label>Tipo de transporte</label>
-                    <select name="transporte" id="transporte" class="form-dropdown">
-                                               
+                    <select name="transporte" id="transporte" class="form-dropdown">              
                 <option value="">Todas</option>
                   <?php while($linetrans=$querytrans->fetch_array()){?>
                     <option value="<?php echo $linetrans['nome']?>" <?php if($transporte==$linetrans['nome']){?>selected<?php }?>><?php echo $linetrans['nome']?></option>
                     <?php }?>
                 </select>
 				  </div>
-
+				  <?php }?>
 				  
 
 				  <div class="form-block">
