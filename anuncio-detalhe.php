@@ -183,6 +183,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 		
 		<div class="col-lg-4 col-md-4 sidebar sidebar-property-single">
 		
+			<?php if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689']) AND $enviolog==""){?>
 			<div class="widget widget-sidebar advanced-search">
 			  <h4><span>Faça uma pergunta</span> <img src="images/divider-half-white.png" alt="" /></h4>
 			  <div class="widget-content box">
@@ -195,13 +196,21 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 				  </div>
 
 				  <div class="form-block">
-				  	<?php if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689']) AND $enviolog==""){?>
 					<input type="submit" class="button" value="Enviar" />
-					<?php }else{?>
-					<a href="#" class="button" data-toggle="modal" data-target=".msglog">Enviar</a>
+					<input name="enviomsgtxt" type="hidden" id="enviomsgtxt" value="s" />
+				  </div>
+				</form>
+			  </div><!-- end widget content -->
+			</div><!-- end widget -->
+			<?php }else{?>
+			<div class="widget widget-sidebar advanced-search">
+				<h4><span>Faça uma pergunta</span> <img src="images/divider-half-white.png" alt="" /></h4>
+			 <div class="widget-content box">
+			 	<div class="row">
+			 	<div class="col-lg-10 col-lg-offset-1"><a href="#" class="button button-icon alt large" data-toggle="modal" data-target=".msglog"><i class="fa fa-wechat"></i>Enviar sua pergunta</a></div>
 
-					<div class="modal fade msglog" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-md">
+			 	<div class="modal fade msglog" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
@@ -209,24 +218,27 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
                           <h4 class="modal-title" id="myModalLabel2">Login necessário</h4>
                         </div>
                         <div class="modal-body">
+                        	
                           <p>Para enviar sua pergunta em relação ao anúncio <b><?php echo $linean['titulo']?></b> é necessário estar logado.</p>
-                          <p>Caso já seja cadastrado, <a href="login?ref=<?php echo $area?>">clique aqui</a> para efetuar o login.</p>
-                          <p>Caso não tenha um cadastro, cadastre-se <a href="cadastre-se?ref=<?php echo $area?>">clicando aqui</a>.</p>
+                          <div class="row">
+			 				<div class="col-lg-10 col-lg-offset-2">
+                          <p><a href="login?ref=<?php echo $area?>" class="button large">Fazer login</a></p>
+                          <p><a href="cadastre-se?ref=<?php echo $area?>" class="button large">Criar conta</a></p>
+		                      </div>
+		                  </div>
+
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                         </div>
-
                       </div>
                     </div>
                   </div>
-					<?php }?>
-					<input name="enviomsgtxt" type="hidden" id="enviomsgtxt" value="s" />
-				  </div>
-				</form>
-			  </div><!-- end widget content -->
-			</div><!-- end widget -->
-			
+
+			 	</div>
+			 </div>	
+			</div>
+			<?php }?>
 		
 		</div><!-- end sidebar -->
 		
