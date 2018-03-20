@@ -88,6 +88,7 @@ require"../../includes-acoes/marcas/lista.php";
                   </div>
                   <div class="x_content">
 
+                  
                     
                   <?php
                   if($row!=""){
@@ -107,6 +108,7 @@ require"../../includes-acoes/marcas/lista.php";
                         <?php
                         while($line=$query->fetch_array()){
                         ?>
+                        
                         <tr>
                           <td>
                             <a><?php echo $line['nome']?></a>
@@ -179,6 +181,8 @@ require"../../includes-acoes/marcas/lista.php";
             </div>
           </div>
         </div>
+
+        
         <!-- /page content -->
 
         <!-- footer content -->
@@ -195,8 +199,6 @@ require"../../includes-acoes/marcas/lista.php";
     <script src="../../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../../vendors/nprogress/nprogress.js"></script>
-   
-    
     <!-- Custom Theme Scripts -->
     <script src="../../build/js/custom.min.js"></script>
   </body>

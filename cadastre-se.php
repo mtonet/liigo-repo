@@ -89,18 +89,18 @@ header("Location:meu-perfil");
           <label>CPF/ CNPJ*</label>
             <input class="border" type="text" name="cpf_cnpj" required value="<?php echo $_SESSION['cpf_cnpj'];?>"/>
           </div>
-        <div class="form-block border">
+        <div class="form-block">
                   <label>Estado*</label>
-                  <select class="border" style="display: none;" name="estado" id="estado">   
+                  <select class="border" name="estado" id="estado">   
                   <option value="">Selecione o Estado</option>
                   <?php while($lineestad=$queryestad->fetch_array()){?>
    <option value="<?php echo $lineestad['Uf']?>" <?php if($_SESSION['estado']==$lineestad['Uf']){?>selected<?php }?>><?php echo $lineestad['Uf']?></option>
                   <?php }?>
                   </select>
             </div>
-            <div class="form-block border">
+            <div class="form-block">
                   <label>Cidade*</label>
-                  <select class="border" style="display: none;" name="cidade" id="cidade">   
+                  <select class="border" name="cidade" id="cidade">   
                   <option value="">Selecione uma Cidade</option>
                   </select>               
                   </select>
