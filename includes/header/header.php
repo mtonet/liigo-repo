@@ -32,7 +32,7 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
                 <?php if(isset($_SESSION['logadaco_site_liigo_265']) AND isset($_SESSION['passadaco_site_liigo_689']) AND $enviolog==""){?>
                 <span><a href="meu-perfil" style="color: #000;">Meu perfil</a></span>
                 <?php }else{?>
-                <span><a href="cadastre-se" style="color: #000;">Cadastre</a></span>
+                <span><a href="cadastre-se" style="color: #000;">Cadastre-se</a></span>
                 <?php }?>
               </td>
             </tr>
