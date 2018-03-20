@@ -14,7 +14,7 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
             <a id="lupa"></a>
           <table>
               <tr>
-              <td><a href="#lupa"><i class="fa fa-search"></i></a>              
+              <td><a class="lupa-mobile" href="#lupa"><i class="fa fa-search"></i></a>              
               </td>
               <td class="header-item-text">
                 <form class="search-form" method="get" id="buscaprinc" name="buscaprinc" action="resultado-busca">
