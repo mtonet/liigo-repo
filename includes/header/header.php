@@ -13,7 +13,7 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
         <div class="header-item header-search left">
           <table>
               <tr>
-              <td><i class="fa fa-search"></i></td>
+              <td><a href=""><i class="fa fa-search"></i></a></td>
               <td class="header-item-text">
                 <form class="search-form" method="get" id="buscaprinc" name="buscaprinc" action="resultado-busca">
                   <input type="text" placeholder="Busca..." required name="buscaprinc" value="<?php echo $buscaprinc?>" />
