@@ -1827,6 +1827,6 @@ footer .divider { background:rgba(255, 255, 255, 0.1); }
  /*  CUSTOM
 /*====================================================================================*/
 
-.fa-search:before {
+.lupa-mobile .fa-search:before {
     font-size: 22px !important;
 }
