@@ -12,6 +12,15 @@ require"includes-acoes/anuncio/assistencia.php";
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116137356-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116137356-1');
+</script>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="UTF-8">
   <meta name="description" content="Anuncie na Liigo - Mais de 30.000 usuários vendo o seu anúncio">
