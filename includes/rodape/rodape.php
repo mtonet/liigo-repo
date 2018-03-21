@@ -31,6 +31,13 @@
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 widget footer-widget newsletter">
+                <h4><span>Entre em contato</span> <img src="images/divider-half.png" alt="" /></h4>
+                <p><b>Nossos horários</b></p>
+                <p>Segunda à Sábado: 9h - 18h
+                </p>
+                <p class="footer-phone"><i class="fa fa-envelope"></i><a href="mailto:contato@liigo.com.br"> contato@liigo.com.br</a> </p>
+            </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 widget footer-widget newsletter">
                 <h4><span>Newsletter</span> <img src="images/divider-half.png" alt="" /></h4>
                 <p><b>Inscreva-se!</b> Receba diariamente anuncios de equipamentos, serviços e suprimentos.</p>
                 <form class="subscribe-form" method="post" action="#news" id="news">
@@ -44,27 +51,6 @@
                     <input type="submit" name="submit" value="Enviar" class="button small alt" />
                     <input name="envionws" type="hidden" id="envionws" value="s" />
                 </form>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 widget footer-widget">
-                <h4><span>Veja o que está em alta</span> <img src="images/divider-half.png" alt="" /></h4>
-
-                <h5 style="color: #FFF; font-size: 15px;">HP anuncia nova linha de impressoras</h5>
-                <p>Outubro 6.2018<br/>
-                Nova linha será revolucionária.
-                </p>
-
-                <h5 style="color: #FFF; font-size: 15px;">XEROX de volta ao mercado</h5>
-                <p>Outubro 6.2018<br/>
-                Xerox promete reolucionar o mercado de impressão digital.
-                </p>
-                
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-12 widget footer-widget newsletter">
-                <h4><span>Entre em contato</span> <img src="images/divider-half.png" alt="" /></h4>
-                <p><b>Nossos horários</b></p>
-                <p>Segunda à Sábado: 9h - 18h
-                </p>
-                <p class="footer-phone"><i class="fa fa-envelope"></i><a href="mailto:contato@liigo.com.br"> contato@liigo.com.br</a> </p>
             </div>
         </div><!-- end row -->
     </div><!-- end footer container -->
