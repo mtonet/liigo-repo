@@ -90,7 +90,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
              <div class="form-block border">
                   <label>Tipo de serviço*</label>
-                    <select name="servico" class="border required" style="display: none;">
+                    <select name="servico" class="border required">
                       <option value="">Selecione...</option>
                     <?php while($lineserv=$queryserv->fetch_array()){?>
                     <option value="<?php echo $lineserv['id_cod']?>"><?php echo $lineserv['nome']?></option>
