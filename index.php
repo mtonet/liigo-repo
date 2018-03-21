@@ -130,7 +130,7 @@ require"includes-acoes/home/home.php";
       </div>
       <?php while($linemais2=$querymais2->fetch_array()){
         //anuncios
-        $sqlcup2="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$linemais2['termo']."%' OR marca like'%".$linemais2['termo']."%' OR cabeca_impressao like'%".$linemais2['termo']."%' OR tecnologia like'%".$linemais2['termo']."%' OR condicao like'%".$linemais2['termo']."%' OR tipo_suprimento like'%".$linemais2['termo']."%' OR tipo_servico like'%".$linemais2['termo']."%' OR tipo_transporte like'%".$linemais2['termo']."%' OR descricao like'%".$linemais2['termo']."%') AND status='1'";
+        $sqlcup2="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$linemais2['termo']."%' OR marca like'%".$linemais2['termo']."%' OR cabeca_impressao like'%".$linemais2['termo']."%' OR tecnologia like'%".$linemais2['termo']."%' OR condicao like'%".$linemais2['termo']."%' OR descricao like'%".$linemais2['termo']."%') AND status='1'";
         $querycup2=$mysqli->query($sqlcup2);
         $numCont2=$querycup2->num_rows;
         if($numCont2!="0"){
