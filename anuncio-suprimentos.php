@@ -124,7 +124,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
               <div class="col-lg-6 col-md-6">
                 <div class="form-block">
                   <label>Preço*</label>
-                  <input class="border required" type="number" name="preco" />
+                  <input class="border required" type="text" name="preco" id="preco" />
                 </div>
               </div>        
             </div>
@@ -207,5 +207,16 @@ Marca, Material, Tecnologia e Medidas são importantes.</p>
 <script src="assets/html5lightbox/html5lightbox.js"></script> <!-- lightbox -->
 <script src="js/global.js"></script>
 <script src="js/pbox.js"></script>
+<script src="js/jquery.maskMoney.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function()
+{
+     $("#preco").maskMoney({
+         prefix: "",
+         decimal: ",",
+         thousands: "."
+     });
+});
+</script>
 </body>
 </html>

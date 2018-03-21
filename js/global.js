@@ -331,6 +331,7 @@ jQuery(document).ready(function($) {
 	$("#cidade").chosen("destroy");
 	$("#estadof").chosen("destroy");
 	$("#cidadef").chosen("destroy");
+	$("#preco").chosen("destroy");
 });
 
 /*pula select*/

@@ -13,7 +13,7 @@ $cat="Suprimentos";
 $tecnologia=$mysqli->real_escape_string(strip_tags(trim($_POST['tecnologia'])));
 $suprimento=$mysqli->real_escape_string(strip_tags(trim($_POST['suprimento'])));
 $titulo=$mysqli->real_escape_string(strip_tags(trim($_POST['titulo'])));
-$preco=$mysqli->real_escape_string(strip_tags(trim($_POST['preco'])));
+$preco=$mysqli->real_escape_string(strip_tags(trim(str_replace(',', '.', str_replace('.', '',$_POST['preco'])))));
 $descricao=$mysqli->real_escape_string(strip_tags(trim($_POST['descricao'])));
 $enviocad=$mysqli->real_escape_string(strip_tags(trim($_POST['enviocad'])));
 

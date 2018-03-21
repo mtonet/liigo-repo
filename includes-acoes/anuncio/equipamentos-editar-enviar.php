@@ -15,7 +15,7 @@ $cabeca=$mysqli->real_escape_string(strip_tags(trim($_POST['cabeca'])));
 $tecnologia=$mysqli->real_escape_string(strip_tags(trim($_POST['tecnologia'])));
 $condicao=$mysqli->real_escape_string(strip_tags(trim($_POST['condicao'])));
 $titulo=$mysqli->real_escape_string(strip_tags(trim($_POST['titulo'])));
-$preco=$mysqli->real_escape_string(strip_tags(trim($_POST['preco'])));
+$preco=$mysqli->real_escape_string(strip_tags(trim(str_replace(',', '.', str_replace('.', '',$_POST['preco'])))));
 $descricao=$mysqli->real_escape_string(strip_tags(trim($_POST['descricao'])));
 $enviocad=$mysqli->real_escape_string(strip_tags(trim($_POST['enviocad'])));
 

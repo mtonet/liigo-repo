@@ -12,7 +12,7 @@ $idcat="318b9cddcea5ebcb2c1171fe1cf277db";
 $cat="Serviços";
 $servico=$mysqli->real_escape_string(strip_tags(trim($_POST['servico'])));
 $titulo=$mysqli->real_escape_string(strip_tags(trim($_POST['titulo'])));
-$preco=$mysqli->real_escape_string(strip_tags(trim($_POST['preco'])));
+$preco=$mysqli->real_escape_string(strip_tags(trim(str_replace(',', '.', str_replace('.', '',$_POST['preco'])))));
 $descricao=$mysqli->real_escape_string(strip_tags(trim($_POST['descricao'])));
 $enviocad=$mysqli->real_escape_string(strip_tags(trim($_POST['enviocad'])));
 
