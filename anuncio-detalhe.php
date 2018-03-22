@@ -87,13 +87,18 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 					<div class="property-single-tags">
 
 						<div class="property-tag button alt featured"><?php echo $linean['categoria']?></div>
-						<?php if($linean['marca']!=""){?><div class="property-tag button alt featured"><?php echo $linean['marca']?></div><?php }?>
+
+						<?php if($linean['subcategoria']!=""){$mc=explode(",", $linean['subcategoria']);foreach($mc as $separado){?><div class="property-tag button alt featured"><?php echo $separado?> </div> <?php }}?>
+
+						<?php if($linean['marca']!=""){$mc2=explode(",", $linean['marca']);foreach($mc2 as $separado2){?><div class="property-tag button alt featured"><?php echo $separado2?></div> <?php }}?>
+
 						<?php if($linean['cabeca_impressao']!=""){?><div class="property-tag button alt featured"><?php echo $linean['cabeca_impressao']?></div><?php }?>
-						<?php if($linean['tecnologia']!=""){?><div class="property-tag button alt featured"><?php echo $linean['tecnologia']?></div><?php }?>
+
+						<?php if($linean['tecnologia']!=""){$mc3=explode(",", $linean['tecnologia']);foreach($mc3 as $separado3){?><div class="property-tag button alt featured"><?php echo $separado3?></div><?php }}?>
+
 						<?php if($linean['condicao']!=""){?><div class="property-tag button alt featured"><?php echo $linean['condicao']?></div><?php }?>
-						<?php if($linean['tipo_suprimento']!=""){?><div class="property-tag button alt featured"><?php echo $linean['tipo_suprimento']?></div><?php }?>
-						<?php if($linean['tipo_servico']!=""){?><div class="property-tag button alt featured"><?php echo $linean['tipo_servico']?></div><?php }?>
-						<?php if($linean['tipo_transporte']!=""){?><div class="property-tag button alt featured"><?php echo $linean['tipo_transporte']?></div><?php }?>
+
+					
 					</div>
 				</div>
 

@@ -178,6 +178,11 @@ require"../../includes-acoes/anuncios-pendentes/anuncios-pendentes-detalhes.php"
                           <span class="value text-success"> <?php echo $line['categoria']?> </span>
                         </li>
 
+                        <?php if($line['subcategoria']!=""){?><li>
+                          <span class="name"> Subcategoria </span>
+                          <span class="value text-success"> <?php echo $line['subcategoria']?> </span>
+                        </li><?php }?>
+
                         <?php if($line['preco']!="0"){?><li>
                           <span class="name"> Preço</span>
                           <span class="value text-success"> R$ <?php echo number_format($line['preco'], 2, ',','.');?> </span>
@@ -209,24 +214,7 @@ require"../../includes-acoes/anuncios-pendentes/anuncios-pendentes-detalhes.php"
 
                       </ul>
 
-                      <ul class="stats-overview">
-
-                           <?php if($line['tipo_suprimento']!=""){?><li>
-                          <span class="name"> Tipo de Suprimento </span>
-                          <span class="value text-success"> <?php echo $line['tipo_suprimento']?> </span>
-                        </li><?php }?>
-
-                        <?php if($line['tipo_servico']!=""){?><li>
-                          <span class="name"> Tipo de serviço</span>
-                          <span class="value text-success"> <?php echo $line['tipo_servico']?> </span>
-                        </li><?php }?>
-
-                        <?php if($line['tipo_transporte']!=""){?><li class="hidden-phone">
-                          <span class="name"> Tipo de transporte </span>
-                          <span class="value text-success"> <?php echo $line['tipo_transporte']?> </span>
-                        </li><?php }?>
-
-                      </ul>
+                      
                         
                         
                     
