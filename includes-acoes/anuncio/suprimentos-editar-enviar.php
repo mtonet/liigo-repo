@@ -12,7 +12,7 @@ $area=$mysqli->real_escape_string(strip_tags(trim($_GET['area'])));
 $idcat="21b2e6efe1400635f92d0320eed420a5";
 $cat="Suprimentos";
 $tecnologia=$mysqli->real_escape_string(strip_tags(trim($_POST['tecnologia'])));
-$suprimento=$mysqli->real_escape_string(strip_tags(trim($_POST['suprimento'])));
+//$suprimento=$mysqli->real_escape_string(strip_tags(trim($_POST['suprimento'])));
 $titulo=$mysqli->real_escape_string(strip_tags(trim($_POST['titulo'])));
 $preco=$mysqli->real_escape_string(strip_tags(trim(str_replace(',', '.', str_replace('.', '',$_POST['preco'])))));
 $descricao=$mysqli->real_escape_string(strip_tags(trim($_POST['descricao'])));
@@ -28,9 +28,17 @@ $querytec2=$mysqli->query($listatec2);
 $linetec2=$querytec2->fetch_array();
 
 //tipo supri
-$listasupri2="SELECT id_cod,nome from tbl_subcategoria WHERE id_cod='".$suprimento."'";
+$suprimento=$_POST['suprimento'];
+$acrescimo=count($suprimento);
+for ($i=0; $i<$acrescimo; $i++) {
+$listasupri2="SELECT id_cod,nome from tbl_subcategoria WHERE id_cod='".$suprimento[$i]."'";
 $querysupri2=$mysqli->query($listasupri2);
 $linesupri2=$querysupri2->fetch_array();
+$valoressuprimento.=$linesupri2['id_cod'].",";
+$valoressuprimento2.=$linesupri2['nome'].",";
+}
+$valoressuprimento=substr($valoressuprimento, 0, -1);
+$valoressuprimento2=substr($valoressuprimento2, 0, -1);
 
 //dados usuario
 $listauser="SELECT id,nome,id_cod,estado,cidade from tbl_usuarios WHERE id='".$dadosla['id']."'";
@@ -41,7 +49,7 @@ $lineuser=$queryuser->fetch_array();
 if($enviocad=="s" AND $arquivo01_nome==""){
 
 $cod=rand("1","1234567890");
-$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',preco='".$preco."',id_categoria='".$idcat."',categoria='".$cat."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',id_subcategoria='".$linesupri2['id_cod']."',subcategoria='".$linesupri2['nome']."',descricao='".$descricao."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
+$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',preco='".$preco."',id_categoria='".$idcat."',categoria='".$cat."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',id_subcategoria='".$valoressuprimento."',subcategoria='".$valoressuprimento2."',descricao='".$descricao."',status='0' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
 
 //galeria
@@ -68,7 +76,7 @@ break;
 require"img.php";
 $cod=rand("1","1234567890");
 
-$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',preco='".$preco."',id_categoria='".$idcat."',categoria='".$cat."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',id_subcategoria='".$linesupri2['id_cod']."',subcategoria='".$linesupri2['nome']."',descricao='".$descricao."',status='0',avatar='".$avatar."',image='".$avatar2."' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
+$cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',preco='".$preco."',id_categoria='".$idcat."',categoria='".$cat."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',id_subcategoria='".$valoressuprimento."',subcategoria='".$valoressuprimento2."',descricao='".$descricao."',status='0',avatar='".$avatar."',image='".$avatar2."' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
 
 //galeria
