@@ -96,6 +96,7 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
 <?php }?>
 </select>
          </div>
+
          <div class="col-md-2">
            <select class="form-control" name="cidadebusc" id="cidadebusc">
   <option value="">Cidade</option>
@@ -103,8 +104,9 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
   <option value="<?php echo ucfirst($cidadebusc)?>" selected><?php echo ucfirst($cidadebusc)?></option>
   <?php }?>
 </select>
-
          </div>
+
+         
          <div class="col-md-3">
            <select class="form-control" name="precisabusc" id="precisabusc">
   <option value="">O que você precisa?</option>
@@ -113,6 +115,8 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
 <?php }?>
 </select>
          </div>
+
+
          <div class="col-md-3">
 
 <?php if($precisabusc==""){?>
