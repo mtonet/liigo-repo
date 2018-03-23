@@ -129,7 +129,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 							<input class="border" type="text" name="nome" value="<?php echo $linedpu['nome']?>" />
 						</div>
 						<div class="form-block">
-							<label>Email</label>
+							<label>E-mail</label>
 							<input class="border" type="email" name="email" value="<?php echo $linedpu['email']?>" />
 						</div>
 						<div class="form-block">
