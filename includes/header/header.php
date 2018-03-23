@@ -98,12 +98,24 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
          </div>
 
          <div class="col-md-2">
+          <?php if($cidadebusc==""){?>
            <select class="form-control" name="cidadebusc" id="cidadebusc">
   <option value="">Cidade</option>
   <?php if($cidadebusc!=""){?>
   <option value="<?php echo ucfirst($cidadebusc)?>" selected><?php echo ucfirst($cidadebusc)?></option>
   <?php }?>
 </select>
+<?php }else{?>
+<select class="form-control" name="cidadebusc" id="cidadebusc">
+<?php 
+$listacidades="SELECT status,estado,cidade, COUNT(cidade) AS cidades from tbl_anuncio WHERE estado='".$estadobusc."' AND status='1' GROUP BY cidade ORDER BY cidade ASC";
+$querycidades=$mysqli->query($listacidades);
+while($linecidades=$querycidades->fetch_array()){
+?>
+<option value="<?php echo $linecidades['cidade']?>" <?php if($cidadebusc==$linecidades['cidade']){?>selected<?php }?>><?php echo $linecidades['cidade']?></option>
+<?php }?>
+</select>
+<?php }?>
          </div>
 
          
@@ -130,7 +142,6 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
 
 <?php }elseif($precisabusc!=""){?>
 <select class="form-control" name="servicosbusc" id="servicosbusc">
-<option value=""></option>
 <?php 
 //categoria 
 $listasubh="SELECT status,categoria,subcategoria from tbl_anuncio WHERE categoria='".$precisabusc."' AND status='1' GROUP BY subcategoria ORDER BY subcategoria ASC";
