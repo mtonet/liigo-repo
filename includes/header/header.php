@@ -137,14 +137,14 @@ echo"<option value=''>nenhum resultado ...</option>";
 }else{
 while($linesubh=$querysubh->fetch_array()){
 $mc=explode(",", $linesubh['subcategoria']);
-}
+
 foreach($mc as $separado => $valor){
 ?>
 <option value="<?php echo $valor;?>" <?php if($valor==$servicosbusc){?>selected<?php }?>><?php echo $valor;?></option>
 <?php
 }
 }
-
+}
 ?>
 </select>
 <?php 
