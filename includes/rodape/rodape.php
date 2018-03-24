@@ -45,7 +45,7 @@
                     <input name="envionws" type="hidden" id="envionws" value="s" />
                 </form>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 widget footer-widget">
+            <!--<div class="col-lg-3 col-md-3 col-sm-4 widget footer-widget">
                 <h4><span>Veja o que está em alta</span> <img src="images/divider-half.png" alt="" /></h4>
 
                 <h5 style="color: #FFF; font-size: 15px;">HP anuncia nova linha de impressoras</h5>
@@ -59,7 +59,7 @@
                 </p>
                 
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-12 widget footer-widget newsletter">
+-->            <div class="col-lg-3 col-md-3 col-sm-12 widget footer-widget newsletter">
                 <h4><span>Entre em contato</span> <img src="images/divider-half.png" alt="" /></h4>
                 <p><b>Nossos horários</b></p>
                 <p>Segunda à Sábado: 9h - 18h

@@ -115,6 +115,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 						<?php }else{?>
 						<img src="uploads/usuarios/<?php echo $linedpu['avatar'];?>" alt="<?php echo $linedpu['avatar'];?>" class="profile-avatar"/>
 						<?php }?>
+						<span style="font-size: 11px">Sua imagem deve ter 720x720 pixels</span>
 
 						<input type="file" name="imagem"  accept=".jpg, .jpeg, .png" style="width: 100%;">
 
@@ -129,7 +130,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 							<input class="border" type="text" name="nome" value="<?php echo $linedpu['nome']?>" />
 						</div>
 						<div class="form-block">
-							<label>E-mail</label>
+							<label>Email</label>
 							<input class="border" type="email" name="email" value="<?php echo $linedpu['email']?>" />
 						</div>
 						<div class="form-block">
