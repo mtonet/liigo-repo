@@ -4,7 +4,7 @@ $codfot=rand("1","1234567890");
 $arquivoname="$codfot$arquivo01_nome";
 copy($arquivo01_temporario, "uploads/anuncios/$arquivoname");
 // Chama o arquivo com a classe WideImage  
-require"admin/includes-acoes/lib/WideImage.inc.php"; 
+require"office/includes-acoes/lib/WideImage.inc.php"; 
 // Carrega a imagem a ser manipulada  
 $image=wiImage::load("uploads/anuncios/$arquivoname"); 
 $image2=wiImage::load("uploads/anuncios/$arquivoname");

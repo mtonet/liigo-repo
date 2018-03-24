@@ -91,6 +91,14 @@ $pagina = 1;
 }
 $inicio = ($pagina * $num_registro) - $num_registro;
 
+
+if($estadobusc!=""){
+$sqlcup="SELECT * FROM tbl_anuncio WHERE (estado LIKE '%".$estadobusc."%' OR (cidade LIKE '%".$cidadebusc."%')) AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
+$querycup=$mysqli->query($sqlcup);
+$numCont=$querycup->num_rows;
+}
+
+
 if($precisabusc!=""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE (estado LIKE '%".$estadobusc."%' OR (cidade LIKE '%".$cidadebusc."%')) AND categoria LIKE '%".$precisabusc."%' AND subcategoria LIKE '%".$servicosbusc."%' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
