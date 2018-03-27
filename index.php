@@ -122,27 +122,30 @@ require"includes-acoes/home/home.php";
     <div class="row">
 
       <div class="col-lg-8 col-md-8">
-        <a href="resultado-busca?buscaprinc=<?php echo $linemais['termo']?>" class="property-cat property-cat-apartments">
+        <a href="resultado-busca?buscaprinc=<?php echo $linemais['termo']?>" class="property-cat property-cat-apartments one-alta">
           <h3 style="text-transform: capitalize;"><?php echo $linemais['termo']?></h3>
           <div class="color-bar"></div>
           <span class="button alt small"><?php echo $numCont?> encontrados</span>
         </a>
       </div>
-      <?php while($linemais2=$querymais2->fetch_array()){
+      <?php 
+      $i=0;
+      while($linemais2=$querymais2->fetch_array()){
         //anuncios
-        $sqlcup2="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$linemais2['termo']."%' OR marca like'%".$linemais2['termo']."%' OR cabeca_impressao like'%".$linemais2['termo']."%' OR tecnologia like'%".$linemais2['termo']."%' OR condicao like'%".$linemais2['termo']."%' OR tipo_suprimento like'%".$linemais2['termo']."%' OR tipo_servico like'%".$linemais2['termo']."%' OR tipo_transporte like'%".$linemais2['termo']."%' OR descricao like'%".$linemais2['termo']."%') AND status='1'";
+        $sqlcup2="SELECT * FROM tbl_anuncio WHERE (categoria like'%".$linemais2['termo']."%' OR marca like'%".$linemais2['termo']."%' OR cabeca_impressao like'%".$linemais2['termo']."%' OR tecnologia like'%".$linemais2['termo']."%' OR condicao like'%".$linemais2['termo']."%' OR descricao like'%".$linemais2['termo']."%') AND status='1'";
         $querycup2=$mysqli->query($sqlcup2);
         $numCont2=$querycup2->num_rows;
         if($numCont2!="0"){
+          if($i=="0"){$css="two-alta";}elseif($i=="1"){$css="three-alta";}elseif($i=="2"){$css="four-alta";}elseif($i=="3"){$css="five-alta";}
         ?>
       <div class="col-lg-4 col-md-4">
-        <a href="resultado-busca?buscaprinc=<?php echo $linemais2['termo']?>" class="property-cat property-cat-houses">
+        <a href="resultado-busca?buscaprinc=<?php echo $linemais2['termo']?>" class="property-cat property-cat-houses <?php echo $css;?>">
           <h3 style="text-transform: capitalize;"><?php echo $linemais2['termo']?></h3>
           <div class="color-bar"></div>
           <span class="button alt small"><?php echo $numCont2?> encontrados</span>
         </a>
       </div>
-      <?php }}?>
+      <?php $i++;}}?>
     </div><!-- end row -->
 
   </div><!-- end container -->

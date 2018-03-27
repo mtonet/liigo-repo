@@ -105,8 +105,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
                <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
                   <label>Tipo de equipamento*</label>
-                  <select name="tecnologia" class="border required">
-                  	<option value="">Selecione...</option>
+                  <select name="tecnologia[]" class="border required" data-placeholder="Selecione..." multiple="">
                     <?php while($linetec=$querytec->fetch_array()){?>
                     <option value="<?php echo $linetec['id_cod']?>"><?php echo $linetec['nome']?></option>
                     <?php }?>
@@ -117,8 +116,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
                   
                      <div class="form-block border">
                          <label>Marcas* </label>
-                   <select name="marca" class="border required">
-                   	<option value="">Selecione...</option>
+                   <select name="marca[]" class="border required" data-placeholder="Selecione..." multiple="">
                     <?php while($linemarc=$querymarc->fetch_array()){?>
                     <option value="<?php echo $linemarc['id_cod']?>"><?php echo $linemarc['nome']?></option>
                     <?php }?>

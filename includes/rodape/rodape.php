@@ -22,12 +22,12 @@
                 <p>A plataforma digital que você anuncia e vende.</p>
                 <div class="divider"></div>
                 <ul class="social-icons circle">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.facebook.com/liigo.com.br/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/liigoanuncios/?hl=pt-br"><i class="fa fa-instagram"></i></a></li>
+                    <!--<li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 widget footer-widget newsletter">
@@ -52,6 +52,30 @@
                     <input name="envionws" type="hidden" id="envionws" value="s" />
                 </form>
             </div>
+<<<<<<< HEAD
+=======
+            <!--<div class="col-lg-3 col-md-3 col-sm-4 widget footer-widget">
+                <h4><span>Veja o que está em alta</span> <img src="images/divider-half.png" alt="" /></h4>
+
+                <h5 style="color: #FFF; font-size: 15px;">HP anuncia nova linha de impressoras</h5>
+                <p>Outubro 6.2018<br/>
+                Nova linha será revolucionária.
+                </p>
+
+                <h5 style="color: #FFF; font-size: 15px;">XEROX de volta ao mercado</h5>
+                <p>Outubro 6.2018<br/>
+                Xerox promete reolucionar o mercado de impressão digital.
+                </p>
+                
+            </div>
+-->            <div class="col-lg-3 col-md-3 col-sm-12 widget footer-widget newsletter">
+                <h4><span>Entre em contato</span> <img src="images/divider-half.png" alt="" /></h4>
+                <p><b>Nossos horários</b></p>
+                <p>Segunda à Sábado: 9h - 18h
+                </p>
+                <p class="footer-phone"><i class="fa fa-envelope"></i><a href="mailto:contato@liigo.com.br"> contato@liigo.com.br</a> </p>
+            </div>
+>>>>>>> 62a024ae5a66845bf4c4cf5ebc101192b432c4b4
         </div><!-- end row -->
     </div><!-- end footer container -->
 </footer>

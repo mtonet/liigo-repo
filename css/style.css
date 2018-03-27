@@ -1013,14 +1013,8 @@ header { background:white; width:100%; position:relative; z-index:1000; }
 	background-repeat:no-repeat;
 	transition:all 0.4s;
 }
-.property-cat h3 { color:white; font-weight:200; }
+.property-cat h3 { color:white; font-weight:200; text-shadow: 1px 0px 3px #666666; }
 .property-cat:hover .color-bar { width:130px; }
-
-.property-cat-apartments { background-image:url(../images/1000x560.png);}
-.property-cat-houses { background-image:url(../images/1000x560.png);}
-.property-cat-condos { background-image:url(../images/1000x560.png);}
-.property-cat-waterfront { background-image:url(../images/1000x560.png);}
-.property-cat-cozy { background-image:url(../images/1000x560.png);}
 
 /** PROPERTY SINGLE **/
 .property-single-item { margin-bottom:45px; background:white; padding:30px; }
@@ -1820,6 +1814,7 @@ footer .divider { background:rgba(255, 255, 255, 0.1); }
 	text-align:center;
 	font-size:13px;
 	position:relative;
+    
 	z-index:10;
 }
 
@@ -1830,3 +1825,15 @@ footer .divider { background:rgba(255, 255, 255, 0.1); }
 .lupa-mobile .fa-search:before {
     font-size: 22px !important;
 }
+
+
+.one-alta { background-image:url(../images/one-alta.jpg);}
+
+.two-alta { background-image:url(../images/two-alta.jpg);}
+
+.three-alta { background-image:url(../images/three-alta.jpg);}
+
+.four-alta { background-image:url(../images/four-alta.jpg);}
+
+.five-alta { background-image:url(../images/five-alta.jpg);}
+

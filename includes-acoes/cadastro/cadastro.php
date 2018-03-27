@@ -74,8 +74,10 @@ require"email.php";
 session_start();
 $_SESSION['logadaco_site_liigo_265']=$email;
 $_SESSION['passadaco_site_liigo_689']=$pass;
-
+//
 $msgscad='<div class="alert-box success"><i class="fa fa-check icon"></i> Cadastro efetuado com sucesso!</div>';
+//
+header("Refresh:2; url=meu-perfil");	
 
 if($ref!=""){
 header("Refresh:2; url=anuncio-detalhe?area=".$ref."");	

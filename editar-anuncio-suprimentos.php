@@ -98,7 +98,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
              <div class="form-block border">
                   <label>Tipo de equipamento*</label>
-                    <select name="tecnologia" class="border required" style="display: none;">
+                    <select name="tecnologia" class="border required" >
                       <option value="">Selecione...</option>
                     <?php while($linetec=$querytec->fetch_array()){?>
                     <option value="<?php echo $linetec['id_cod']?>" <?php if($lineanuncio['id_tecnologia']==$linetec['id_cod']){?>selected<?php }?>><?php echo $linetec['nome']?></option>
@@ -108,10 +108,12 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
                 
                 <div class="form-block border">
                   <label>Tipo de suprimentos*</label>
-                  <select name="suprimento" class="border required" style="display: none;">
+                  <select name="suprimento[]" class="border required" data-placeholder="Selecione..." multiple="">
                     <option value="">Selecione...</option>
-                    <?php while($linesupri=$querysupri->fetch_array()){?>
-                    <option value="<?php echo $linesupri['id_cod']?>" <?php if($lineanuncio['id_subcategoria']==$linesupri['id_cod']){?>selected<?php }?>><?php echo $linesupri['nome']?></option>
+                    <?php while($linesupri=$querysupri->fetch_array()){
+                      $os=explode(",", $lineanuncio['id_subcategoria']);
+                      ?>
+                    <option value="<?php echo $linesupri['id_cod']?>" <?php foreach($os as $separado){if($separado==$linesupri['id_cod']){?>selected<?php }}?>><?php echo $linesupri['nome']?></option>
                     <?php }?>                    
                   </select></div>
                 
@@ -124,7 +126,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
               <div class="col-lg-6 col-md-6">
                 <div class="form-block">
                   <label>Preço*</label>
-                  <input class="border required" type="number" name="preco" value="<?php echo $lineanuncio['preco']?>"/>
+                  <input class="border required" type="text" name="preco" id="preco" value="<?php echo number_format($lineanuncio['preco'], 2, ',','.')?>"/>
                 </div>
               </div>        
             </div>
@@ -272,5 +274,18 @@ Marca, Material, Tecnologia e Medidas são importantes.</p>
 <script src="assets/html5lightbox/html5lightbox.js"></script> <!-- lightbox -->
 <script src="js/global.js"></script>
 <script src="js/pbox.js"></script>
+<script src="js/jquery.maskMoney.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function()
+{
+     $("#preco").maskMoney({
+         prefix: "",
+         decimal: ",",
+         thousands: "."
+     });
+
+
+});
+</script>
 </body>
 </html>

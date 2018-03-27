@@ -104,26 +104,33 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
               <div class="row">
                <div class="col-lg-6 col-md-6">
                 <div class="form-block border">
-                  <label>Tecnologia***</label>
-                  <select name="tecnologia" class="border required">
+                  <label>Tipo de equipamento*</label>
+                  <select name="tecnologia[]" class="border required" data-placeholder="Selecione..." multiple="">
                   	<option value="">Selecione...</option>
-                    <?php while($linetec=$querytec->fetch_array()){?>
-                    <option value="<?php echo $linetec['id_cod']?>" <?php if($lineanuncio['id_tecnologia']==$linetec['id_cod']){?>selected<?php }?>><?php echo $linetec['nome']?></option>
-                    <?php }?>
+                    <?php 
+                    while($linetec=$querytec->fetch_array()){
+                      $ot=explode(",", $lineanuncio['id_tecnologia']);
+                      ?>
+                    <option value="<?php echo $linetec['id_cod']?>" <?php foreach($ot as $separado){if($separado==$linetec['id_cod']){?>selected<?php }}?>><?php echo $linetec['nome']?></option>
+                    <?php 
+                  }?>
                   </select></div>
           </div>
                  
                  <div class="col-lg-6 col-md-6">                
                   
                      <div class="form-block border">
-                         <label>Marcas*** </label>
-                   <select name="marca" class="border required">
+                         <label>Marcas* </label>
+                   <select name="marca[]" class="border required" data-placeholder="Selecione..." multiple="">
                    	<option value="">Selecione...</option>
-                    <?php while($linemarc=$querymarc->fetch_array()){?>
-                    <option value="<?php echo $linemarc['id_cod']?>" <?php if($lineanuncio['id_marca']==$linemarc['id_cod']){?>selected<?php }?>><?php echo $linemarc['nome']?></option>
-                    <?php }?>
+                    <?php 
+                    while($linemarc=$querymarc->fetch_array()){
+                      $vm=explode(",", $lineanuncio['id_marca']);
+                      ?>
+                    <option value="<?php echo $linemarc['id_cod']?>" <?php foreach($vm as $separado){if($separado==$linemarc['id_cod']){?>selected<?php }}?>><?php echo $linemarc['nome']?></option>
+                    <?php
+                  }?>
                   </select></div>
-
           </div>
                  <div class="col-lg-6 col-md-6"> 
                   <p></p>

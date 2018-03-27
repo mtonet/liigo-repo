@@ -96,15 +96,29 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
 <?php }?>
 </select>
          </div>
+
          <div class="col-md-2">
+          <?php if($cidadebusc==""){?>
            <select class="form-control" name="cidadebusc" id="cidadebusc">
   <option value="">Cidade</option>
   <?php if($cidadebusc!=""){?>
   <option value="<?php echo ucfirst($cidadebusc)?>" selected><?php echo ucfirst($cidadebusc)?></option>
   <?php }?>
 </select>
-
+<?php }else{?>
+<select class="form-control" name="cidadebusc" id="cidadebusc">
+<?php 
+$listacidades="SELECT status,estado,cidade, COUNT(cidade) AS cidades from tbl_anuncio WHERE estado='".$estadobusc."' AND status='1' GROUP BY cidade ORDER BY cidade ASC";
+$querycidades=$mysqli->query($listacidades);
+while($linecidades=$querycidades->fetch_array()){
+?>
+<option value="<?php echo $linecidades['cidade']?>" <?php if($cidadebusc==$linecidades['cidade']){?>selected<?php }?>><?php echo $linecidades['cidade']?></option>
+<?php }?>
+</select>
+<?php }?>
          </div>
+
+         
          <div class="col-md-3">
            <select class="form-control" name="precisabusc" id="precisabusc">
   <option value="">O que você precisa?</option>
@@ -113,6 +127,8 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
 <?php }?>
 </select>
          </div>
+
+
          <div class="col-md-3">
 
 <?php if($precisabusc==""){?>
@@ -126,19 +142,22 @@ require"includes-acoes/filtro-pesquisa/filtro-pesquisa.php";
 
 <?php }elseif($precisabusc!=""){?>
 <select class="form-control" name="servicosbusc" id="servicosbusc">
-<option value=""></option>
 <?php 
 //categoria 
-$listasubh="SELECT * from tbl_subcategoria WHERE categoria='".$precisabusc."' AND status='1' ORDER BY nome ASC";
+$listasubh="SELECT status,categoria,subcategoria from tbl_anuncio WHERE categoria='".$precisabusc."' AND status='1' GROUP BY subcategoria ORDER BY subcategoria ASC";
 $querysubh=$mysqli->query($listasubh);
 $numsubh=$querysubh->num_rows;
 if($numsubh==0){
 echo"<option value=''>nenhum resultado ...</option>";
 }else{
 while($linesubh=$querysubh->fetch_array()){
+$mc=explode(",", $linesubh['subcategoria']);
+
+foreach($mc as $separado => $valor){
 ?>
-<option value="<?php echo $linesubh['nome'];?>" <?php if($linesubh['nome']==$servicosbusc){?>selected<?php }?>><?php echo $linesubh['nome'];?></option>
+<option value="<?php echo $valor;?>" <?php if($valor==$servicosbusc){?>selected<?php }?>><?php echo $valor;?></option>
 <?php
+}
 }
 }
 ?>
