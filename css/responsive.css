@@ -21,6 +21,10 @@
 	 .nav.navbar-nav li a { border-bottom:1px solid rgba(0, 0, 0, 0.1) !important; }
 }
 
+
+
+
+
 @media screen and (max-width: 990px) {
 
   /* HEADER */
@@ -29,8 +33,9 @@
   .navbar-collapse.collapse { 
   	display: none!important; 
   	background:#323746;
-  }
-
+    padding-bottom: 250px;
+    }
+    
   .collapse.in{ display:block !important; overflow-y:visible; }
 
   .main-menu-wrap { position:static; }
