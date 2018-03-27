@@ -115,7 +115,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 						<?php }else{?>
 						<img src="uploads/usuarios/<?php echo $linedpu['avatar'];?>" alt="<?php echo $linedpu['avatar'];?>" class="profile-avatar"/>
 						<?php }?>
-						<span style="font-size: 11px">Sua imagem deve ter 720x720 pixels</span>
+						<p style="font-size: 11px">Sua imagem deve ter 720x720 pixels</p>
 
 						<input type="file" name="imagem"  accept=".jpg, .jpeg, .png" style="width: 100%;">
 
