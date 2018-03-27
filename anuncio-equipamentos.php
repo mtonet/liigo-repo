@@ -190,7 +190,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
         <div class="form-block">
           <label>Imagem principal</label>
-          <input type="file" name="image" />
+          <label class="btn btn-default btn-file">inserir imagem<input type="file" style="display: none;" name="image"></label>
         </div>
         <br/>
 
@@ -201,7 +201,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
                     <tr>
                     <td>
                     <div class="media-uploader-additional-img">
-                    <input type="file" class="additional_img" name="additional_img[]" value="" />
+                    <label class="btn btn-default btn-file">inserir imagem<input type="file" class="additional_img" name="additional_img[]" value="" style="display: none;"></label>
                     <span class="delete-additional-img right"><i class="fa fa-trash"></i> Deletar</span>
                     </div>
                     </td>
