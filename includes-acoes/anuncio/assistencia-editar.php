@@ -39,7 +39,7 @@ unlink("uploads/anuncios/".$line['image']."");
 $cadast="UPDATE tbl_anuncio SET avatar='',image='' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
 //direciona
-header("Location: editar-anuncio-assistencia-enviado?area=".$area."");
+header("Location: editar-anuncio-assistencia?area=".$area."");
 }
 
 //deletar imagem galeria
@@ -52,7 +52,7 @@ unlink("uploads/anuncios/".$line3['image']."");
 $cadast="DELETE FROM tbl_anuncio_galeria WHERE id_cod='".$area2."'";
 $query=$mysqli->query($cadast);
 //direciona
-header("Location: editar-anuncio-assistencia-enviado?area=".$area."");
+header("Location: editar-anuncio-assistencia?area=".$area."");
 }
 
 ?>
