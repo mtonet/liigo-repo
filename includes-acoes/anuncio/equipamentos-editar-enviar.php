@@ -72,7 +72,8 @@ $queryimg=$mysqli->query($cadastimg);
 break;
 }
 }
-
+//direciona
+header("Location: editar-anuncio-equipamentos?area=".$area."");
 }elseif($enviocad=="s" AND $arquivo01_nome!=""){
 
 //img
@@ -99,6 +100,7 @@ $queryimg=$mysqli->query($cadastimg);
 break;
 }
 }
-
+//direciona
+header("Location: editar-anuncio-equipamentos?area=".$area."");
 }
 ?>

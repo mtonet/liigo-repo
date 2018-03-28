@@ -69,7 +69,8 @@ $queryimg=$mysqli->query($cadastimg);
 break;
 }
 }
-
+//direciona
+header("Location: editar-anuncio-suprimentos?area=".$area."");
 }elseif($enviocad=="s" AND $arquivo01_nome!=""){
 
 //img
@@ -97,6 +98,7 @@ $queryimg=$mysqli->query($cadastimg);
 break;
 }
 }
-
+//direciona
+header("Location: editar-anuncio-suprimentos?area=".$area."");
 }
 ?>

@@ -55,7 +55,8 @@ $queryimg=$mysqli->query($cadastimg);
 break;
 }
 }
-
+//direciona
+header("Location: editar-anuncio-servicos?area=".$area."");
 }elseif($enviocad=="s" AND $arquivo01_nome!=""){
 
 //img
@@ -82,6 +83,7 @@ $queryimg=$mysqli->query($cadastimg);
 break;
 }
 }
-
+//direciona
+header("Location: editar-anuncio-servicos?area=".$area."");
 }
 ?>

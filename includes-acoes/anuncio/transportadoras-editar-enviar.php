@@ -54,6 +54,8 @@ $queryimg=$mysqli->query($cadastimg);
 break;
 }
 }
+//direciona
+header("Location: editar-anuncio-transportadoras?area=".$area."");
 
 }elseif($enviocad=="s" AND $arquivo01_nome!=""){
 
@@ -81,6 +83,7 @@ $queryimg=$mysqli->query($cadastimg);
 break;
 }
 }
-
+//direciona
+header("Location: editar-anuncio-transportadoras?area=".$area."");
 }
 ?>
