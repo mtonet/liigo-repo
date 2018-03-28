@@ -8,6 +8,8 @@ require"includes-acoes/regras/regras.php";
 require"includes-acoes/session/session.php";
 //favoritos
 require"includes-acoes/favoritos/favoritos.php";
+//session images
+unset($_SESSION['images']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

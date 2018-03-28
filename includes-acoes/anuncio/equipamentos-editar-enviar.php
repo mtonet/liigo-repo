@@ -59,6 +59,7 @@ $query=$mysqli->query($cadast);
 $operacoes=$_FILES['additional_img']['name'];
 $operacoes2=$_FILES['additional_img']['tmp_name'];
 if(!empty($_FILES['additional_img']['name'][0])){
+$_SESSION['images']='ativo';//sessão para imagem
 $ii=0;
 foreach($operacoes as $operacao) {
 foreach($operacoes2 as $operacao2) {	
@@ -86,6 +87,7 @@ $query=$mysqli->query($cadast);
 $operacoes=$_FILES['additional_img']['name'];
 $operacoes2=$_FILES['additional_img']['tmp_name'];
 if(!empty($_FILES['additional_img']['name'][0])){
+$_SESSION['images']='ativo';//sessão para imagem
 $ii=0;
 foreach($operacoes as $operacao) {
 foreach($operacoes2 as $operacao2) {	
@@ -100,6 +102,7 @@ $queryimg=$mysqli->query($cadastimg);
 break;
 }
 }
+$_SESSION['images']='ativo';//sessão para imagem
 //direciona
 header("Location: editar-anuncio-equipamentos?area=".$area."");
 }

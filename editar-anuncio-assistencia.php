@@ -75,13 +75,13 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
       <div class="center">
         <div class="form-nav">
           <div class="form-nav-item completed"><span><i class="fa fa-check"></i></span><br/> Informações do anúncio</div>
-          <div class="form-nav-item"><span>2</span><br/> Imagens</div>
+          <div class="form-nav-item <?php if(isset($_SESSION['images'])){?>completed<?php }?>"><span>2</span><br/> Imagens</div>
           <div class="form-nav-item"><span>3</span><br/> Enviar</div>
           <div class="clear"></div>
         </div>
       </div>
 
-      <div class="multi-page-form-content active">
+      <div class="multi-page-form-content <?php if(!isset($_SESSION['images'])){?>active<?php }?>">
 
         <span class="button button-icon small right form-next"><i class="fa fa-angle-right"></i> Próximo</span>
 
@@ -152,7 +152,7 @@ Não se esqueça de citar as regiões onde presta serviço.</p>
 
       </div><!-- end basic info -->
 
-      <div class="multi-page-form-content">
+      <div class="multi-page-form-content <?php if(isset($_SESSION['images'])){?>active<?php }?>">
 
         <span class="button button-icon small right form-next" onclick="javascript:anuncioassist.submit()"><i class="fa fa-angle-right"></i> Enviar</span>
         <span class="button button-icon small right form-prev"><i class="fa fa-angle-left"></i> Anterior</span>
@@ -285,5 +285,6 @@ Não se esqueça de citar as regiões onde presta serviço.</p>
 <script src="assets/html5lightbox/html5lightbox.js"></script> <!-- lightbox -->
 <script src="js/global.js"></script>
 <script src="js/pbox.js"></script>
+<?php if($action=="d"){unset($_SESSION['images']);}?>
 </body>
 </html>

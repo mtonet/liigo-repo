@@ -30,16 +30,18 @@ $querygaleria=$mysqli->query($listagaleria);
 
 //deletar imagem principal
 if($action=="deletep"){
+$_SESSION['images']='ativo';//sessão para imagem
 unlink("uploads/anuncios/thumb/".$line['avatar']."");
 unlink("uploads/anuncios/".$line['image']."");
 $cadast="UPDATE tbl_anuncio SET avatar='',image='' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
 //direciona
-header("Location: editar-anuncio-transportadoras?area=".$area."");
+header("Location: editar-anuncio-transportadoras?area=".$area."&action=d");
 }
 
 //deletar imagem galeria
 if($action=="deleteg"){
+$_SESSION['images']='ativo';//sessão para imagem
 $lista3="SELECT * FROM tbl_anuncio_galeria WHERE id_cod='".$area2."'";
 $query3=$mysqli->query($lista3);
 $line3=$query3->fetch_array();
@@ -48,7 +50,7 @@ unlink("uploads/anuncios/".$line3['image']."");
 $cadast="DELETE FROM tbl_anuncio_galeria WHERE id_cod='".$area2."'";
 $query=$mysqli->query($cadast);
 //direciona
-header("Location: editar-anuncio-transportadoras?area=".$area."");
+header("Location: editar-anuncio-transportadoras?area=".$area."&action=d");
 }
 
 ?>

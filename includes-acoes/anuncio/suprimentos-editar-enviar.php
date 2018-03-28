@@ -56,6 +56,7 @@ $query=$mysqli->query($cadast);
 $operacoes=$_FILES['additional_img']['name'];
 $operacoes2=$_FILES['additional_img']['tmp_name'];
 if(!empty($_FILES['additional_img']['name'][0])){
+$_SESSION['images']='ativo';//sessão para imagem
 $ii=0;
 foreach($operacoes as $operacao) {
 foreach($operacoes2 as $operacao2) {	
@@ -76,6 +77,7 @@ header("Location: editar-anuncio-suprimentos?area=".$area."");
 //img
 require"img.php";
 $cod=rand("1","1234567890");
+$_SESSION['images']='ativo';//sessão para imagem
 
 $cadast="UPDATE tbl_anuncio SET estado='".$lineuser['estado']."',cidade='".$lineuser['cidade']."',titulo='".$titulo."',preco='".$preco."',id_categoria='".$idcat."',categoria='".$cat."',id_tecnologia='".$linetec2['id_cod']."',tecnologia='".$linetec2['nome']."',id_subcategoria='".$valoressuprimento."',subcategoria='".$valoressuprimento2."',descricao='".$descricao."',status='0',avatar='".$avatar."',image='".$avatar2."' WHERE id_cod='".$area."' AND id_user='".$lineuser['id_cod']."'";
 $query=$mysqli->query($cadast);
@@ -84,6 +86,7 @@ $query=$mysqli->query($cadast);
 $operacoes=$_FILES['additional_img']['name'];
 $operacoes2=$_FILES['additional_img']['tmp_name'];
 if(!empty($_FILES['additional_img']['name'][0])){
+$_SESSION['images']='ativo';//sessão para imagem
 $ii=0;
 foreach($operacoes as $operacao) {
 foreach($operacoes2 as $operacao2) {	
@@ -98,6 +101,7 @@ $queryimg=$mysqli->query($cadastimg);
 break;
 }
 }
+$_SESSION['images']='ativo';//sessão para imagem
 //direciona
 header("Location: editar-anuncio-suprimentos?area=".$area."");
 }
