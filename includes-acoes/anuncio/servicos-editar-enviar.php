@@ -57,7 +57,7 @@ break;
 }
 }
 //direciona
-header("Location: editar-anuncio-servicos?area=".$area."");
+header("Location: editar-anuncio-servicos-enviado?area=".$area."");
 }elseif($enviocad=="s" AND $arquivo01_nome!=""){
 
 //img
@@ -87,6 +87,6 @@ break;
 }
 $_SESSION['images']='ativo';//sessão para imagem
 //direciona
-header("Location: editar-anuncio-servicos?area=".$area."");
+header("Location: editar-anuncio-servicos-enviado?area=".$area."");
 }
 ?>

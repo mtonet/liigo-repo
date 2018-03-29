@@ -56,7 +56,7 @@ break;
 }
 }
 //direciona
-header("Location: editar-anuncio-transportadoras?area=".$area."");
+header("Location: editar-anuncio-transportadoras-enviado?area=".$area."");
 
 }elseif($enviocad=="s" AND $arquivo01_nome!=""){
 
@@ -87,6 +87,6 @@ break;
 }
 $_SESSION['images']='ativo';//sessão para imagem
 //direciona
-header("Location: editar-anuncio-transportadoras?area=".$area."");
+header("Location: editar-anuncio-transportadoras-enviado?area=".$area."");
 }
 ?>

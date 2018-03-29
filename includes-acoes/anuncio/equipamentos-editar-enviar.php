@@ -74,7 +74,7 @@ break;
 }
 }
 //direciona
-header("Location: editar-anuncio-equipamentos?area=".$area."");
+header("Location: editar-anuncio-equipamentos-enviado?area=".$area."");
 }elseif($enviocad=="s" AND $arquivo01_nome!=""){
 
 //img
@@ -104,6 +104,6 @@ break;
 }
 $_SESSION['images']='ativo';//sessão para imagem
 //direciona
-header("Location: editar-anuncio-equipamentos?area=".$area."");
+header("Location: editar-anuncio-equipamentos-enviado?area=".$area."");
 }
 ?>
