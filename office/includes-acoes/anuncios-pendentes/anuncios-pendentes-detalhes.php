@@ -10,6 +10,11 @@ $lista="SELECT * FROM tbl_anuncio WHERE id_cod='".$area."'";
 $query=$mysqli->query($lista);
 $line=$query->fetch_array();
 
+//dados user
+$listauser="SELECT nome,email,telefone,celular FROM tbl_usuarios WHERE id_cod='".$line['id_user']."'";
+$queryuser=$mysqli->query($listauser);
+$lineuser=$queryuser->fetch_array();
+
 //galeria
 $lista2="SELECT * FROM tbl_anuncio_galeria WHERE id_anuncio='".$area."'";
 $query2=$mysqli->query($lista2);

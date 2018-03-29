@@ -214,9 +214,24 @@ require"../../includes-acoes/anuncios-pendentes/anuncios-pendentes-detalhes.php"
 
                       </ul>
 
-                      
+                      <ul class="stats-overview">
+
+                        <li>
+                          <span class="name"> Nome do usuário </span>
+                          <span class="value text-success"> <?php echo $lineuser['nome']?> </span>
+                        </li>
                         
+                        <li>
+                          <span class="name"> Email </span>
+                          <span class="value text-success"> <?php echo $lineuser['email']?> </span>
+                        </li>
+
+                        <li>
+                          <span class="name"> Telefone / Celular </span>
+                          <span class="value text-success"> <?php echo $lineuser['telefone']?> / <?php echo $lineuser['celular']?></span>
+                        </li>
                         
+                        </ul>
                     
                     </div>
                     
