@@ -3000,6 +3000,18 @@ ul.stats-overview li .value {
 ul.stats-overview li:first-child {
     padding-left: 0
 }
+
+@media screen and (max-width:1024px){
+ul.stats-overview li {
+    width: 50%;
+	text-align: left;
+	border-right: 0px;
+	padding:0;
+}
+.stats-overview{ padding:0; margin:0;}
+}
+
+
 ul.project_files li {
     margin-bottom: 5px
 }
