@@ -31,13 +31,6 @@
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 widget footer-widget newsletter">
-                <h4><span>Entre em contato</span> <img src="images/divider-half.png" alt="" /></h4>
-                <p><b>Nossos horários</b></p>
-                <p>Segunda à Sábado: 9h - 18h
-                </p>
-                <p class="footer-phone"><i class="fa fa-envelope"></i><a href="mailto:contato@liigo.com.br"> contato@liigo.com.br</a> </p>
-            </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 widget footer-widget newsletter">
                 <h4><span>Newsletter</span> <img src="images/divider-half.png" alt="" /></h4>
                 <p><b>Inscreva-se!</b> Receba diariamente anuncios de equipamentos, serviços e suprimentos.</p>
                 <form class="subscribe-form" method="post" action="#news" id="news">
@@ -52,8 +45,6 @@
                     <input name="envionws" type="hidden" id="envionws" value="s" />
                 </form>
             </div>
-<<<<<<< HEAD
-=======
             <!--<div class="col-lg-3 col-md-3 col-sm-4 widget footer-widget">
                 <h4><span>Veja o que está em alta</span> <img src="images/divider-half.png" alt="" /></h4>
 
@@ -75,13 +66,13 @@
                 </p>
                 <p class="footer-phone"><i class="fa fa-envelope"></i><a href="mailto:contato@liigo.com.br"> contato@liigo.com.br</a> </p>
             </div>
->>>>>>> 62a024ae5a66845bf4c4cf5ebc101192b432c4b4
         </div><!-- end row -->
     </div><!-- end footer container -->
 </footer>
 
 <div class="bottom-bar">
     <div class="container">
-    
+    <p><a href="uploads/pdf/contrato-de-intermedicao-de-negocios-liigo.pdf" target="_blank">Termos e Condições de uso</a> | <a href="uploads/pdf/politica-de-privacidade.pdf" target="_blank">Política de Privacidade</a></p>
+    <p>Liigo <?php echo date("Y")?> - Todos os direitos reservados</p>
     </div>
 </div>
