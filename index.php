@@ -88,7 +88,7 @@ require"includes-acoes/home/home.php";
         <div class="service-item shadow-hover">
           <i class="fa fa-home"></i>
           <h4>Anuncie</h4>
-          <p>Mais de 30.000 usuários vendo o seu anúncio</p>
+          <p>Usuários da área da comunicação vendo o seu anúncio</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4">
@@ -150,6 +150,35 @@ require"includes-acoes/home/home.php";
 
   </div><!-- end container -->
 </section>
+
+<section class="module partners">
+  <div class="container">
+
+    <div class="module-header">
+      <h2>Veja quem anuncia na<strong> Liigo</strong></h2>
+      <img src="images/divider.png" alt="" />
+      <p>Grandes empresas já fazem parte da nossa plataforma</p>
+    </div>
+
+    <div class="row">
+
+            <div class="col-lg-4 col-md-4">
+            <img src="http://liigo.com.br/images/mimaki.png" alt="">
+    
+      </div>
+            <div class="col-lg-4 col-md-4">
+            <img src="http://liigo.com.br/images/amplytech.png" alt="">
+          </div>
+            <div class="col-lg-4 col-md-4">
+            <img src="http://liigo.com.br/images/3be.png" alt="">
+      </div>
+          </div><!-- end row -->
+
+  </div><!-- end container -->
+</section>
+
+
+
 
 <!--<section class="module testimonials">
 
