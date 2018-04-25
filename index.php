@@ -88,14 +88,14 @@ require"includes-acoes/home/home.php";
         <div class="service-item shadow-hover">
           <i class="fa fa-home"></i>
           <h4>Anuncie</h4>
-          <p>Usuários da área da comunicação vendo o seu anúncio</p>
+          <p>Seu anúncio sendo visto em todo Brasil em uma busca fácil e rápida.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4">
         <div class="service-item shadow-hover">
           <i class="fa fa-group"></i>
           <h4>Profissionais</h4>
-          <p>Na Liigo todos os anunciantes são profissionais da área de comunicação</p>
+          <p>Equipamentos, suprimentos, serviços, assistência técnica e transportadoras você encontra na Liigo os melhores profissionais do mercado.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4">
