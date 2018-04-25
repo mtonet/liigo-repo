@@ -171,6 +171,18 @@ require"includes-acoes/home/home.php";
           </div>
             <div class="col-lg-4 col-md-4">
             <img src="http://liigo.com.br/images/3be.png" alt="">
+      </div>         
+                    
+
+            <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
+            <img src="http://liigo.com.br/images/ferdof.png" alt="">
+    
+      </div>
+            <div class="col-lg-4 col-md-4">
+           
+          </div>
+            <div class="col-lg-4 col-md-4">
+            
       </div>
           </div><!-- end row -->
 
