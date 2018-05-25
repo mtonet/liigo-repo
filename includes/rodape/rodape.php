@@ -24,6 +24,7 @@
                 <ul class="social-icons circle">
                     <li><a href="https://www.facebook.com/liigo.com.br/"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="https://www.instagram.com/liigoanuncios/?hl=pt-br"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCOrXx2-X0nyT1ZXQHkDhgrQ"><i class="fa fa-youtube"></i></a></li>
                     <!--<li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     <li><a href="#"><i class="fa fa-youtube"></i></a></li>
