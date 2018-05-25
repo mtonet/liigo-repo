@@ -21,7 +21,7 @@ require"includes-acoes/home/home.php";
 </script>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="UTF-8">
-  <meta name="description" content="Anuncie na Liigo - Mais de 30.000 usuários vendo o seu anúncio">
+  <meta name="description" content="Plataforma de anúncios totalmente gratuita onde o acesso é direto e focado entre o anunciante e o cliente. Na Liigo você anuncia produtos para comunicação visual, gráfica, têxtil, impressão 3D. Divulgue seus equipamentos como impressoras digitais, impressoras 3d, serviços de impressão papel de parede, banner etc, assistência técnica, transportadoras e muito mais.">
   <meta name="author" content="MãonaWeb">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,7 +88,7 @@ require"includes-acoes/home/home.php";
         <div class="service-item shadow-hover">
           <i class="fa fa-home"></i>
           <h4>Anuncie</h4>
-          <p>Seu anúncio sendo visto em todo Brasil em uma busca fácil e rápida.</p>
+          <p>Divulgue seu produto em uma plataforma digital totalmente gratuita e focada para o mercado de comunicação visual, gráfica, sublimação, Têxtil e impressão 3D.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4">
@@ -102,7 +102,7 @@ require"includes-acoes/home/home.php";
         <div class="service-item shadow-hover">
           <i class="fa fa-file-text"></i>
           <h4>Atualização diária</h4>
-          <p>Os anúncios são monitorados diariamente e o atendimento será excelente</p>
+          <p>Os anúncios são monitorados diariamente e o atendimento será excelente.</p>
         </div>
       </div>
     </div><!-- end row -->
