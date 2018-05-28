@@ -179,6 +179,7 @@ require"includes-acoes/home/home.php";
     
       </div>
             <div class="col-lg-4 col-md-4">
+             <img src="http://liigo.com.br/images/brgroup.jpg" alt="">
            
           </div>
             <div class="col-lg-4 col-md-4">
