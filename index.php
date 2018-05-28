@@ -178,7 +178,7 @@ require"includes-acoes/home/home.php";
             <img src="http://liigo.com.br/images/ferdof.png" alt="">
     
       </div>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
              <img src="http://liigo.com.br/images/brgroup.jpg" alt="">
            
           </div>
