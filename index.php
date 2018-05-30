@@ -110,6 +110,19 @@ require"includes-acoes/home/home.php";
 </section>
 
 
+<section class="module super-banner">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12 col-md-12">
+        <a href="https://bit.ly/2sgqFxw" target="_blank"><img src="images/super-banner.jpg" alt="" class="img-responsive"></a>
+      </div>
+    </div><!-- end row -->
+
+  </div><!-- end container -->
+</section>
+
+
 <section class="module property-categories">
   <div class="container">
 
@@ -163,27 +176,27 @@ require"includes-acoes/home/home.php";
     <div class="row">
 
             <div class="col-lg-4 col-md-4">
-            <img src="http://liigo.com.br/images/mimaki.jpg" alt="">
+            <img src="http://liigo.com.br/images/mimaki.jpg" alt="" class="property-cat property-cat-houses">
     
       </div>
             <div class="col-lg-4 col-md-4">
-            <img src="http://liigo.com.br/images/amplytech.jpg" alt="">
+            <img src="http://liigo.com.br/images/amplytech.jpg" alt="" class="property-cat property-cat-houses">
           </div>
             <div class="col-lg-4 col-md-4">
-            <img src="http://liigo.com.br/images/3be.png" alt="">
+            <img src="http://liigo.com.br/images/3be.jpg" alt="" class="property-cat property-cat-houses">
       </div>         
                     
 
             <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
-            <img src="http://liigo.com.br/images/ferdof.jpg" alt="">
+            <img src="http://liigo.com.br/images/ferdof.jpg" alt="" class="property-cat property-cat-houses">
     
       </div>
             <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
-             <img src="http://liigo.com.br/images/brgroup.jpg" alt="">
+             <img src="http://liigo.com.br/images/brgroup.jpg" alt="" class="property-cat property-cat-houses">
            
           </div>
             <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
-            <a href="http://www.grandesformatos.com/" target="_blank"><img src="http://liigo.com.br/images/gf.jpg" alt=""></a>
+            <a href="https://bit.ly/2sgqFxw" target="_blank"><img src="http://liigo.com.br/images/gf.jpg" alt="" class="property-cat property-cat-houses"></a>
             
       </div>
           </div><!-- end row -->
