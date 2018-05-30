@@ -155,7 +155,7 @@ require"includes-acoes/home/home.php";
   <div class="container">
 
     <div class="module-header">
-      <h2>Veja quem anuncia na<strong> Liigo</strong></h2>
+      <h2>Veja os parceiros da <strong>Liigo</strong></h2>
       <img src="images/divider.png" alt="" />
       <p>Grandes empresas já fazem parte da nossa plataforma</p>
     </div>
@@ -163,11 +163,11 @@ require"includes-acoes/home/home.php";
     <div class="row">
 
             <div class="col-lg-4 col-md-4">
-            <img src="http://liigo.com.br/images/mimaki.png" alt="">
+            <img src="http://liigo.com.br/images/mimaki.jpg" alt="">
     
       </div>
             <div class="col-lg-4 col-md-4">
-            <img src="http://liigo.com.br/images/amplytech.png" alt="">
+            <img src="http://liigo.com.br/images/amplytech.jpg" alt="">
           </div>
             <div class="col-lg-4 col-md-4">
             <img src="http://liigo.com.br/images/3be.png" alt="">
@@ -175,14 +175,15 @@ require"includes-acoes/home/home.php";
                     
 
             <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
-            <img src="http://liigo.com.br/images/ferdof.png" alt="">
+            <img src="http://liigo.com.br/images/ferdof.jpg" alt="">
     
       </div>
             <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
              <img src="http://liigo.com.br/images/brgroup.jpg" alt="">
            
           </div>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
+            <a href="http://www.grandesformatos.com/" target="_blank"><img src="http://liigo.com.br/images/gf.jpg" alt=""></a>
             
       </div>
           </div><!-- end row -->
