@@ -183,16 +183,16 @@ require"includes-acoes/home/home.php";
             <img src="http://liigo.com.br/images/amplytech.jpg" alt="" class="property-cat property-cat-houses">
           </div>
             <div class="col-lg-4 col-md-4">
-            <img src="http://liigo.com.br/images/3be.jpg" alt="" class="property-cat property-cat-houses">
+            <a href="https://bit.ly/2ssINU4" target="_blank"><img src="http://liigo.com.br/images/3be.jpg" alt="" class="property-cat property-cat-houses"></a>
       </div>         
                     
 
             <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
-            <img src="http://liigo.com.br/images/ferdof.jpg" alt="" class="property-cat property-cat-houses">
+            <a href="https://bit.ly/2IV2D5n" target="_blank"><img src="http://liigo.com.br/images/ferdof.jpg" alt="" class="property-cat property-cat-houses"></a>
     
       </div>
             <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
-             <img src="http://liigo.com.br/images/brgroup.jpg" alt="" class="property-cat property-cat-houses">
+             <a href="https://bit.ly/2LLWZAn" target="_blank"><img src="http://liigo.com.br/images/brgroup.jpg" alt="" class="property-cat property-cat-houses"></a>
            
           </div>
             <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
