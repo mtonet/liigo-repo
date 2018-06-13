@@ -35,4 +35,52 @@ $queryd=$mysqli->query($sqld);
 header("Location: index.php");
 }	
 
+//exportar
+
+if($action=="exportar"){
+
+// Definimos o nome do arquivo que será exportado
+$arquivo = 'usuarios.xls';
+
+$listadow="SELECT nome,email,celular,telefone,cpf_cnpj,estado,cidade from tbl_usuarios ORDER BY nome asc";
+$querydow=$mysqli->query($listadow);
+
+$html="<table border=1>
+    <tr>
+        <td bgcolor=#EEEEEE>Nome</td>    
+        <td bgcolor=#EEEEEE>Email</td> 
+        <td bgcolor=#EEEEEE>Telefone</td> 
+        <td bgcolor=#EEEEEE>Celular</td>   
+        <td bgcolor=#EEEEEE>CPF/CNPJ</td>    
+        <td bgcolor=#EEEEEE>Estado</td> 
+        <td bgcolor=#EEEEEE>Cidade</td>   
+    </tr>";
+while($linedow=$querydow->fetch_array()){
+    $html.="<tr>
+        <td>".utf8_decode($linedow['nome'])."</td>     
+        <td>".$linedow['email']."</td>
+        <td>".$linedow['telefone']."</td>
+        <td>".$linedow['celular']."</td>  
+        <td>".$linedow['cpf_cnpj']."</td>
+        <td>".$linedow['estado']."</td>
+        <td>".utf8_decode($linedow['cidade'])."</td>           
+    </tr>";
+}
+   
+$html.="</table>";
+
+// Configurações header para forçar o download
+header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+header ("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
+header ("Cache-Control: no-cache, must-revalidate");
+header ("Pragma: no-cache");
+header ("Content-type: application/x-msexcel");
+header ("Content-Disposition: attachment; filename=\"{$arquivo}\"" );
+header ("Content-Description: PHP Generated Data" );
+
+// Envia o conteúdo do arquivo
+echo $html;
+exit;
+}
+
 ?>
