@@ -22,8 +22,9 @@
                 <p>A plataforma digital que você anuncia e vende.</p>
                 <div class="divider"></div>
                 <ul class="social-icons circle">
-                    <li><a href="https://www.facebook.com/liigo.com.br/"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="https://www.instagram.com/liigoanuncios/?hl=pt-br"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com/liigo.com.br/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/liigoanuncios/?hl=pt-br" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCOrXx2-X0nyT1ZXQHkDhgrQ" target="_blank"><i class="fa fa-youtube"></i></a></li>
                     <!--<li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     <li><a href="#"><i class="fa fa-youtube"></i></a></li>
