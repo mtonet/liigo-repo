@@ -321,8 +321,20 @@ $indice ="pagina=".$i."";
 				</form>
 			  </div><!-- end widget content -->
 			
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-4928394344622645", enable_page_level_ads: true }); </script>
-			
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+            <script>
+
+              (adsbygoogle = window.adsbygoogle || []).push({
+
+                google_ad_client: "ca-pub-1284684456180483",
+
+                enable_page_level_ads: true
+
+              });
+
+            </script>
+						
 			</div><!-- end widget -->
 			
 		
