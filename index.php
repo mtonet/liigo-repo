@@ -46,9 +46,11 @@ require"includes-acoes/home/home.php";
   <![endif]-->
   
   <style type="text/css">
-  <?php while($linesl2=$querysl2->fetch_array()){?>
-        .subheader.subheader-slider .slide:nth-child(<?php echo $linesl2['id'];?>) { background:url(uploads/slide-home/<?php echo $linesl2['image'];?>) no-repeat center; background-size:cover; }
-  <?php }?>
+  <?php 
+  $a=1;
+  while($linesl2=$querysl2->fetch_array()){?>
+        .subheader.subheader-slider .slide:nth-child(<?php echo $a;?>) { background:url(uploads/slide-home/<?php echo $linesl2['image'];?>) no-repeat center; background-size:cover; }
+  <?php $a++;}?>
   </style>
   
 </head>

@@ -2,7 +2,7 @@
 //home
 
 //slide
-$listasl="SELECT id,image,texto1,texto2,status from tbl_slide_home ORDER BY id ASC";
+$listasl="SELECT id,image,texto1,texto2,status from tbl_slide_home where status='1' ORDER BY id ASC";
 $querysl=$mysqli->query($listasl);
 $listasl2="SELECT id,image from tbl_slide_home ORDER BY id ASC";
 $querysl2=$mysqli->query($listasl2);
