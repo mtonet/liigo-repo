@@ -23,6 +23,21 @@ header("Location:meu-perfil");
 
   gtag('config', 'UA-116137356-1');
 </script>
+ <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/21722728057/Cadastro', [[970, 250], [300, 600], [970, 90], [300, 250]], 'div-gpt-ad-1532017003644-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().setTargeting('posicao', []);
+    googletag.enableServices();
+  });
+</script>
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="UTF-8">
   <meta name="description" content="Anuncie na Liigo - Mais de 30.000 usuários vendo o seu anúncio">
@@ -64,7 +79,15 @@ header("Location:meu-perfil");
   </div>
 </section>
 <a id="cad"></a>
-<section class="module login">
+
+<!-- /21722728057/Cadastro -->
+<div id='div-gpt-ad-1532017089998-0' style='height:970px; width:90px;'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1532017089998-0'); });
+</script>
+</div>
+
+ <section class="module login">
   <div class="container">
  
     <div class="row">
