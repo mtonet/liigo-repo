@@ -23,6 +23,31 @@ unset($_SESSION['images']);
 
   gtag('config', 'UA-116137356-1');
 </script>
+ 
+<!-- Start GPT Async Tag -->
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var gptadslots = [];
+  var googletag = googletag || {cmd:[]};
+</script>
+<script>
+  googletag.cmd.push(function() {
+    //Adslot 1 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Perfil', [[250,250]], 'div-gpt-ad-7369315-1')
+                             .addService(googletag.pubads()));
+    //Adslot 2 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Perfil', [[300,600]], 'div-gpt-ad-7369315-2')
+                             .addService(googletag.pubads()));
+    //Adslot 3 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Perfil', [[970,250]], 'div-gpt-ad-7369315-3')
+                             .addService(googletag.pubads()));
+
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<!-- End GPT Async Tag -->
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="UTF-8">
   <meta name="description" content="Anuncie na Liigo - Mais de 30.000 usuários vendo o seu anúncio">
@@ -97,7 +122,20 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 					</ul>
 				</div>
 			</div>
+		
+		<!-- Async AdSlot 1 for Ad unit 'Perfil' ### Size: [[300,250]] -->
+<!-- Adslot's refresh function: googletag.pubads().refresh([gptadslots[0]]) -->
+<div id='div-gpt-ad-7369315-1'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-7369315-1'); });
+  </script>
+</div>
+<!-- End AdSlot 1 -->
+
+		
 		</div>
+		
+		
 
 		<div class="col-lg-9 col-md-9">
 

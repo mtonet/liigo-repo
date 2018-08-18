@@ -54,6 +54,39 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 }
 </style>
 
+<!-- Start GPT Async Tag -->
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+
+ // GPT slots
+ var gptAdSlots = [];
+ googletag.cmd.push(function() {
+ var mapping = googletag.sizeMapping().
+  addSize([320, 400], [[320, 50], [300, 50],[320, 100],[300, 100]]). 
+
+   // Landscape tablet 
+   //addSize([750, 200], [728, 90]). 
+
+   // Desktop
+   addSize([750, 0], [[728,90],[970,90],[970, 250]]).build();
+
+   // Define the GPT slot
+   gptAdSlots[0] = googletag.defineSlot('/21722728057/Login', [[300,50],[320,50],[300,100],[320,100],[728,90],[970,90],[970, 250]], 'div-gpt-ad-8162571-3').
+       defineSizeMapping(mapping).
+       addService(googletag.pubads());
+   googletag.pubads().setTargeting("test","responsive");
+
+   // Start ad fetching
+   googletag.enableServices();
+ });
+</script>
+<!-- End GPT Async Tag -->
+
+
 </head>
 <body>
 
@@ -67,10 +100,29 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
   </div>
 </section>
 <a id="log"></a>
+
+<style>
+div.banner-dfp {
+        text-align: center; }
+    </style>
+    
 <section class="module login">
   <div class="container">
 
     <div class="row">
+    
+    
+    <!-- Async AdSlot 3 for Ad unit 'Login' ### Size: [[970,250]] -->
+<!-- Adslot's refresh function: googletag.pubads().refresh([gptadslots[2]]) -->
+<div id='div-gpt-ad-8162571-3' class="banner-dfp">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-8162571-3'); });
+  </script>
+</div>
+<!-- End AdSlot 3 -->
+    <br>
+    <br>
+    
       <div class="col-lg-4 col-lg-offset-4"> 
         <p>Não possui cadastro? <strong><a href="cadastre-se">Cadastre-se aqui.</a></strong></p> 
         <form method="post" class="login-form" action="#log" name="formlog" id="formlog">

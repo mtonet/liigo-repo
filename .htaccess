@@ -41,5 +41,12 @@ RewriteRule ^lista-equipamentos$ lista-equipamentos.php [NC,L]
 RewriteRule ^lista-servicos$ lista-servicos.php [NC,L]
 RewriteRule ^lista-suprimentos$ lista-suprimentos.php [NC,L]
 RewriteRule ^lista-transportadoras$ lista-transportadoras.php [NC,L]
-RewriteRule ^lista-impressao$ lista-impressao.php [NC,L]
+
 RewriteRule ^lista-assistencia-tecnica$ lista-assistencia-tecnica.php [NC,L]
+
+
+RewriteRule ^lista-pecas$ lista-pecas.php [NC,L]
+
+RewriteRule ^lista-softwares$ lista-softwares.php [NC,L]
+
+RewriteRule ^lista-acessorios$ lista-acessorios.php [NC,L]

@@ -19,7 +19,7 @@ $listaserv="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_categ
 $queryserv=$mysqli->query($listaserv);
 
 //
-$num_registro = 10;
+$num_registro = 15;
 $pagina = isset($pag) ? $pag : 0;
 if(empty($pagina))
 {
@@ -31,10 +31,18 @@ if($servico=="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }else{
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND subcategoria='".$servico."' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND subcategoria='".$servico."' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 
@@ -72,24 +80,40 @@ if($acao=="date_desc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 if($acao=="date_asc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY data ASC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 if($acao=="price_desc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY preco DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 if($acao=="price_asc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='318b9cddcea5ebcb2c1171fe1cf277db' AND status='1' ".$servicodb." ORDER BY preco ASC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 

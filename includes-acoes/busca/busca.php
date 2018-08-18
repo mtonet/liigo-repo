@@ -16,7 +16,7 @@ $pag=$mysqli->real_escape_string(strip_tags(trim($_GET['pagina'])));
 //verifica o termo pesquisado e trás as categorias
 
 //busca
-$num_registro = 100;
+$num_registro = 15;
 $pagina = isset($pag) ? $pag : 0;
 if(empty($pagina))
 {
@@ -28,6 +28,7 @@ if($acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE (titulo like'%".$buscaprinc."%' OR categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+
 }elseif($acao=="date_desc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE (titulo like'%".$buscaprinc."%' OR categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
@@ -46,7 +47,7 @@ $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
 }
 //total
-$sqlTota="SELECT * FROM tbl_anuncio ORDER BY data DESC";
+$sqlTota="SELECT * FROM tbl_anuncio WHERE (titulo like'%".$buscaprinc."%' OR categoria like'%".$buscaprinc."%' OR marca like'%".$buscaprinc."%' OR cabeca_impressao like'%".$buscaprinc."%' OR tecnologia like'%".$buscaprinc."%' OR condicao like'%".$buscaprinc."%' OR descricao like'%".$buscaprinc."%') AND status='1'";
 $queryTotal=$mysqli->query($sqlTota);
 $numTotal=$queryTotal->num_rows;
 

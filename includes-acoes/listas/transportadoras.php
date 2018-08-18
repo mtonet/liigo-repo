@@ -25,7 +25,7 @@ $listatrans="SELECT id_cod,nome,id_categoria from tbl_subcategoria WHERE id_cate
 $querytrans=$mysqli->query($listatrans);
 
 //
-$num_registro = 10;
+$num_registro = 15;
 $pagina = isset($pag) ? $pag : 0;
 if(empty($pagina))
 {
@@ -37,18 +37,37 @@ if($transporte=="" AND $estado=="" AND $cidade=="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }elseif($transporte!="" AND $estado=="" AND $cidade=="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE subcategoria='".$transporte."' AND id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE subcategoria='".$transporte."' AND id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }elseif($transporte=="" AND $estado!="" AND $cidade=="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE estado='".$estadof."' AND id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE estado='".$estadof."' AND id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }elseif($transporte=="" AND $estado=="" AND $cidade!="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE cidade='".$cidadef."' AND id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE cidade='".$cidadef."' AND id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 
@@ -88,24 +107,44 @@ if($acao=="date_desc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ".$transportedb." ".$estadof." ".$cidadef." ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ".$transportedb." ".$estadof." ".$cidadef." ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }
 
 if($acao=="date_asc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ".$transportedb." ".$estadof." ".$cidadef." ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ".$transportedb." ".$estadof." ".$cidadef." ORDER BY data ASC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }
 
 if($acao=="price_desc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ".$transportedb." ".$estadof." ".$cidadef." ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ".$transportedb." ".$estadof." ".$cidadef." ORDER BY preco DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }
 
 if($acao=="price_asc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ".$transportedb." ".$estadof." ".$cidadef." ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='70f7e11763a006e605ec81c4a4858b10' AND status='1' ".$transportedb." ".$estadof." ".$cidadef." ORDER BY preco ASC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }
 
 ?>
