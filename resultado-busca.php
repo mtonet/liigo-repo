@@ -20,6 +20,7 @@ require"includes-acoes/busca/busca.php";
   gtag('config', 'UA-116137356-1');
 </script>
  
+<<<<<<< HEAD
 <!-- Start GPT Async Tag -->
 <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
 <script>
@@ -43,6 +44,22 @@ require"includes-acoes/busca/busca.php";
   });
 </script>
 <!-- End GPT Async Tag -->
+=======
+ <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/21722728057/Internas', [[300, 250], [970, 90], [970, 250], [728, 90], [320, 100], [320, 50], [300, 600]], 'div-gpt-ad-1532020435994-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().setTargeting('posicao', []);
+    googletag.enableServices();
+  });
+</script>
+>>>>>>> 012ced6bff67702979ebdf688fa37c5bb13a2653
 
  
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -276,6 +293,7 @@ $indice ="pagina=".$i."";
 			
 		
 		</div><!-- end sidebar -->
+<<<<<<< HEAD
 		<!-- Async AdSlot 2 for Ad unit 'Internas' ### Size: [[300,600]] -->
         <!-- Adslot's refresh function: googletag.pubads().refresh([gptadslots[1]]) -->
         <div id='div-gpt-ad-4064511-2'>
@@ -284,6 +302,14 @@ $indice ="pagina=".$i."";
         </script>
         </div>
         <!-- End AdSlot 2 -->
+=======
+		<!-- /21722728057/Internas -->
+        <div id='div-gpt-ad-1532020522164-0' style='height:250px; width:300px;'>
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1532020522164-0'); });
+        </script>
+        </div>
+>>>>>>> 012ced6bff67702979ebdf688fa37c5bb13a2653
 	</div><!-- end row -->
 
   </div><!-- end container -->

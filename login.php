@@ -23,6 +23,23 @@ header("Location:meu-perfil");
 
   gtag('config', 'UA-116137356-1');
 </script>
+ 
+ 
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/21722728057/Login', [[728, 90], [300, 250], [970, 250], [300, 600], [970, 90], [970, 66]], 'div-gpt-ad-1532020669226-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().setTargeting('posicao', []);
+    googletag.enableServices();
+  });
+</script>
+ 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="UTF-8">
   <meta name="description" content="Anuncie na Liigo - Mais de 30.000 usuários vendo o seu anúncio">
@@ -101,11 +118,21 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 </section>
 <a id="log"></a>
 
+<<<<<<< HEAD
 <style>
 div.banner-dfp {
         text-align: center; }
     </style>
     
+=======
+<!-- /21722728057/Login -->
+<div id='div-gpt-ad-1532020744111-0' style='height:90px; width:970px;'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1532020744111-0'); });
+</script>
+</div>
+
+>>>>>>> 012ced6bff67702979ebdf688fa37c5bb13a2653
 <section class="module login">
   <div class="container">
 

@@ -19,6 +19,21 @@ require"includes-acoes/listas/suprimentos.php";
 
   gtag('config', 'UA-116137356-1');
 </script>
+ <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/21722728057/Internas', [[300, 250], [970, 90], [970, 250], [728, 90], [320, 100], [320, 50], [300, 600]], 'div-gpt-ad-1532020435994-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().setTargeting('posicao', []);
+    googletag.enableServices();
+  });
+</script>
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="UTF-8">
   <meta name="description" content="Anuncie na Liigo - Mais de 30.000 usuários vendo o seu anúncio">
@@ -246,6 +261,13 @@ $indice ="pagina=".$i."";
 			
 		
 		</div><!-- end sidebar -->
+		<!-- /21722728057/Internas -->
+        <div id='div-gpt-ad-1532020522164-0' style='height:250px; width:300px;'>
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1532020522164-0'); });
+        </script>
+        </div>
+
 		
 	</div><!-- end row -->
 
