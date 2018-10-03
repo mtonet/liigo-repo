@@ -265,15 +265,33 @@ jQuery(document).ready(function($) {
 	/******************************************************************************/
 	/** SUBMIT PROPERTY - ADDITIONAL IMAGES  **/
 	/******************************************************************************/
-	var files_count = $('.additional-img-container .additional-image').length + 1;
+	
+	var files_count = $('.additional-img-container .additional-image').length + 0;
+	
+	var contador=0;
+	
     $('.add-additional-img').on('click', function() {
-        files_count++;
-        $('.additional-img-container').append('<table><tr><td><div class="media-uploader-additional-img"><input type="file" class="additional_img" name="additional_img[]" value="" /><span class="delete-additional-img appended right"><i class="fa fa-trash"></i> Delete</span></div></td></tr></table>');
+												  
+	
+  	for ( var i = 0 ; i < files_count ; i++ ) {
+	contador ++;									  
+        
+        $('.additional-img-container').append('<table><tr><td><div class="media-uploader-additional-img"><input type="file" class="additional_img" id="uploadma'+contador+'" name="additional_img[]" accept="image/png, image/jpeg" />(<i>limite 2mb</i>)<span class="delete-additional-img appended right"><i class="fa fa-trash"></i> Delete</span></div></td></tr></table>');
+		
+		$('.additional-img-container').append('<script type="text/javascript">var uploadma'+contador+' = document.getElementById("uploadma'+contador+'");uploadma'+contador+'.addEventListener("change", function(e) {var sizema'+contador+' = uploadma'+contador+'.files[0].size;if(sizema'+contador+' < 2097152) {} else {alert("Permitido imagem ate 2mb");uploadma'+contador+'.value = "";}e.preventDefault();});</script>');
+		
+		
+  }
+  
     });
+	
+	files_count++;
 
     $('.additional-img-container').on("click", ".delete-additional-img", function() {
         $(this).parent().parent().parent().parent().parent().remove();
     });
+	
+												  
 
     /******************************************************************************/
 	/** SUBMIT PROPERTY - OWNER INFO **/

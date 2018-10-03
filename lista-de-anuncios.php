@@ -66,6 +66,32 @@ require"includes-acoes/lista-geral/lista-geral.php";
 background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>) no-repeat center;
 }
 </style>
+
+<!-- Start GPT Async Tag -->
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var gptadslots = [];
+  var googletag = googletag || {cmd:[]};
+</script>
+<script>
+  googletag.cmd.push(function() {
+    //Adslot 1 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Internas', [[300,250]], 'div-gpt-ad-4064511-1')
+                             .addService(googletag.pubads()));
+    //Adslot 2 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Internas', [[300,600]], 'div-gpt-ad-4064511-2')
+                             .addService(googletag.pubads()));
+    //Adslot 3 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Internas', [[970,250]], 'div-gpt-ad-4064511-3')
+                             .addService(googletag.pubads()));
+
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<!-- End GPT Async Tag -->
+
+
 </head>
 <body>
 
@@ -93,11 +119,12 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 				</div>
 		
 			<div class="property-listing-header">
-				<?php if($numCont!=""){?><span class="property-count left"><?php echo $numCont?> anúncio(s) encontrado(s)</span>
+				<?php if($numCont!=""){?><span class="property-count left"><?php echo $numTotal?> anúncio(s) encontrado(s)</span>
 				<form class="right">
 					<select name="acao" onchange="MM_jumpMenu('parent',this,0)">	
 						<option value="">Selecione...</option>
 						<option value="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&acao=date_desc" <?php if($acao=="date_desc"){?>selected<?php }?>>Novo para o mais antigo</option>
+						
 						<option value="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&acao=date_asc" <?php if($acao=="date_asc"){?>selected<?php }?>>Antigo para o mais novo</option>
 						<option value="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&acao=price_desc" <?php if($acao=="price_desc"){?>selected<?php }?>>Preço maior para o menor</option>
 						<option value="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&acao=price_asc" <?php if($acao=="price_asc"){?>selected<?php }?>>Preço menor para o maior</option>
@@ -181,8 +208,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 		}
 		  ?>
 			
-			<div class="pagination">
-				<div class="center">
+<div class="pagination">
+<div class="center">
 <?php
 if($numCont > 0){
 if($numTotal>$num_registro){
@@ -191,18 +218,18 @@ $proximo=$pag+1;
 $anterior=$pag-1;
 ?>
 <ul>
-<?php if($totalPag<=$anterior){?><li><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&pagina=<?php echo $anterior?>" class="button small grey"><i class="fa fa-angle-left"></i></a></li><?php }?>
+<?php if($anterior>=0){?><li><a href="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&enviofiltro=<?php echo $enviofiltro?>&acao=<?php echo $acao?>&pagina=<?php echo $anterior?>" class="button small grey"><i class="fa fa-angle-left"></i></a></li><?php }?>
 <?php
 for($i=1; $i <= $totalPag; $i++){
 $indice ="pagina=".$i."";
 ?>
 
-<li <?php if($i==$pag){?> class="current" <?php }?>><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&<?php echo $indice?>" class="button small grey"><?php echo $i?></a></li>
+<li <?php if($i==$pag){?> class="current" <?php }?>><a href="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&enviofiltro=<?php echo $enviofiltro?>&acao=<?php echo $acao?>&<?php echo $indice?>" class="button small grey"><?php echo $i?></a></li>
 <?php
 }
 ?>  
 
-<?php if($totalPag>=$proximo){?><li><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&pagina=<?php echo $proximo?>" class="button small grey"><i class="fa fa-angle-right"></i></a></li><?php }?>
+<?php if($totalPag>=$proximo){?><li><a href="?estadobusc=<?php echo $estadobusc?>&cidadebusc=<?php echo $cidadebusc?>&precisabusc=<?php echo $precisabusc?>&servicosbusc=<?php echo $servicosbusc?>&equipamento=<?php echo $equipamento?>&tecnologia=<?php echo $tecnologia?>&marca=<?php echo $marca?>&cabeca=<?php echo $cabeca?>&servico=<?php echo $servico?>&transporte=<?php echo $transporte?>&suprimento=<?php echo $suprimento?>&enviofiltro=<?php echo $enviofiltro?>&acao=<?php echo $acao?>&pagina=<?php echo $proximo?>" class="button small grey"><i class="fa fa-angle-right"></i></a></li><?php }?>
 
 </ul>
 <?php
@@ -357,6 +384,23 @@ $indice ="pagina=".$i."";
 		
 		</div><!-- end sidebar -->
 		
+<<<<<<< HEAD
+		<style>
+div.banner-dfp {
+        text-align: center; }
+    </style>
+    
+		<!-- Async AdSlot 2 for Ad unit 'Internas' ### Size: [[300,600]] -->
+        <!-- Adslot's refresh function: googletag.pubads().refresh([gptadslots[1]]) -->
+        <div id='div-gpt-ad-4064511-1' class="banner-dfp">
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-4064511-1'); });
+        </script>
+        </div>
+        <!-- End AdSlot 2 -->
+		
+		
+=======
 		<!-- /21722728057/Internas -->
         <div id='div-gpt-ad-1532020522164-0' style='height:250px; width:300px;'>
         <script>
@@ -364,6 +408,7 @@ $indice ="pagina=".$i."";
         </script>
         </div>
 
+>>>>>>> 012ced6bff67702979ebdf688fa37c5bb13a2653
 		
 	</div><!-- end row -->
 

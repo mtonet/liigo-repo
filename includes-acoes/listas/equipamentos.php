@@ -34,7 +34,7 @@ $listacond="SELECT id_cod,nome from tbl_condicao_equipamento ORDER BY nome asc";
 $querycond=$mysqli->query($listacond);
 
 //
-$num_registro = 10;
+$num_registro = 15;
 $pagina = isset($pag) ? $pag : 0;
 if(empty($pagina))
 {
@@ -46,26 +46,55 @@ if($equipamento=="" AND $tecnologia=="" AND $marca=="" AND $cabeca=="" AND $acao
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }elseif($equipamento!="" AND $tecnologia=="" AND $marca=="" AND $cabeca=="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND condicao='".$equipamento."' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND condicao='".$equipamento."' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }elseif($equipamento=="" AND $tecnologia!="" AND $marca=="" AND $cabeca=="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND subcategoria='".$tecnologia."' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND subcategoria='".$tecnologia."' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }elseif($equipamento=="" AND $tecnologia=="" AND $marca!="" AND $cabeca=="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND marca='".$marca."' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND marca='".$marca."' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }elseif($equipamento=="" AND $tecnologia=="" AND $marca=="" AND $cabeca!="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND cabeca_impressao='".$cabeca."' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND cabeca_impressao='".$cabeca."' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
+
 }elseif($equipamento!="" AND $tecnologia!="" AND $marca!="" AND $cabeca!="" AND $acao==""){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND condicao='".$equipamento."' AND subcategoria='".$tecnologia."' AND marca='".$marca."' AND cabeca_impressao='".$cabeca."' AND status='1' ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND condicao='".$equipamento."' AND subcategoria='".$tecnologia."' AND marca='".$marca."' AND cabeca_impressao='".$cabeca."' AND status='1' ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 if($equipamento!=""){$equipamentodb="AND condicao='".$equipamento."'";}
@@ -77,24 +106,40 @@ if($acao=="date_desc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND status='1' ".$equipamentodb." ".$tecnologiadb." ".$marcadb." ".$cabecadb." ORDER BY data DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND status='1' ".$equipamentodb." ".$tecnologiadb." ".$marcadb." ".$cabecadb." ORDER BY data DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 if($acao=="date_asc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND status='1' ".$equipamentodb." ".$tecnologiadb." ".$marcadb." ".$cabecadb." ORDER BY data ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND status='1' ".$equipamentodb." ".$tecnologiadb." ".$marcadb." ".$cabecadb." ORDER BY data ASC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 if($acao=="price_desc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND status='1' ".$equipamentodb." ".$tecnologiadb." ".$marcadb." ".$cabecadb." ORDER BY preco DESC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND status='1' ".$equipamentodb." ".$tecnologiadb." ".$marcadb." ".$cabecadb." ORDER BY preco DESC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 if($acao=="price_asc"){
 $sqlcup="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND status='1' ".$equipamentodb." ".$tecnologiadb." ".$marcadb." ".$cabecadb." ORDER BY preco ASC LIMIT ".$inicio.", ".$num_registro."";
 $querycup=$mysqli->query($sqlcup);
 $numCont=$querycup->num_rows;
+//total
+$sqlTota="SELECT * FROM tbl_anuncio WHERE id_categoria='4633a7bd213e1971059c2ce5b76c7e0e' AND status='1' ".$equipamentodb." ".$tecnologiadb." ".$marcadb." ".$cabecadb." ORDER BY preco ASC";
+$queryTotal=$mysqli->query($sqlTota);
+$numTotal=$queryTotal->num_rows;
 }
 
 

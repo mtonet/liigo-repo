@@ -20,6 +20,31 @@ require"includes-acoes/busca/busca.php";
   gtag('config', 'UA-116137356-1');
 </script>
  
+<<<<<<< HEAD
+<!-- Start GPT Async Tag -->
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var gptadslots = [];
+  var googletag = googletag || {cmd:[]};
+</script>
+<script>
+  googletag.cmd.push(function() {
+    //Adslot 1 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Internas', [[300,250]], 'div-gpt-ad-4064511-1')
+                             .addService(googletag.pubads()));
+    //Adslot 2 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Internas', [[300,600]], 'div-gpt-ad-4064511-2')
+                             .addService(googletag.pubads()));
+    //Adslot 3 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Internas', [[970,250]], 'div-gpt-ad-4064511-3')
+                             .addService(googletag.pubads()));
+
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<!-- End GPT Async Tag -->
+=======
  <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
 <script>
   var googletag = googletag || {};
@@ -34,6 +59,7 @@ require"includes-acoes/busca/busca.php";
     googletag.enableServices();
   });
 </script>
+>>>>>>> 012ced6bff67702979ebdf688fa37c5bb13a2653
 
  
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -94,7 +120,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 				</div>
 		
 			<div class="property-listing-header">
-				<span class="property-count left"><?php echo $numCont?> anúncio(s) encontrado(s)</span>
+				<span class="property-count left"><?php echo $numTotal?> anúncio(s) encontrado(s)</span>
 				<?php if($numCont!=""){?><form class="right">
 					<select name="acao" onchange="MM_jumpMenu('parent',this,0)">
 						<option value="">Selecione...</option>
@@ -196,7 +222,7 @@ $proximo=$pag+1;
 $anterior=$pag-1;
 ?>
 <ul>
-<?php if($totalPag<=$anterior){?><li><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&pagina=<?php echo $anterior?>" class="button small grey"><i class="fa fa-angle-left"></i></a></li><?php }?>
+<?php if($anterior>=0){?><li><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&pagina=<?php echo $anterior?>" class="button small grey"><i class="fa fa-angle-left"></i></a></li><?php }?>
 <?php
 for($i=1; $i <= $totalPag; $i++){
 $indice ="pagina=".$i."";
@@ -250,8 +276,7 @@ $indice ="pagina=".$i."";
 			  </div><!-- end widget content -->
 			  
 			  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-                <script>
+				<script>
 
                   (adsbygoogle = window.adsbygoogle || []).push({
 
@@ -262,16 +287,29 @@ $indice ="pagina=".$i."";
                   });
 
                 </script>
+                
+                
 			</div><!-- end widget -->
 			
 		
 		</div><!-- end sidebar -->
+<<<<<<< HEAD
+		<!-- Async AdSlot 2 for Ad unit 'Internas' ### Size: [[300,600]] -->
+        <!-- Adslot's refresh function: googletag.pubads().refresh([gptadslots[1]]) -->
+        <div id='div-gpt-ad-4064511-2'>
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-4064511-2'); });
+        </script>
+        </div>
+        <!-- End AdSlot 2 -->
+=======
 		<!-- /21722728057/Internas -->
         <div id='div-gpt-ad-1532020522164-0' style='height:250px; width:300px;'>
         <script>
         googletag.cmd.push(function() { googletag.display('div-gpt-ad-1532020522164-0'); });
         </script>
         </div>
+>>>>>>> 012ced6bff67702979ebdf688fa37c5bb13a2653
 	</div><!-- end row -->
 
   </div><!-- end container -->
@@ -290,5 +328,6 @@ $indice ="pagina=".$i."";
 <script src="js/nouislider.min.js"></script> <!-- price slider -->
 <script src="js/global.js"></script>
 <script src="js/pbox.js"></script>
+
 </body>
 </html>

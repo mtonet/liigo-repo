@@ -170,7 +170,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 
 
           </div>
-          <input type="file" name="image" />
+          <input type="file" name="image" id="upload" accept="image/png, image/jpeg"/>
+          (<i>limite 2mb</i>)
         </div>
         <br/>
 
@@ -215,7 +216,8 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
                     <tr>
                     <td>
                     <div class="media-uploader-additional-img">
-                    <input type="file" class="additional_img" name="additional_img[]" value="" />
+                    <input type="file" class="additional_img" name="additional_img[]" value="" id="uploadm" accept="image/png, image/jpeg"/>
+                    (<i>limite 2mb</i>)
                     <span class="delete-additional-img right"><i class="fa fa-trash"></i> Deletar</span>
                     </div>
                     </td>
@@ -253,6 +255,36 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 <script src="assets/html5lightbox/html5lightbox.js"></script> <!-- lightbox -->
 <script src="js/global.js"></script>
 <script src="js/pbox.js"></script>
+<script type="text/javascript">
+  $(document).ready(function()
+{
+
+  var upload = document.getElementById("upload");
+upload.addEventListener("change", function(e) {
+    var size = upload.files[0].size;
+    if(size < 2097152) { //2MB         
+      //alert('Permitido'); //Abaixo do permitido
+    } else {           
+      alert('Permitido imagem até 2mb'); //Acima do limite
+      upload.value = ""; //Limpa o campo          
+    }
+    e.preventDefault();
+});
+
+var uploadm = document.getElementById("uploadm");
+uploadm.addEventListener("change", function(e) {
+    var sizem = uploadm.files[0].size;
+    if(sizem < 2097152) { //2MB         
+      //alert('Permitido'); //Abaixo do permitido
+    } else {           
+      alert('Permitido imagem até 2mb'); //Acima do limite
+      uploadm.value = ""; //Limpa o campo          
+    }
+    e.preventDefault();
+});
+
+});
+</script>
 <?php if($action=="d"){unset($_SESSION['images']);}?>
 </body>
 </html>

@@ -92,7 +92,7 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 				</div>
 		
 			<div class="property-listing-header">
-				<span class="property-count left"><?php echo $numCont?> anúncio(s) encontrado(s)</span>
+				<span class="property-count left"><?php echo $numTotal?> anúncio(s) encontrado(s)</span>
 				<form class="right">
 					<select name="sort_by" onchange="MM_jumpMenu('parent',this,0)">
 						<option value="">Selecione...</option>
@@ -192,18 +192,18 @@ $proximo=$pag+1;
 $anterior=$pag-1;
 ?>
 <ul>
-<?php if($totalPag<=$anterior){?><li><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&pagina=<?php echo $anterior?>" class="button small grey"><i class="fa fa-angle-left"></i></a></li><?php }?>
+<?php if($anterior>=0){?><li><a href="?marca=<?php echo $marca?>&tecnologia=<?php echo $tecnologia?>&acao=<?php echo $acao?>&pagina=<?php echo $anterior?>" class="button small grey"><i class="fa fa-angle-left"></i></a></li><?php }?>
 <?php
 for($i=1; $i <= $totalPag; $i++){
 $indice ="pagina=".$i."";
 ?>
 
-<li <?php if($i==$pag){?> class="current" <?php }?>><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&<?php echo $indice?>" class="button small grey"><?php echo $i?></a></li>
+<li <?php if($i==$pag){?> class="current" <?php }?>><a href="?marca=<?php echo $marca?>&tecnologia=<?php echo $tecnologia?>&acao=<?php echo $acao?>&<?php echo $indice?>" class="button small grey"><?php echo $i?></a></li>
 <?php
 }
 ?>  
 
-<?php if($totalPag>=$proximo){?><li><a href="?buscaprinc=<?php echo $buscaprinc?>&acao=<?php echo $acao?>&pagina=<?php echo $proximo?>" class="button small grey"><i class="fa fa-angle-right"></i></a></li><?php }?>
+<?php if($totalPag>=$proximo){?><li><a href="?marca=<?php echo $marca?>&tecnologia=<?php echo $tecnologia?>&acao=<?php echo $acao?>&pagina=<?php echo $proximo?>" class="button small grey"><i class="fa fa-angle-right"></i></a></li><?php }?>
 
 </ul>
 <?php

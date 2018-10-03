@@ -50,6 +50,28 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 }
 </style>
 
+
+<!-- Start GPT Async Tag -->
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var gptadslots = [];
+  var googletag = googletag || {cmd:[]};
+</script>
+<script>
+  googletag.cmd.push(function() {
+    //Adslot 1 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Detalhe_Anuncios', [[300,250]], 'div-gpt-ad-1400168-1')
+                             .addService(googletag.pubads()));
+
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<!-- End GPT Async Tag -->
+
+
+
+
 </head>
 <body>
 
@@ -250,11 +272,27 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
                   </div>
 
 			 	</div>
+			 	
 			 </div>	
 			</div>
 			<?php }?>
 		
 		</div><!-- end sidebar -->
+		<style>
+div.banner-dfp {
+        text-align: center; }
+    </style>
+		<!-- Async AdSlot 1 for Ad unit 'Detalhe_Anuncios' ### Size: [[300,250]] -->
+<!-- Adslot's refresh function: googletag.pubads().refresh([gptadslots[0]]) -->
+<div id='div-gpt-ad-1400168-1' class="banner-dfp">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1400168-1'); });
+  </script>
+</div>
+<!-- End AdSlot 1 -->
+
+
+		
 		
 	</div><!-- end row -->
 

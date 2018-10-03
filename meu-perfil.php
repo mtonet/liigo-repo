@@ -24,6 +24,31 @@ unset($_SESSION['images']);
   gtag('config', 'UA-116137356-1');
 </script>
  
+<<<<<<< HEAD
+<!-- Start GPT Async Tag -->
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var gptadslots = [];
+  var googletag = googletag || {cmd:[]};
+</script>
+<script>
+  googletag.cmd.push(function() {
+    //Adslot 1 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Perfil', [[250,250]], 'div-gpt-ad-7369315-1')
+                             .addService(googletag.pubads()));
+    //Adslot 2 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Perfil', [[300,600]], 'div-gpt-ad-7369315-2')
+                             .addService(googletag.pubads()));
+    //Adslot 3 declaration
+    gptadslots.push(googletag.defineSlot('/21722728057/Perfil', [[970,250]], 'div-gpt-ad-7369315-3')
+                             .addService(googletag.pubads()));
+
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<!-- End GPT Async Tag -->
+=======
  <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
 <script>
   var googletag = googletag || {};
@@ -38,6 +63,7 @@ unset($_SESSION['images']);
     googletag.enableServices();
   });
 </script>
+>>>>>>> 012ced6bff67702979ebdf688fa37c5bb13a2653
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="UTF-8">
@@ -114,12 +140,25 @@ background:#787c8a url(uploads/paginas-internas/<?php echo $lineimgt['image']?>)
 				</div>
 			</div>
 		
+<<<<<<< HEAD
+		<!-- Async AdSlot 1 for Ad unit 'Perfil' ### Size: [[300,250]] -->
+<!-- Adslot's refresh function: googletag.pubads().refresh([gptadslots[0]]) -->
+<div id='div-gpt-ad-7369315-1'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-7369315-1'); });
+  </script>
+</div>
+<!-- End AdSlot 1 -->
+
+		
+=======
 		<!-- /21722728057/Perfil -->
         <div id='div-gpt-ad-1532020915798-0' style='height:250px; width:300px;'>
         <script>
         googletag.cmd.push(function() { googletag.display('div-gpt-ad-1532020915798-0'); });
         </script>
         </div>
+>>>>>>> 012ced6bff67702979ebdf688fa37c5bb13a2653
 		</div>
 		
 		
