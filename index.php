@@ -206,6 +206,11 @@ require"includes-acoes/home/home.php";
             <a href="https://goo.gl/wH36JU" target="_blank"><img src="http://liigo.com.br/images/signin.jpg" alt="" class="property-cat property-cat-houses"></a>
             
       </div>
+         
+         <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
+            <a href="https://goo.gl/b9mfxH" target="_blank"><img src="http://liigo.com.br/images/agfa.jpg" alt="" class="property-cat property-cat-houses"></a>
+            
+      </div>
           </div><!-- end row -->
 
   </div><!-- end container -->
