@@ -76,6 +76,14 @@ require"includes-acoes/home/home.php";
   <link href="css/responsive.css" rel="stylesheet" type="text/css" media="all" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
   
+  
+  <!-- SOCIAL IMAGE -->
+          <meta property="og:image" content="imgsocial.jpg"/>
+          <meta property="og:image:type" content="image/jpeg">
+          <meta property="og:image:width" content="800">
+          <meta property="og:image:height" content="600">
+  
+  
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
