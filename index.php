@@ -270,12 +270,6 @@ div.banner-dfp {
             <a href="https://goo.gl/b9mfxH" target="_blank"><img src="http://liigo.com.br/images/agfa.jpg" alt="" class="property-cat property-cat-houses"></a>
             
       </div>
-<<<<<<< HEAD
-=======
-      
-      
-      
->>>>>>> e3c7ed1194971700ffe4e16237d819a62abd16f3
           </div><!-- end row -->
 
   </div><!-- end container -->
