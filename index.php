@@ -244,7 +244,7 @@ div.banner-dfp {
             <img src="http://liigo.com.br/images/amplytech.jpg" alt="" class="property-cat property-cat-houses">
           </div>
             <div class="col-lg-4 col-md-4">
-            <a href="https://bit.ly/2ssINU4" target="_blank"><img src="http://liigo.com.br/images/3be.jpg" alt="" class="property-cat property-cat-houses"></a>
+            <a href="https://bit.ly/2ssINU4" target="_blank"><img src="http://liigo.com.br/images/akad.jpg" alt="" class="property-cat property-cat-houses"></a>
       </div>         
                     
 
