@@ -270,6 +270,11 @@ div.banner-dfp {
             <a href="https://goo.gl/b9mfxH" target="_blank"><img src="http://liigo.com.br/images/agfa.jpg" alt="" class="property-cat property-cat-houses"></a>
             
       </div>
+      
+      <div class="col-lg-4 col-md-4" style="margin-top: 30px;">
+            <a href="https://www.fespabrasil.com.br/pt/visitar/cadastro/?utm_source=media-partner-liigo" target="_blank"><img src="http://liigo.com.br/images/digital-print.jpg" alt="" class="property-cat property-cat-houses"></a>
+            
+      </div>
           </div><!-- end row -->
 
   </div><!-- end container -->
